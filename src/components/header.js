@@ -1,19 +1,20 @@
 import React from 'react'
 // import { Link } from 'gatsby'
 import styled, { ThemeProvider } from 'styled-components'
+import burger from '../images/burger.svg'
 
 const HeadWrap = styled.div`
   position: ${props => props.theme.navPosition};
   background-color: ${props => props.theme.navColor};
   top: 0;
   width: 100vw;
-  height: 10vmin;
+  /* height: 10vmin; */
   z-index: 1;
   transition: all 0.5s;
   display: flex;
-  flex-direction: row;
+  flex-direction: ${props => (props.isMobile ? `column` : `row`)};
   justify-content: space-between;
-  padding: 1em;
+  padding: 16px;
   -webkit-box-shadow: ${props =>
     props.theme.enableShadow
       ? `0px 4px 11px 0px rgba(0, 0, 0, 0.37);`
@@ -22,20 +23,30 @@ const HeadWrap = styled.div`
     props.theme.enableShadow
       ? `0px 4px 11px 0px rgba(0, 0, 0, 0.37);`
       : `none`};
-  /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   nav {
     display: ${props => props.isMobile && (props.hideNav ? `none` : `flex`)};
     flex-direction: ${props => (props.isMobile ? `column` : `row`)};
-    justify-content: space-evenly;
+    justify-content: ${props => (props.isMobile ? `flex-end` : `space-evenly`)};
     align-items: center;
     a {
+      color: black;
       padding: ${props => !props.isMobile && `1em`};
     }
   }
-  button {
-    display: ${props => (props.isMobile ? `flex` : `none`)};
+  span {
+    display: ${props => !props.isMobile && `none`};
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 24px;
+    svg {
+      width: 8vmin;
+      height: 8vmin;
+    }
   }
 `
 const defaultNavTheme = {
@@ -95,7 +106,11 @@ class Header extends React.Component {
             isMobile={this.props.isMobile}
           >
             <h1>INTEGRA</h1>
-            <button onClick={this.handleMenuClick} />
+            <span onClick={this.handleMenuClick}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z" />
+              </svg>
+            </span>
 
             <nav>
               <a href=""> Programs </a>

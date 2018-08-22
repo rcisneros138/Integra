@@ -25,6 +25,9 @@ class Layout extends React.Component {
   }
 
   componentDidMount() {
+    if (window.innerWidth < 768) {
+      this.setState({ isMobile: true })
+    }
     window.addEventListener('resize', () => {
       const isMobile = window.innerWidth < 768
       if (isMobile !== this.state.isMobile) {
