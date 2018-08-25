@@ -9,6 +9,10 @@ import GridLayout from './siteWrapper'
 import './layout.css'
 
 injectGlobal`
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700,900');
+html {
+  font-family: 'Roboto', sans-serif;
+  }
   body{
     margin:0;
   }
@@ -28,12 +32,18 @@ class Layout extends React.Component {
     if (window.innerWidth < 768) {
       this.setState({ isMobile: true })
     }
-    window.addEventListener('resize', () => {
-      const isMobile = window.innerWidth < 768
-      if (isMobile !== this.state.isMobile) {
-        this.setState({ isMobile })
-      }
-    })
+    window.addEventListener('resize', this.handleResize)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize)
+  }
+
+  handleResize = () => {
+    const isMobile = window.innerWidth < 768
+    if (isMobile !== this.state.isMobile) {
+      this.setState({ isMobile })
+    }
   }
 
   render() {

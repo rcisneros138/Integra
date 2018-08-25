@@ -1,64 +1,56 @@
 import React from 'react'
 // import { Link } from 'gatsby'
 import styled, { ThemeProvider } from 'styled-components'
-import burger from '../images/burger.svg'
+import Logo from '../components/integraLogo'
+import Phone from '../components/phone'
+import Burger from '../components/Burger'
+import CloseButton from '../components/closeButton'
+import NavItems from '../components/navigationItems'
+
+const PhoneSection = styled.div`
+  h1 {
+    font-size: ${props => (props.isMobile ? '9px' : '16px')};
+    color: ${props => props.theme.fontColor};
+    padding: 8px;
+    float: right;
+    margin-top: ${props => !props.isMobile && `1em`};
+  }
+`
 
 const HeadWrap = styled.div`
-  position: ${props => props.theme.navPosition};
+  position: fixed;
   background-color: ${props => props.theme.navColor};
   top: 0;
+  height: ${props => (props.isMobile ? '41.5px' : '90px')};
   width: 100vw;
-  /* height: 10vmin; */
   z-index: 1;
   transition: all 0.5s;
   display: flex;
-  flex-direction: ${props => (props.isMobile ? `column` : `row`)};
-  justify-content: space-between;
-  padding: 16px;
+  flex-direction: row;
+  justify-content: ${props =>
+    props.isMobile ? 'space-evenly' : 'space-around'};
+  padding: 0;
   -webkit-box-shadow: ${props =>
-    props.theme.enableShadow
-      ? `0px 4px 11px 0px rgba(0, 0, 0, 0.37);`
-      : `none`};
+    props.theme.enableShadow &&
+    `0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);`};
   box-shadow: ${props =>
-    props.theme.enableShadow
-      ? `0px 4px 11px 0px rgba(0, 0, 0, 0.37);`
-      : `none`};
+    props.theme.enableShadow &&
+    `0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);`};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  nav {
-    display: ${props => props.isMobile && (props.hideNav ? `none` : `flex`)};
-    flex-direction: ${props => (props.isMobile ? `column` : `row`)};
-    justify-content: ${props => (props.isMobile ? `flex-end` : `space-evenly`)};
-    align-items: center;
-    a {
-      color: black;
-      padding: ${props => !props.isMobile && `1em`};
-    }
-  }
-  span {
-    display: ${props => !props.isMobile && `none`};
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    cursor: pointer;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 24px;
-    svg {
-      width: 8vmin;
-      height: 8vmin;
-    }
-  }
 `
 const defaultNavTheme = {
   navPosition: 'absolute',
   navColor: 'transparent',
   enableShadow: false,
+  fontColor: `#f9f9f9`,
 }
 
 const scrollingNavTheme = {
   navPosition: 'fixed',
-  navColor: 'white',
+  navColor: '#F9F9F9',
   enableShadow: true,
+  fontColor: `#3A3A3A`,
 }
 
 class Header extends React.Component {
@@ -66,23 +58,22 @@ class Header extends React.Component {
     super(props, context)
     this.state = {
       topOfPage: true,
-      hideMenuIcon: false,
-      hideNavItems: true,
+      hideDesktopNavItems: true,
+      navOpen: false,
     }
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', () => {
-      const isTopOfPage = window.scrollY < 50
-      if (isTopOfPage !== this.state.topOfPage) {
-        this.changeNavStyle(isTopOfPage)
-      }
-    })
+    window.addEventListener('scroll', this.handleScroll)
   }
 
-  handleMenuClick = () => {
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  menuToggle = () => {
     this.setState(prevState => ({
-      hideNavItems: !prevState.hideNavItems,
+      navOpen: !prevState.navOpen,
     }))
   }
 
@@ -90,11 +81,15 @@ class Header extends React.Component {
     this.setState({ topOfPage: isTop })
   }
 
-  toggleMenuIcon = hideMenuIcon => {
-    this.setState({ hideMenuIcon })
+  handleScroll = () => {
+    const isTopOfPage = window.scrollY < 50
+    if (isTopOfPage !== this.state.topOfPage) {
+      this.changeNavStyle(isTopOfPage)
+    }
   }
 
   render() {
+    const { isMobile } = this.props
     return (
       <ThemeProvider
         theme={this.state.topOfPage ? defaultNavTheme : scrollingNavTheme}
@@ -102,21 +97,35 @@ class Header extends React.Component {
         <div>
           <HeadWrap
             hideMenu={this.state.hideMenuIcon}
-            hideNav={this.state.hideNavItems}
-            isMobile={this.props.isMobile}
+            hideNav={this.state.hideDesktopNavItems}
+            isMobile={isMobile}
           >
-            <h1>INTEGRA</h1>
-            <span onClick={this.handleMenuClick}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z" />
-              </svg>
-            </span>
-
-            <nav>
+            <PhoneSection isMobile={isMobile}>
+              <Phone
+                imageWidth={isMobile ? '40' : '80'}
+                imageHeight={isMobile ? '42' : '90'}
+              />
+              <h1> + 414 351-8482 </h1>
+            </PhoneSection>
+            <Logo
+              isMobile={isMobile}
+              imageWidth={isMobile ? '30' : '63'}
+              imageHeight={isMobile ? '29' : '73'}
+            />
+            {isMobile && (
+              <Burger
+                imageWidth="25"
+                imageHeight="24"
+                menuToggle={this.menuToggle}
+              />
+            )}
+            <NavItems navOpen={this.state.navOpen} isMobile={isMobile}>
+              {isMobile && <CloseButton menuToggle={this.menuToggle} />}
               <a href=""> Programs </a>
               <a href=""> Team </a>
               <a href=""> About </a>
-            </nav>
+              <a href=""> Testemonials </a>
+            </NavItems>
           </HeadWrap>
         </div>
       </ThemeProvider>
