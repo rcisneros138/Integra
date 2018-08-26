@@ -1,9 +1,10 @@
 import React from 'react'
-// import { Link } from 'gatsby'
+import { Link } from 'gatsby'
+
 import styled, { ThemeProvider } from 'styled-components'
 import Logo from '../components/integraLogo'
 import Phone from '../components/phone'
-import Burger from '../components/Burger'
+import Burger from '../components/burger'
 import CloseButton from '../components/closeButton'
 import NavItems from '../components/navigationItems'
 
