@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import styled, { injectGlobal } from 'styled-components'
+import Img from 'gatsby-image'
 
 import Header from './header'
 import GridLayout from './siteWrapper'
@@ -70,6 +71,7 @@ class Layout extends React.Component {
             >
               <html lang="en" />
             </Helmet>
+
             <GridLayout>
               <Header
                 siteTitle={data.site.siteMetadata.title}
@@ -120,5 +122,15 @@ class Layout extends React.Component {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
+
+// export const imageQuery = graphql`
+//   query SiteMeta {
+//     background: imageSharp(id: { regex: "/PLEASEWORK/" }) {
+//       sizes(maxWidth: 1240) {
+//         ...GatsbyImageSharpSizes
+//       }
+//     }
+//   }
+// `
 
 export default Layout
