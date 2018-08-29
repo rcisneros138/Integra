@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
-
 import styled, { ThemeProvider } from 'styled-components'
-import Logo from '../components/integraLogo'
-import Phone from '../components/phone'
-import Burger from '../components/burger'
-import CloseButton from '../components/closeButton'
+import Logo from '../components/svg/integraLogo'
+import Phone from '../components/svg/phone'
+import Burger from '../components/svg/burger'
+import CloseButton from '../components/svg/closeButton'
 import NavItems from '../components/navigationItems'
 
 const PhoneSection = styled.div`

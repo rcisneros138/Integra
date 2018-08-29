@@ -8,10 +8,9 @@ const DesktopNav = styled.nav`
   justify-content: ${props =>
     props.isMobile ? `space-between` : `space-around`};
   align-items: center;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
   padding-top: 2em;
-  margin-left: 10em;
 
   a {
     color: ${props => props.theme.fontColor};

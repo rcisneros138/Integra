@@ -10,7 +10,7 @@ import GridLayout from './siteWrapper'
 import './layout.css'
 
 injectGlobal`
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Roboto:100,400,500,700,900');
 html {
   font-family: 'Roboto', sans-serif;
   }
@@ -27,6 +27,15 @@ class Layout extends React.Component {
     super(props, context)
     // this.handleScroll = this.handleScroll.bind(this)
     this.state = { isMobile: false }
+  }
+
+  componentWillMount() {
+    const { children } = this.props
+    this.childrenWithProps = React.Children.map(children, child =>
+      React.cloneElement(child, {
+        isMobile: this.state.isMobile,
+      })
+    )
   }
 
   componentDidMount() {
@@ -78,7 +87,7 @@ class Layout extends React.Component {
                 isMobile={this.state.isMobile}
               />
 
-              {children}
+              {this.childrenWithProps}
             </GridLayout>
           </>
         )}
@@ -87,50 +96,8 @@ class Layout extends React.Component {
   }
 }
 
-// const Layout = ({ children, data }) => (
-//   <StaticQuery
-//     query={graphql`
-//       query SiteTitleQuery {
-//         site {
-//           siteMetadata {
-//             title
-//           }
-//         }
-//       }
-//     `}
-//     render={data => (
-//       <>
-//         <Helmet
-//           title={data.site.siteMetadata.title}
-//           meta={[
-//             { name: 'description', content: 'Sample' },
-//             { name: 'keywords', content: 'sample, something' },
-//           ]}
-//         >
-//           <html lang="en" />
-//         </Helmet>
-//         <GridLayout>
-//           <Header siteTitle={data.site.siteMetadata.title} />
-
-//           {children}
-//         </GridLayout>
-//       </>
-//     )}
-//   />
-// )
-
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
-
-// export const imageQuery = graphql`
-//   query SiteMeta {
-//     background: imageSharp(id: { regex: "/PLEASEWORK/" }) {
-//       sizes(maxWidth: 1240) {
-//         ...GatsbyImageSharpSizes
-//       }
-//     }
-//   }
-// `
 
 export default Layout

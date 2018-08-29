@@ -21,7 +21,7 @@ const Burger = props => (
         <path
           d="M0 0H13V2H0V0ZM0 4H13V6H0V4ZM13 8H0V10H13V8Z"
           fill="#19B5FE"
-          fill-opacity="0.7"
+          fillOpacity="0.7"
         />
       </svg>
     </Bun>
