@@ -29,15 +29,6 @@ class Layout extends React.Component {
     this.state = { isMobile: false }
   }
 
-  componentWillMount() {
-    const { children } = this.props
-    this.childrenWithProps = React.Children.map(children, child =>
-      React.cloneElement(child, {
-        isMobile: this.state.isMobile,
-      })
-    )
-  }
-
   componentDidMount() {
     if (window.innerWidth < 768) {
       this.setState({ isMobile: true })
@@ -58,6 +49,11 @@ class Layout extends React.Component {
 
   render() {
     const { children } = this.props
+    this.childrenWithProps = React.Children.map(children, child =>
+      React.cloneElement(child, {
+        isMobile: this.state.isMobile,
+      })
+    )
     return (
       <StaticQuery
         query={graphql`

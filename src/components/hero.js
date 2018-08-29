@@ -5,6 +5,7 @@ import Img from 'gatsby-image'
 import { Link } from 'gatsby'
 
 import LearnMore from '../components/buttons/learnButton'
+import MobileArrow from '../components/svg/arrow'
 
 const HeroSection = styled.div`
   /* display: grid; */
@@ -16,20 +17,26 @@ const HeroSection = styled.div`
 
   h2 {
     font-weight: 100;
-    font-size: 80px;
+    font-size: ${props => (props.isMobile ? `20px` : `80px`)};
     color: #f9f9f9;
     margin: 0;
+    margin-top: ${props => props.isMobile && `5em`};
   }
   h1 {
     font-weight: 400;
-    font-size: 110px;
+    font-size: ${props => (props.isMobile ? `40px` : `110px`)};
     color: #f9f9f9;
     margin: 0;
   }
   button {
     margin-top: 15em;
   }
+  svg {
+    flex-grow: 1;
+    margin-top: 5em;
+  }
 `
+
 const Hero = props => (
   <StaticQuery
     query={graphql`
@@ -59,7 +66,7 @@ const Hero = props => (
           />
           <h2>We Are</h2>
           <h1>Integra</h1>
-          <LearnMore />
+          {props.isMobile ? <MobileArrow /> : <LearnMore />}
         </HeroSection>
       </>
     )}
