@@ -8,13 +8,13 @@ const DesktopNav = styled.nav`
   justify-content: ${props =>
     props.isMobile ? `space-between` : `space-around`};
   align-items: center;
-  font-size: 15px;
-  font-weight: 700;
-  padding-top: 2em;
+  font-size: 25px;
+  font-weight: 300;
+  margin: ${props => !props.isMobile && `1em`};
 
   a {
     color: ${props => props.theme.fontColor};
-    padding: ${props => !props.isMobile && `1em`};
+    margin: ${props => !props.isMobile && `1em`};
   }
 `
 

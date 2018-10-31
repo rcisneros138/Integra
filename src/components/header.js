@@ -28,7 +28,7 @@ const HeadWrap = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: ${props =>
-    props.isMobile ? 'space-evenly' : 'space-around'};
+    props.isMobile ? 'space-evenly' : 'space-evenly'};
   padding: 0;
   -webkit-box-shadow: ${props =>
     props.theme.enableShadow &&
@@ -100,18 +100,19 @@ class Header extends React.Component {
             hideNav={this.state.hideDesktopNavItems}
             isMobile={isMobile}
           >
-            <PhoneSection isMobile={isMobile}>
+            {/* <PhoneSection isMobile={isMobile}>
               <Phone
                 imageWidth={isMobile ? '40' : '80'}
                 imageHeight={isMobile ? '42' : '90'}
               />
               <h1> + 414 351-8482 </h1>
-            </PhoneSection>
+            </PhoneSection> */}
             <Logo
               isMobile={isMobile}
               imageWidth={isMobile ? '30' : '63'}
               imageHeight={isMobile ? '29' : '73'}
             />
+            <div />
             {isMobile && (
               <Burger
                 imageWidth="25"
