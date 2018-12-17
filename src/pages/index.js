@@ -9,9 +9,25 @@ import Programs from '../components/programs'
 const IndexPage = props => (
   <Layout>
     <Hero />
-    {/* <Img sizes={props.data.file.childImageSharp.sizes} /> */}
     <Programs />
   </Layout>
 )
 
 export default IndexPage
+
+export const fluidImage = graphql`
+  fragment fluidImage on File {
+    childImageSharp {
+      fluid(maxWidth: 3840, quality: 100) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`
+export const pageQuery = graphql`
+  query {
+    AnthonyImage: file(relativePath: { eq: "personaltraining.jpg" }) {
+      ...fluidImage
+    }
+  }
+`

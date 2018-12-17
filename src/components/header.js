@@ -2,14 +2,13 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled, { ThemeProvider } from 'styled-components'
 import Logo from '../components/svg/integraLogo'
-import Phone from '../components/svg/phone'
 import Burger from '../components/svg/burger'
 import CloseButton from '../components/svg/closeButton'
 import NavItems from '../components/navigationItems'
 
 const PhoneSection = styled.div`
   h1 {
-    font-size: ${props => (props.isMobile ? '9px' : '16px')};
+    font-size: 6vmin;
     color: ${props => props.theme.fontColor};
     padding: 8px;
     float: right;
@@ -21,14 +20,12 @@ const HeadWrap = styled.div`
   position: fixed;
   background-color: ${props => props.theme.navColor};
   top: 0;
-  height: ${props => (props.isMobile ? '41.5px' : '90px')};
   width: 100vw;
   z-index: 1;
   transition: all 0.5s;
   display: flex;
   flex-direction: row;
-  justify-content: ${props =>
-    props.isMobile ? 'space-evenly' : 'space-evenly'};
+  justify-content: space-around;
   padding: 0;
   -webkit-box-shadow: ${props =>
     props.theme.enableShadow &&
@@ -87,6 +84,13 @@ class Header extends React.Component {
       this.changeNavStyle(isTopOfPage)
     }
   }
+
+  // useMobileMenu = () => {
+  //   const useMobileNav = window.innerWidth < 1024
+  //   if (useMobileNav !== this.state.useMobileNav){
+  //     this.setState({useMobileNav})
+  //   }
+  // }
 
   render() {
     const { isMobile } = this.props

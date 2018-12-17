@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Link } from 'gatsby'
 
+import TextComponent from '../components/textComponent/textComponent'
 import LearnMore from '../components/buttons/learnButton'
 import MobileArrow from '../components/svg/arrow'
 
@@ -17,14 +18,13 @@ const HeroSection = styled.div`
 
   h2 {
     font-weight: 100;
-    font-size: ${props => (props.isMobile ? `20px` : `80px`)};
+    font-size: 9vmin;
     color: #f9f9f9;
     margin: 0;
-    margin-top: ${props => props.isMobile && `5em`};
   }
   h1 {
     font-weight: 400;
-    font-size: ${props => (props.isMobile ? `40px` : `110px`)};
+    font-size: 13vmin;
     color: #f9f9f9;
     margin: 0;
   }
@@ -36,13 +36,16 @@ const HeroSection = styled.div`
     margin-top: 5em;
   }
 `
+const HeroTextWrapper = styled.div`
+  text-align: center;
+`
 
 const Hero = props => (
   <StaticQuery
     query={graphql`
       query SiteMeta {
         background: imageSharp(
-          fluid: { originalName: { regex: "/PLEASEWORK.jpg/" } }
+          fluid: { originalName: { regex: "/Hero.jpg/" } }
         ) {
           sizes(maxWidth: 3840, quality: 100) {
             ...GatsbyImageSharpSizes
@@ -64,9 +67,13 @@ const Hero = props => (
               zIndex: -1,
             }}
           />
-          <h2>We Are</h2>
-          <h1>Integra</h1>
-          {props.isMobile ? <MobileArrow /> : <LearnMore />}
+          <HeroTextWrapper>
+            <TextComponent>
+              <h2>We Are</h2>
+              <h1>Integra</h1>
+            </TextComponent>
+          </HeroTextWrapper>
+          {/* {props.isMobile ? <MobileArrow /> : <LearnMore />} */}
         </HeroSection>
       </>
     )}

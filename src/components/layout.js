@@ -10,9 +10,9 @@ import GridLayout from './siteWrapper'
 import './layout.css'
 
 injectGlobal`
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Roboto:100,300,400,500,700,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Roboto:100,300,400,500,700,900|Merriweather:300,400,700');
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Merriweather', sans-serif;
   }
   body{
     margin:0;
@@ -30,7 +30,7 @@ class Layout extends React.Component {
   }
 
   componentDidMount() {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 1024) {
       this.setState({ isMobile: true })
     }
     window.addEventListener('resize', this.handleResize)
@@ -41,7 +41,7 @@ class Layout extends React.Component {
   }
 
   handleResize = () => {
-    const isMobile = window.innerWidth < 768
+    const isMobile = window.innerWidth < 1024
     if (isMobile !== this.state.isMobile) {
       this.setState({ isMobile })
     }

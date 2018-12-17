@@ -8,7 +8,7 @@ const DesktopNav = styled.nav`
   justify-content: ${props =>
     props.isMobile ? `space-between` : `space-around`};
   align-items: center;
-  font-size: 25px;
+  font-size: 2vmin;
   font-weight: 300;
   margin: ${props => !props.isMobile && `1em`};
 
@@ -33,7 +33,7 @@ const SideNav = styled.div`
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #3a3a3a;
+    color: #0071fe;
     display: block;
     transition: 0.3s;
   }
