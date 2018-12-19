@@ -44,11 +44,11 @@ const Hero = props => (
   <StaticQuery
     query={graphql`
       query SiteMeta {
-        background: imageSharp(
-          fluid: { originalName: { regex: "/Hero.jpg/" } }
-        ) {
-          sizes(maxWidth: 3840, quality: 100) {
-            ...GatsbyImageSharpSizes
+        background: file(relativePath: { eq: "Hero.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1000, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
@@ -57,7 +57,7 @@ const Hero = props => (
       <>
         <HeroSection isMobile={props.isMobile}>
           <Img
-            sizes={data.background.sizes}
+            fluid={data.background.childImageSharp.fluid}
             style={{
               position: 'absolute',
               left: 0,
