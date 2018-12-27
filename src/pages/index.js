@@ -14,20 +14,3 @@ const IndexPage = props => (
 )
 
 export default IndexPage
-
-export const fluidImage = graphql`
-  fragment fluidImage on File {
-    childImageSharp {
-      fluid(maxWidth: 3840, quality: 100) {
-        ...GatsbyImageSharpFluid
-      }
-    }
-  }
-`
-export const pageQuery = graphql`
-  query {
-    AnthonyImage: file(relativePath: { eq: "personaltraining.jpg" }) {
-      ...fluidImage
-    }
-  }
-`

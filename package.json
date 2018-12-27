@@ -3,7 +3,9 @@
   "description": "Gatsby default starter",
   "author": "Raymond Cisneros <cisneroswebdesign@gmail.com>",
   "dependencies": {
+    "aos": "^2.3.4",
     "babel-plugin-styled-components": "^1.5.1",
+    "classnames": "^2.2.6",
     "gatsby": "next",
     "gatsby-image": "next",
     "gatsby-plugin-manifest": "next",
@@ -20,6 +22,7 @@
     "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
     "react-waypoint": "^8.0.3",
+    "scrollmonitor-react": "^2.4.1",
     "styled-components": "^3.4.2"
   },
   "keywords": [

@@ -25,20 +25,25 @@ export default Watch(
       this.aos.refresh()
     }
     render() {
+      const { style, children, isInViewport } = this.props
       const aosClass = classNames({
         'aos-init': true,
-        'aos-animate': this.props.isInViewport,
+        'aos-animate': isInViewport,
       })
       return (
-        <span style={this.props.style}>
-          {this.props.isInViewport ? (
+        <span style={style}>
+          {isInViewport ? (
             <ViewStyle
               aos="fade-up"
               componentStyle={aosClass}
-              text={this.props.children}
+              text={children}
             />
           ) : (
-            <ViewStyle aos="fade-up" componentStyle={aosClass} />
+            <ViewStyle
+              aos="fade-up"
+              componentStyle={aosClass}
+              text={children}
+            />
           )}
         </span>
       )

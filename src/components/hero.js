@@ -44,7 +44,7 @@ const Hero = props => (
   <StaticQuery
     query={graphql`
       query SiteMeta {
-        background: file(relativePath: { eq: "Hero.jpg" }) {
+        background: file(relativePath: { eq: "HeroBackground.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 1000, quality: 100) {
               ...GatsbyImageSharpFluid
