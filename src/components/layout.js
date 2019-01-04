@@ -10,7 +10,7 @@ import GridLayout from './siteWrapper'
 import './layout.css'
 
 injectGlobal`
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Roboto:100,300,400,500,700,900|Merriweather:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Roboto:100,300,400,500,700,900|Merriweather:300,400,700,900');
 html {
   font-family: 'Merriweather', sans-serif;
   }

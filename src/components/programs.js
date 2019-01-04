@@ -14,35 +14,68 @@ const ProgramSection = styled.div`
   margin: 0 auto;
   height: inherit;
 `
+
 const BackgroundImgWrapper = styled.div`
   width: 100vw;
   height: 100vmin;
   position: absolute;
 `
+const SummaryWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  p {
+    z-index: 99;
+    font-weight: 100;
+    font-family: roboto;
+    color: #f9f9f9;
+    display: flex;
+    text-align: center;
+    line-height: 2em;
+    margin: 3vmin;
+  }
+  h2 {
+    font-size: 3vmin;
+    z-index: 99;
+    font-weight: bold;
+    color: #f9f9f9;
+    display: flex;
+    text-align: center;
+  }
+`
 const FirstImgWrapper = styled.div`
   grid-column-start: 2;
   grid-column-end: 5;
+  position: relative;
 `
 const SecondImgWrapper = styled.div`
   grid-column-start: 5;
   grid-column-end: 8;
+  position: relative;
 `
 const ThirdImgWrapper = styled.div`
   grid-column-start: 8;
   grid-column-end: 11;
+  position: relative;
 `
 const programStyle = {
   gridColumnStart: '2',
   gridColumnEnd: '11',
   textAlign: 'center',
   fontWeight: '900',
-  color: '#535353',
+  color: '#F9F9F9',
   fontSize: '3vmin',
 }
 const pStyle = {
   fontSize: '1.5vmin',
-  fontWeight: '300',
+  fontWeight: '100',
   lineHeight: '2em',
+  color: '#F9F9F9',
+  fontFamily: 'Roboto',
 }
 
 const Programs = props => (
@@ -104,6 +137,16 @@ const Programs = props => (
           </p>
         </TextComponent>
         <FirstImgWrapper>
+          <SummaryWrapper>
+            <h2>Personal Training</h2>
+            <p>
+              Our personal trainers are experts, and have been doing this a long
+              time. We each carry a minimum four-year degree, along with
+              national certifications. Our personal trainers are experts, and
+              have been doing this a long time. We each carry a minimum
+              four-year degree, along with national certifications.
+            </p>
+          </SummaryWrapper>
           <Img fluid={data.personalTraining.childImageSharp.fluid} />
         </FirstImgWrapper>
         <SecondImgWrapper>

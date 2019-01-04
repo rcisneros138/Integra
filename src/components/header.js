@@ -21,7 +21,7 @@ const HeadWrap = styled.div`
   background-color: ${props => props.theme.navColor};
   top: 0;
   width: 100vw;
-  z-index: 1;
+  z-index: 100;
   transition: all 0.5s;
   display: flex;
   flex-direction: row;
