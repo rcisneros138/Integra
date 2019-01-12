@@ -77,7 +77,7 @@ class Layout extends React.Component {
               <html lang="en" />
             </Helmet>
 
-            <GridLayout>
+            <GridLayout isMobile={this.state.isMobile}>
               <Header
                 siteTitle={data.site.siteMetadata.title}
                 isMobile={this.state.isMobile}

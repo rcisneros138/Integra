@@ -36,10 +36,10 @@ const SummaryWrapper = styled.div`
     display: flex;
     text-align: center;
     line-height: 2em;
-    margin: 3vmin;
+    margin: 6vmin;
   }
   h2 {
-    font-size: 3vmin;
+    font-size: ${props => (props.isMobile ? '5vmin' : '3vmin')};
     z-index: 99;
     font-weight: bold;
     color: #f9f9f9;
@@ -47,20 +47,30 @@ const SummaryWrapper = styled.div`
     text-align: center;
   }
 `
+
 const FirstImgWrapper = styled.div`
-  grid-column-start: 2;
-  grid-column-end: 5;
+  grid-column-start: ${props => (props.isMobile ? 1 : 2)};
+  grid-column-end: ${props => (props.isMobile ? 12 : 5)};
+  height: ${props => props.isMobile && `50vh`};
   position: relative;
+  overflow: hidden;
 `
 const SecondImgWrapper = styled.div`
-  grid-column-start: 5;
-  grid-column-end: 8;
+  grid-column-start: ${props => (props.isMobile ? 1 : 5)};
+  grid-column-end: ${props => (props.isMobile ? 12 : 8)};
+  height: ${props => props.isMobile && `50vh`};
   position: relative;
+  overflow: hidden;
 `
 const ThirdImgWrapper = styled.div`
-  grid-column-start: 8;
-  grid-column-end: 11;
+  grid-column-start: ${props => (props.isMobile ? 1 : 8)};
+  grid-column-end: ${props => (props.isMobile ? 12 : 11)};
+  height: ${props => props.isMobile && `50vh`};
   position: relative;
+  overflow: hidden;
+`
+const ProgramTitle = styled.h1`
+  padding: 5vmin;
 `
 const programStyle = {
   gridColumnStart: '2',
@@ -69,13 +79,23 @@ const programStyle = {
   fontWeight: '900',
   color: '#F9F9F9',
   fontSize: '3vmin',
+  padding: '5min',
 }
 const pStyle = {
-  fontSize: '1.5vmin',
+  fontSize: '2vmin',
   fontWeight: '100',
   lineHeight: '2em',
   color: '#F9F9F9',
   fontFamily: 'Roboto',
+  paddingBottom: '5vmin',
+}
+const pStyleMobile = {
+  fontSize: '3vmin',
+  fontWeight: '100',
+  lineHeight: '2em',
+  color: '#F9F9F9',
+  fontFamily: 'Roboto',
+  paddingBottom: '5vmin',
 }
 
 const Programs = props => (
@@ -120,14 +140,14 @@ const Programs = props => (
             style={{
               zIndex: -1,
               position: 'none',
-              height: '101vmin',
+              height: '120vmin',
             }}
           />
         </BackgroundImgWrapper>
 
         <TextComponent style={programStyle}>
-          <h1>Our Integrated Approach</h1>
-          <p style={pStyle}>
+          <ProgramTitle>Our Integrated Approach</ProgramTitle>
+          <p style={props.isMobile ? pStyleMobile : pStyle}>
             Our integrated, evidenced-based care model has guided us since 2004.
             We bring multiple professionals to your aid, and provide a blend of
             therapeutic massage, physical therapy, and personal training to
@@ -136,8 +156,8 @@ const Programs = props => (
             2016 Private Practice of the Year.
           </p>
         </TextComponent>
-        <FirstImgWrapper>
-          <SummaryWrapper>
+        <FirstImgWrapper isMobile={props.isMobile}>
+          <SummaryWrapper isMobile={props.isMobile}>
             <h2>Personal Training</h2>
             <p>
               Our personal trainers are experts, and have been doing this a long
@@ -149,10 +169,28 @@ const Programs = props => (
           </SummaryWrapper>
           <Img fluid={data.personalTraining.childImageSharp.fluid} />
         </FirstImgWrapper>
-        <SecondImgWrapper>
+        <SecondImgWrapper isMobile={props.isMobile}>
+          <SummaryWrapper isMobile={props.isMobile}>
+            <h2>Physical Therapy</h2>
+            <p>
+              Our physical therapy team uses current scientific research, and
+              applies clinical and technical expertise, toward helping you
+              achieve your physical therapy and rehabilitation goals safely and
+              efficiently.
+            </p>
+          </SummaryWrapper>
           <Img fluid={data.physicalTherapy.childImageSharp.fluid} />
         </SecondImgWrapper>
-        <ThirdImgWrapper>
+        <ThirdImgWrapper isMobile={props.isMobile}>
+          <SummaryWrapper isMobile={props.isMobile}>
+            <h2>Massage</h2>
+            <p>
+              Our physical therapy team uses current scientific research, and
+              applies clinical and technical expertise, toward helping you
+              achieve your physical therapy and rehabilitation goals safely and
+              efficiently.{' '}
+            </p>
+          </SummaryWrapper>
           <Img fluid={data.massage.childImageSharp.fluid} />
         </ThirdImgWrapper>
       </ProgramSection>
