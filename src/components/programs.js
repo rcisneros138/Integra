@@ -17,7 +17,7 @@ const ProgramSection = styled.div`
 
 const BackgroundImgWrapper = styled.div`
   width: 100vw;
-  height: 100vmin;
+  height: 150vmin;
   position: absolute;
 `
 const SummaryWrapper = styled.div`
@@ -72,6 +72,12 @@ const ThirdImgWrapper = styled.div`
 const ProgramTitle = styled.h1`
   padding: 5vmin;
 `
+const Spacer = styled.div`
+  grid-column-start: 1;
+  grid-column-end: 12;
+  height: 15vmin;
+`
+
 const programStyle = {
   gridColumnStart: '2',
   gridColumnEnd: '11',
@@ -96,6 +102,12 @@ const pStyleMobile = {
   color: '#F9F9F9',
   fontFamily: 'Roboto',
   paddingBottom: '5vmin',
+}
+
+const imageStyle = {
+  zIndex: -1,
+  position: 'none',
+  height: '150vmin',
 }
 
 const Programs = props => (
@@ -133,67 +145,66 @@ const Programs = props => (
       }
     `}
     render={data => (
-      <ProgramSection>
-        <BackgroundImgWrapper>
-          <Img
-            fluid={data.background.childImageSharp.fluid}
-            style={{
-              zIndex: -1,
-              position: 'none',
-              height: '120vmin',
-            }}
-          />
-        </BackgroundImgWrapper>
+      <>
+        <ProgramSection>
+          <BackgroundImgWrapper>
+            <Img
+              fluid={data.background.childImageSharp.fluid}
+              style={imageStyle}
+            />
+          </BackgroundImgWrapper>
 
-        <TextComponent style={programStyle}>
-          <ProgramTitle>Our Integrated Approach</ProgramTitle>
-          <p style={props.isMobile ? pStyleMobile : pStyle}>
-            Our integrated, evidenced-based care model has guided us since 2004.
-            We bring multiple professionals to your aid, and provide a blend of
-            therapeutic massage, physical therapy, and personal training to
-            facilitate your recovery and wellness goals. This model and approach
-            helped us earn the Wisconsin Physical Therapy Association (WPTA)
-            2016 Private Practice of the Year.
-          </p>
-        </TextComponent>
-        <FirstImgWrapper isMobile={props.isMobile}>
-          <SummaryWrapper isMobile={props.isMobile}>
-            <h2>Personal Training</h2>
-            <p>
-              Our personal trainers are experts, and have been doing this a long
-              time. We each carry a minimum four-year degree, along with
-              national certifications. Our personal trainers are experts, and
-              have been doing this a long time. We each carry a minimum
-              four-year degree, along with national certifications.
+          <TextComponent style={programStyle}>
+            <ProgramTitle>Our Integrated Approach</ProgramTitle>
+            <p style={props.isMobile ? pStyleMobile : pStyle}>
+              Our integrated, evidenced-based care model has guided us since
+              2004. We bring multiple professionals to your aid, and provide a
+              blend of therapeutic massage, physical therapy, and personal
+              training to facilitate your recovery and wellness goals. This
+              model and approach helped us earn the Wisconsin Physical Therapy
+              Association (WPTA) 2016 Private Practice of the Year.
             </p>
-          </SummaryWrapper>
-          <Img fluid={data.personalTraining.childImageSharp.fluid} />
-        </FirstImgWrapper>
-        <SecondImgWrapper isMobile={props.isMobile}>
-          <SummaryWrapper isMobile={props.isMobile}>
-            <h2>Physical Therapy</h2>
-            <p>
-              Our physical therapy team uses current scientific research, and
-              applies clinical and technical expertise, toward helping you
-              achieve your physical therapy and rehabilitation goals safely and
-              efficiently.
-            </p>
-          </SummaryWrapper>
-          <Img fluid={data.physicalTherapy.childImageSharp.fluid} />
-        </SecondImgWrapper>
-        <ThirdImgWrapper isMobile={props.isMobile}>
-          <SummaryWrapper isMobile={props.isMobile}>
-            <h2>Massage</h2>
-            <p>
-              Our physical therapy team uses current scientific research, and
-              applies clinical and technical expertise, toward helping you
-              achieve your physical therapy and rehabilitation goals safely and
-              efficiently.{' '}
-            </p>
-          </SummaryWrapper>
-          <Img fluid={data.massage.childImageSharp.fluid} />
-        </ThirdImgWrapper>
-      </ProgramSection>
+          </TextComponent>
+          <FirstImgWrapper isMobile={props.isMobile}>
+            <SummaryWrapper isMobile={props.isMobile}>
+              <h2>Personal Training</h2>
+              <p>
+                Our personal trainers are experts, and have been doing this a
+                long time. We each carry a minimum four-year degree, along with
+                national certifications. Our personal trainers are experts, and
+                have been doing this a long time. We each carry a minimum
+                four-year degree, along with national certifications.
+              </p>
+            </SummaryWrapper>
+            <Img fluid={data.personalTraining.childImageSharp.fluid} />
+          </FirstImgWrapper>
+          <SecondImgWrapper isMobile={props.isMobile}>
+            <SummaryWrapper isMobile={props.isMobile}>
+              <h2>Physical Therapy</h2>
+              <p>
+                Our physical therapy team uses current scientific research, and
+                applies clinical and technical expertise, toward helping you
+                achieve your physical therapy and rehabilitation goals safely
+                and efficiently.
+              </p>
+            </SummaryWrapper>
+            <Img fluid={data.physicalTherapy.childImageSharp.fluid} />
+          </SecondImgWrapper>
+          <ThirdImgWrapper isMobile={props.isMobile}>
+            <SummaryWrapper isMobile={props.isMobile}>
+              <h2>Massage</h2>
+              <p>
+                Our physical therapy team uses current scientific research, and
+                applies clinical and technical expertise, toward helping you
+                achieve your physical therapy and rehabilitation goals safely
+                and efficiently.{' '}
+              </p>
+            </SummaryWrapper>
+            <Img fluid={data.massage.childImageSharp.fluid} />
+          </ThirdImgWrapper>
+          <Spacer />
+        </ProgramSection>
+      </>
     )}
   />
 )

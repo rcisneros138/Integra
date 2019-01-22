@@ -15,7 +15,7 @@ const GridLayout = styled.div`
   grid-template-rows: ${props =>
     props.isMobile
       ? `100vmin 100vh 70vmin 70vmin 20vmin`
-      : `100vmin 120vmin 150vmin 70vmin 20vmin;`};
+      : `100vmin 150vmin 150vmin 70vmin 20vmin;`};
   grid-template-columns: 1fr;
 `
 export default GridLayout

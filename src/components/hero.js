@@ -24,7 +24,7 @@ const HeroSection = styled.div`
   }
   h1 {
     font-weight: 400;
-    font-size: 13vmin;
+    font-size: 20vmin;
     color: #f9f9f9;
     margin: 0;
   }

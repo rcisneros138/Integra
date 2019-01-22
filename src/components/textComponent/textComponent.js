@@ -37,6 +37,7 @@ export default Watch(
               aos="fade-up"
               componentStyle={aosClass}
               text={children}
+              once={true}
             />
           ) : (
             <ViewStyle
