@@ -8,7 +8,11 @@ import './TextComponent.css'
 import { Span } from 'opentracing'
 
 const ViewStyle = props => (
-  <div className={props.componentStyle} data-aos={props.aos}>
+  <div
+    className={props.componentStyle}
+    data-aos={props.aos}
+    data-aos-once={props.once}
+  >
     {props.text}
   </div>
 )
@@ -44,6 +48,7 @@ export default Watch(
               aos="fade-up"
               componentStyle={aosClass}
               text={children}
+              once={true}
             />
           )}
         </span>

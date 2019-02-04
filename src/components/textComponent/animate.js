@@ -11,41 +11,41 @@ const ViewStyle = props => (
   </div>
 )
 
-class AnimatedComponent extends React.Component {
-  componentDidMount() {
-    this.aos = AOS
-    this.aos.init({ duration: 2000 })
-  }
+export default Watch(
+  class AnimatedComponent extends React.Component {
+    componentDidMount() {
+      this.aos = AOS
+      this.aos.init({ duration: 2000 })
+    }
 
-  componentDidMount() {
-    this.aos.refresh()
+    componentDidUpdate() {
+      this.aos.refresh()
+    }
+    render() {
+      const { style, children, isInViewport } = this.props
+      const defaultAnimation = 'fade-up'
+      const aosClass = classNames({
+        'aos-init': true,
+        'aos-animate': isInViewport,
+      })
+      return (
+        <span style={style}>
+          {isInViewport ? (
+            <ViewStyle
+              aos={this.props.animationStyle && defaultAnimation}
+              componentStyle={aosClass}
+              section={children}
+              once={true}
+            />
+          ) : (
+            <ViewStyle
+              aos={defaultAnimation}
+              componentStyle={aosClass}
+              section={children}
+            />
+          )}
+        </span>
+      )
+    }
   }
-  render() {
-    const { style, children, isInViewport } = this.props
-    const defaultAnimation = 'fade-up'
-    const aosClass = classNames({
-      'aos-init': true,
-      'aos-animate': isInViewport,
-    })
-    return (
-      <span style={style}>
-        {isInViewport ? (
-          <ViewStyle
-            aos={props.animationTyle && defaultAnimation}
-            componentStyle={aosClass}
-            section={children}
-            once={true}
-          />
-        ) : (
-          <ViewStyle
-            aps={defaultAnimation}
-            componentStyle={aosClass}
-            section={children}
-          />
-        )}
-      </span>
-    )
-  }
-}
-
-export default Watch(AnimatedComponent)
+)

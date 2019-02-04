@@ -47,6 +47,9 @@ const SummaryWrapper = styled.div`
     text-align: center;
   }
 `
+const StyledImg = styled(Img)`
+  height: 100%;
+`
 
 const FirstImgWrapper = styled.div`
   grid-column-start: ${props => (props.isMobile ? 1 : 2)};
@@ -116,28 +119,28 @@ const Programs = props => (
       query programImages {
         background: file(relativePath: { eq: "programBackground.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1000, quality: 100) {
+            fluid(maxWidth: 1000, maxHeight: 2000, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
         }
         personalTraining: file(relativePath: { eq: "personaltraining.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1000, quality: 100) {
+            fluid(maxWidth: 1000, maxHeight: 2000, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
         }
         physicalTherapy: file(relativePath: { eq: "physicaltherapy.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1000, quality: 100) {
+            fluid(maxWidth: 1000, maxHeight: 2000, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
         }
         massage: file(relativePath: { eq: "massage.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1000, quality: 100) {
+            fluid(maxWidth: 1000, maxHeight: 2000, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -176,7 +179,7 @@ const Programs = props => (
                 four-year degree, along with national certifications.
               </p>
             </SummaryWrapper>
-            <Img fluid={data.personalTraining.childImageSharp.fluid} />
+            <StyledImg fluid={data.personalTraining.childImageSharp.fluid} />
           </FirstImgWrapper>
           <SecondImgWrapper isMobile={props.isMobile}>
             <SummaryWrapper isMobile={props.isMobile}>
@@ -188,7 +191,10 @@ const Programs = props => (
                 and efficiently.
               </p>
             </SummaryWrapper>
-            <Img fluid={data.physicalTherapy.childImageSharp.fluid} />
+            <Img
+              fluid={data.physicalTherapy.childImageSharp.fluid}
+              style={{ height: '100%' }}
+            />
           </SecondImgWrapper>
           <ThirdImgWrapper isMobile={props.isMobile}>
             <SummaryWrapper isMobile={props.isMobile}>

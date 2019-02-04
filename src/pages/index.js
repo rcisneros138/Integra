@@ -5,7 +5,9 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Programs from '../components/programs'
+import Dare from '../components/dare'
 import About from '../components/about'
+import Testemonials from '../components/testemonials'
 
 class IndexPage extends React.Component {
   render() {
@@ -13,7 +15,9 @@ class IndexPage extends React.Component {
       <Layout>
         <Hero />
         <Programs />
+        <Dare />
         <About />
+        <Testemonials />
       </Layout>
     )
   }

@@ -5,7 +5,6 @@ const Bun = styled.div`
   position: absolute;
   top: 5px;
   right: 1em;
-}
 `
 
 const Burger = props => (
