@@ -6,7 +6,14 @@ import { Watch } from 'scrollmonitor-react'
 import 'aos/dist/aos.css'
 
 const ViewStyle = props => (
-  <div className={props.componentStyle} data={props.aos}>
+  <div
+    className={props.componentStyle}
+    data-aos={props.aos}
+    style={props.styles}
+    data-aos-once={props.once}
+    data-aos-easing={props.easing}
+    data-aos-offset="300"
+  >
     {props.section}
   </div>
 )
@@ -22,29 +29,34 @@ export default Watch(
       this.aos.refresh()
     }
     render() {
-      const { style, children, isInViewport } = this.props
+      const { style, children, isInViewport, animationType } = this.props
       const defaultAnimation = 'fade-up'
       const aosClass = classNames({
         'aos-init': true,
         'aos-animate': isInViewport,
       })
       return (
-        <span style={style}>
+        <>
           {isInViewport ? (
             <ViewStyle
-              aos={this.props.animationStyle && defaultAnimation}
+              aos={animationType}
               componentStyle={aosClass}
               section={children}
               once={true}
+              styles={style}
+              easing="ease-in-sine"
             />
           ) : (
             <ViewStyle
-              aos={defaultAnimation}
+              aos={animationType}
               componentStyle={aosClass}
               section={children}
+              once={true}
+              styles={style}
+              easing="ease-in-sine"
             />
           )}
-        </span>
+        </>
       )
     }
   }

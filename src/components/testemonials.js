@@ -18,6 +18,7 @@ const TestemonialSection = styled.div`
   width: 100%;
   height: 200vmin;
   background-color: #f9f9f9;
+  overflow-x: hidden;
 `
 const Title = styled.div`
   text-align: center;
@@ -29,35 +30,45 @@ const Title = styled.div`
     font-size: 6vmin;
   }
 `
-const TopQuotationMark = styled(TopQuotation)`
-  grid-column: 2/11;
-  grid-row: 2/5;
-  z-index: 2;
-`
-const AnimatedQuotation = styled(AnimatedComponent)`
-  grid-column: 2/11;
+const TopQuotationMarkWrapper = styled.div`
+  grid-column: 2/4;
   grid-row: 2/5;
   z-index: 2;
 `
 
 const TestemonialBox = styled.div`
-  grid-column: 3/14;
-  grid-row: 3/6;
   background-color: #ffffff;
   box-shadow: 4px 4px 4px #bdbdbd;
+  z-index: 1;
 `
+const animateQuotation = {
+  gridColumn: '2/11',
+  gridRow: '2/5',
+  zIndex: '2',
+}
+const boxStyle = {
+  gridColumn: '3/14',
+  gridRow: '3/6',
+  backgroundColor: '#ffffff',
+  boxShadow: '4px 4px 4px #bdbdbd',
+  zIndex: '1',
+  overflowX: 'hidden',
+}
 
 const Testemonials = props => (
   <TestemonialSection>
     <Title>
       <h1>What People Are Saying</h1>
     </Title>
-    <AnimatedQuotation>
-      <TopQuotationMark />
-    </AnimatedQuotation>
-    <TestemonialBox>
+    <TopQuotationMarkWrapper>
+      <AnimatedComponent animationType="fade-up">
+        <TopQuotation />
+      </AnimatedComponent>
+    </TopQuotationMarkWrapper>
+
+    <AnimatedComponent style={boxStyle} animationType="fade-left">
       <p>Test</p>
-    </TestemonialBox>
+    </AnimatedComponent>
   </TestemonialSection>
 )
 export default Testemonials
