@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import TextComponent from '../components/textComponent/textComponent'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
+
+import TextComponent from './textComponent/textComponent'
+import AnimatedComponent from './textComponent/animate'
 
 const ProgramSection = styled.div`
   width: 100vw;
@@ -169,44 +171,59 @@ const Programs = props => (
             </p>
           </TextComponent>
           <FirstImgWrapper isMobile={props.isMobile}>
-            <SummaryWrapper isMobile={props.isMobile}>
-              <h2>Personal Training</h2>
-              <p>
-                Our personal trainers are experts, and have been doing this a
-                long time. We each carry a minimum four-year degree, along with
-                national certifications. Our personal trainers are experts, and
-                have been doing this a long time. We each carry a minimum
-                four-year degree, along with national certifications.
-              </p>
-            </SummaryWrapper>
-            <StyledImg fluid={data.personalTraining.childImageSharp.fluid} />
+            <AnimatedComponent
+              isMobile={props.isMobile}
+              animationType="fade-up"
+            >
+              <SummaryWrapper isMobile={props.isMobile}>
+                <h2>Personal Training</h2>
+                <p>
+                  Our personal trainers are experts, and have been doing this a
+                  long time. We each carry a minimum four-year degree, along
+                  with national certifications. Our personal trainers are
+                  experts, and have been doing this a long time. We each carry a
+                  minimum four-year degree, along with national certifications.
+                </p>
+              </SummaryWrapper>
+              <StyledImg fluid={data.personalTraining.childImageSharp.fluid} />
+            </AnimatedComponent>
           </FirstImgWrapper>
           <SecondImgWrapper isMobile={props.isMobile}>
-            <SummaryWrapper isMobile={props.isMobile}>
-              <h2>Physical Therapy</h2>
-              <p>
-                Our physical therapy team uses current scientific research, and
-                applies clinical and technical expertise, toward helping you
-                achieve your physical therapy and rehabilitation goals safely
-                and efficiently.
-              </p>
-            </SummaryWrapper>
-            <Img
-              fluid={data.physicalTherapy.childImageSharp.fluid}
-              style={{ height: '100%' }}
-            />
+            <AnimatedComponent
+              isMobile={props.isMobile}
+              animationType="fade-up"
+            >
+              <SummaryWrapper isMobile={props.isMobile}>
+                <h2>Physical Therapy</h2>
+                <p>
+                  Our physical therapy team uses current scientific research,
+                  and applies clinical and technical expertise, toward helping
+                  you achieve your physical therapy and rehabilitation goals
+                  safely and efficiently.
+                </p>
+              </SummaryWrapper>
+              <Img
+                fluid={data.physicalTherapy.childImageSharp.fluid}
+                style={{ height: '100%' }}
+              />
+            </AnimatedComponent>
           </SecondImgWrapper>
           <ThirdImgWrapper isMobile={props.isMobile}>
-            <SummaryWrapper isMobile={props.isMobile}>
-              <h2>Massage</h2>
-              <p>
-                Our physical therapy team uses current scientific research, and
-                applies clinical and technical expertise, toward helping you
-                achieve your physical therapy and rehabilitation goals safely
-                and efficiently.{' '}
-              </p>
-            </SummaryWrapper>
-            <Img fluid={data.massage.childImageSharp.fluid} />
+            <AnimatedComponent
+              isMobile={props.isMobile}
+              animationType="fade-up"
+            >
+              <SummaryWrapper isMobile={props.isMobile}>
+                <h2>Massage</h2>
+                <p>
+                  Our physical therapy team uses current scientific research,
+                  and applies clinical and technical expertise, toward helping
+                  you achieve your physical therapy and rehabilitation goals
+                  safely and efficiently.{' '}
+                </p>
+              </SummaryWrapper>
+              <Img fluid={data.massage.childImageSharp.fluid} />
+            </AnimatedComponent>
           </ThirdImgWrapper>
           <Spacer />
         </ProgramSection>

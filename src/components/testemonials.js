@@ -7,16 +7,17 @@ import TextComponent from './textComponent/textComponent'
 import AnimatedComponent from './textComponent/animate'
 
 import TopQuotation from './svg/topQuotation'
+import BottomQuotation from './svg/bottomQuotation'
 
 const TestemonialSection = styled.div`
   grid-area: testemonials;
   display: grid;
   grid-gap: 0 2.25em;
   grid-template-columns: repeat(13, 1fr);
-  grid-template-rows: repeat(15, 1fr);
+  grid-template-rows: repeat(16, 1fr);
   margin: 0 auto;
   width: 100%;
-  height: 200vmin;
+  height: auto;
   background-color: #f9f9f9;
   overflow-x: hidden;
 `
@@ -35,6 +36,11 @@ const TopQuotationMarkWrapper = styled.div`
   grid-row: 2/5;
   z-index: 2;
 `
+const BottomQuotationMarkWrapper = styled.div`
+  grid-column: 11/13;
+  grid-row: 13/15;
+  z-index: 2;
+`
 
 const TestemonialBox = styled.div`
   background-color: #ffffff;
@@ -46,13 +52,27 @@ const animateQuotation = {
   gridRow: '2/5',
   zIndex: '2',
 }
-const boxStyle = {
-  gridColumn: '3/14',
+const boxStyleRight = {
+  gridColumn: '2/14',
   gridRow: '3/6',
   backgroundColor: '#ffffff',
   boxShadow: '4px 4px 4px #bdbdbd',
   zIndex: '1',
-  overflowX: 'hidden',
+}
+const boxStyleLeft = {
+  gridColumn: '1/12',
+  gridRow: '7/10',
+  backgroundColor: '#ffffff',
+  boxShadow: '4px 4px 4px #bdbdbd',
+  zIndex: '1',
+}
+
+const boxStyleRightLast = {
+  gridColumn: '2/14',
+  gridRow: '11/14',
+  backgroundColor: '#ffffff',
+  boxShadow: '4px 4px 4px #bdbdbd',
+  zIndex: '1',
 }
 
 const Testemonials = props => (
@@ -66,9 +86,16 @@ const Testemonials = props => (
       </AnimatedComponent>
     </TopQuotationMarkWrapper>
 
-    <AnimatedComponent style={boxStyle} animationType="fade-left">
+    <AnimatedComponent style={boxStyleRight} animationType="fade-left">
       <p>Test</p>
     </AnimatedComponent>
+    <AnimatedComponent style={boxStyleLeft} animationType="fade-right" />
+    <AnimatedComponent style={boxStyleRightLast} animationType="fade-left" />
+    <BottomQuotationMarkWrapper>
+      <AnimatedComponent animationType="fade-up">
+        <BottomQuotation />
+      </AnimatedComponent>
+    </BottomQuotationMarkWrapper>
   </TestemonialSection>
 )
 export default Testemonials

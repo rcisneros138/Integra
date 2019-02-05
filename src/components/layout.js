@@ -16,7 +16,7 @@ html {
   }
   body{
     margin:0;
-    color:#f9f9f9;
+    background-color:#f9f9f9;
   }
   a{
     text-decoration: none;
