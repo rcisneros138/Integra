@@ -4,8 +4,6 @@ import classNames from 'classnames'
 import { Watch } from 'scrollmonitor-react'
 
 import 'aos/dist/aos.css'
-import './TextComponent.css'
-import { Span } from 'opentracing'
 
 const ViewStyle = props => (
   <div
