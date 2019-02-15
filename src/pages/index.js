@@ -8,6 +8,7 @@ import Programs from '../components/programs'
 import Dare from '../components/dare'
 import About from '../components/about'
 import Testemonials from '../components/testemonials'
+import IntegraInfo from '../components/IntegraInfo'
 
 class IndexPage extends React.Component {
   render() {
@@ -18,6 +19,7 @@ class IndexPage extends React.Component {
         <Dare />
         <About />
         <Testemonials />
+        <IntegraInfo />
       </Layout>
     )
   }
