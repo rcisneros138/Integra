@@ -11,7 +11,7 @@ import Molina from './svg/molina'
 import Medicare from './svg/medicare'
 
 const LineBreak = styled.hr`
-  grid-column: 3/11;
+  grid-column: 2/11;
   display: block;
   height: 2px;
   border: 0;
@@ -20,18 +20,15 @@ const LineBreak = styled.hr`
   color: #0071fe;
   background-color: #0071fe;
 `
-
 const APTALogo = styled(APTA)`
-  grid-column: 3/5;
+  grid-column: 2/5;
   grid-row: 2/4;
   padding-top: 5em;
 `
-
 const AwardSeal = styled(Award)`
   grid-column: 8/10;
   grid-row: 2/4;
 `
-
 const AcceptImage = styled(Img)`
   z-index: 1;
   grid-column: 1/12;
