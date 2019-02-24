@@ -32,11 +32,7 @@ const Title = styled.div`
     font-size: ${props => (props.isMobile ? '5vmin' : '7vmin')};
   }
 `
-const TopQuotationMarkWrapper = styled.div`
-  grid-column: 2/4;
-  grid-row: 2/5;
-  z-index: 2;
-`
+
 const TopQuote = styled(TopQuotation)`
   grid-column: 2/4;
   grid-row: 3/5;
@@ -48,39 +44,6 @@ const BottomQuote = styled(BottomQuotation)`
   grid-row: 17/19;
   z-index: 2;
 `
-
-const TestemonialBox = styled.div`
-  background-color: #ffffff;
-  box-shadow: 4px 4px 4px #bdbdbd;
-  z-index: 1;
-`
-const animateQuotation = {
-  gridColumn: '2/11',
-  gridRow: '2/5',
-  zIndex: '2',
-}
-const boxStyleRight = {
-  gridColumn: '2/14',
-  gridRow: '3/6',
-  backgroundColor: '#ffffff',
-  boxShadow: '4px 4px 4px #bdbdbd',
-  zIndex: '1',
-}
-const boxStyleLeft = {
-  gridColumn: '1/12',
-  gridRow: '7/10',
-  backgroundColor: '#ffffff',
-  boxShadow: '4px 4px 4px #bdbdbd',
-  zIndex: '1',
-}
-
-const boxStyleRightLast = {
-  gridColumn: '2/14',
-  gridRow: '11/14',
-  backgroundColor: '#ffffff',
-  boxShadow: '4px 4px 4px #bdbdbd',
-  zIndex: '1',
-}
 
 const Testemonials = props => (
   <TestemonialSection isMobile={props.isMobile}>

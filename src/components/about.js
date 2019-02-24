@@ -34,7 +34,7 @@ const AboutBody = styled.div`
   grid-column-end: 11;
   text-align: left;
   font-family: Roboto;
-  line-height: ${props => (props.isMobile ? '2em' : '3em')};
+  line-height: ${props => (props.isMobile ? '4vmin' : '3em')};
   p {
     text-align: left;
     color: #f9f9f9;

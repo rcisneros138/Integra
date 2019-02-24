@@ -19,7 +19,7 @@ class IndexPage extends React.Component {
         <Dare />
         <About />
         <Testemonials />
-        {/* <IntegraInfo />  */}
+        <IntegraInfo />
       </Layout>
     )
   }
