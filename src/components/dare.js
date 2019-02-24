@@ -12,7 +12,7 @@ const DareSection = styled.div`
   grid-gap: 0 2.25em;
   grid-template-columns: repeat(11, 1fr);
   margin: 0 auto;
-  height: inherit;
+  height: 50vmin;
 
   h2 {
     font-weight: 100;
@@ -60,8 +60,8 @@ const Dare = props => (
           fluid={data.dare.childImageSharp.fluid}
           style={{ position: 'absolute' }}
         />
-        <DareTitle>
-          <TextComponent style={spanStyle}>
+        <DareTitle isMobile={props.isMobile}>
+          <TextComponent>
             <h2>We Dare To Be</h2>
             <h1>Different</h1>
           </TextComponent>

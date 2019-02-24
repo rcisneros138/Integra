@@ -16,7 +16,7 @@ const GridLayout = styled.div`
   /* grid-template-rows: 100vmin 100vmin 70vmin 70vmin 20vmin; */
   grid-template-rows: ${props =>
     props.isMobile
-      ? `100vmin auto 30vmin 70vmin 100vmin 100vmin 20vmin`
+      ? `100vmin auto 50vmin 100vmin 200vmin 100vmin 20vmin`
       : `100vmin 150vmin 50vmin 100vmin 200vmin 150vmin 20vmin;`};
   grid-template-columns: 1fr;
 `

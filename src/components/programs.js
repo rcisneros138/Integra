@@ -134,7 +134,7 @@ const Programs = props => (
           relativePath: { eq: "personalTrainingM.png" }
         ) {
           childImageSharp {
-            fluid(maxWidth: 1200, maxHeight: 800, quality: 100) {
+            fluid(maxWidth: 1200, maxHeight: 1500, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -150,7 +150,7 @@ const Programs = props => (
           relativePath: { eq: "physicaltherapyM.png" }
         ) {
           childImageSharp {
-            fluid(maxWidth: 1200, maxHeight: 800, quality: 100) {
+            fluid(maxWidth: 1200, maxHeight: 1500, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -164,7 +164,7 @@ const Programs = props => (
         }
         massageMobile: file(relativePath: { eq: "massageM.png" }) {
           childImageSharp {
-            fluid(maxWidth: 1200, maxHeight: 800, quality: 100) {
+            fluid(maxWidth: 1200, maxHeight: 1200, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }

@@ -14,7 +14,7 @@ const AboutWrapper = styled.div`
 `
 const AboutBackground = styled(Img)`
   width: 100vw;
-  height: auto;
+  height: 100vmin;
   position: absolute;
   overflow: hidden;
   z-index: -1;
@@ -34,7 +34,7 @@ const AboutBody = styled.div`
   grid-column-end: 11;
   text-align: left;
   font-family: Roboto;
-  line-height: 3em;
+  line-height: ${props => (props.isMobile ? '2em' : '3em')};
   p {
     text-align: left;
     color: #f9f9f9;
@@ -57,7 +57,7 @@ const About = props => (
       }
     `}
     render={data => (
-      <AboutWrapper>
+      <AboutWrapper isMobile={props.isMobile}>
         <AboutBackground
           fluid={data.mission.childImageSharp.fluid}
           style={{ position: 'absolute' }}
@@ -65,7 +65,7 @@ const About = props => (
         <AboutTitle>
           <TextComponent>Our Mission</TextComponent>
         </AboutTitle>
-        <AboutBody>
+        <AboutBody isMobile={props.isMobile}>
           <TextComponent>
             <p>
               At Integra, our goal is to provide self-care techniques that fit
