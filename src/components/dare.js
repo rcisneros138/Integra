@@ -16,12 +16,12 @@ const DareSection = styled.div`
 
   h2 {
     font-weight: 100;
-    font-size: 8vmin;
+    font-size: ${props => (props.isMobile ? '5vmin' : '8vmin')};
     color: #f9f9f9;
   }
   h1 {
     font-weight: 400;
-    font-size: 20vmin;
+    font-size: ${props => (props.isMobile ? '15vmin' : '20vmin')};
     color: #f9f9f9;
   }
 `
@@ -33,8 +33,7 @@ const DareBackground = styled(Img)`
   z-index: -1;
 `
 const DareTitle = styled.div`
-  grid-column-start: 2;
-  grid-column-end: 11;
+  grid-column: 2/11;
   text-align: center;
   height: 50vmin;
 `
@@ -56,7 +55,7 @@ const Dare = props => (
       }
     `}
     render={data => (
-      <DareSection>
+      <DareSection isMobile={props.isMobile}>
         <DareBackground
           fluid={data.dare.childImageSharp.fluid}
           style={{ position: 'absolute' }}

@@ -13,15 +13,11 @@ const ProgramSection = styled.div`
   display: grid;
   grid-gap: 0 2.25em;
   grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: repeat(4, 50vh);
   margin: 0 auto;
   height: inherit;
 `
 
-const BackgroundImgWrapper = styled.div`
-  width: 100vw;
-  height: 150vmin;
-  position: absolute;
-`
 const SummaryWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -29,8 +25,8 @@ const SummaryWrapper = styled.div`
   align-items: center;
   position: absolute;
   width: 100%;
-  height: 100%;
   p {
+    font-size: 2vmin;
     z-index: 99;
     font-weight: 100;
     font-family: roboto;
@@ -38,7 +34,7 @@ const SummaryWrapper = styled.div`
     display: flex;
     text-align: center;
     line-height: 2em;
-    margin: 6vmin;
+    margin: 9vmin;
   }
   h2 {
     font-size: ${props => (props.isMobile ? '5vmin' : '3vmin')};
@@ -56,21 +52,21 @@ const StyledImg = styled(Img)`
 const FirstImgWrapper = styled.div`
   grid-column-start: ${props => (props.isMobile ? 1 : 2)};
   grid-column-end: ${props => (props.isMobile ? 12 : 5)};
-  height: ${props => props.isMobile && `50vh`};
+  grid-row: ${props => !props.isMobile && '2/4'};
   position: relative;
   overflow: hidden;
 `
 const SecondImgWrapper = styled.div`
   grid-column-start: ${props => (props.isMobile ? 1 : 5)};
   grid-column-end: ${props => (props.isMobile ? 12 : 8)};
-  height: ${props => props.isMobile && `50vh`};
+  grid-row: ${props => !props.isMobile && '2/4'};
   position: relative;
   overflow: hidden;
 `
 const ThirdImgWrapper = styled.div`
   grid-column-start: ${props => (props.isMobile ? 1 : 8)};
   grid-column-end: ${props => (props.isMobile ? 12 : 11)};
-  height: ${props => props.isMobile && `50vh`};
+  grid-row: ${props => !props.isMobile && '2/4'};
   position: relative;
   overflow: hidden;
 `
@@ -84,13 +80,14 @@ const Spacer = styled.div`
 `
 
 const programStyle = {
-  gridColumnStart: '2',
-  gridColumnEnd: '11',
+  gridColumn: '2/11',
+  gridRow: '1/2',
   textAlign: 'center',
   fontWeight: '900',
   color: '#F9F9F9',
   fontSize: '3vmin',
   padding: '5min',
+  height: '50vh',
 }
 const pStyle = {
   fontSize: '2vmin',
@@ -109,11 +106,11 @@ const pStyleMobile = {
   paddingBottom: '5vmin',
 }
 
-const imageStyle = {
-  zIndex: -1,
-  position: 'none',
-  height: '150vmin',
-}
+const TopBackgroundImage = styled(Img)`
+  grid-row: ${props => (props.isMobile ? '1/3' : '1/4')};
+  grid-column: 1/12;
+  z-index: 0;
+`
 
 const Programs = props => (
   <StaticQuery
@@ -133,9 +130,27 @@ const Programs = props => (
             }
           }
         }
+        personalTrainingMobile: file(
+          relativePath: { eq: "personalTrainingM.png" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 1200, maxHeight: 800, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         physicalTherapy: file(relativePath: { eq: "physicaltherapy.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 1000, maxHeight: 2000, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        physicalTherapyMobile: file(
+          relativePath: { eq: "physicaltherapyM.png" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 1200, maxHeight: 800, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -147,17 +162,22 @@ const Programs = props => (
             }
           }
         }
+        massageMobile: file(relativePath: { eq: "massageM.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 1200, maxHeight: 800, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     `}
     render={data => (
       <>
-        <ProgramSection>
-          <BackgroundImgWrapper>
-            <Img
-              fluid={data.background.childImageSharp.fluid}
-              style={imageStyle}
-            />
-          </BackgroundImgWrapper>
+        <ProgramSection isMobile={props.isMobile}>
+          <TopBackgroundImage
+            isMobile={props.isMobile}
+            fluid={data.background.childImageSharp.fluid}
+          />
 
           <TextComponent style={programStyle}>
             <ProgramTitle>Our Integrated Approach</ProgramTitle>
@@ -185,7 +205,13 @@ const Programs = props => (
                   minimum four-year degree, along with national certifications.
                 </p>
               </SummaryWrapper>
-              <StyledImg fluid={data.personalTraining.childImageSharp.fluid} />
+              <Img
+                fluid={
+                  props.isMobile
+                    ? data.personalTrainingMobile.childImageSharp.fluid
+                    : data.personalTraining.childImageSharp.fluid
+                }
+              />
             </AnimatedComponent>
           </FirstImgWrapper>
           <SecondImgWrapper isMobile={props.isMobile}>
@@ -203,8 +229,11 @@ const Programs = props => (
                 </p>
               </SummaryWrapper>
               <Img
-                fluid={data.physicalTherapy.childImageSharp.fluid}
-                style={{ height: '100%' }}
+                fluid={
+                  props.isMobile
+                    ? data.physicalTherapyMobile.childImageSharp.fluid
+                    : data.physicalTherapy.childImageSharp.fluid
+                }
               />
             </AnimatedComponent>
           </SecondImgWrapper>
@@ -222,10 +251,16 @@ const Programs = props => (
                   safely and efficiently.{' '}
                 </p>
               </SummaryWrapper>
-              <Img fluid={data.massage.childImageSharp.fluid} />
+              <Img
+                fluid={
+                  props.isMobile
+                    ? data.massageMobile.childImageSharp.fluid
+                    : data.massage.childImageSharp.fluid
+                }
+              />
             </AnimatedComponent>
           </ThirdImgWrapper>
-          <Spacer />
+          {!props.isMobile && <Spacer />}
         </ProgramSection>
       </>
     )}
