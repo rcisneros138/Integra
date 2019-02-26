@@ -20,35 +20,36 @@ const LineBreak = styled.hr`
   color: #0071fe;
   background-color: #0071fe;
 `
-const APTALogo = styled(APTA)`
-  grid-column: ${props => (props.isMobile ? '2/5' : '3/5')};
-  grid-row: 2/4;
-  padding-top: ${props => (props.isMobile ? '3em' : '5em')};
+const APTALogoWrapper = styled.div`
+  /* grid-column: ${props => (props.isMobile ? '3/6' : '2/4')}; */
+  grid-column: ${props => (props.isMobile ? '4/9' : '2/6')};
+  grid-row: ${props => (props.isMobile ? '2/3' : '2/4')};
+  padding-top: ${props => !props.isMobile && '5em'};
 `
-const AwardSeal = styled(Award)`
-  grid-column: 8/10;
-  grid-row: 2/4;
+const AwardSealWrapper = styled.div`
+  grid-column: ${props => (props.isMobile ? '4/9' : '7/11')};
+  grid-row: ${props => (props.isMobile ? '3/5' : '2/4')};
 `
 const AcceptImage = styled(Img)`
   z-index: 1;
   grid-column: 1/12;
-  grid-row: 5/7;
+  grid-row: ${props => (props.isMobile ? '5/6' : '5/7')};
 `
-const UnitedLogo = styled(United)`
-  grid-column: 2/6;
-  grid-row: 8/9;
+const UnitedLogo = styled.div`
+  grid-column: ${props => (props.isMobile ? '3/11' : '2/6')};
+  grid-row: ${props => (props.isMobile ? '6/7' : '7/8')};
 `
-const HumanaLogo = styled(Humana)`
-  grid-column: 8/10;
-  grid-row: 8/9;
+const HumanaLogo = styled.div`
+  grid-column: ${props => (props.isMobile ? '3/11' : '8/11')};
+  grid-row: ${props => (props.isMobile ? '7/8' : '8/9')};
 `
-const MolinaLogo = styled(Molina)`
-  grid-column: 3/7;
-  grid-row: 9/10;
+const MolinaLogo = styled.div`
+  grid-column: ${props => (props.isMobile ? '3/11' : '3/7')};
+  grid-row: ${props => (props.isMobile ? '8/9' : '8/9')};
 `
-const MedicareLogo = styled(Medicare)`
-  grid-column: 7/10;
-  grid-row: 9/10;
+const MedicareLogo = styled.div`
+  grid-column: ${props => (props.isMobile ? '3/11' : '7/11')};
+  grid-row: ${props => (props.isMobile ? '9/10' : '7/8')};
 `
 
 const AcceptTitle = styled.div`
@@ -57,7 +58,7 @@ const AcceptTitle = styled.div`
   justify-content: center;
   z-index: 2;
   grid-column: 3/10;
-  grid-row: 5/7;
+  grid-row: ${props => (props.isMobile ? '5/6' : '5/7')};
   font-size: 5vmin;
   line-height: 0;
   text-align: center;
@@ -75,8 +76,8 @@ const InfoWrapper = styled.div`
   grid-template-rows: repeat(9, 1fr);
   grid-template-columns: repeat(11, 1fr);
   margin: 0 auto;
-  height: inherit;
-  overflow-x: hidden;
+  height: auto;
+  /* overflow-x: hidden; */
 `
 
 const IntegraInfo = props => (
@@ -95,41 +96,35 @@ const IntegraInfo = props => (
     render={data => (
       <InfoWrapper isMobile={props.isMobile}>
         <LineBreak />
-        <APTALogo
+        <APTALogoWrapper isMobile={props.isMobile}>
+          <APTA
+            width="100%"
+            height="100%"
+            viewBox={props.isMobile ? '0 0 580 300' : '0 0 600 200'}
+          />
+        </APTALogoWrapper>
+        <AwardSealWrapper isMobile={props.isMobile}>
+          <Award width="100%" height="100%" viewBox={'0 0 350 340'} />
+        </AwardSealWrapper>
+        <AcceptImage
           isMobile={props.isMobile}
-          width={props.isMobile ? '300' : '583'}
-          height={props.isMobile ? '150' : '183'}
-          viewBox={props.isMobile ? '0 0 580 300' : '0 0 600 200'}
+          fluid={data.accept.childImageSharp.fluid}
         />
-        <AwardSeal
-          width={props.isMobile ? '200' : '334'}
-          height={props.isMobile ? '200' : '334'}
-          viewBox={'0 0 350 340'}
-        />
-        <AcceptImage fluid={data.accept.childImageSharp.fluid} />
-        <AcceptTitle>
+        <AcceptTitle isMobile={props.isMobile}>
           <h1> We Accept</h1>
         </AcceptTitle>
-        <UnitedLogo
-          width={props.isMobile ? '300' : '600'}
-          height={props.isMobile ? '80' : '108'}
-          viewBox={props.isMobile ? '0 0 600 110' : '-20 0 610 110'}
-        />
-        <HumanaLogo
-          width={props.isMobile ? '300' : '610'}
-          height={props.isMobile ? '80' : '120'}
-          viewBox={props.isMobile ? '0 0 800 110' : '-50 0 610 110'}
-        />
-        <MolinaLogo
-          width={props.isMobile ? '300' : '577'}
-          height={props.isMobile ? '80' : '150'}
-          viewBox={props.isMobile ? '0 0 700 110' : '-30 5 600 140'}
-        />
-        <MedicareLogo
-          width={props.isMobile ? '300' : '600'}
-          height={props.isMobile ? '90' : '150'}
-          viewBox={props.isMobile ? '0 0 700 110' : '0 0 700 110'}
-        />
+        <UnitedLogo isMobile={props.isMobile}>
+          <United width="100%" height="100%" viewBox="0 0 600 110" />
+        </UnitedLogo>
+        <HumanaLogo isMobile={props.isMobile}>
+          <Humana width="100%" height="100%" viewBox="-30 0 600 110" />
+        </HumanaLogo>
+        <MolinaLogo isMobile={props.isMobile}>
+          <Molina width="100%" height="100%" viewBox="-30 5 600 110" />
+        </MolinaLogo>
+        <MedicareLogo isMobile={props.isMobile}>
+          <Medicare width="100%" height="100%" viewBox="0 0 600 110" />
+        </MedicareLogo>
       </InfoWrapper>
     )}
   />

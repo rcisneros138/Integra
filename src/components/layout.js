@@ -6,6 +6,7 @@ import styled, { injectGlobal } from 'styled-components'
 import Img from 'gatsby-image'
 
 import Header from './header'
+import Footer from './footer'
 import GridLayout from './siteWrapper'
 import './layout.css'
 
@@ -43,7 +44,7 @@ class Layout extends React.Component {
   }
 
   handleResize = () => {
-    const isMobile = window.innerWidth < 1024
+    const isMobile = window.innerWidth < 1250
     if (isMobile !== this.state.isMobile) {
       this.setState({ isMobile })
     }
@@ -86,6 +87,7 @@ class Layout extends React.Component {
               />
 
               {this.childrenWithProps}
+              <Footer isMobile={this.state.isMobile} />
             </GridLayout>
           </>
         )}

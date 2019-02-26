@@ -23,6 +23,7 @@ const DareSection = styled.div`
     font-weight: 400;
     font-size: ${props => (props.isMobile ? '15vmin' : '20vmin')};
     color: #f9f9f9;
+    line-height: 30px;
   }
 `
 const DareBackground = styled(Img)`
@@ -38,7 +39,7 @@ const DareTitle = styled.div`
   height: 50vmin;
 `
 const spanStyle = {
-  lineHeight: '5em',
+  lineHeight: '1em;',
 }
 
 const Dare = props => (

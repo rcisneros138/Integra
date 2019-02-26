@@ -1,7 +1,7 @@
 import React from 'react'
 
 const United = props => (
-  <svg width={577} height={108} fill="none" {...props}>
+  <svg fill="none" {...props}>
     <path
       fillRule="evenodd"
       clipRule="evenodd"
