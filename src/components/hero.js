@@ -7,6 +7,8 @@ import Fade from 'react-reveal/Fade'
 import TextComponent from '../components/textComponent/textComponent'
 import LearnMore from '../components/buttons/learnButton'
 import MobileArrow from '../components/svg/arrow'
+import makeCarousel from 'react-reveal/makeCarousel'
+import Slide from 'react-reveal/Slide'
 
 const HeroSection = styled.div`
   /* display: grid; */
@@ -38,15 +40,43 @@ const HeroSection = styled.div`
 `
 const HeroTextWrapper = styled.div`
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  position: absolute;
+
+  height: 100vmin;
 `
+const CarouselUI = ({ children }) => <HeroSection>{children}</HeroSection>
+const Carousel = makeCarousel(CarouselUI)
 
 const Hero = props => (
   <StaticQuery
     query={graphql`
       query SiteMeta {
-        background: file(relativePath: { eq: "hero.png" }) {
+        background: file(relativePath: { eq: "help.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1000, quality: 100) {
+            fluid(
+              maxWidth: 1000
+              maxHeight: 1200
+              quality: 100
+              duotone: { highlight: "#0071FE", shadow: "#192550", opacity: 30 }
+            ) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        side: file(relativePath: { eq: "side.jpg" }) {
+          childImageSharp {
+            fluid(
+              maxWidth: 1000
+              maxHeight: 1200
+              quality: 100
+              duotone: { highlight: "#0071FE", shadow: "#192550", opacity: 30 }
+            ) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -55,26 +85,48 @@ const Hero = props => (
     `}
     render={data => (
       <>
-        <HeroSection isMobile={props.isMobile}>
-          <Img
-            fluid={data.background.childImageSharp.fluid}
-            style={{
-              position: 'absolute',
-              left: 0,
-              top: 0,
-              width: '100%',
-              height: '100vmin',
-              zIndex: -1,
-            }}
-          />
-          <HeroTextWrapper>
-            <Fade bottom>
-              <h2>We Are</h2>
-              <h1>Integra</h1>
-            </Fade>
-          </HeroTextWrapper>
-          {/* {props.isMobile ? <MobileArrow /> : <LearnMore />} */}
-        </HeroSection>
+        <Carousel isMobile={props.isMobile}>
+          <Slide right>
+            <Img
+              fluid={data.background.childImageSharp.fluid}
+              style={{
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                width: '100%',
+                height: '100vmin',
+                zIndex: -1,
+              }}
+            />
+            <HeroTextWrapper>
+              <Fade bottom>
+                <h2>We Are</h2>
+                <h1>Integra</h1>
+              </Fade>
+            </HeroTextWrapper>
+            {/* {props.isMobile ? <MobileArrow /> : <LearnMore />} */}
+          </Slide>
+          <Slide right>
+            <Img
+              fluid={data.side.childImageSharp.fluid}
+              style={{
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                width: '100%',
+                height: '100vmin',
+                zIndex: -1,
+              }}
+            />
+            <HeroTextWrapper>
+              <Fade bottom>
+                <h2>We Are</h2>
+                <h1>Integra</h1>
+              </Fade>
+            </HeroTextWrapper>
+            {/* {props.isMobile ? <MobileArrow /> : <LearnMore />} */}
+          </Slide>
+        </Carousel>
       </>
     )}
   />
