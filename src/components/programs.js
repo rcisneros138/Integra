@@ -2,11 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import { Element } from 'react-scroll'
 
 import TextComponent from './textComponent/textComponent'
 import AnimatedComponent from './textComponent/animate'
 
-const ProgramSection = styled.div`
+const ProgramSection = styled(Element)`
   width: 100vw;
   grid-area: programs;
   background-color: #f9f9f9;
@@ -173,12 +174,11 @@ const Programs = props => (
     `}
     render={data => (
       <>
-        <ProgramSection isMobile={props.isMobile}>
+        <ProgramSection name="programs" isMobile={props.isMobile}>
           <TopBackgroundImage
             isMobile={props.isMobile}
             fluid={data.background.childImageSharp.fluid}
           />
-
           <TextComponent style={programStyle}>
             <ProgramTitle>Our Integrated Approach</ProgramTitle>
             <p style={props.isMobile ? pStyleMobile : pStyle}>

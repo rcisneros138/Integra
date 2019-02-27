@@ -1,10 +1,24 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link as gLink } from 'gatsby'
 import styled, { ThemeProvider } from 'styled-components'
+import {
+  Link,
+  DirectLink,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller,
+} from 'react-scroll'
+
 import Logo from '../components/svg/integraLogo'
 import Burger from '../components/svg/burger'
 import CloseButton from '../components/svg/closeButton'
 import NavItems from '../components/navigationItems'
+
+const StyledLink = styled(Link)`
+  cursor: pointer;
+`
 
 const PhoneSection = styled.div`
   h1 {
@@ -126,10 +140,17 @@ class Header extends React.Component {
             )}
             <NavItems navOpen={this.state.navOpen} isMobile={isMobile}>
               {isMobile && <CloseButton menuToggle={this.menuToggle} />}
-              <a href=""> Programs </a>
-              <a href=""> Team </a>
-              <a href=""> About </a>
-              <a href=""> Testemonials </a>
+
+              <StyledLink offset={-50} to="programs" smooth={true}>
+                Programs
+              </StyledLink>
+              {/* <StyledLink> Team </StyledLink> */}
+              <StyledLink offset={-50} to="about" smooth={true}>
+                About{' '}
+              </StyledLink>
+              <StyledLink offset={-50} to="testemonials" smooth={true}>
+                Testemonials
+              </StyledLink>
             </NavItems>
           </HeadWrap>
         </div>

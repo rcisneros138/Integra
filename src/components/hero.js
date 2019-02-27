@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Link } from 'gatsby'
-
+import Fade from 'react-reveal/Fade'
 import TextComponent from '../components/textComponent/textComponent'
 import LearnMore from '../components/buttons/learnButton'
 import MobileArrow from '../components/svg/arrow'
@@ -68,10 +68,10 @@ const Hero = props => (
             }}
           />
           <HeroTextWrapper>
-            <TextComponent>
+            <Fade bottom>
               <h2>We Are</h2>
               <h1>Integra</h1>
-            </TextComponent>
+            </Fade>
           </HeroTextWrapper>
           {/* {props.isMobile ? <MobileArrow /> : <LearnMore />} */}
         </HeroSection>

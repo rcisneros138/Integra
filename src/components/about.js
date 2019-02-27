@@ -3,8 +3,9 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { StaticQuery, graphql } from 'gatsby'
 import TextComponent from './textComponent/textComponent'
+import { Element } from 'react-scroll'
 
-const AboutWrapper = styled.div`
+const AboutWrapper = styled(Element)`
   grid-area: about;
   display: grid;
   grid-gap: 0 2.25em;
@@ -57,7 +58,7 @@ const About = props => (
       }
     `}
     render={data => (
-      <AboutWrapper isMobile={props.isMobile}>
+      <AboutWrapper name="about" isMobile={props.isMobile}>
         <AboutBackground
           fluid={data.mission.childImageSharp.fluid}
           style={{ position: 'absolute' }}
