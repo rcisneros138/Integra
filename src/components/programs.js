@@ -22,17 +22,17 @@ const ProgramSection = styled(Element)`
 const SummaryWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
   position: absolute;
+  justify-content: space-evenly;
+  height: 100%;
   width: 100%;
   p {
-    font-size: 2vmin;
+    font-size: 1vw;
     z-index: 99;
     font-weight: 100;
     font-family: roboto;
     color: #f9f9f9;
-    display: flex;
     text-align: center;
     line-height: 2em;
     margin: 9vmin;
@@ -42,7 +42,6 @@ const SummaryWrapper = styled.div`
     z-index: 99;
     font-weight: bold;
     color: #f9f9f9;
-    display: flex;
     text-align: center;
   }
 `
@@ -113,6 +112,8 @@ const TopBackgroundImage = styled(Img)`
   z-index: 0;
 `
 
+var trunc = 'abcdewdwfwefwefwefwefwff'.substr(0, 3) + '\u2026'
+
 const Programs = props => (
   <StaticQuery
     query={graphql`
@@ -124,9 +125,14 @@ const Programs = props => (
             }
           }
         }
-        personalTraining: file(relativePath: { eq: "personaltraining.jpg" }) {
+        personalTraining: file(relativePath: { eq: "train.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1000, maxHeight: 2000, quality: 100) {
+            fluid(
+              maxWidth: 1000
+              maxHeight: 2000
+              quality: 100
+              duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 40 }
+            ) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -135,14 +141,25 @@ const Programs = props => (
           relativePath: { eq: "personalTrainingM.png" }
         ) {
           childImageSharp {
-            fluid(maxWidth: 1200, maxHeight: 1500, quality: 100) {
+            fluid(
+              maxWidth: 1200
+              maxHeight: 1500
+              quality: 100
+              duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 40 }
+            ) {
               ...GatsbyImageSharpFluid
             }
           }
         }
-        physicalTherapy: file(relativePath: { eq: "physicaltherapy.jpg" }) {
+        physicalTherapy: file(relativePath: { eq: "PT2.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1000, maxHeight: 2000, quality: 100) {
+            fluid(
+              maxWidth: 1000
+              maxHeight: 2000
+              quality: 100
+              cropFocus: CENTER
+              duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 40 }
+            ) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -156,9 +173,14 @@ const Programs = props => (
             }
           }
         }
-        massage: file(relativePath: { eq: "massage.jpg" }) {
+        massage: file(relativePath: { eq: "massage2.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1000, maxHeight: 2000, quality: 100) {
+            fluid(
+              maxWidth: 1000
+              maxHeight: 2000
+              quality: 100
+              duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 40 }
+            ) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -181,14 +203,7 @@ const Programs = props => (
           />
           <TextComponent style={programStyle}>
             <ProgramTitle>Our Integrated Approach</ProgramTitle>
-            <p style={props.isMobile ? pStyleMobile : pStyle}>
-              Our integrated, evidenced-based care model has guided us since
-              2004. We bring multiple professionals to your aid, and provide a
-              blend of therapeutic massage, physical therapy, and personal
-              training to facilitate your recovery and wellness goals. This
-              model and approach helped us earn the Wisconsin Physical Therapy
-              Association (WPTA) 2016 Private Practice of the Year.
-            </p>
+            <p style={props.isMobile ? pStyleMobile : pStyle}>{trunc}</p>
           </TextComponent>
           <FirstImgWrapper isMobile={props.isMobile}>
             <AnimatedComponent

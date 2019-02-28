@@ -17,7 +17,7 @@ const TestemonialSection = styled(Element)`
   grid-gap: 0 2.25em;
   /* TODO: reduce grid values for mobile */
   grid-template-columns: repeat(13, 1fr);
-  grid-template-rows: repeat(18, 1fr);
+  grid-template-rows: repeat(20, 1fr);
   margin: 0 auto;
   width: 100%;
   height: auto;
@@ -52,7 +52,8 @@ const CardTitle = styled.h2`
   font-weight: 400;
   color: rgba(58, 58, 58, 0.57);
   grid-column: 6/8;
-  font-size: 3em;
+  font-size: 2vw;
+  margin: 1em 0 0 0;
 `
 const CardParagraph = styled.p`
   font-family: Roboto;
@@ -60,7 +61,7 @@ const CardParagraph = styled.p`
   grid-column: 3/11;
   font-weight: 100;
   line-height: 2em;
-  font-size: 1.5em;
+  font-size: 1vw;
 `
 
 const Testemonials = props => (

@@ -63,7 +63,7 @@ const Hero = props => (
               maxWidth: 1000
               maxHeight: 1200
               quality: 100
-              duotone: { highlight: "#0071FE", shadow: "#192550", opacity: 30 }
+              duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 20 }
             ) {
               ...GatsbyImageSharpFluid
             }
@@ -75,7 +75,19 @@ const Hero = props => (
               maxWidth: 1000
               maxHeight: 1200
               quality: 100
-              duotone: { highlight: "#0071FE", shadow: "#192550", opacity: 30 }
+              duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 20 }
+            ) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        smoothie: file(relativePath: { eq: "smoothie.jpg" }) {
+          childImageSharp {
+            fluid(
+              maxWidth: 1000
+              maxHeight: 1200
+              quality: 100
+              duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 20 }
             ) {
               ...GatsbyImageSharpFluid
             }
@@ -109,6 +121,26 @@ const Hero = props => (
           <Slide right>
             <Img
               fluid={data.side.childImageSharp.fluid}
+              style={{
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                width: '100%',
+                height: '100vmin',
+                zIndex: -1,
+              }}
+            />
+            <HeroTextWrapper>
+              <Fade bottom>
+                <h2>We Are</h2>
+                <h1>Integra</h1>
+              </Fade>
+            </HeroTextWrapper>
+            {/* {props.isMobile ? <MobileArrow /> : <LearnMore />} */}
+          </Slide>
+          <Slide right>
+            <Img
+              fluid={data.smoothie.childImageSharp.fluid}
               style={{
                 position: 'absolute',
                 left: 0,
