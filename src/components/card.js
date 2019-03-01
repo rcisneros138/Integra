@@ -15,23 +15,17 @@ const StyledCard = styled.div`
 class Card extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      area: this.props.area,
-      isMobile: this.props.isMobile,
-      direction: this.props.direction,
-    }
-    this.cardItem = React.createRef
   }
 
   componentDidMount() {
-    this.setState({ position: this.props.area })
+    this.setState({ area: this.props.area })
   }
 
   render() {
     const AnimatedCard = withReveal(StyledCard, <Fade up />)
 
     return (
-      <AnimatedCard area={this.state.area}>{this.props.children}</AnimatedCard>
+      <AnimatedCard area={this.props.area}>{this.props.children}</AnimatedCard>
     )
   }
 }

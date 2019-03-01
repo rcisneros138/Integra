@@ -1,11 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import { Element } from 'react-scroll'
-
-import TextComponent from './textComponent/textComponent'
-import AnimatedComponent from './textComponent/animate'
 import Card from './card'
 
 import TopQuotation from './svg/topQuotation'
@@ -61,11 +56,11 @@ const CardParagraph = styled.p`
   grid-column: 3/11;
   font-weight: 100;
   line-height: 2em;
-  font-size: 1vw;
+  font-size: ${props => (props.isMobile ? '1.5vw' : '1vw')};
 `
 
 const Testemonials = props => (
-  <TestemonialSection name="testemonials" isMobile={props.isMobile}>
+  <TestemonialSection name="testemonials">
     <Title isMobile={props.isMobile}>
       <h1>What People Are Saying</h1>
     </Title>
@@ -73,7 +68,7 @@ const Testemonials = props => (
     {!props.isMobile && <TopQuote viewBox={'0 0 305 305'} />}
     <Card area={props.isMobile ? '4/1/8/14' : '4/2/8/14'}>
       <CardTitle>Joe B.</CardTitle>
-      <CardParagraph>
+      <CardParagraph isMobile={props.isMobile}>
         I walked in the door at Integra with pain and no flexibility in both
         shoulders, and limited ability to golf. With Integra’s help, I had a
         full season playing golf pain free! I&#39;d highly recommend Integra to
@@ -87,7 +82,7 @@ const Testemonials = props => (
     <Card area={props.isMobile ? '9/1/13/14' : '9/1/13/12'}>
       {' '}
       <CardTitle>Cathey R.</CardTitle>
-      <CardParagraph>
+      <CardParagraph isMobile={props.isMobile}>
         Without the help and support of Jeremiah Weber and Erik Bork I truly can
         tell you that my recovery would have been much slower and, quite
         possibly, less successful. Jeremiah and Erik worked tirelessly and
@@ -101,7 +96,7 @@ const Testemonials = props => (
     <Card area={props.isMobile ? '14/1/18/14' : '14/2/18/14'}>
       {' '}
       <CardTitle>Kelly H.</CardTitle>
-      <CardParagraph>
+      <CardParagraph isMobile={props.isMobile}>
         I wish I would have known about the benefits of working with a physical
         therapist after my first surgery because I suffered so many unnecessary
         setbacks that could have been prevented had I included physical therapy
@@ -113,44 +108,5 @@ const Testemonials = props => (
     {!props.isMobile && <BottomQuote viewBox={'0 0 305 305'} />}
   </TestemonialSection>
 )
-
-// class Testemonials extends React.Component {
-//   constructor(props) {
-//     super(props)
-//   }
-//   render() {
-//     const { isMobile } = this.props
-//     return (
-//       <TestemonialSection name="testemonials" isMobile={isMobile}>
-//         <Title isMobile={isMobile}>
-//           <h1>What People Are Saying</h1>
-//         </Title>
-
-//         {/* <TopQuotationMarkWrapper>
-//         <AnimatedComponent animationType="fade-up">
-//           <TopQuotation />
-//         </AnimatedComponent>
-//       </TopQuotationMarkWrapper> */}
-//         {!isMobile && <TopQuote viewBox={'0 0 305 305'} />}
-
-//         <Card area={isMobile ? '4/1/8/14' : '4/2/8/14'} direction='right'/>
-//         <Card area={isMobile ? '9/1/13/14' : '9/1/13/12'} direction='right'/>
-//         <Card area={isMobile ? '14/1/18/14' : '14/2/18/14'} direction='right'/>
-//         {!isMobile && <BottomQuote viewBox={'0 0 305 305'} />}
-
-//         {/* <AnimatedComponent style={boxStyleRight} animationType="fade-left">
-//         <p>Test</p>
-//       </AnimatedComponent>
-//       <AnimatedComponent style={boxStyleLeft} animationType="fade-right" />
-//       <AnimatedComponent style={boxStyleRightLast} animationType="fade-left" /> */}
-//         {/* <BottomQuotationMarkWrapper>
-//         <AnimatedComponent animationType="fade-up">
-//           <BottomQuotation />
-//         </AnimatedComponent>
-//       </BottomQuotationMarkWrapper> */}
-//       </TestemonialSection>
-//     )
-//   }
-// }
 
 export default Testemonials

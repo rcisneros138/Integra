@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import Bounce from 'react-reveal/Bounce'
 
 import APTA from './svg/APTA'
 import Award from './svg/award'
@@ -21,7 +22,6 @@ const LineBreak = styled.hr`
   background-color: #0071fe;
 `
 const APTALogoWrapper = styled.div`
-  /* grid-column: ${props => (props.isMobile ? '3/6' : '2/4')}; */
   grid-column: ${props => (props.isMobile ? '4/9' : '2/6')};
   grid-row: ${props => (props.isMobile ? '2/3' : '2/4')};
   padding-top: ${props => !props.isMobile && '5em'};
@@ -37,19 +37,19 @@ const AcceptImage = styled(Img)`
 `
 const UnitedLogo = styled.div`
   grid-column: ${props => (props.isMobile ? '3/11' : '2/6')};
-  grid-row: ${props => (props.isMobile ? '6/7' : '7/8')};
+  grid-row: ${props => (props.isMobile ? '6/7' : '8/9')};
 `
 const HumanaLogo = styled.div`
   grid-column: ${props => (props.isMobile ? '3/11' : '8/11')};
-  grid-row: ${props => (props.isMobile ? '7/8' : '8/9')};
+  grid-row: ${props => (props.isMobile ? '8/9' : '9/10')};
 `
 const MolinaLogo = styled.div`
   grid-column: ${props => (props.isMobile ? '3/11' : '3/7')};
-  grid-row: ${props => (props.isMobile ? '8/9' : '8/9')};
+  grid-row: ${props => (props.isMobile ? '9/10' : '9/10')};
 `
 const MedicareLogo = styled.div`
   grid-column: ${props => (props.isMobile ? '3/11' : '7/11')};
-  grid-row: ${props => (props.isMobile ? '9/10' : '7/8')};
+  grid-row: ${props => (props.isMobile ? '7/8' : '8/9')};
 `
 
 const AcceptTitle = styled.div`
@@ -73,7 +73,7 @@ const InfoWrapper = styled.div`
   background-color: #f9f9f9;
   display: grid;
   grid-gap: 0 2.25em;
-  grid-template-rows: repeat(9, 1fr);
+  grid-template-rows: repeat(10, 1fr);
   grid-template-columns: repeat(11, 1fr);
   margin: 0 auto;
   height: auto;
@@ -97,14 +97,18 @@ const IntegraInfo = props => (
       <InfoWrapper isMobile={props.isMobile}>
         <LineBreak />
         <APTALogoWrapper isMobile={props.isMobile}>
-          <APTA
-            width="100%"
-            height="100%"
-            viewBox={props.isMobile ? '0 0 580 300' : '0 0 600 200'}
-          />
+          <Bounce left>
+            <APTA
+              width="100%"
+              height="100%"
+              viewBox={props.isMobile ? '0 0 580 300' : '0 0 600 200'}
+            />
+          </Bounce>
         </APTALogoWrapper>
         <AwardSealWrapper isMobile={props.isMobile}>
-          <Award width="100%" height="100%" viewBox={'0 0 350 340'} />
+          <Bounce right>
+            <Award width="100%" height="100%" viewBox={'0 0 350 340'} />
+          </Bounce>
         </AwardSealWrapper>
         <AcceptImage
           isMobile={props.isMobile}

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import { Element } from 'react-scroll'
 
 import GoogleMap from './googleMap'
 
@@ -12,11 +13,13 @@ import Facebook from './svg/facebook'
 import Instagram from './svg/insta'
 import Twitter from './svg/twitter'
 
-const FooterWrapper = styled.div`
+const FooterWrapper = styled(Element)`
   grid-area: footer;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(6, 1fr);
+  height: 50vmin;
+  overflow: hidden;
 `
 
 const FooterBackground = styled(Img)`
@@ -28,13 +31,13 @@ const FooterBackground = styled(Img)`
 const ContactInfo = styled.div`
   grid-area: footer;
   grid-column: ${props => (props.isMobile ? '3/9' : '2/5')};
-  grid-row: 2/6;
+  grid-row: ${props => (props.isMobile ? '1/5' : '2/6')};
   display: flex;
   flex-direction: column;
   z-index: 1;
   color: #f9f9f9;
   font-family: Roboto;
-  height: 30vmin;
+  height: 10vmin;
   h1 {
     letter-spacing: 0.05em;
   }
@@ -55,6 +58,11 @@ const ContactInfo = styled.div`
       p {
         font-weight: 100;
         letter-spacing: 2px;
+        float: right;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
       }
     }
   }
@@ -94,30 +102,39 @@ const Footer = props => (
     `}
     render={data => (
       <>
-        <FooterWrapper>
+        <FooterWrapper name="contact">
           <FooterBackground fluid={data.background.childImageSharp.fluid} />
           <ContactInfo isMobile={props.isMobile}>
             <h1>Contact Us</h1>
             <ul>
               <li>
-                <MapMarker />
-                <p>8677 N Port Washington Rd</p>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Integra+Physical+Therapy+%26+Personal+Training"
+                  target="blank"
+                >
+                  <MapMarker />
+                  <p>8677 N Port Washington Rd</p>
+                </a>
               </li>
               <li>
-                <Evenelope />
-                <p>info@integra.com</p>
+                <a href="mailto:nfo@integra.com">
+                  <Evenelope />
+                  <p>info@integra.com</p>
+                </a>
               </li>
               <li>
-                <Phone />
-                <p>+ 414 351 8482</p>
+                <a href="tel: 414 351 8482">
+                  <Phone />
+                  <p>+ 414 351 8482</p>
+                </a>
               </li>
             </ul>
             <hr />
             <div className="socialMedia">
-              <a>
+              <a href="https://www.facebook.com/integrapt2/">
                 <Facebook />
               </a>
-              <a>
+              <a href="https://twitter.com/Integra_pt">
                 <Twitter />
               </a>
               <a>

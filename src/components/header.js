@@ -1,15 +1,6 @@
 import React from 'react'
-import { Link as gLink } from 'gatsby'
 import styled, { ThemeProvider } from 'styled-components'
-import {
-  Link,
-  DirectLink,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from 'react-scroll'
+import { Link } from 'react-scroll'
 
 import Logo from '../components/svg/integraLogo'
 import Burger from '../components/svg/burger'
@@ -144,12 +135,14 @@ class Header extends React.Component {
               <StyledLink offset={-50} to="programs" smooth={true}>
                 Programs
               </StyledLink>
-              {/* <StyledLink> Team </StyledLink> */}
               <StyledLink offset={-50} to="about" smooth={true}>
-                About{' '}
+                About
               </StyledLink>
               <StyledLink offset={-50} to="testemonials" smooth={true}>
                 Testemonials
+              </StyledLink>
+              <StyledLink ffset={-50} to="contact" smooth={true}>
+                Contact
               </StyledLink>
             </NavItems>
           </HeadWrap>

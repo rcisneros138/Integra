@@ -4,8 +4,10 @@ import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Element } from 'react-scroll'
 
+import Concat from './concat'
 import TextComponent from './textComponent/textComponent'
 import AnimatedComponent from './textComponent/animate'
+import { concat } from 'rxjs'
 
 const ProgramSection = styled(Element)`
   width: 100vw;
@@ -14,7 +16,7 @@ const ProgramSection = styled(Element)`
   display: grid;
   grid-gap: 0 2.25em;
   grid-template-columns: repeat(11, 1fr);
-  grid-template-rows: repeat(4, 50vh);
+  grid-template-rows: repeat(8, 40vh);
   margin: 0 auto;
   height: inherit;
 `
@@ -24,11 +26,11 @@ const SummaryWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   position: absolute;
-  justify-content: space-evenly;
+  justify-content: ${props => (props.isMobile ? 'center' : 'space-evenly')};
   height: 100%;
   width: 100%;
   p {
-    font-size: 1vw;
+    font-size: ${props => (props.isMobile ? '3vw' : '1vw')};
     z-index: 99;
     font-weight: 100;
     font-family: roboto;
@@ -52,21 +54,21 @@ const StyledImg = styled(Img)`
 const FirstImgWrapper = styled.div`
   grid-column-start: ${props => (props.isMobile ? 1 : 2)};
   grid-column-end: ${props => (props.isMobile ? 12 : 5)};
-  grid-row: ${props => !props.isMobile && '2/4'};
+  grid-row: ${props => (props.isMobile ? '3/5' : '2/4')};
   position: relative;
   overflow: hidden;
 `
 const SecondImgWrapper = styled.div`
   grid-column-start: ${props => (props.isMobile ? 1 : 5)};
   grid-column-end: ${props => (props.isMobile ? 12 : 8)};
-  grid-row: ${props => !props.isMobile && '2/4'};
+  grid-row: ${props => (props.isMobile ? '5/7' : '2/4')};
   position: relative;
   overflow: hidden;
 `
 const ThirdImgWrapper = styled.div`
   grid-column-start: ${props => (props.isMobile ? 1 : 8)};
   grid-column-end: ${props => (props.isMobile ? 12 : 11)};
-  grid-row: ${props => !props.isMobile && '2/4'};
+  grid-row: ${props => (props.isMobile ? '7/9' : '2/4')};
   position: relative;
   overflow: hidden;
 `
@@ -90,7 +92,7 @@ const programStyle = {
   height: '50vh',
 }
 const pStyle = {
-  fontSize: '2vmin',
+  fontSize: '2vw',
   fontWeight: '100',
   lineHeight: '2em',
   color: '#F9F9F9',
@@ -98,7 +100,7 @@ const pStyle = {
   paddingBottom: '5vmin',
 }
 const pStyleMobile = {
-  fontSize: '3vmin',
+  fontSize: '3.5vw',
   fontWeight: '100',
   lineHeight: '2em',
   color: '#F9F9F9',
@@ -111,8 +113,6 @@ const TopBackgroundImage = styled(Img)`
   grid-column: 1/12;
   z-index: 0;
 `
-
-var trunc = 'abcdewdwfwefwefwefwefwff'.substr(0, 3) + '\u2026'
 
 const Programs = props => (
   <StaticQuery
@@ -137,14 +137,13 @@ const Programs = props => (
             }
           }
         }
-        personalTrainingMobile: file(
-          relativePath: { eq: "personalTrainingM.png" }
-        ) {
+        personalTrainingMobile: file(relativePath: { eq: "train.jpg" }) {
           childImageSharp {
             fluid(
               maxWidth: 1200
-              maxHeight: 1500
+              maxHeight: 2000
               quality: 100
+              cropFocus: CENTER
               duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 40 }
             ) {
               ...GatsbyImageSharpFluid
@@ -164,11 +163,15 @@ const Programs = props => (
             }
           }
         }
-        physicalTherapyMobile: file(
-          relativePath: { eq: "physicaltherapyM.png" }
-        ) {
+        physicalTherapyMobile: file(relativePath: { eq: "PT2.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1200, maxHeight: 1500, quality: 100) {
+            fluid(
+              maxWidth: 1200
+              maxHeight: 2000
+              quality: 100
+              cropFocus: CENTER
+              duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 40 }
+            ) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -177,7 +180,7 @@ const Programs = props => (
           childImageSharp {
             fluid(
               maxWidth: 1000
-              maxHeight: 2000
+              maxHeight: 1500
               quality: 100
               duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 40 }
             ) {
@@ -185,9 +188,15 @@ const Programs = props => (
             }
           }
         }
-        massageMobile: file(relativePath: { eq: "massageM.png" }) {
+        massageMobile: file(relativePath: { eq: "massage2.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1200, maxHeight: 1200, quality: 100) {
+            fluid(
+              maxWidth: 1200
+              maxHeight: 2000
+              quality: 100
+              cropFocus: CENTER
+              duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 40 }
+            ) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -196,14 +205,21 @@ const Programs = props => (
     `}
     render={data => (
       <>
-        <ProgramSection name="programs" isMobile={props.isMobile}>
+        <ProgramSection name="programs">
           <TopBackgroundImage
             isMobile={props.isMobile}
             fluid={data.background.childImageSharp.fluid}
           />
           <TextComponent style={programStyle}>
             <ProgramTitle>Our Integrated Approach</ProgramTitle>
-            <p style={props.isMobile ? pStyleMobile : pStyle}>{trunc}</p>
+            <p style={props.isMobile ? pStyleMobile : pStyle}>
+              Our integrated, evidenced-based care model has guided us since
+              2004. We bring multiple professionals to your aid, and provide a
+              blend of therapeutic massage, physical therapy, and personal
+              training to facilitate your recovery and wellness goals. This
+              model and approach helped us earn the Wisconsin Physical Therapy
+              Association (WPTA) 2016 Private Practice of the Year.
+            </p>
           </TextComponent>
           <FirstImgWrapper isMobile={props.isMobile}>
             <AnimatedComponent
@@ -213,11 +229,14 @@ const Programs = props => (
               <SummaryWrapper isMobile={props.isMobile}>
                 <h2>Personal Training</h2>
                 <p>
-                  Our personal trainers are experts, and have been doing this a
-                  long time. We each carry a minimum four-year degree, along
-                  with national certifications. Our personal trainers are
-                  experts, and have been doing this a long time. We each carry a
-                  minimum four-year degree, along with national certifications.
+                  <Concat>
+                    Our personal trainers are experts, and have been doing this
+                    a long time. We each carry a minimum four-year degree, along
+                    with national certifications. Our personal trainers are
+                    experts, and have been doing this a long time. We each carry
+                    a minimum four-year degree, along with national
+                    certifications.
+                  </Concat>
                 </p>
               </SummaryWrapper>
               <Img
@@ -237,10 +256,12 @@ const Programs = props => (
               <SummaryWrapper isMobile={props.isMobile}>
                 <h2>Physical Therapy</h2>
                 <p>
-                  Our physical therapy team uses current scientific research,
-                  and applies clinical and technical expertise, toward helping
-                  you achieve your physical therapy and rehabilitation goals
-                  safely and efficiently.
+                  <Concat>
+                    Our physical therapy team uses current scientific research,
+                    and applies clinical and technical expertise, toward helping
+                    you achieve your physical therapy and rehabilitation goals
+                    safely and efficiently.
+                  </Concat>
                 </p>
               </SummaryWrapper>
               <Img

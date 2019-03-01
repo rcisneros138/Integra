@@ -1,14 +1,4 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import {
-  Link,
-  DirectLink,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from 'react-scroll'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'

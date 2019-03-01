@@ -21,7 +21,7 @@ const LearnButton = styled.button`
 const LearnMore = props => (
   <LearnButton>
     {' '}
-    <a href="">Learn More</a>{' '}
+    <a>Learn More</a>{' '}
   </LearnButton>
 )
 

@@ -58,7 +58,7 @@ const About = props => (
       }
     `}
     render={data => (
-      <AboutWrapper name="about" isMobile={props.isMobile}>
+      <AboutWrapper name="about">
         <AboutBackground
           fluid={data.mission.childImageSharp.fluid}
           style={{ position: 'absolute' }}

@@ -2,11 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { Link } from 'gatsby'
 import Fade from 'react-reveal/Fade'
-import TextComponent from '../components/textComponent/textComponent'
-import LearnMore from '../components/buttons/learnButton'
-import MobileArrow from '../components/svg/arrow'
+
 import makeCarousel from 'react-reveal/makeCarousel'
 import Slide from 'react-reveal/Slide'
 
