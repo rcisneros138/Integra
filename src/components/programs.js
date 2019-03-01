@@ -16,7 +16,7 @@ const ProgramSection = styled(Element)`
   display: grid;
   grid-gap: 0 2.25em;
   grid-template-columns: repeat(11, 1fr);
-  grid-template-rows: repeat(8, 40vh);
+  grid-template-rows: repeat(8, 1fr);
   margin: 0 auto;
   height: inherit;
 `
@@ -54,21 +54,21 @@ const StyledImg = styled(Img)`
 const FirstImgWrapper = styled.div`
   grid-column-start: ${props => (props.isMobile ? 1 : 2)};
   grid-column-end: ${props => (props.isMobile ? 12 : 5)};
-  grid-row: ${props => (props.isMobile ? '3/5' : '2/4')};
+  grid-row: ${props => (props.isMobile ? '3/5' : '2/8')};
   position: relative;
   overflow: hidden;
 `
 const SecondImgWrapper = styled.div`
   grid-column-start: ${props => (props.isMobile ? 1 : 5)};
   grid-column-end: ${props => (props.isMobile ? 12 : 8)};
-  grid-row: ${props => (props.isMobile ? '5/7' : '2/4')};
+  grid-row: ${props => (props.isMobile ? '5/7' : '2/8')};
   position: relative;
   overflow: hidden;
 `
 const ThirdImgWrapper = styled.div`
   grid-column-start: ${props => (props.isMobile ? 1 : 8)};
   grid-column-end: ${props => (props.isMobile ? 12 : 11)};
-  grid-row: ${props => (props.isMobile ? '7/9' : '2/4')};
+  grid-row: ${props => (props.isMobile ? '7/9' : '2/8')};
   position: relative;
   overflow: hidden;
 `
@@ -92,7 +92,7 @@ const programStyle = {
   height: '50vh',
 }
 const pStyle = {
-  fontSize: '2vw',
+  fontSize: '1vw',
   fontWeight: '100',
   lineHeight: '2em',
   color: '#F9F9F9',
@@ -109,7 +109,7 @@ const pStyleMobile = {
 }
 
 const TopBackgroundImage = styled(Img)`
-  grid-row: ${props => (props.isMobile ? '1/3' : '1/4')};
+  grid-row: ${props => (props.isMobile ? '1/3' : '1/9')};
   grid-column: 1/12;
   z-index: 0;
 `
@@ -141,7 +141,7 @@ const Programs = props => (
           childImageSharp {
             fluid(
               maxWidth: 1200
-              maxHeight: 2000
+              maxHeight: 3000
               quality: 100
               cropFocus: CENTER
               duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 40 }
@@ -167,7 +167,7 @@ const Programs = props => (
           childImageSharp {
             fluid(
               maxWidth: 1200
-              maxHeight: 2000
+              maxHeight: 3000
               quality: 100
               cropFocus: CENTER
               duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 40 }
@@ -180,7 +180,7 @@ const Programs = props => (
           childImageSharp {
             fluid(
               maxWidth: 1000
-              maxHeight: 1500
+              maxHeight: 2000
               quality: 100
               duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 40 }
             ) {
@@ -192,7 +192,7 @@ const Programs = props => (
           childImageSharp {
             fluid(
               maxWidth: 1200
-              maxHeight: 2000
+              maxHeight: 3000
               quality: 100
               cropFocus: CENTER
               duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 40 }
