@@ -15,6 +15,7 @@ const TestemonialSection = styled(Element)`
   grid-template-rows: repeat(20, 1fr);
   margin: 0 auto;
   width: 100%;
+  max-width: 100%;
   height: auto;
   background-color: #f9f9f9;
   overflow: hidden;
@@ -61,9 +62,9 @@ const CardParagraph = styled.p`
 
 const Testemonials = props => (
   <TestemonialSection name="testemonials">
-    <Title isMobile={props.isMobile}>
+    {/* <Title isMobile={props.isMobile}>
       <h1>What People Are Saying</h1>
-    </Title>
+    </Title> */}
 
     {!props.isMobile && <TopQuote viewBox={'0 0 305 305'} />}
     <Card area={props.isMobile ? '4/1/8/14' : '4/2/8/14'}>

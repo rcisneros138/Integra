@@ -18,6 +18,6 @@ const GridLayout = styled.div`
     props.isMobile
       ? `100vmin auto 50vmin 100vmin 200vmin 300vmin 50vmin`
       : `100vmin 150vmin 50vmin 100vmin 200vmin 300vmin 50vmin;`};
-  grid-template-columns: 1fr;
+  /* grid-template-columns: 1fr; */
 `
 export default GridLayout

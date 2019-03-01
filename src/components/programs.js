@@ -47,9 +47,6 @@ const SummaryWrapper = styled.div`
     text-align: center;
   }
 `
-const StyledImg = styled(Img)`
-  height: 100%;
-`
 
 const FirstImgWrapper = styled.div`
   grid-column-start: ${props => (props.isMobile ? 1 : 2)};
@@ -74,11 +71,6 @@ const ThirdImgWrapper = styled.div`
 `
 const ProgramTitle = styled.h1`
   padding: 5vmin;
-`
-const Spacer = styled.div`
-  grid-column-start: 1;
-  grid-column-end: 12;
-  height: 15vmin;
 `
 
 const programStyle = {
@@ -296,7 +288,6 @@ const Programs = props => (
               />
             </AnimatedComponent>
           </ThirdImgWrapper>
-          {!props.isMobile && <Spacer />}
         </ProgramSection>
       </>
     )}
