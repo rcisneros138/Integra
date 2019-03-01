@@ -9,7 +9,7 @@ import BottomQuotation from './svg/bottomQuotation'
 const TestemonialSection = styled(Element)`
   grid-area: testemonials;
   display: grid;
-  grid-gap: 0 2.25em;
+  grid-gap: 0 2em;
   /* TODO: reduce grid values for mobile */
   grid-template-columns: repeat(13, 1fr);
   grid-template-rows: repeat(20, 1fr);
@@ -62,9 +62,9 @@ const CardParagraph = styled.p`
 
 const Testemonials = props => (
   <TestemonialSection name="testemonials">
-    {/* <Title isMobile={props.isMobile}>
+    <Title isMobile={props.isMobile}>
       <h1>What People Are Saying</h1>
-    </Title> */}
+    </Title>
 
     {!props.isMobile && <TopQuote viewBox={'0 0 305 305'} />}
     <Card area={props.isMobile ? '4/1/8/14' : '4/2/8/14'}>

@@ -38,6 +38,7 @@ const ContactInfo = styled.div`
   color: #f9f9f9;
   font-family: Roboto;
   height: 10vmin;
+  font-size: ${props => (props.isMobile ? '2vw' : '1vw')};
   h1 {
     letter-spacing: 0.05em;
   }
@@ -112,19 +113,31 @@ const Footer = props => (
                   href="https://www.google.com/maps/search/?api=1&query=Integra+Physical+Therapy+%26+Personal+Training"
                   target="blank"
                 >
-                  <MapMarker />
+                  <MapMarker
+                    width={props.isMobile ? '20' : '40'}
+                    height={props.isMobile ? '22' : '42'}
+                    viewBox="0 0 40 42"
+                  />
                   <p>8677 N Port Washington Rd</p>
                 </a>
               </li>
               <li>
                 <a href="mailto:nfo@integra.com">
-                  <Evenelope />
+                  <Evenelope
+                    width={props.isMobile ? '20' : '40'}
+                    height={props.isMobile ? '22' : '42'}
+                    viewBox="0 0 40 42"
+                  />
                   <p>info@integra.com</p>
                 </a>
               </li>
               <li>
                 <a href="tel: 414 351 8482">
-                  <Phone />
+                  <Phone
+                    width={props.isMobile ? '20' : '40'}
+                    height={props.isMobile ? '22' : '42'}
+                    viewBox="0 0 40 42"
+                  />
                   <p>+ 414 351 8482</p>
                 </a>
               </li>
@@ -132,13 +145,13 @@ const Footer = props => (
             <hr />
             <div className="socialMedia">
               <a href="https://www.facebook.com/integrapt2/">
-                <Facebook />
+                <Facebook width="100%" height="100%" viewBox="0 0 50 50" />
               </a>
               <a href="https://twitter.com/Integra_pt">
-                <Twitter />
+                <Twitter width="100%" height="100%" viewBox="0 0 50 50" />
               </a>
               <a>
-                <Instagram />
+                <Instagram width="100%" height="100%" viewBox="0 0 50 50" />
               </a>
             </div>
           </ContactInfo>

@@ -30,14 +30,14 @@ const SummaryWrapper = styled.div`
   height: 100%;
   width: 100%;
   p {
-    font-size: ${props => (props.isMobile ? '3vw' : '1vw')};
+    font-size: ${props => (props.isMobile ? '2vw' : '1vw')};
     z-index: 99;
     font-weight: 100;
     font-family: roboto;
     color: #f9f9f9;
     text-align: center;
     line-height: 2em;
-    margin: 9vmin;
+    margin: 2vw;
   }
   h2 {
     font-size: ${props => (props.isMobile ? '5vmin' : '3vmin')};
