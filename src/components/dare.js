@@ -48,7 +48,7 @@ const Dare = props => (
       query aboutImages {
         dare: file(relativePath: { eq: "dare.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1000, quality: 90) {
+            fluid(maxWidth: 1000, quality: 80) {
               ...GatsbyImageSharpFluid
             }
           }

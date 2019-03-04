@@ -134,7 +134,7 @@ const Programs = props => (
             fluid(
               maxWidth: 1200
               maxHeight: 3000
-              quality: 100
+              quality: 50
               cropFocus: CENTER
               duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 40 }
             ) {
@@ -160,7 +160,7 @@ const Programs = props => (
             fluid(
               maxWidth: 1200
               maxHeight: 3000
-              quality: 100
+              quality: 50
               cropFocus: CENTER
               duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 40 }
             ) {
@@ -185,7 +185,7 @@ const Programs = props => (
             fluid(
               maxWidth: 1200
               maxHeight: 3000
-              quality: 100
+              quality: 50
               cropFocus: CENTER
               duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 40 }
             ) {

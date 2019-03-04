@@ -115,7 +115,7 @@ const Footer = props => (
                 >
                   <MapMarker
                     width={props.isMobile ? '20' : '40'}
-                    height={props.isMobile ? '22' : '42'}
+                    height={props.isMobile ? '30' : '42'}
                     viewBox="0 0 40 42"
                   />
                   <p>8677 N Port Washington Rd</p>
@@ -125,7 +125,7 @@ const Footer = props => (
                 <a href="mailto:nfo@integra.com">
                   <Evenelope
                     width={props.isMobile ? '20' : '40'}
-                    height={props.isMobile ? '22' : '42'}
+                    height={props.isMobile ? '30' : '42'}
                     viewBox="0 0 40 42"
                   />
                   <p>info@integra.com</p>
@@ -135,7 +135,7 @@ const Footer = props => (
                 <a href="tel: 414 351 8482">
                   <Phone
                     width={props.isMobile ? '20' : '40'}
-                    height={props.isMobile ? '22' : '42'}
+                    height={props.isMobile ? '30' : '42'}
                     viewBox="0 0 40 42"
                   />
                   <p>+ 414 351 8482</p>
@@ -145,13 +145,25 @@ const Footer = props => (
             <hr />
             <div className="socialMedia">
               <a href="https://www.facebook.com/integrapt2/">
-                <Facebook width="100%" height="100%" viewBox="0 0 50 50" />
+                <Facebook
+                  width="100%"
+                  height="100%"
+                  viewBox={props.isMobile ? '0 0 80 80' : '0 0 50 50'}
+                />
               </a>
               <a href="https://twitter.com/Integra_pt">
-                <Twitter width="100%" height="100%" viewBox="0 0 50 50" />
+                <Twitter
+                  width="100%"
+                  height="100%"
+                  viewBox={props.isMobile ? '0 0 80 80' : '0 0 50 50'}
+                />
               </a>
               <a>
-                <Instagram width="100%" height="100%" viewBox="0 0 50 50" />
+                <Instagram
+                  width="100%"
+                  height="100%"
+                  viewBox={props.isMobile ? '0 0 80 80' : '0 0 50 50'}
+                />
               </a>
             </div>
           </ContactInfo>

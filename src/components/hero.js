@@ -59,7 +59,19 @@ const Hero = props => (
             fluid(
               maxWidth: 1000
               maxHeight: 1200
-              quality: 100
+              quality: 90
+              duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 20 }
+            ) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        backgroundMobile: file(relativePath: { eq: "help.jpg" }) {
+          childImageSharp {
+            fluid(
+              maxWidth: 1000
+              maxHeight: 1200
+              quality: 40
               duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 20 }
             ) {
               ...GatsbyImageSharpFluid
@@ -71,7 +83,19 @@ const Hero = props => (
             fluid(
               maxWidth: 1000
               maxHeight: 1200
-              quality: 100
+              quality: 90
+              duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 20 }
+            ) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        sideMobile: file(relativePath: { eq: "side.jpg" }) {
+          childImageSharp {
+            fluid(
+              maxWidth: 1000
+              maxHeight: 1200
+              quality: 40
               duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 20 }
             ) {
               ...GatsbyImageSharpFluid
@@ -83,7 +107,19 @@ const Hero = props => (
             fluid(
               maxWidth: 1000
               maxHeight: 1200
-              quality: 100
+              quality: 90
+              duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 20 }
+            ) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        smoothieMobile: file(relativePath: { eq: "smoothie.jpg" }) {
+          childImageSharp {
+            fluid(
+              maxWidth: 1000
+              maxHeight: 1200
+              quality: 40
               duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 20 }
             ) {
               ...GatsbyImageSharpFluid
@@ -97,7 +133,11 @@ const Hero = props => (
         <Carousel isMobile={props.isMobile}>
           <Slide right>
             <Img
-              fluid={data.background.childImageSharp.fluid}
+              fluid={
+                props.isMobile
+                  ? data.backgroundMobile.childImageSharp.fluid
+                  : data.background.childImageSharp.fluid
+              }
               style={{
                 position: 'absolute',
                 left: 0,
@@ -117,7 +157,11 @@ const Hero = props => (
           </Slide>
           <Slide right>
             <Img
-              fluid={data.side.childImageSharp.fluid}
+              fluid={
+                props.isMobile
+                  ? data.sideMobile.childImageSharp.fluid
+                  : data.side.childImageSharp.fluid
+              }
               style={{
                 position: 'absolute',
                 left: 0,

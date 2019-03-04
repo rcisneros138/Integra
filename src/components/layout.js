@@ -75,6 +75,7 @@ class Layout extends React.Component {
               meta={[
                 { name: 'description', content: 'Sample' },
                 { name: 'keywords', content: 'sample, something' },
+                // { rel: 'icon', type: 'image/png', sizes: "16x16", href: `${favicon}` },
               ]}
             >
               <html lang="en" />

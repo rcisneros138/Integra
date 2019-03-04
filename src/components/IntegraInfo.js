@@ -86,7 +86,7 @@ const IntegraInfo = props => (
       query infoImages {
         accept: file(relativePath: { eq: "WeAccept.png" }) {
           childImageSharp {
-            fluid(maxWidth: 1000, quality: 100) {
+            fluid(maxWidth: 1000, quality: 70) {
               ...GatsbyImageSharpFluid
             }
           }

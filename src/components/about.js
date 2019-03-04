@@ -50,7 +50,7 @@ const About = props => (
       query aboutBackground {
         mission: file(relativePath: { eq: "mission.png" }) {
           childImageSharp {
-            fluid(maxWidth: 1000, quality: 90) {
+            fluid(maxWidth: 1000, quality: 80) {
               ...GatsbyImageSharpFluid
             }
           }
