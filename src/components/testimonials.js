@@ -6,8 +6,8 @@ import Card from './card'
 import TopQuotation from './svg/topQuotation'
 import BottomQuotation from './svg/bottomQuotation'
 
-const TestemonialSection = styled(Element)`
-  grid-area: testemonials;
+const TestimonialSection = styled(Element)`
+  grid-area: testimonials;
   display: grid;
   grid-gap: 0 2em;
   /* TODO: reduce grid values for mobile */
@@ -60,8 +60,8 @@ const CardParagraph = styled.p`
   font-size: ${props => (props.isMobile ? '1.5vw' : '1vw')};
 `
 
-const Testemonials = props => (
-  <TestemonialSection name="testemonials">
+const Testimonials = props => (
+  <TestimonialSection name="testimonials">
     <Title isMobile={props.isMobile}>
       <h1>What People Are Saying</h1>
     </Title>
@@ -107,7 +107,7 @@ const Testemonials = props => (
       </CardParagraph>
     </Card>
     {!props.isMobile && <BottomQuote viewBox={'0 0 305 305'} />}
-  </TestemonialSection>
+  </TestimonialSection>
 )
 
-export default Testemonials
+export default Testimonials

@@ -5,7 +5,7 @@ import Hero from '../components/hero'
 import Programs from '../components/programs'
 import Dare from '../components/dare'
 import About from '../components/about'
-import Testemonials from '../components/testemonials'
+import Testimonials from '../components/testimonials'
 import IntegraInfo from '../components/IntegraInfo'
 
 class IndexPage extends React.Component {
@@ -16,8 +16,8 @@ class IndexPage extends React.Component {
         <Programs />
         <Dare />
         <About />
-        <Testemonials />
-        <IntegraInfo />
+        <Testimonials />
+        {/* <IntegraInfo /> */}
       </Layout>
     )
   }

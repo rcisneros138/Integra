@@ -138,8 +138,8 @@ class Header extends React.Component {
               <StyledLink offset={-50} to="about" smooth={true}>
                 About
               </StyledLink>
-              <StyledLink offset={-50} to="testemonials" smooth={true}>
-                Testemonials
+              <StyledLink offset={-50} to="testimonials" smooth={true}>
+                Testimonials
               </StyledLink>
               <StyledLink ffset={-50} to="contact" smooth={true}>
                 Contact

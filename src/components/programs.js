@@ -142,7 +142,7 @@ const Programs = props => (
             }
           }
         }
-        physicalTherapy: file(relativePath: { eq: "PT2.jpg" }) {
+        physicalTherapy: file(relativePath: { eq: "PTCover.jpg" }) {
           childImageSharp {
             fluid(
               maxWidth: 1000
@@ -155,7 +155,7 @@ const Programs = props => (
             }
           }
         }
-        physicalTherapyMobile: file(relativePath: { eq: "PT2.jpg" }) {
+        physicalTherapyMobile: file(relativePath: { eq: "PTCover.jpg" }) {
           childImageSharp {
             fluid(
               maxWidth: 1200
@@ -174,6 +174,7 @@ const Programs = props => (
               maxWidth: 1000
               maxHeight: 2000
               quality: 100
+              cropFocus: CENTER
               duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 40 }
             ) {
               ...GatsbyImageSharpFluid
