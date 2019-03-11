@@ -10,14 +10,14 @@ const GridLayout = styled.div`
     'dare'
     'about'
     'testimonials'
-    /* 'integraInfo' */
+    'integraInfo'
     'footer';
 
   /* grid-template-rows: 100vmin 100vmin 70vmin 70vmin 20vmin; */
   grid-template-rows: ${props =>
     props.isMobile
-      ? `100vmin auto 50vmin 100vmin 200vmin  50vmin`
-      : `100vmin 150vmin 50vmin 100vmin 200vmin  50vmin;`};
+      ? `100vmin auto 50vmin 100vmin 200vmin 100vmin 50vmin`
+      : `100vmin 150vmin 50vmin 100vmin 200vmin 100vmin 50vmin;`};
   /* grid-template-columns: 1fr; */
 `
 export default GridLayout

@@ -23,12 +23,12 @@ const LineBreak = styled.hr`
 `
 const APTALogoWrapper = styled.div`
   grid-column: ${props => (props.isMobile ? '4/9' : '2/6')};
-  grid-row: ${props => (props.isMobile ? '2/3' : '2/4')};
+  grid-row: ${props => (props.isMobile ? '3/4' : '4/6')};
   padding-top: ${props => !props.isMobile && '5em'};
 `
 const AwardSealWrapper = styled.div`
   grid-column: ${props => (props.isMobile ? '4/9' : '7/11')};
-  grid-row: ${props => (props.isMobile ? '3/5' : '2/4')};
+  grid-row: ${props => (props.isMobile ? '5/7' : '4/6')};
 `
 const AcceptImage = styled(Img)`
   z-index: 1;
@@ -110,7 +110,7 @@ const IntegraInfo = props => (
             <Award width="100%" height="100%" viewBox={'0 0 350 340'} />
           </Bounce>
         </AwardSealWrapper>
-        <AcceptImage
+        {/* <AcceptImage
           isMobile={props.isMobile}
           fluid={data.accept.childImageSharp.fluid}
         />
@@ -128,7 +128,7 @@ const IntegraInfo = props => (
         </MolinaLogo>
         <MedicareLogo isMobile={props.isMobile}>
           <Medicare width="100%" height="100%" viewBox="0 0 600 110" />
-        </MedicareLogo>
+        </MedicareLogo> */}
       </InfoWrapper>
     )}
   />
