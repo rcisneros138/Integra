@@ -7,17 +7,22 @@ import Dare from '../components/dare'
 import About from '../components/about'
 import Testimonials from '../components/testimonials'
 import IntegraInfo from '../components/IntegraInfo'
+import GridLayout from '../components/siteWrapper'
+
+import { GroupedObservable } from 'rxjs'
 
 class IndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <Hero />
-        <Programs />
-        <Dare />
-        <About />
-        <Testimonials />
-        <IntegraInfo />
+        <GridLayout isMobile={this.props.isMobile}>
+          <Hero />
+          <Programs />
+          <Dare />
+          <About />
+          <Testimonials />
+          <IntegraInfo />
+        </GridLayout>
       </Layout>
     )
   }

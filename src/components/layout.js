@@ -82,15 +82,13 @@ class Layout extends React.Component {
               <html lang="en" />
             </Helmet>
 
-            <GridLayout isMobile={this.state.isMobile}>
-              <Header
-                siteTitle={data.site.siteMetadata.title}
-                isMobile={this.state.isMobile}
-              />
+            <Header
+              siteTitle={data.site.siteMetadata.title}
+              isMobile={this.state.isMobile}
+            />
 
-              {this.childrenWithProps}
-              <Footer isMobile={this.state.isMobile} />
-            </GridLayout>
+            {this.childrenWithProps}
+            <Footer isMobile={this.state.isMobile} />
           </>
         )}
       />
