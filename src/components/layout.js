@@ -8,7 +8,6 @@ import Img from 'gatsby-image'
 import Header from './header'
 import Footer from './footer'
 import GridLayout from './siteWrapper'
-import './layout.css'
 
 injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Roboto:100,300,400,500,700,900|Merriweather:300,400,700,900');
@@ -73,8 +72,10 @@ class Layout extends React.Component {
             <Helmet
               title={data.site.siteMetadata.title}
               meta={[
-                { name: 'description', content: 'Sample' },
-                { name: 'keywords', content: 'sample, something' },
+                {
+                  name: 'Integra',
+                  content: 'Pysical Therapy, Personal Training, Massage',
+                },
                 // { rel: 'icon', type: 'image/png', sizes: "16x16", href: `${favicon}` },
               ]}
             >

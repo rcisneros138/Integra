@@ -57,7 +57,11 @@ const CardParagraph = styled.p`
   grid-column: 3/11;
   font-weight: 100;
   line-height: 2em;
-  font-size: ${props => (props.isMobile ? '1.5vw' : '1vw')};
+  font-size: 1vw;
+  /* font-size: ${props => (props.isMobile ? '1.5vw' : '1vw')}; */
+  @media screen and (orientation: portrait){
+    font-size: 1.5vw;
+  }
 `
 
 const Testimonials = props => (

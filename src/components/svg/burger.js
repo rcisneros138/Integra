@@ -2,9 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Bun = styled.div`
-  position: absolute;
-  top: 5px;
-  right: 1em;
+  /* position: absolute; */
+  /* top: 5px;
+  right: 1em; */
+  /* padding-right: 1em; */
+  svg {
+    padding: 0.5em;
+  }
 `
 
 const Burger = props => (

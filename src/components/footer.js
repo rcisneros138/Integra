@@ -18,12 +18,12 @@ const FooterWrapper = styled(Element)`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(6, 1fr);
-  height: 50vmin;
+  height: auto;
   overflow: hidden;
 `
 
 const FooterBackground = styled(Img)`
-  height: 50vmin;
+  height: ${props => (props.isMobile ? '80vmin' : '50vmin')};
   grid-column: 1/13;
   grid-row: 1/5;
   z-index: 0;
@@ -31,14 +31,17 @@ const FooterBackground = styled(Img)`
 const ContactInfo = styled.div`
   grid-area: footer;
   grid-column: ${props => (props.isMobile ? '3/9' : '2/5')};
-  grid-row: ${props => (props.isMobile ? '1/5' : '2/6')};
+  grid-row: ${props => (props.isMobile ? '2/5' : '2/6')};
   display: flex;
   flex-direction: column;
+  font-size: 1vw;
+  @media screen and (position: landscape) {
+    font-size: 1vw;
+  }
   z-index: 1;
   color: #f9f9f9;
   font-family: Roboto;
   height: 10vmin;
-  font-size: ${props => (props.isMobile ? '2vw' : '1vw')};
   h1 {
     letter-spacing: 0.05em;
   }
@@ -104,7 +107,10 @@ const Footer = props => (
     render={data => (
       <>
         <FooterWrapper name="contact">
-          <FooterBackground fluid={data.background.childImageSharp.fluid} />
+          <FooterBackground
+            isMobile={props.isMobile}
+            fluid={data.background.childImageSharp.fluid}
+          />
           <ContactInfo isMobile={props.isMobile}>
             <h1>Contact Us</h1>
             <ul>
@@ -116,7 +122,7 @@ const Footer = props => (
                   <MapMarker
                     width={props.isMobile ? '20' : '40'}
                     height={props.isMobile ? '30' : '52'}
-                    viewBox="0 0 40 42"
+                    viewBox="0 0 50 42"
                   />
                   <p>8677 N Port Washington Rd</p>
                 </a>
@@ -126,7 +132,7 @@ const Footer = props => (
                   <Evenelope
                     width={props.isMobile ? '20' : '40'}
                     height={props.isMobile ? '30' : '52'}
-                    viewBox="0 0 40 42"
+                    viewBox="0 0 50 42"
                   />
                   <p>info@integra.com</p>
                 </a>
@@ -136,7 +142,7 @@ const Footer = props => (
                   <Phone
                     width={props.isMobile ? '20' : '40'}
                     height={props.isMobile ? '30' : '52'}
-                    viewBox="0 0 40 42"
+                    viewBox="0 0 50 42"
                   />
                   <p>+ 414 351 8482</p>
                 </a>
@@ -148,21 +154,27 @@ const Footer = props => (
                 <Facebook
                   width="100%"
                   height="100%"
-                  viewBox={props.isMobile ? '0 0 80 80' : '0 0 0 100'}
+                  // viewBox={props.isMobile ? '0 0 80 80' : '0 0 0 100'}
+                  viewBox="0 0 80 80"
+                  color="#f9f9f9"
                 />
               </a>
               <a href="https://twitter.com/Integra_pt">
                 <Twitter
                   width="100%"
                   height="100%"
-                  viewBox={props.isMobile ? '0 0 80 80' : '0 0 0 100'}
+                  // viewBox={props.isMobile ? '0 0 80 80' : '0 0 0 100'}
+                  viewBox="0 0 80 80"
+                  color="#f9f9f9"
                 />
               </a>
-              <a>
+              <a href="https://www.instagram.com/integrapt2/">
                 <Instagram
                   width="100%"
                   height="100%"
-                  viewBox={props.isMobile ? '0 0 80 80' : '0 0 0 100'}
+                  // viewBox={props.isMobile ? '0 0 80 80' : '0 0 0 100'}
+                  viewBox="0 0 80 80"
+                  color="#f9f9f9"
                 />
               </a>
             </div>

@@ -7,6 +7,11 @@ import Burger from '../components/svg/burger'
 import CloseButton from '../components/svg/closeButton'
 import NavItems from '../components/navigationItems'
 
+import Facebook from './svg/facebook'
+import Instagram from './svg/insta'
+import Twitter from './svg/twitter'
+import GooglePlus from './svg/googlePlus'
+
 const StyledLink = styled(Link)`
   cursor: pointer;
 `
@@ -30,8 +35,10 @@ const HeadWrap = styled.div`
   transition: all 0.5s;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding: 0;
+  font-size: 1em;
+
   -webkit-box-shadow: ${props =>
     props.theme.enableShadow &&
     `0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);`};
@@ -41,6 +48,22 @@ const HeadWrap = styled.div`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 `
+const SocialMedia = styled.div`
+  padding: ${props => !props.isMobile && '1em'};
+  svg {
+    padding: 0.5em;
+  }
+`
+
+const NavTitle = styled.p`
+  margin: 0;
+  padding-left: 0.3em;
+  padding-top: 0.5em;
+  color: ${props => props.theme.fontColor};
+  font-size: 2em;
+  float: right;
+`
+
 const defaultNavTheme = {
   navPosition: 'absolute',
   navColor: 'transparent',
@@ -90,13 +113,6 @@ class Header extends React.Component {
     }
   }
 
-  // useMobileMenu = () => {
-  //   const useMobileNav = window.innerWidth < 1024
-  //   if (useMobileNav !== this.state.useMobileNav){
-  //     this.setState({useMobileNav})
-  //   }
-  // }
-
   render() {
     const { isMobile } = this.props
     return (
@@ -109,26 +125,16 @@ class Header extends React.Component {
             hideNav={this.state.hideDesktopNavItems}
             isMobile={isMobile}
           >
-            {/* <PhoneSection isMobile={isMobile}>
-              <Phone
-                imageWidth={isMobile ? '40' : '80'}
-                imageHeight={isMobile ? '42' : '90'}
+            <div>
+              <Logo
+                isMobile={isMobile}
+                imageWidth={isMobile ? '30' : '63'}
+                imageHeight={isMobile ? '29' : '73'}
               />
-              <h1> + 414 351-8482 </h1>
-            </PhoneSection> */}
-            <Logo
-              isMobile={isMobile}
-              imageWidth={isMobile ? '30' : '63'}
-              imageHeight={isMobile ? '29' : '73'}
-            />
+              {!isMobile && <NavTitle>Integra</NavTitle>}
+            </div>
             <div />
-            {isMobile && (
-              <Burger
-                imageWidth="25"
-                imageHeight="24"
-                menuToggle={this.menuToggle}
-              />
-            )}
+
             <NavItems navOpen={this.state.navOpen} isMobile={isMobile}>
               {isMobile && <CloseButton menuToggle={this.menuToggle} />}
 
@@ -141,10 +147,43 @@ class Header extends React.Component {
               <StyledLink offset={-50} to="testimonials" smooth={true}>
                 Testimonials
               </StyledLink>
-              <StyledLink ffset={-50} to="contact" smooth={true}>
+              <StyledLink offset={-50} to="contact" smooth={true}>
                 Contact
               </StyledLink>
             </NavItems>
+            <SocialMedia isMobile={isMobile}>
+              <a href="https://www.facebook.com/integrapt2/">
+                <Facebook
+                  width="2em"
+                  height="2em"
+                  viewBox={isMobile ? '0 0 80 80' : '-5 0 60 55'}
+                  color={this.state.topOfPage ? '#F9F9F9' : '#4c9bfe'}
+                />
+              </a>
+              <a href="https://twitter.com/Integra_pt">
+                <Twitter
+                  width="2em"
+                  height="2em"
+                  viewBox={isMobile ? '0 0 80 80' : '-5 0 60 55'}
+                  color={this.state.topOfPage ? '#F9F9F9' : '#4c9bfe'}
+                />
+              </a>
+              <a href="https://www.instagram.com/integrapt2/">
+                <Instagram
+                  width="2em"
+                  height="2em"
+                  viewBox={isMobile ? '0 0 80 80' : '-5 0 60 55'}
+                  color={this.state.topOfPage ? '#F9F9F9' : '#4c9bfe'}
+                />
+              </a>
+            </SocialMedia>
+            {isMobile && (
+              <Burger
+                imageWidth="25"
+                imageHeight="24"
+                menuToggle={this.menuToggle}
+              />
+            )}
           </HeadWrap>
         </div>
       </ThemeProvider>

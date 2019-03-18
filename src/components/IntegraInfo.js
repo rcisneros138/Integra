@@ -25,31 +25,19 @@ const APTALogoWrapper = styled.div`
   grid-column: ${props => (props.isMobile ? '4/9' : '2/6')};
   grid-row: ${props => (props.isMobile ? '3/4' : '4/6')};
   padding-top: ${props => !props.isMobile && '5em'};
+  @media screen and (orientation: landscape) {
+    grid-column: 2/6;
+    grid-row: 4/6;
+  }
 `
 const AwardSealWrapper = styled.div`
   grid-column: ${props => (props.isMobile ? '4/9' : '7/11')};
   grid-row: ${props => (props.isMobile ? '5/7' : '4/6')};
-`
-const AcceptImage = styled(Img)`
-  z-index: 1;
-  grid-column: 1/12;
-  grid-row: ${props => (props.isMobile ? '5/6' : '5/7')};
-`
-const UnitedLogo = styled.div`
-  grid-column: ${props => (props.isMobile ? '3/11' : '2/6')};
-  grid-row: ${props => (props.isMobile ? '6/7' : '8/9')};
-`
-const HumanaLogo = styled.div`
-  grid-column: ${props => (props.isMobile ? '3/11' : '8/11')};
-  grid-row: ${props => (props.isMobile ? '8/9' : '9/10')};
-`
-const MolinaLogo = styled.div`
-  grid-column: ${props => (props.isMobile ? '3/11' : '3/7')};
-  grid-row: ${props => (props.isMobile ? '9/10' : '9/10')};
-`
-const MedicareLogo = styled.div`
-  grid-column: ${props => (props.isMobile ? '3/11' : '7/11')};
-  grid-row: ${props => (props.isMobile ? '7/8' : '8/9')};
+
+  @media screen and (orientation: landscape) {
+    grid-column: 7/11;
+    grid-row: 3/6;
+  }
 `
 
 const AcceptTitle = styled.div`

@@ -6,12 +6,9 @@ const LogoWrapper = styled.div`
   align-items: flex-start;
   padding: ${props => (props.isMobile ? `5px` : `11px`)};
   font-weight: 100;
-  font-size: ${props => (props.isMobile ? `30px` : `50px`)};
-  p {
-    margin: 0;
-    padding-left: 1em;
-    color: ${props => props.theme.fontColor};
-  }
+  font-size: 2em;
+  float:left;
+  /* font-size: ${props => (props.isMobile ? `30px` : `50px`)}; */
 `
 
 const Logo = props => (
@@ -62,8 +59,6 @@ const Logo = props => (
         strokeOpacity="0.9"
       />
     </svg>
-
-    <p>Integra</p>
   </LogoWrapper>
 )
 

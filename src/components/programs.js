@@ -80,7 +80,7 @@ const programStyle = {
   fontWeight: '900',
   color: '#F9F9F9',
   fontSize: '3vmin',
-  padding: '5min',
+  padding: '5vmin',
   height: '50vh',
 }
 const pStyle = {
