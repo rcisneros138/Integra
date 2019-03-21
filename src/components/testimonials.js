@@ -7,7 +7,6 @@ import TopQuotation from './svg/topQuotation'
 import BottomQuotation from './svg/bottomQuotation'
 
 const TestimonialSection = styled(Element)`
-  grid-area: testimonials;
   display: grid;
   grid-gap: 0 2em;
   /* TODO: reduce grid values for mobile */

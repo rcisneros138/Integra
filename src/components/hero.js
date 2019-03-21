@@ -8,8 +8,7 @@ import makeCarousel from 'react-reveal/makeCarousel'
 import Slide from 'react-reveal/Slide'
 
 const HeroSection = styled.div`
-  /* display: grid; */
-  grid-area: hero;
+  height: 100vmin;
   display: flex;
   flex-direction: column;
   justify-content: center;

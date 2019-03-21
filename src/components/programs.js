@@ -18,7 +18,7 @@ const ProgramSection = styled(Element)`
   grid-template-columns: repeat(11, 1fr);
   grid-template-rows: repeat(8, 1fr);
   margin: 0 auto;
-  height: inherit;
+  height: ${props => (props.isMobile ? 'auto' : '150vmin')};
 `
 
 const SummaryWrapper = styled.div`

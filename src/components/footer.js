@@ -18,7 +18,7 @@ const FooterWrapper = styled(Element)`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(6, 1fr);
-  height: auto;
+  height: 80vmin;
   overflow: hidden;
 `
 
@@ -27,14 +27,15 @@ const FooterBackground = styled(Img)`
   grid-column: 1/13;
   grid-row: 1/5;
   z-index: 0;
+  height: 80vmin;
+  overflow: hidden;
 `
 const ContactInfo = styled.div`
-  grid-area: footer;
-  grid-column: ${props => (props.isMobile ? '3/9' : '2/5')};
+  grid-column: ${props => (props.isMobile ? '3/12' : '2/5')};
   grid-row: ${props => (props.isMobile ? '2/5' : '2/6')};
   display: flex;
   flex-direction: column;
-  font-size: 1vw;
+  font-size: ${props => (props.isMobile ? '2vw' : '1vw')};
   @media screen and (position: landscape) {
     font-size: 1vw;
   }
@@ -152,8 +153,8 @@ const Footer = props => (
             <div className="socialMedia">
               <a href="https://www.facebook.com/integrapt2/">
                 <Facebook
-                  width="100%"
-                  height="100%"
+                  width={props.isMobile ? '100%' : '70%'}
+                  height={props.isMobile ? '100%' : '70%'}
                   // viewBox={props.isMobile ? '0 0 80 80' : '0 0 0 100'}
                   viewBox="0 0 80 80"
                   color="#f9f9f9"
@@ -161,8 +162,8 @@ const Footer = props => (
               </a>
               <a href="https://twitter.com/Integra_pt">
                 <Twitter
-                  width="100%"
-                  height="100%"
+                  width={props.isMobile ? '100%' : '70%'}
+                  height={props.isMobile ? '100%' : '70%'}
                   // viewBox={props.isMobile ? '0 0 80 80' : '0 0 0 100'}
                   viewBox="0 0 80 80"
                   color="#f9f9f9"
@@ -170,8 +171,8 @@ const Footer = props => (
               </a>
               <a href="https://www.instagram.com/integrapt2/">
                 <Instagram
-                  width="100%"
-                  height="100%"
+                  width={props.isMobile ? '100%' : '70%'}
+                  height={props.isMobile ? '100%' : '70%'}
                   // viewBox={props.isMobile ? '0 0 80 80' : '0 0 0 100'}
                   viewBox="0 0 80 80"
                   color="#f9f9f9"

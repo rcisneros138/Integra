@@ -6,12 +6,11 @@ import TextComponent from './textComponent/textComponent'
 import { Element } from 'react-scroll'
 
 const AboutWrapper = styled(Element)`
-  grid-area: about;
   display: grid;
   grid-gap: 0 2.25em;
   grid-template-columns: repeat(11, 1fr);
   margin: 0 auto;
-  height: auto;
+  height: 100vmin;
 `
 const AboutBackground = styled(Img)`
   width: 100vw;

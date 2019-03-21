@@ -22,7 +22,7 @@ const LineBreak = styled.hr`
   background-color: #0071fe;
 `
 const APTALogoWrapper = styled.div`
-  grid-column: ${props => (props.isMobile ? '4/9' : '2/6')};
+  grid-column: ${props => (props.isMobile ? '2/11' : '2/6')};
   grid-row: ${props => (props.isMobile ? '3/4' : '4/6')};
   padding-top: ${props => !props.isMobile && '5em'};
   @media screen and (orientation: landscape) {
@@ -31,7 +31,7 @@ const APTALogoWrapper = styled.div`
   }
 `
 const AwardSealWrapper = styled.div`
-  grid-column: ${props => (props.isMobile ? '4/9' : '7/11')};
+  grid-column: ${props => (props.isMobile ? '3/10' : '7/11')};
   grid-row: ${props => (props.isMobile ? '5/7' : '4/6')};
 
   @media screen and (orientation: landscape) {
@@ -56,12 +56,11 @@ const AcceptTitle = styled.div`
 `
 
 const InfoWrapper = styled.div`
-  grid-area: integraInfo;
   width: 100vw;
   background-color: #f9f9f9;
   display: grid;
   grid-gap: 0 2.25em;
-  grid-template-rows: repeat(10, 1fr);
+  grid-template-rows: repeat(8, 1fr);
   grid-template-columns: repeat(11, 1fr);
   margin: 0 auto;
   height: auto;

@@ -11,21 +11,15 @@ import GridLayout from '../components/siteWrapper'
 
 import { GroupedObservable } from 'rxjs'
 
-class IndexPage extends React.Component {
-  render() {
-    return (
-      <Layout>
-        <GridLayout isMobile={this.props.isMobile}>
-          <Hero />
-          <Programs />
-          <Dare />
-          <About />
-          <Testimonials />
-          <IntegraInfo />
-        </GridLayout>
-      </Layout>
-    )
-  }
-}
+const IndexPage = props => (
+  <Layout>
+    <Hero />
+    <Programs />
+    <Dare />
+    <About />
+    <Testimonials />
+    <IntegraInfo />
+  </Layout>
+)
 
 export default IndexPage
