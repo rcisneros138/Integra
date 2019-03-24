@@ -5,6 +5,7 @@ import Img from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
 
 import Layout from '../components/layout'
+import Panel from '../components/panel'
 
 const Hero = styled.div`
   height: 70vh;
@@ -62,6 +63,9 @@ const About = styled.div`
     font-size: 1.5em;
   }
 `
+const Info = styled.div`
+  height: auto;
+`
 
 const PhysicalTherapy = props => (
   <Layout>
@@ -116,6 +120,9 @@ const PhysicalTherapy = props => (
         safely around you and your goals.
       </p>
     </About>
+    <Info>
+      <Panel name="TEST TEST TEST" />
+    </Info>
   </Layout>
 )
 

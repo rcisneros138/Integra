@@ -18,7 +18,7 @@ const IndexPage = props => (
     <Dare />
     <About />
     <Testimonials />
-    <IntegraInfo />
+    {/* <IntegraInfo /> */}
   </Layout>
 )
 

@@ -65,9 +65,9 @@ const CardParagraph = styled.p`
 
 const Testimonials = props => (
   <TestimonialSection name="testimonials">
-    <Title isMobile={props.isMobile}>
+    {/* <Title isMobile={props.isMobile}>
       <h1>What People Are Saying</h1>
-    </Title>
+    </Title> */}
 
     {!props.isMobile && <TopQuote viewBox={'0 0 305 305'} />}
     <Card area={props.isMobile ? '4/1/8/14' : '4/2/8/14'}>
@@ -83,7 +83,7 @@ const Testimonials = props => (
         the knowledge of the staff.
       </CardParagraph>
     </Card>
-    <Card area={props.isMobile ? '9/1/13/14' : '9/1/13/12'}>
+    {/* <Card area={props.isMobile ? '9/1/13/14' : '9/1/13/12'}>
       {' '}
       <CardTitle>Cathey R.</CardTitle>
       <CardParagraph isMobile={props.isMobile}>
@@ -108,7 +108,7 @@ const Testimonials = props => (
         Therapy and Personal Training after my last surgery dramatically reduced
         the pain I was experiencing and expedited my recovery.
       </CardParagraph>
-    </Card>
+    </Card> */}
     {!props.isMobile && <BottomQuote viewBox={'0 0 305 305'} />}
   </TestimonialSection>
 )

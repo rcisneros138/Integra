@@ -2,14 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import styled, { injectGlobal } from 'styled-components'
+import styled, { injectGlobal, createGlobalStyle } from 'styled-components'
 import Img from 'gatsby-image'
 
 import Header from './header'
 import Footer from './footer'
 import GridLayout from './siteWrapper'
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Roboto:100,300,400,500,700,900|Merriweather:300,400,700,900');
 html {
   font-family: 'Merriweather', sans-serif;
@@ -81,7 +81,7 @@ class Layout extends React.Component {
             >
               <html lang="en" />
             </Helmet>
-
+            <GlobalStyle />
             <Header
               siteTitle={data.site.siteMetadata.title}
               isMobile={this.state.isMobile}
