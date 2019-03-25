@@ -64,7 +64,20 @@ const About = styled.div`
   }
 `
 const Info = styled.div`
-  height: auto;
+  margin: 5em;
+  .collapseText {
+    margin: 5em;
+  }
+  p {
+    font-family: Roboto;
+    font-size: 1em;
+    font-weight: 400;
+    color: #6a757c;
+    margin: auto;
+    line-height: 1.5em;
+    text-align: left;
+    font-weight: 100;
+  }
 `
 
 const PhysicalTherapy = props => (
@@ -121,7 +134,30 @@ const PhysicalTherapy = props => (
       </p>
     </About>
     <Info>
-      <Panel name="TEST TEST TEST" />
+      <Panel name="TEST TEST TEST">
+        <div className="collapseText">
+          <p>
+            Maybe you’ve been working out for a while, and want to reach the
+            next level. Or you’re wrapping up physical therapy, and want to hone
+            your technique as you get back in the game. It might be that you’ve
+            exercising for the first time in a long time, and want to make sure
+            you’re doing things the right way. No matter what brings you to
+            Integra, our team of health professions is ready to help you reach
+            personal training goals. <br />
+            Nothing in life happens “just because.” Our integrated approach
+            helps us take the guesswork out of your physical health, and what’s
+            going on with your body. As a personal training client, you receive
+            a complimentary orthopedic assessment from one of our staff doctors
+            of physical therapy (DPT). This assessment helps you see the links
+            between old injuries, imprecise movements, lack of physical
+            activity, muscle atrophy, physical limitations, and pain.
+            <br /> From there, we identify areas of strength and weakness, ways
+            that your body is compensating, and any asymmetry that’s holding you
+            back. We use this base of knowledge to inform an exercise program
+            that flows safely around you and your goals.
+          </p>
+        </div>
+      </Panel>
     </Info>
   </Layout>
 )

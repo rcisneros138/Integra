@@ -1,7 +1,13 @@
 import React from 'react'
 
 const Plus = props => (
-  <svg width={68} height={71} fill="none" {...props}>
+  <svg
+    fill="none"
+    height="100%"
+    width="10%"
+    viewBox=" -60 0 200 100"
+    {...props}
+  >
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -12,7 +18,13 @@ const Plus = props => (
 )
 
 const Minus = props => (
-  <svg width={68} height={19} fill="none" {...props}>
+  <svg
+    fill="none"
+    height="100%"
+    width="10%"
+    viewBox=" -60 -35 200 100"
+    {...props}
+  >
     <path fill="#0071FE" d="M0 0h68v19H0z" />
   </svg>
 )

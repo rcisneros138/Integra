@@ -26,6 +26,7 @@
     "react-scroll": "^1.7.11",
     "react-spring": "^8.0.18",
     "react-waypoint": "^8.0.3",
+    "resize-observer-polyfill": "^1.5.1",
     "scrollmonitor-react": "^2.4.1",
     "sharp": "^0.22.0",
     "styled-components": "^4.2.0"
