@@ -67,6 +67,8 @@ const Info = styled.div`
   margin: 5em;
   .collapseText {
     margin: 5em;
+    display: inline-block;
+    width: 70vw;
   }
   p {
     font-family: Roboto;
@@ -134,27 +136,63 @@ const PhysicalTherapy = props => (
       </p>
     </About>
     <Info>
-      <Panel name="TEST TEST TEST">
+      <Panel name="We Prepare Your Body For Movement">
         <div className="collapseText">
           <p>
-            Maybe you’ve been working out for a while, and want to reach the
-            next level. Or you’re wrapping up physical therapy, and want to hone
-            your technique as you get back in the game. It might be that you’ve
-            exercising for the first time in a long time, and want to make sure
-            you’re doing things the right way. No matter what brings you to
-            Integra, our team of health professions is ready to help you reach
-            personal training goals. <br />
-            Nothing in life happens “just because.” Our integrated approach
-            helps us take the guesswork out of your physical health, and what’s
-            going on with your body. As a personal training client, you receive
-            a complimentary orthopedic assessment from one of our staff doctors
-            of physical therapy (DPT). This assessment helps you see the links
-            between old injuries, imprecise movements, lack of physical
-            activity, muscle atrophy, physical limitations, and pain.
-            <br /> From there, we identify areas of strength and weakness, ways
-            that your body is compensating, and any asymmetry that’s holding you
-            back. We use this base of knowledge to inform an exercise program
-            that flows safely around you and your goals.
+            We use a unique evaluation approach to begin you training
+            experience. Here’s how the steps break down: Our doctors of physical
+            therapy (DPTs) are specialists in orthopedics, and conduct your
+            initial training evaluation. This helps us ensure that your exercise
+            experience is safe and specifically tailored to help address what
+            your body needs. Whether you’re an elite athlete, or someone brand
+            new to exercise, expect our DPTs to take you through a joint and
+            strength assessment from head to toe, and point out any issues along
+            the way.  Following your evaluation, our DPTs communicate the
+            information they gather back to your trainer. This core group of
+            professionals will continue to support you while you work with
+            Integra. If there’s an exercise that might help with anything we
+            find during your evaluation, your evaluating therapist will offer
+            home exercises to help kick start your training experience.  
+          </p>
+        </div>
+      </Panel>
+      <Panel name="We Prepare Your Body For Movement">
+        <div className="collapseText">
+          <p>
+            We use a unique evaluation approach to begin you training
+            experience. Here’s how the steps break down: Our doctors of physical
+            therapy (DPTs) are specialists in orthopedics, and conduct your
+            initial training evaluation. This helps us ensure that your exercise
+            experience is safe and specifically tailored to help address what
+            your body needs. Whether you’re an elite athlete, or someone brand
+            new to exercise, expect our DPTs to take you through a joint and
+            strength assessment from head to toe, and point out any issues along
+            the way.  Following your evaluation, our DPTs communicate the
+            information they gather back to your trainer. This core group of
+            professionals will continue to support you while you work with
+            Integra. If there’s an exercise that might help with anything we
+            find during your evaluation, your evaluating therapist will offer
+            home exercises to help kick start your training experience.  
+          </p>
+        </div>
+      </Panel>
+      <Panel name="We Prepare Your Body For Movement">
+        <div className="collapseText">
+          <p>
+            We use a unique evaluation approach to begin you training
+            experience. Here’s how the steps break down: Our doctors of physical
+            therapy (DPTs) are specialists in orthopedics, and conduct your
+            initial training evaluation. This helps us ensure that your exercise
+            experience is safe and specifically tailored to help address what
+            your body needs. Whether you’re an elite athlete, or someone brand
+            new to exercise, expect our DPTs to take you through a joint and
+            strength assessment from head to toe, and point out any issues along
+            the way.  Following your evaluation, our DPTs communicate the
+            information they gather back to your trainer. This core group of
+            professionals will continue to support you while you work with
+            Integra. If there’s an exercise that might help with anything we
+            find during your evaluation, your evaluating therapist will offer
+            home exercises to help kick start your training experience.  
           </p>
         </div>
       </Panel>
