@@ -7,6 +7,8 @@ import Fade from 'react-reveal/Fade'
 import Layout from '../components/layout'
 import Panel from '../components/panel'
 
+import Ribbon from '../components/svg/ribbon'
+
 const Hero = styled.div`
   height: 70vh;
   display: flex;
@@ -80,6 +82,27 @@ const Info = styled.div`
     text-align: left;
     font-weight: 100;
   }
+`
+const Team = styled.div`
+  display: grid;
+  grid-gap: 0 2.25em;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  height: auto;
+  .rib {
+    grid-area: 2/6/8/8;
+  }
+`
+
+const LineBreak = styled.hr`
+  grid-area: ${props => props.area};
+  display: block;
+  height: 0.1em;
+  border: 0;
+  margin: 1em 0;
+  padding: 0;
+  color: #0071fe;
+  background-color: #0071fe;
 `
 
 const PhysicalTherapy = props => (
@@ -197,6 +220,11 @@ const PhysicalTherapy = props => (
         </div>
       </Panel>
     </Info>
+    <Team>
+      <LineBreak area="4/4/5/6" />
+      <Ribbon className="rib" width="100%" height="100%" />
+      <LineBreak area="4/8/5/10" />
+    </Team>
   </Layout>
 )
 

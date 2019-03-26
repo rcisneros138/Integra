@@ -34,3 +34,51 @@ export function useMobile() {
   }
   return isMobile
 }
+
+export function checkVisibility(el, partial) {
+  if (!el) {
+    return false
+  }
+
+  const { top, right, bottom, left, width, height } = el.getBoundingClientRect()
+
+  if (top + right + bottom + left === 0) {
+    return false
+  }
+
+  const topCheck = partial ? top + height : top
+  const bottomCheck = partial ? bottom - height : bottom
+  const rightCheck = partial ? right - width : right
+  const leftCheck = partial ? left + width : left
+
+  const windowWidth = window.innerWidth
+  const windowHeight = window.innerHeight
+
+  return (
+    topCheck >= 0 &&
+    leftCheck >= 0 &&
+    bottomCheck <= windowHeight &&
+    rightCheck <= windowWidth
+  )
+}
+
+const useVisibility = (el, { usePartial = false, scrollableEl = window }) => {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const handleScrollOrResize = () => {
+      setIsVisible(checkVisibility(el, usePartial))
+    }
+
+    scrollableEl.addEventListener('scroll', handleScrollOrResize)
+    window.addEventListener('resize', handleScrollOrResize)
+
+    setIsVisible(checkVisibility(el, usePartial))
+
+    return () => {
+      scrollableEl.removeEventListener('scroll', handleScrollOrResize)
+      window.removeEventListener('resize', handleScrollOrResize)
+    }
+  }, [el, usePartial, scrollableEl])
+  return isVisible
+}
