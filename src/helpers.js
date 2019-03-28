@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
+import { func } from 'prop-types'
 
 export function usePrevious(value) {
   const ref = useRef()
@@ -62,7 +63,10 @@ export function checkVisibility(el, partial) {
   )
 }
 
-const useVisibility = (el, { usePartial = false, scrollableEl = window }) => {
+export function useVisibility(
+  el,
+  { usePartial = false, scrollableEl = window }
+) {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -80,5 +84,6 @@ const useVisibility = (el, { usePartial = false, scrollableEl = window }) => {
       window.removeEventListener('resize', handleScrollOrResize)
     }
   }, [el, usePartial, scrollableEl])
+  console.log(isVisible)
   return isVisible
 }

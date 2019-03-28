@@ -37,7 +37,7 @@ const TopQuote = styled(TopQuotation)`
 
 const BottomQuote = styled(BottomQuotation)`
   grid-column: 11/13;
-  grid-row: 17/19;
+  grid-row: 16/19;
   z-index: 2;
 `
 
@@ -65,12 +65,12 @@ const CardParagraph = styled.p`
 
 const Testimonials = props => (
   <TestimonialSection name="testimonials">
-    {/* <Title isMobile={props.isMobile}>
+    <Title isMobile={props.isMobile}>
       <h1>What People Are Saying</h1>
-    </Title> */}
+    </Title>
 
     {!props.isMobile && <TopQuote viewBox={'0 0 305 305'} />}
-    <Card area={props.isMobile ? '4/1/8/14' : '4/2/8/14'}>
+    <Card animate="up" area={props.isMobile ? '4/1/8/14' : '4/2/7/14'}>
       <CardTitle>Joe B.</CardTitle>
       <CardParagraph isMobile={props.isMobile}>
         I walked in the door at Integra with pain and no flexibility in both
@@ -83,7 +83,7 @@ const Testimonials = props => (
         the knowledge of the staff.
       </CardParagraph>
     </Card>
-    {/* <Card area={props.isMobile ? '9/1/13/14' : '9/1/13/12'}>
+    <Card animate="up" area={props.isMobile ? '9/1/13/14' : '9/1/12/12'}>
       {' '}
       <CardTitle>Cathey R.</CardTitle>
       <CardParagraph isMobile={props.isMobile}>
@@ -97,7 +97,7 @@ const Testimonials = props => (
         to be, a life changer for me.
       </CardParagraph>
     </Card>
-    <Card area={props.isMobile ? '14/1/18/14' : '14/2/18/14'}>
+    <Card animate="up" area={props.isMobile ? '14/1/18/14' : '14/2/17/14'}>
       {' '}
       <CardTitle>Kelly H.</CardTitle>
       <CardParagraph isMobile={props.isMobile}>
@@ -108,7 +108,7 @@ const Testimonials = props => (
         Therapy and Personal Training after my last surgery dramatically reduced
         the pain I was experiencing and expedited my recovery.
       </CardParagraph>
-    </Card> */}
+    </Card>
     {!props.isMobile && <BottomQuote viewBox={'0 0 305 305'} />}
   </TestimonialSection>
 )

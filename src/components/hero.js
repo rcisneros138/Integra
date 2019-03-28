@@ -13,7 +13,8 @@ const HeroSection = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  overflow: hidden;
+  width: 100vw;
   h2 {
     font-weight: 100;
     font-size: 9vmin;
@@ -165,7 +166,7 @@ const Hero = props => (
                 position: 'absolute',
                 left: 0,
                 top: 0,
-                width: '100%',
+                width: '100vw',
                 height: '100vmin',
                 zIndex: -1,
               }}
@@ -185,7 +186,7 @@ const Hero = props => (
                 position: 'absolute',
                 left: 0,
                 top: 0,
-                width: '100%',
+                width: '100vw',
                 height: '100vmin',
                 zIndex: -1,
               }}
