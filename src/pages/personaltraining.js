@@ -3,9 +3,9 @@ import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
-import { useSpring } from 'react-spring'
-import { usePrevious, useVisibility } from '../helpers'
 import { useInView } from 'react-intersection-observer'
+import 'intersection-observer'
+import { config, animated, useSpring } from 'react-spring'
 
 import Layout from '../components/layout'
 import Panel from '../components/panel'
@@ -110,21 +110,55 @@ const LineBreak = styled.hr`
   background-color: #0071fe;
 `
 
-const Team = styled.div``
+const Team = styled.div`
+  height: auto;
+
+  .member {
+    display: grid;
+    height: 90vh;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    .imagewrap {
+      grid-area: 1/6/4/8;
+    }
+    .cardbio {
+      h2 {
+        margin-top: 8em;
+        grid-column: 3/11;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.25em;
+        line-height: 0.07em;
+        color: #8b8888;
+      }
+      p {
+        grid-column: 2/12;
+        font-family: Roboto;
+        font-size: 1.5em;
+        line-height: 53px;
+        text-align: center;
+        color: #8b8888;
+        font-weight: 100;
+      }
+    }
+  }
+`
 
 const PhysicalTherapy = props => {
-  // const [items, set] = useState(cards)
   const [ref, inView] = useInView({
-    /* Optional options */
-    threshold: 0,
+    threshhold: 5,
+    triggerOnce: true,
   })
-  // const isVisible = useVisibility(cardRef.current)
-  // const transitions = useTransition(items, item => item.key, {
-  //   from: { opacity: 0, transform: 'translate3d(100%,0,0)' },
-  //   enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
-  //   leave: { opacity: 0, transform: 'translate3d(-50%,0,0)' },
-  // })
-  const springStyle = useSpring({ opacity: 1, from: { opacity: 0 } })
+
+  const style = useSpring({
+    opacity: inView ? 1 : 0,
+    marginTop: inView ? 0 : -500,
+    marginBottom: inView ? 0 : 500,
+    from: { opacity: 0, marginTop: -500, marginBottom: 500, zIndex: 2 },
+    delay: 1,
+    config: config.molasses,
+  })
 
   return (
     <Layout>
@@ -249,13 +283,125 @@ const PhysicalTherapy = props => {
         <Ribbon className="rib" width="100%" height="100%" />
         <LineBreak area="4/9/8/12" />
       </Logos>
-      <div>
-        <Card>TEST TEST TEST</Card>
-        <Card>TEST TEST TEST</Card>
-        <Card>TEST TEST TEST</Card>
-        <Card>TEST TEST TEST</Card>
-        <Card>TEST TEST TEST</Card>
-      </div>
+      <Team>
+        <div className="member">
+          <animated.div ref={ref} style={style} className="imagewrap">
+            <Img
+              fluid={props.data.person.childImageSharp.fluid}
+              style={{
+                height: '19.9vw',
+                width: 'auto',
+                zIndex: '2',
+                marginTop: '5em',
+              }}
+            />
+          </animated.div>
+          <Card className="cardbio" area="3/1/9/12">
+            <h2>Jane Doe</h2>
+            <p>
+              Synth 8-bit plaid vexillologist venmo, kinfolk selvage. Viral
+              shoreditch pop-up, man braid kale chips forage godard swag
+              locavore beard succulents authentic portland echo park. Jean
+              shorts readymade williamsburg vexillologist shabby chic, selfies
+              drinking vinegar twee pickled single-origin coffee live-edge blue
+              bottle. Plaid hashtag kinfolk butcher, selvage unicorn pok pok
+              meggings vice four dollar toast small batch meditation.
+              Asymmetrical pitchfork beard sriracha leggings pinterest seitan
+              snackwave brunch narwhal williamsburg. Sartorial snackwave swag
+              hot chicken, roof party tumblr adaptogen hashtag heirloom everyday
+              carry vice. Tumblr biodiesel keytar green juice tbh, gentrify
+              vinyl ennui godard squid thundercats shaman microdosing affogato.
+            </p>
+          </Card>
+        </div>
+        {/* <div className="member">
+          <Img
+            fluid={props.data.person.childImageSharp.fluid}
+            style={{
+              height: '19.9vw',
+              width: 'auto',
+              gridArea: '1/6/4/8',
+              zIndex: '2',
+              marginTop: '5em',
+            }}
+          />
+          <Card className="cardbio" area="3/1/9/12">
+            <h2>Jane Doe</h2>
+            <p>
+              Synth 8-bit plaid vexillologist venmo, kinfolk selvage. Viral
+              shoreditch pop-up, man braid kale chips forage godard swag
+              locavore beard succulents authentic portland echo park. Jean
+              shorts readymade williamsburg vexillologist shabby chic, selfies
+              drinking vinegar twee pickled single-origin coffee live-edge blue
+              bottle. Plaid hashtag kinfolk butcher, selvage unicorn pok pok
+              meggings vice four dollar toast small batch meditation.
+              Asymmetrical pitchfork beard sriracha leggings pinterest seitan
+              snackwave brunch narwhal williamsburg. Sartorial snackwave swag
+              hot chicken, roof party tumblr adaptogen hashtag heirloom everyday
+              carry vice. Tumblr biodiesel keytar green juice tbh, gentrify
+              vinyl ennui godard squid thundercats shaman microdosing affogato.
+            </p>
+          </Card>
+        </div>
+        <div className="member">
+          <Img
+            fluid={props.data.person.childImageSharp.fluid}
+            style={{
+              height: '19.9vw',
+              width: 'auto',
+              gridArea: '1/6/4/8',
+              zIndex: '2',
+              marginTop: '5em',
+            }}
+          />
+          <Card className="cardbio" area="3/1/9/12">
+            <h2>Jane Doe</h2>
+            <p>
+              Synth 8-bit plaid vexillologist venmo, kinfolk selvage. Viral
+              shoreditch pop-up, man braid kale chips forage godard swag
+              locavore beard succulents authentic portland echo park. Jean
+              shorts readymade williamsburg vexillologist shabby chic, selfies
+              drinking vinegar twee pickled single-origin coffee live-edge blue
+              bottle. Plaid hashtag kinfolk butcher, selvage unicorn pok pok
+              meggings vice four dollar toast small batch meditation.
+              Asymmetrical pitchfork beard sriracha leggings pinterest seitan
+              snackwave brunch narwhal williamsburg. Sartorial snackwave swag
+              hot chicken, roof party tumblr adaptogen hashtag heirloom everyday
+              carry vice. Tumblr biodiesel keytar green juice tbh, gentrify
+              vinyl ennui godard squid thundercats shaman microdosing affogato.
+            </p>
+          </Card>
+        </div>
+        <div className="member">
+          <Img
+            fluid={props.data.person.childImageSharp.fluid}
+            style={{
+              height: '19.9vw',
+              width: 'auto',
+              gridArea: '1/6/4/8',
+              zIndex: '2',
+              marginTop: '5em',
+            }}
+          />
+          <Card className="cardbio" area="3/1/9/12">
+            <h2>Jane Doe</h2>
+            <p>
+              Synth 8-bit plaid vexillologist venmo, kinfolk selvage. Viral
+              shoreditch pop-up, man braid kale chips forage godard swag
+              locavore beard succulents authentic portland echo park. Jean
+              shorts readymade williamsburg vexillologist shabby chic, selfies
+              drinking vinegar twee pickled single-origin coffee live-edge blue
+              bottle. Plaid hashtag kinfolk butcher, selvage unicorn pok pok
+              meggings vice four dollar toast small batch meditation.
+              Asymmetrical pitchfork beard sriracha leggings pinterest seitan
+              snackwave brunch narwhal williamsburg. Sartorial snackwave swag
+              hot chicken, roof party tumblr adaptogen hashtag heirloom everyday
+              carry vice. Tumblr biodiesel keytar green juice tbh, gentrify
+              vinyl ennui godard squid thundercats shaman microdosing affogato.
+            </p>
+          </Card>
+        </div> */}
+      </Team>
     </Layout>
   )
 }
@@ -285,6 +431,13 @@ export const pageQuery = graphql`
           cropFocus: CENTER
           duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 70 }
         ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    person: file(relativePath: { eq: "person.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 800, quality: 30, cropFocus: CENTER) {
           ...GatsbyImageSharpFluid
         }
       }

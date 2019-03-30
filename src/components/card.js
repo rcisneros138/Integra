@@ -1,13 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { memo } from 'react'
 import styled from 'styled-components'
-import Fade from 'react-reveal/Fade'
-import withReveal from 'react-reveal/withReveal'
+
 import { config, animated, useSpring } from 'react-spring'
-import { Watch } from 'scrollmonitor-react'
+
 import { useInView } from 'react-intersection-observer'
 import 'intersection-observer'
-import { animation } from 'react-reveal/globals'
-import { getFragmentDefinitions } from 'apollo-utilities'
 
 const StyledCard = styled(animated.div)`
   grid-area: ${props => props.area};
@@ -15,8 +12,9 @@ const StyledCard = styled(animated.div)`
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  height: ${props => !props.area && '10em'};
-  width: ${props => !props.area && '90vw'};
+  height: ${props => !props.area && '40vh'};
+  width: ${props => (props.area ? '100vw' : '90vw')};
+  margin: auto;
 
   background-color: #ffffff;
   text-align: center;
@@ -25,7 +23,7 @@ const StyledCard = styled(animated.div)`
 const Card = props => {
   const [ref, inView] = useInView({
     threshhold: 5,
-    triggerOnce: false,
+    triggerOnce: true,
   })
   const FadeUp = {
     opacity: inView ? 1 : 0,
@@ -51,11 +49,16 @@ const Card = props => {
 
   return (
     <>
-      <StyledCard area={props.area} ref={ref} style={style}>
+      <StyledCard
+        className={props.className}
+        area={props.area}
+        ref={ref}
+        style={style}
+      >
         {props.children}
       </StyledCard>
     </>
   )
 }
-
-export default Card
+const memoCard = memo(Card)
+export default memoCard
