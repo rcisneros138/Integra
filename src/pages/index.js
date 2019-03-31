@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
@@ -11,15 +11,17 @@ import GridLayout from '../components/siteWrapper'
 
 import { GroupedObservable } from 'rxjs'
 
-const IndexPage = props => (
-  <Layout>
-    <Hero />
-    <Programs />
-    <Dare />
-    <About />
-    <Testimonials />
-    <IntegraInfo />
-  </Layout>
-)
+const IndexPage = props => {
+  return (
+    <Layout>
+      <Hero />
+      <Programs />
+      <Dare />
+      <About />
+      <Testimonials />
+      <IntegraInfo />
+    </Layout>
+  )
+}
 
 export default IndexPage

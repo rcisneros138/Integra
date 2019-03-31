@@ -1,10 +1,9 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
 
 import { config, animated, useSpring } from 'react-spring'
 
 import { useInView } from 'react-intersection-observer'
-import 'intersection-observer'
 
 const StyledCard = styled(animated.div)`
   grid-area: ${props => props.area};
@@ -13,7 +12,7 @@ const StyledCard = styled(animated.div)`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   height: ${props => !props.area && '40vh'};
-  width: ${props => (props.area ? '100vw' : '90vw')};
+  width: ${props => (props.area ? '100%' : '90vw')};
   margin: auto;
 
   background-color: #ffffff;
@@ -21,10 +20,13 @@ const StyledCard = styled(animated.div)`
 `
 
 const Card = props => {
-  const [ref, inView] = useInView({
-    threshhold: 5,
-    triggerOnce: true,
+  const [ref, inView] = useInView({ offset: 5, triggerOnce: true })
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      require('intersection-observer')
+    }
   })
+
   const FadeUp = {
     opacity: inView ? 1 : 0,
     marginTop: inView ? 0 : 500,
@@ -40,7 +42,6 @@ const Card = props => {
     delay: 700,
     config: config.molasses,
   }
-
   const animationOptions = { up: FadeUp, soft: FadeSoft }
   const animationChoice = props.animate
     ? animationOptions[props.animate]

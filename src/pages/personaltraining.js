@@ -1,10 +1,9 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
 import { useInView } from 'react-intersection-observer'
-import 'intersection-observer'
 import { config, animated, useSpring } from 'react-spring'
 
 import Layout from '../components/layout'
@@ -149,6 +148,12 @@ const PhysicalTherapy = props => {
   const [ref, inView] = useInView({
     threshhold: 5,
     triggerOnce: true,
+  })
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      require('intersection-observer')
+    }
   })
 
   const style = useSpring({
@@ -296,7 +301,7 @@ const PhysicalTherapy = props => {
               }}
             />
           </animated.div>
-          <Card className="cardbio" area="3/1/9/12">
+          <Card className="cardbio" area="3/1/9/13">
             <h2>Jane Doe</h2>
             <p>
               Synth 8-bit plaid vexillologist venmo, kinfolk selvage. Viral
