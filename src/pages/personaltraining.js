@@ -3,14 +3,14 @@ import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
-import { useInView } from 'react-intersection-observer'
-import { config, animated, useSpring } from 'react-spring'
 
 import Layout from '../components/layout'
 import Panel from '../components/panel'
 import Card from '../components/card'
+import Portrait from '../components/memberPortrait'
 
 import Ribbon from '../components/svg/ribbon'
+import { useMobile } from '../helpers'
 
 const Hero = styled.div`
   height: 70vh;
@@ -54,7 +54,7 @@ const About = styled.div`
     text-align: center;
     font-weight: 300;
     letter-spacing: 0.05em;
-    font-size: 5em;
+    font-size: ${props => (props.isMobile ? '1em' : '5em')};
     color: #f9f9f9;
   }
   p {
@@ -65,11 +65,11 @@ const About = styled.div`
     /* text-align: center; */
     line-height: 2em;
     margin: 2vw;
-    font-size: 1.5em;
+    font-size: ${props => (props.isMobile ? '1em' : '1.5em')};
   }
 `
 const Info = styled.div`
-  margin: 5em;
+  margin: ${props => (props.isMobile ? '0' : '5em')};
   .collapseText {
     margin: 5em;
     display: inline-block;
@@ -145,26 +145,7 @@ const Team = styled.div`
 `
 
 const PhysicalTherapy = props => {
-  const [ref, inView] = useInView({
-    threshhold: 5,
-    triggerOnce: true,
-  })
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      require('intersection-observer')
-    }
-  })
-
-  const style = useSpring({
-    opacity: inView ? 1 : 0,
-    marginTop: inView ? 0 : -500,
-    marginBottom: inView ? 0 : 500,
-    from: { opacity: 0, marginTop: -500, marginBottom: 500, zIndex: 2 },
-    delay: 1,
-    config: config.molasses,
-  })
-
+  const isMobile = useMobile(false)
   return (
     <Layout>
       <Hero>
@@ -186,7 +167,7 @@ const PhysicalTherapy = props => {
           </Fade>
         </div>
       </Hero>
-      <About>
+      <About isMobile={isMobile}>
         <Img
           className="backgroundTrain"
           fluid={props.data.trainAboutImage.childImageSharp.fluid}
@@ -218,7 +199,7 @@ const PhysicalTherapy = props => {
           flows safely around you and your goals.
         </p>
       </About>
-      <Info>
+      <Info isMobile={isMobile}>
         <Panel name="We Prepare Your Body For Movement">
           <div className="collapseText">
             <p>
@@ -290,17 +271,7 @@ const PhysicalTherapy = props => {
       </Logos>
       <Team>
         <div className="member">
-          <animated.div ref={ref} style={style} className="imagewrap">
-            <Img
-              fluid={props.data.person.childImageSharp.fluid}
-              style={{
-                height: '19.9vw',
-                width: 'auto',
-                zIndex: '2',
-                marginTop: '5em',
-              }}
-            />
-          </animated.div>
+          <Portrait />
           <Card className="cardbio" area="3/1/9/13">
             <h2>Jane Doe</h2>
             <p>
@@ -319,18 +290,9 @@ const PhysicalTherapy = props => {
             </p>
           </Card>
         </div>
-        {/* <div className="member">
-          <Img
-            fluid={props.data.person.childImageSharp.fluid}
-            style={{
-              height: '19.9vw',
-              width: 'auto',
-              gridArea: '1/6/4/8',
-              zIndex: '2',
-              marginTop: '5em',
-            }}
-          />
-          <Card className="cardbio" area="3/1/9/12">
+        <div className="member">
+          <Portrait />
+          <Card className="cardbio" area="3/1/9/13">
             <h2>Jane Doe</h2>
             <p>
               Synth 8-bit plaid vexillologist venmo, kinfolk selvage. Viral
@@ -349,17 +311,8 @@ const PhysicalTherapy = props => {
           </Card>
         </div>
         <div className="member">
-          <Img
-            fluid={props.data.person.childImageSharp.fluid}
-            style={{
-              height: '19.9vw',
-              width: 'auto',
-              gridArea: '1/6/4/8',
-              zIndex: '2',
-              marginTop: '5em',
-            }}
-          />
-          <Card className="cardbio" area="3/1/9/12">
+          <Portrait />
+          <Card className="cardbio" area="3/1/9/13">
             <h2>Jane Doe</h2>
             <p>
               Synth 8-bit plaid vexillologist venmo, kinfolk selvage. Viral
@@ -377,35 +330,6 @@ const PhysicalTherapy = props => {
             </p>
           </Card>
         </div>
-        <div className="member">
-          <Img
-            fluid={props.data.person.childImageSharp.fluid}
-            style={{
-              height: '19.9vw',
-              width: 'auto',
-              gridArea: '1/6/4/8',
-              zIndex: '2',
-              marginTop: '5em',
-            }}
-          />
-          <Card className="cardbio" area="3/1/9/12">
-            <h2>Jane Doe</h2>
-            <p>
-              Synth 8-bit plaid vexillologist venmo, kinfolk selvage. Viral
-              shoreditch pop-up, man braid kale chips forage godard swag
-              locavore beard succulents authentic portland echo park. Jean
-              shorts readymade williamsburg vexillologist shabby chic, selfies
-              drinking vinegar twee pickled single-origin coffee live-edge blue
-              bottle. Plaid hashtag kinfolk butcher, selvage unicorn pok pok
-              meggings vice four dollar toast small batch meditation.
-              Asymmetrical pitchfork beard sriracha leggings pinterest seitan
-              snackwave brunch narwhal williamsburg. Sartorial snackwave swag
-              hot chicken, roof party tumblr adaptogen hashtag heirloom everyday
-              carry vice. Tumblr biodiesel keytar green juice tbh, gentrify
-              vinyl ennui godard squid thundercats shaman microdosing affogato.
-            </p>
-          </Card>
-        </div> */}
       </Team>
     </Layout>
   )
@@ -427,22 +351,14 @@ export const pageQuery = graphql`
     heroImage: file(relativePath: { eq: "personaltraining.jpg" }) {
       ...fluidImage
     }
-    trainAboutImage: file(relativePath: { eq: "train_about.jpg" }) {
+    trainAboutImage: file(relativePath: { eq: "run_up.jpg" }) {
       childImageSharp {
         fluid(
           maxWidth: 1200
-          maxHeight: 800
           quality: 90
           cropFocus: CENTER
           duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 70 }
         ) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    person: file(relativePath: { eq: "person.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 800, quality: 30, cropFocus: CENTER) {
           ...GatsbyImageSharpFluid
         }
       }
