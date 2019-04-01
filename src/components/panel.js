@@ -15,20 +15,24 @@ const Frame = styled.div`
   border-radius: 1em;
   text-align: center;
   margin: 1em;
-
   span {
     font-family: Roboto;
-    font-size: ${props => (props.isMobile ? '1vw' : '3em')};
     font-weight: 300;
     color: #6a757c;
-    margin: auto;
-    @media screen {
+    margin-left: 20%;
+    margin-right: auto;
+    margin-top: 5%;
+    float: left;
+
+    h2 {
+      position: relative;
+      font-size: ${props => (props.isMobile ? '1em' : '2em')};
     }
   }
   .icon {
     /* grid-area: 1/8/2/9; */
     float: right;
-    padding-top: 3em;
+    margin-top: 7% !important;
   }
 `
 const Content = styled(animated.div)`
@@ -66,18 +70,26 @@ const Panel = memo(({ children, name, style, open = false }) => {
 
   const Icon = Icons[`${isOpen ? 'Minus' : 'Plus'}`]
   return (
-    <Frame isMobile={isMobile}>
-      <span style={{ verticalAlign: 'middle', paddingTop: '3em', ...style }}>
-        {name}
+    <Frame
+      style={{ ...toggle }}
+      isMobile={isMobile}
+      onClick={() => setOpen(!isOpen)}
+    >
+      <span
+        style={{
+          verticalAlign: 'middle',
+          ...style,
+        }}
+      >
+        <h2>{name}</h2>
       </span>
       <Icon
         className="icon"
         style={{
           ...toggle,
-          marginTop: isOpen && previous === isOpen ? '2em' : '1em',
+
           transform,
         }}
-        onClick={() => setOpen(!isOpen)}
       />
       <Content
         style={{
