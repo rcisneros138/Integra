@@ -45,7 +45,6 @@ const Portrait = props => {
               height: '19.9vw',
               width: 'auto',
               zIndex: '2',
-              marginTop: '5em',
             }}
           />
         </animated.div>

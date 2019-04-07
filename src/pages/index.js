@@ -11,9 +11,9 @@ import GridLayout from '../components/siteWrapper'
 
 import { GroupedObservable } from 'rxjs'
 
-const IndexPage = props => {
+const IndexPage = ({ location }) => {
   return (
-    <Layout>
+    <Layout location={location}>
       <Hero />
       <Programs />
       <Dare />

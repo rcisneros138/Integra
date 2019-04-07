@@ -85,6 +85,7 @@ class Layout extends React.Component {
             <Header
               siteTitle={data.site.siteMetadata.title}
               isMobile={this.state.isMobile}
+              location={this.props.location}
             />
 
             {this.childrenWithProps}

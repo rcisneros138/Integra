@@ -1,20 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
-import { Link } from 'react-scroll'
+import { StaticQuery, graphql, Link } from 'gatsby'
 
 import Logo from '../components/svg/integraLogo'
 import Burger from '../components/svg/burger'
 import CloseButton from '../components/svg/closeButton'
 import NavItems from '../components/navigationItems'
+import HeaderLinks from '../components/headerLinks'
 
 import Facebook from './svg/facebook'
 import Instagram from './svg/insta'
 import Twitter from './svg/twitter'
-import GooglePlus from './svg/googlePlus'
-
-const StyledLink = styled(Link)`
-  cursor: pointer;
-`
+import { LinkError } from 'apollo-link/lib/linkUtils'
 
 const PhoneSection = styled.div`
   h1 {
@@ -78,117 +75,116 @@ const scrollingNavTheme = {
   fontColor: `#3A3A3A`,
 }
 
-class Header extends React.Component {
-  constructor(props, context) {
-    super(props, context)
-    this.state = {
-      topOfPage: true,
-      hideDesktopNavItems: true,
-      navOpen: false,
+const Header = ({ isMobile, location }) => {
+  const [topOfPage, toggleIsTop] = useState(true)
+  const [navOpen, toggleNavOpen] = useState(false)
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
     }
-  }
+  }, [topOfPage, navOpen, isMobile])
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll)
-  }
-
-  menuToggle = () => {
-    this.setState(prevState => ({
-      navOpen: !prevState.navOpen,
-    }))
-  }
-
-  changeNavStyle = isTop => {
-    this.setState({ topOfPage: isTop })
-  }
-
-  handleScroll = () => {
+  const handleScroll = () => {
     const isTopOfPage = window.scrollY < 50
-    if (isTopOfPage !== this.state.topOfPage) {
-      this.changeNavStyle(isTopOfPage)
-    }
+    isTopOfPage !== topOfPage && toggleIsTop(isTopOfPage)
   }
 
-  render() {
-    const { isMobile } = this.props
-    return (
-      <ThemeProvider
-        theme={this.state.topOfPage ? defaultNavTheme : scrollingNavTheme}
-      >
-        <div>
-          <HeadWrap
-            hideMenu={this.state.hideMenuIcon}
-            hideNav={this.state.hideDesktopNavItems}
-            isMobile={isMobile}
-          >
-            <div>
-              <Logo
-                isMobile={isMobile}
-                imageWidth={isMobile ? '30' : '63'}
-                imageHeight={isMobile ? '29' : '73'}
-              />
-              {!isMobile && <NavTitle>Integra</NavTitle>}
-            </div>
-            <div />
-
-            <NavItems navOpen={this.state.navOpen} isMobile={isMobile}>
-              {isMobile && <CloseButton menuToggle={this.menuToggle} />}
-
-              <StyledLink offset={-50} to="programs" smooth={true}>
-                Programs
-              </StyledLink>
-              <StyledLink offset={-50} to="about" smooth={true}>
-                About
-              </StyledLink>
-              <StyledLink offset={-50} to="testimonials" smooth={true}>
-                Testimonials
-              </StyledLink>
-              <StyledLink offset={-50} to="contact" smooth={true}>
-                Contact
-              </StyledLink>
-            </NavItems>
-            <SocialMedia isMobile={isMobile}>
-              <a href="https://www.facebook.com/integrapt2/">
-                <Facebook
-                  width="2em"
-                  height="2em"
-                  viewBox={isMobile ? '0 0 80 80' : '-5 0 60 55'}
-                  color={this.state.topOfPage ? '#F9F9F9' : '#4c9bfe'}
-                />
-              </a>
-              <a href="https://twitter.com/Integra_pt">
-                <Twitter
-                  width="2em"
-                  height="2em"
-                  viewBox={isMobile ? '0 0 80 80' : '-5 0 60 55'}
-                  color={this.state.topOfPage ? '#F9F9F9' : '#4c9bfe'}
-                />
-              </a>
-              <a href="https://www.instagram.com/integrapt2/">
-                <Instagram
-                  width="2em"
-                  height="2em"
-                  viewBox={isMobile ? '0 0 80 80' : '-5 0 60 55'}
-                  color={this.state.topOfPage ? '#F9F9F9' : '#4c9bfe'}
-                />
-              </a>
-            </SocialMedia>
-            {isMobile && (
-              <Burger
-                imageWidth="25"
-                imageHeight="24"
-                menuToggle={this.menuToggle}
-              />
-            )}
-          </HeadWrap>
-        </div>
-      </ThemeProvider>
-    )
+  const menuToggle = () => {
+    toggleNavOpen(prevState => !prevState)
   }
+
+  return (
+    <StaticQuery
+      query={graphql`
+        query SiteMenuData {
+          site {
+            siteMetadata {
+              menuLinks {
+                index {
+                  name
+                  link
+                }
+                training {
+                  name
+                  link
+                }
+              }
+            }
+          }
+        }
+      `}
+      render={data => (
+        <ThemeProvider theme={topOfPage ? defaultNavTheme : scrollingNavTheme}>
+          <div>
+            <HeadWrap
+              // hideMenu={this.state.hideMenuIcon}
+              // hideNav={this.state.hideDesktopNavItems}
+              isMobile={isMobile}
+            >
+              <div>
+                <Link to="/">
+                  <Logo
+                    isMobile={isMobile}
+                    imageWidth={isMobile ? '30' : '63'}
+                    imageHeight={isMobile ? '29' : '73'}
+                  />
+                  {!isMobile && <NavTitle>Integra</NavTitle>}
+                </Link>
+              </div>
+              <div />
+
+              <NavItems navOpen={navOpen} isMobile={isMobile}>
+                {isMobile && (
+                  <CloseButton
+                    menuToggle={() => toggleNavOpen(prevState => !prevState)}
+                  />
+                )}
+                <HeaderLinks
+                  menuLinks={data.site.siteMetadata.menuLinks}
+                  location={location}
+                />
+              </NavItems>
+              <SocialMedia isMobile={isMobile}>
+                <a href="https://www.facebook.com/integrapt2/">
+                  <Facebook
+                    width="2em"
+                    height="2em"
+                    viewBox={isMobile ? '0 0 80 80' : '-5 0 60 55'}
+                    color={topOfPage ? '#F9F9F9' : '#4c9bfe'}
+                  />
+                </a>
+                <a href="https://twitter.com/Integra_pt">
+                  <Twitter
+                    width="2em"
+                    height="2em"
+                    viewBox={isMobile ? '0 0 80 80' : '-5 0 60 55'}
+                    color={topOfPage ? '#F9F9F9' : '#4c9bfe'}
+                  />
+                </a>
+                <a href="https://www.instagram.com/integrapt2/">
+                  <Instagram
+                    width="2em"
+                    height="2em"
+                    viewBox={isMobile ? '0 0 80 80' : '-5 0 60 55'}
+                    color={topOfPage ? '#F9F9F9' : '#4c9bfe'}
+                  />
+                </a>
+              </SocialMedia>
+              {isMobile && (
+                <Burger
+                  imageWidth="25"
+                  imageHeight="24"
+                  menuToggle={() => toggleNavOpen(prevState => !prevState)}
+                />
+              )}
+            </HeadWrap>
+          </div>
+        </ThemeProvider>
+      )}
+    />
+  )
 }
 
 export default Header

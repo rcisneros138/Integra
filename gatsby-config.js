@@ -1,7 +1,46 @@
 module.exports = {
   siteMetadata: {
     title: 'Integra',
+    menuLinks: {
+      index: [
+        {
+          name: 'programs',
+          link: '/',
+        },
+        {
+          name: 'about',
+          link: '/page-2',
+        },
+        {
+          name: 'testimonials',
+          link: '/page-2',
+        },
+        {
+          name: 'contact',
+          link: '/page-2',
+        },
+      ],
+      training: [
+        {
+          name: 'mission',
+          link: '/',
+        },
+        {
+          name: 'about',
+          link: '/page-2',
+        },
+        {
+          name: 'our trainers',
+          link: '/page-2',
+        },
+        {
+          name: 'contact',
+          link: '/page-2',
+        },
+      ],
+    },
   },
+
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -10,13 +49,6 @@ module.exports = {
         name: `images`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: `${__dirname}/src/data`,
-    //     name: `data`,
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-typography`,
       options: {

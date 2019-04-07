@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
+import { Element } from 'react-scroll'
 
 import Layout from '../components/layout'
 import Panel from '../components/panel'
@@ -40,7 +41,7 @@ const Hero = styled.div`
     height: 100vmin;
   }
 `
-const About = styled.div`
+const Mission = styled(Element)`
   height: auto;
   display: grid;
   grid-gap: 0 2.25em;
@@ -66,9 +67,12 @@ const About = styled.div`
     line-height: 2em;
     margin: 2vw;
     font-size: ${props => (props.isMobile ? '1em' : '1.5em')};
+    @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
+      font-size: 1vw !important;
+    }
   }
 `
-const Info = styled.div`
+const Info = styled(Element)`
   margin: ${props => (props.isMobile ? '0' : '5em')};
   .collapseText {
     margin: 5em;
@@ -77,7 +81,7 @@ const Info = styled.div`
   }
   p {
     font-family: Roboto;
-    font-size: 1em;
+    font-size: ${props => (props.isMobile ? '1em' : '1.5em')};
     font-weight: 400;
     color: #6a757c;
     margin: auto;
@@ -109,7 +113,7 @@ const LineBreak = styled.hr`
   background-color: #0071fe;
 `
 
-const Team = styled.div`
+const Team = styled(Element)`
   height: auto;
 
   .member {
@@ -119,10 +123,11 @@ const Team = styled.div`
     grid-template-rows: repeat(8, 1fr);
     .imagewrap {
       grid-area: 1/6/4/8;
+      padding-top: 6.5em;
     }
     .cardbio {
       h2 {
-        margin-top: 8em;
+        margin-top: ${props => (props.isMobile ? '4em' : '6.5em')};
         grid-column: 3/11;
         font-family: Roboto;
         font-style: normal;
@@ -130,27 +135,37 @@ const Team = styled.div`
         font-size: 2.25em;
         line-height: 0.07em;
         color: #8b8888;
+        @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
+          font-size: 1vw;
+        }
       }
       p {
         grid-column: 2/12;
         font-family: Roboto;
-        font-size: 1.5em;
-        line-height: 53px;
+        line-height: 2em;
         text-align: center;
         color: #8b8888;
         font-weight: 100;
+        margin-top: 0;
+      }
+      @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
+        font-size: 1vw !important;
+      }
+      @media only screen {
+        font-size: ${props => (props.isMobile ? '3vw' : '1.5em')};
       }
     }
   }
 `
 
-const PhysicalTherapy = props => {
+const PhysicalTherapy = ({ data, location }) => {
   const isMobile = useMobile(false)
+
   return (
-    <Layout>
+    <Layout location={location}>
       <Hero>
         <Img
-          fluid={props.data.heroImage.childImageSharp.fluid}
+          fluid={data.heroImage.childImageSharp.fluid}
           style={{
             position: 'absolute',
             left: 0,
@@ -167,10 +182,10 @@ const PhysicalTherapy = props => {
           </Fade>
         </div>
       </Hero>
-      <About isMobile={isMobile}>
+      <Mission name="mission" isMobile={isMobile}>
         <Img
           className="backgroundTrain"
-          fluid={props.data.trainAboutImage.childImageSharp.fluid}
+          fluid={data.trainAboutImage.childImageSharp.fluid}
           style={{
             width: '100%',
             height: 'auto',
@@ -198,8 +213,8 @@ const PhysicalTherapy = props => {
           back. We use this base of knowledge to inform an exercise program that
           flows safely around you and your goals.
         </p>
-      </About>
-      <Info isMobile={isMobile}>
+      </Mission>
+      <Info name="about" isMobile={isMobile}>
         <Panel name="We Prepare Your Body For Movement">
           <div className="collapseText">
             <p>
@@ -264,12 +279,12 @@ const PhysicalTherapy = props => {
           </div>
         </Panel>
       </Info>
-      <Logos>
+      <Logos name="our team">
         <LineBreak area="4/2/5/5" />
         <Ribbon className="rib" width="100%" height="100%" />
         <LineBreak area="4/9/8/12" />
       </Logos>
-      <Team>
+      <Team name="our trainers">
         <div className="member">
           <Portrait />
           <Card className="cardbio" area="3/1/9/13">
