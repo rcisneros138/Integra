@@ -115,6 +115,29 @@ const LineBreak = styled.hr`
 
 const Team = styled(Element)`
   height: auto;
+  .teamheader {
+    h1 {
+      text-align: center;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 2.25em;
+      margin: 5em;
+      color: #8b8888;
+      @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
+        font-size: 1vw;
+      }
+    }
+    h2 {
+      font-family: Roboto;
+      line-height: 1.5em;
+      text-align: center;
+      color: #8b8888;
+      font-weight: 100;
+      margin-top: 0;
+      margin: 6em;
+    }
+  }
 
   .member {
     display: grid;
@@ -125,9 +148,10 @@ const Team = styled(Element)`
       grid-area: 1/6/4/8;
       padding-top: 6.5em;
     }
+
     .cardbio {
       h2 {
-        margin-top: ${props => (props.isMobile ? '4em' : '6.5em')};
+        margin-top: ${props => (props.isMobile ? '4em' : '4.5em')};
         grid-column: 3/11;
         font-family: Roboto;
         font-style: normal;
@@ -140,10 +164,22 @@ const Team = styled(Element)`
         }
       }
       p {
-        grid-column: 2/12;
+        grid-column: 3/11;
         font-family: Roboto;
-        line-height: 2em;
-        text-align: center;
+        line-height: 1.5em;
+        text-align: justify;
+        color: #8b8888;
+        font-weight: 100;
+        margin-top: 0;
+        height: 1em;
+      }
+      .quote {
+        font-style: italic;
+        font-size: 1.25vw;
+        grid-column: 3/11;
+        font-family: Roboto;
+        line-height: 1.5em;
+        text-align: justify;
         color: #8b8888;
         font-weight: 100;
         margin-top: 0;
@@ -284,65 +320,122 @@ const PhysicalTherapy = ({ data, location }) => {
         <Ribbon className="rib" width="100%" height="100%" />
         <LineBreak area="4/9/8/12" />
       </Logos>
+
       <Team name="our trainers">
+        <div className="teamheader">
+          <h1>Accredited, certified, and always professional</h1>
+          <h2>
+            Our personal trainers are experts, and have been doing this a long
+            time. We each carry a minimum four-year degree, along with national
+            certifications. Working together, we follow through on an
+            integrated, evidenced-based personal training approach designed to
+            help you get the most out of your experience.
+          </h2>
+        </div>
         <div className="member">
-          <Portrait />
+          <Portrait image={data.trainer2.childImageSharp.fluid} />
           <Card className="cardbio" area="3/1/9/13">
-            <h2>Jane Doe</h2>
+            <h2>Jeff Konczal</h2>
+            <LineBreak area="2/5/auto/9" />
             <p>
-              Synth 8-bit plaid vexillologist venmo, kinfolk selvage. Viral
-              shoreditch pop-up, man braid kale chips forage godard swag
-              locavore beard succulents authentic portland echo park. Jean
-              shorts readymade williamsburg vexillologist shabby chic, selfies
-              drinking vinegar twee pickled single-origin coffee live-edge blue
-              bottle. Plaid hashtag kinfolk butcher, selvage unicorn pok pok
-              meggings vice four dollar toast small batch meditation.
-              Asymmetrical pitchfork beard sriracha leggings pinterest seitan
-              snackwave brunch narwhal williamsburg. Sartorial snackwave swag
-              hot chicken, roof party tumblr adaptogen hashtag heirloom everyday
-              carry vice. Tumblr biodiesel keytar green juice tbh, gentrify
-              vinyl ennui godard squid thundercats shaman microdosing affogato.
+              Jeff’s professional fitness career started in 1994. His philosophy
+              centers on applying a science-based understanding of current
+              training methods in order to facilitate greater health and
+              recovery. Working with Jeff involves focusing on injury
+              prevention, and progressing toward movement patterns.{' '}
             </p>
+            <section className="quote">
+              “I see myself as an educator and a motivator. We all need to
+              understand that there is a process to follow in order to reach any
+              goal. I seek to educate my clients about where their bodies are in
+              the moment, and what it will take to reach their desired outcomes.
+              In the end, I want them to understand what we’re doing, why we’re
+              doing it, and where our efforts are taking us.”
+            </section>
           </Card>
         </div>
         <div className="member">
-          <Portrait />
+          <Portrait image={data.trainer1.childImageSharp.fluid} />
           <Card className="cardbio" area="3/1/9/13">
-            <h2>Jane Doe</h2>
+            <h2>Dr. Jeremiah Weber</h2>
+            <LineBreak area="2/5/auto/9" />
             <p>
-              Synth 8-bit plaid vexillologist venmo, kinfolk selvage. Viral
-              shoreditch pop-up, man braid kale chips forage godard swag
-              locavore beard succulents authentic portland echo park. Jean
-              shorts readymade williamsburg vexillologist shabby chic, selfies
-              drinking vinegar twee pickled single-origin coffee live-edge blue
-              bottle. Plaid hashtag kinfolk butcher, selvage unicorn pok pok
-              meggings vice four dollar toast small batch meditation.
-              Asymmetrical pitchfork beard sriracha leggings pinterest seitan
-              snackwave brunch narwhal williamsburg. Sartorial snackwave swag
-              hot chicken, roof party tumblr adaptogen hashtag heirloom everyday
-              carry vice. Tumblr biodiesel keytar green juice tbh, gentrify
-              vinyl ennui godard squid thundercats shaman microdosing affogato.
+              Jeremiah has been an essential part of our physical therapy,
+              personal training, and athletic development teams since 2011.
+              Since his undergraduate days, he has pursued specialized
+              coursework and training that emphasize evidence-based spinal care
+              and support.
             </p>
+            <section className="quote">
+              As an undergrad, Jeremiah was a member of the men’s varsity hockey
+              team and won a number of honors. He was a four-year member of the
+              NCHA all-academic team, was nominated for NCHA scholar athlete of
+              the year, and was a two-time recipient of the Richard G O’Brien
+              award for outstanding work ethic.
+            </section>
           </Card>
         </div>
         <div className="member">
-          <Portrait />
+          <Portrait image={data.trainer3.childImageSharp.fluid} />
           <Card className="cardbio" area="3/1/9/13">
-            <h2>Jane Doe</h2>
+            <LineBreak area="2/5/auto/9" />
+            <h2>Joe Cripe</h2>
             <p>
-              Synth 8-bit plaid vexillologist venmo, kinfolk selvage. Viral
-              shoreditch pop-up, man braid kale chips forage godard swag
-              locavore beard succulents authentic portland echo park. Jean
-              shorts readymade williamsburg vexillologist shabby chic, selfies
-              drinking vinegar twee pickled single-origin coffee live-edge blue
-              bottle. Plaid hashtag kinfolk butcher, selvage unicorn pok pok
-              meggings vice four dollar toast small batch meditation.
-              Asymmetrical pitchfork beard sriracha leggings pinterest seitan
-              snackwave brunch narwhal williamsburg. Sartorial snackwave swag
-              hot chicken, roof party tumblr adaptogen hashtag heirloom everyday
-              carry vice. Tumblr biodiesel keytar green juice tbh, gentrify
-              vinyl ennui godard squid thundercats shaman microdosing affogato.
+              Joe heads up our athletic development program, and works with
+              athletes of all ages and ranges to help them improve sport
+              performance. As our in-house golf fitness specialist, Joe also
+              provides golf-specific assessments, and strength programming that
+              helps improve golf performance.
             </p>
+            <section className="quote">
+              “My training philosophy focuses on functional, multi-joint
+              movements. I emphasize corrective exercise techniques that help
+              promote injury prevention. This is important for competitive and
+              weekend athletes."
+            </section>
+          </Card>
+        </div>
+        <div className="member">
+          <Portrait image={data.trainer4.childImageSharp.fluid} />
+          <Card className="cardbio" area="3/1/9/13">
+            <LineBreak area="2/5/auto/9" />
+            <h2>Josh Conlon</h2>
+            <p>
+              Josh has been with Integra since 2013, and has been a professional
+              personal trainer since 2011. Throughout his career, he has sought
+              credentialing and learning opportunities that inform his
+              philosophy around working from a solid base to build a strong
+              body. Beyond personal training, clients also seek him out for
+              support with nutrition, food, and meal creation.
+            </p>
+            <section className="quote">
+              “I believe it’s essential to build the fundamentals of form and
+              function, and to teach healthy living. With clients, I emphasize a
+              progressive approach to developing strength and balance, with
+              special attention to posture and technique.”
+            </section>
+          </Card>
+        </div>
+        <div className="member">
+          <Portrait image={data.trainer5.childImageSharp.fluid} />
+          <Card className="cardbio" area="3/1/9/13">
+            <h2>Luke Schneider</h2>
+            <LineBreak area="2/5/auto/9" />
+            <p>
+              Luke has been studying and practicing kinesiology since 2010. He
+              applies and evidence-based progression to strength training and
+              muscle growth, with a focus on movement patterns, mobility
+              restoration, corrective exercise, and senior fitness.{' '}
+            </p>
+            <section className="quote">
+              “I believe health and fitness should be taught as a lifestyle, and
+              should be something that people implement for the rest of our
+              lives. When working with my clients, I like to mix things up
+              during workouts. This includes a synergy of strength,
+              cardiovascular, balance, and flexibility training. Together, I see
+              these as the essential elements for preventing musculoskeletal
+              injury, and maintaining a healthy heart and metabolism.”
+            </section>
           </Card>
         </div>
       </Team>
@@ -352,10 +445,20 @@ const PhysicalTherapy = ({ data, location }) => {
 
 export default PhysicalTherapy
 
+// export const fluidImage = graphql`
+//   fragment fluidImage on File {
+//     childImageSharp {
+//       fluid(maxWidth: 1200, maxHeight: 800, quality: 90, cropFocus: CENTER) {
+//         ...GatsbyImageSharpFluid
+//       }
+//     }
+//   }
+// `
+
 export const fluidImage = graphql`
   fragment fluidImage on File {
     childImageSharp {
-      fluid(maxWidth: 1200, maxHeight: 800, quality: 90, cropFocus: CENTER) {
+      fluid(maxWidth: 800, quality: 40, cropFocus: CENTER) {
         ...GatsbyImageSharpFluid
       }
     }
@@ -364,7 +467,11 @@ export const fluidImage = graphql`
 export const pageQuery = graphql`
   query {
     heroImage: file(relativePath: { eq: "personaltraining.jpg" }) {
-      ...fluidImage
+      childImageSharp {
+        fluid(maxWidth: 1200, maxHeight: 800, quality: 90, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
     }
     trainAboutImage: file(relativePath: { eq: "run_up.jpg" }) {
       childImageSharp {
@@ -377,6 +484,22 @@ export const pageQuery = graphql`
           ...GatsbyImageSharpFluid
         }
       }
+    }
+
+    trainer1: file(relativePath: { eq: "dr_jeremiahW.png" }) {
+      ...fluidImage
+    }
+    trainer2: file(relativePath: { eq: "jeff.png" }) {
+      ...fluidImage
+    }
+    trainer3: file(relativePath: { eq: "joeC.png" }) {
+      ...fluidImage
+    }
+    trainer4: file(relativePath: { eq: "Josh.png" }) {
+      ...fluidImage
+    }
+    trainer5: file(relativePath: { eq: "luke_schneider.png" }) {
+      ...fluidImage
     }
   }
 `
