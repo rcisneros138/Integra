@@ -11,7 +11,7 @@ const HeaderLinks = ({ menuLinks, location }) => {
 
   useEffect(() => {
     setLinks(headerLinks(location))
-  }, [navLinks])
+  })
 
   function headerLinks(location) {
     switch (location.pathname) {

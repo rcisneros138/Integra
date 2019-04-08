@@ -89,7 +89,7 @@ class Layout extends React.Component {
             />
 
             {this.childrenWithProps}
-            {/* <Footer isMobile={this.state.isMobile} /> */}
+            <Footer isMobile={this.state.isMobile} />
           </>
         )}
       />
