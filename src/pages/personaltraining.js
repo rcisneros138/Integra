@@ -121,9 +121,10 @@ const Team = styled(Element)`
       font-family: Roboto;
       font-style: normal;
       font-weight: 500;
-      font-size: 2.25em;
+      font-size: ${props => (props.isMobile ? '1em' : '2.25')};
       margin: 5em;
       color: #8b8888;
+
       @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
         font-size: 1vw;
       }
@@ -136,6 +137,7 @@ const Team = styled(Element)`
       font-weight: 100;
       margin-top: 0;
       margin: 6em;
+      font-size: ${props => (props.isMobile ? '1em' : '2.25')};
     }
   }
 
@@ -171,7 +173,7 @@ const Team = styled(Element)`
         color: #8b8888;
         font-weight: 100;
         margin-top: 0;
-        height: 1em;
+        /* height: ${props => !props.isMobile && '1em'}; */
       }
       .quote {
         font-style: italic;
@@ -365,14 +367,14 @@ const PhysicalTherapy = ({ data, location }) => {
               Since his undergraduate days, he has pursued specialized
               coursework and training that emphasize evidence-based spinal care
               and support.
-            </p>
-            <section className="quote">
+              <br />
+              <br />
               As an undergrad, Jeremiah was a member of the men’s varsity hockey
               team and won a number of honors. He was a four-year member of the
               NCHA all-academic team, was nominated for NCHA scholar athlete of
               the year, and was a two-time recipient of the Richard G O’Brien
               award for outstanding work ethic.
-            </section>
+            </p>
           </Card>
         </div>
         <div className="member">
