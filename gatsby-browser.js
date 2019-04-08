@@ -5,8 +5,3 @@
  */
 
 // You can delete this file if you're not using it
-export const onClientEntry = async () => {
-  if (typeof window === `undefined`) {
-    await import(`intersection-observer`)
-  }
-}

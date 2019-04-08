@@ -41,7 +41,7 @@ const Hero = styled.div`
     height: 100vmin;
   }
 `
-const Mission = styled(Element)`
+const Mission = styled.div`
   height: auto;
   display: grid;
   grid-gap: 0 2.25em;
@@ -72,7 +72,7 @@ const Mission = styled(Element)`
     }
   }
 `
-const Info = styled(Element)`
+const Info = styled.div`
   margin: ${props => (props.isMobile ? '0' : '5em')};
   .collapseText {
     margin: 5em;
@@ -113,7 +113,7 @@ const LineBreak = styled.hr`
   background-color: #0071fe;
 `
 
-const Team = styled(Element)`
+const Team = styled.div`
   height: auto;
   .teamheader {
     h1 {
@@ -220,7 +220,7 @@ const PhysicalTherapy = ({ data, location }) => {
           </Fade>
         </div>
       </Hero>
-      <Mission name="mission" isMobile={isMobile}>
+      <Mission name="mission" {...isMobile}>
         <Img
           className="backgroundTrain"
           fluid={data.trainAboutImage.childImageSharp.fluid}
