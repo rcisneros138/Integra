@@ -11,7 +11,6 @@ import HeaderLinks from '../components/headerLinks'
 import Facebook from './svg/facebook'
 import Instagram from './svg/insta'
 import Twitter from './svg/twitter'
-import { LinkError } from 'apollo-link/lib/linkUtils'
 
 const PhoneSection = styled.div`
   h1 {
@@ -75,7 +74,7 @@ const scrollingNavTheme = {
   fontColor: `#3A3A3A`,
 }
 
-const Header = ({ isMobile, location }) => {
+const Header = ({ isMobile, location, links }) => {
   const [topOfPage, toggleIsTop] = useState(true)
   const [navOpen, toggleNavOpen] = useState(false)
 
@@ -101,16 +100,7 @@ const Header = ({ isMobile, location }) => {
         query SiteMenuData {
           site {
             siteMetadata {
-              menuLinks {
-                index {
-                  name
-                  link
-                }
-                training {
-                  name
-                  link
-                }
-              }
+              title
             }
           }
         }
@@ -141,10 +131,7 @@ const Header = ({ isMobile, location }) => {
                     menuToggle={() => toggleNavOpen(prevState => !prevState)}
                   />
                 )}
-                <HeaderLinks
-                  menuLinks={data.site.siteMetadata.menuLinks}
-                  location={location}
-                />
+                <HeaderLinks menuLinks={links} location={location} />
               </NavItems>
               <SocialMedia isMobile={isMobile}>
                 <a href="https://www.facebook.com/integrapt2/">

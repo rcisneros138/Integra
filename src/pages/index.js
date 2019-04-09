@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
@@ -11,9 +12,9 @@ import GridLayout from '../components/siteWrapper'
 
 import { GroupedObservable } from 'rxjs'
 
-const IndexPage = ({ location }) => {
+const IndexPage = ({ location, data }) => {
   return (
-    <Layout location={location}>
+    <Layout location={location} links={data.site.siteMetadata.menuLinks.index}>
       <Hero />
       <Programs />
       <Dare />
@@ -25,3 +26,18 @@ const IndexPage = ({ location }) => {
 }
 
 export default IndexPage
+
+export const pageQuery = graphql`
+  query PageMenuItems {
+    site {
+      siteMetadata {
+        menuLinks {
+          index {
+            name
+            link
+          }
+        }
+      }
+    }
+  }
+`

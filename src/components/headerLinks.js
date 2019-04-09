@@ -6,23 +6,23 @@ const StyledLink = styled(Link)`
   cursor: pointer;
 `
 
-const HeaderLinks = ({ menuLinks, location }) => {
+const HeaderLinks = ({ menuLinks }) => {
   const [navLinks, setLinks] = useState([])
 
   useEffect(() => {
-    setLinks(headerLinks(location))
-  })
+    menuLinks !== 'undefined' && setLinks(menuLinks)
+  }, [menuLinks])
 
-  function headerLinks(location) {
-    switch (location.pathname) {
-      case '/':
-        return menuLinks.index
-      case '/personaltraining/':
-        return menuLinks.training
-      //   case 'physicaltherapy':
-      //     return
-    }
-  }
+  // function headerLinks(location) {
+  //   switch (location.pathname) {
+  //     case '/':
+  //       return menuLinks.index
+  //     case '/personaltraining/':
+  //       return menuLinks.training
+  //     //   case 'physicaltherapy':
+  //     //     return
+  //   }
+  // }
   return (
     <>
       {navLinks.map(link => (

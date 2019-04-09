@@ -200,7 +200,10 @@ const PhysicalTherapy = ({ data, location }) => {
   const isMobile = useMobile(false)
 
   return (
-    <Layout location={location}>
+    <Layout
+      location={location}
+      links={data.site.siteMetadata.menuLinks.training}
+    >
       <Hero>
         <Img
           fluid={data.heroImage.childImageSharp.fluid}
@@ -466,8 +469,20 @@ export const fluidImage = graphql`
     }
   }
 `
+
 export const pageQuery = graphql`
   query {
+    site {
+      siteMetadata {
+        menuLinks {
+          training {
+            name
+            link
+          }
+        }
+      }
+    }
+
     heroImage: file(relativePath: { eq: "personaltraining.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1200, maxHeight: 800, quality: 90, cropFocus: CENTER) {

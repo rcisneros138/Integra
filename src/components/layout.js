@@ -50,7 +50,7 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { children } = this.props
+    const { children, links } = this.props
     this.childrenWithProps = React.Children.map(children, child =>
       React.cloneElement(child, {
         isMobile: this.state.isMobile,
@@ -86,6 +86,7 @@ class Layout extends React.Component {
               siteTitle={data.site.siteMetadata.title}
               isMobile={this.state.isMobile}
               location={this.props.location}
+              links={links}
             />
 
             {this.childrenWithProps}
