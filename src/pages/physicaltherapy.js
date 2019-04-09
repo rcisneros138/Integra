@@ -51,11 +51,19 @@ const Mission = styled.div`
     grid-area: 1/1/9/13;
   }
   h1 {
-    grid-area: 2/3/4/11;
+    grid-area: 2/3/3/11;
     text-align: center;
     font-weight: 300;
     letter-spacing: 0.05em;
     font-size: ${props => (props.isMobile ? '1em' : '5em')};
+    color: #f9f9f9;
+  }
+  h2 {
+    grid-area: 3/3/4/11;
+    text-align: center;
+    font-weight: 100;
+    letter-spacing: 0.05em;
+    font-size: ${props => (props.isMobile ? '1em' : '2em')};
     color: #f9f9f9;
   }
   p {
@@ -66,7 +74,7 @@ const Mission = styled.div`
     /* text-align: center; */
     line-height: 2em;
     margin: 2vw;
-    font-size: ${props => (props.isMobile ? '1em' : '1.5em')};
+    font-size: ${props => (props.isMobile ? '1em' : '2em')};
     @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
       font-size: 1vw !important;
     }
@@ -196,7 +204,7 @@ const Team = styled.div`
   }
 `
 
-const PersonalTraining = ({ data, location }) => {
+const PhysicalTherapy = ({ data, location }) => {
   const isMobile = useMobile(false)
 
   return (
@@ -218,41 +226,37 @@ const PersonalTraining = ({ data, location }) => {
         />
         <div className="heroText">
           <Fade bottom>
-            <h1>Personal</h1>
-            <h1>Training</h1>
+            <h1>Physical</h1>
+            <h1>Therapy</h1>
           </Fade>
         </div>
       </Hero>
       <Mission name="mission" {...isMobile}>
         <Img
           className="backgroundTrain"
-          fluid={data.trainAboutImage.childImageSharp.fluid}
+          fluid={data.aboutImage.childImageSharp.fluid}
           style={{
             width: '100%',
             height: 'auto',
             zIndex: -1,
           }}
         />
-        <h1>Dont Just "Live With It"</h1>
+        <h1>Personalized Care and Physical Therapy</h1>
+        <h2> Right Here in Fox Point</h2>
         <p>
-          Maybe you’ve been working out for a while, and want to reach the next
-          level. Or you’re wrapping up physical therapy, and want to hone your
-          technique as you get back in the game. It might be that you’ve
-          exercising for the first time in a long time, and want to make sure
-          you’re doing things the right way. No matter what brings you to
-          Integra, our team of health professions is ready to help you reach
-          personal training goals. <br />
-          Nothing in life happens “just because.” Our integrated approach helps
-          us take the guesswork out of your physical health, and what’s going on
-          with your body. As a personal training client, you receive a
-          complimentary orthopedic assessment from one of our staff doctors of
-          physical therapy (DPT). This assessment helps you see the links
-          between old injuries, imprecise movements, lack of physical activity,
-          muscle atrophy, physical limitations, and pain.
-          <br /> From there, we identify areas of strength and weakness, ways
-          that your body is compensating, and any asymmetry that’s holding you
-          back. We use this base of knowledge to inform an exercise program that
-          flows safely around you and your goals.
+          Battling back from an injury, and avoiding new injuries, can be
+          difficult and confusing. For plenty of people, physical therapy feels
+          like you’re taking two steps back, rather than moving forward. Since
+          2004, Integra has taken the right steps with clients of all ages and
+          abilities Every day, we work with a wide range of people, from those
+          taking their first steps toward physical recovery, to others who are
+          ready to return to the game. It’s our pleasure to help you get back on
+          track—no matter what track you’re on. We’re doctors and career health
+          professionals Our physical therapy team uses current scientific
+          research, and applies clinical and technical expertise, toward helping
+          you achieve your physical therapy and rehabilitation goals safely and
+          efficiently. Get more out of physical therapy with evidence-based
+          techniques
         </p>
       </Mission>
       <Info name="about" isMobile={isMobile}>
@@ -421,7 +425,7 @@ const PersonalTraining = ({ data, location }) => {
             </section>
           </Card>
         </div>
-        <div className="member">
+        {/* <div className="member">
           <Portrait image={data.trainer5.childImageSharp.fluid} />
           <Card className="cardbio" area="3/1/9/13">
             <h2>Luke Schneider</h2>
@@ -442,13 +446,13 @@ const PersonalTraining = ({ data, location }) => {
               injury, and maintaining a healthy heart and metabolism.”
             </section>
           </Card>
-        </div>
+        </div> */}
       </Team>
     </Layout>
   )
 }
 
-export default PersonalTraining
+export default PhysicalTherapy
 
 // export const fluidImage = graphql`
 //   fragment fluidImage on File {
@@ -461,7 +465,7 @@ export default PersonalTraining
 // `
 
 export const fluidImage = graphql`
-  fragment fluidImage on File {
+  fragment fluidImage_pt on File {
     childImageSharp {
       fluid(maxWidth: 800, quality: 40, cropFocus: CENTER) {
         ...GatsbyImageSharpFluid
@@ -483,17 +487,17 @@ export const pageQuery = graphql`
       }
     }
 
-    heroImage: file(relativePath: { eq: "personaltraining.jpg" }) {
+    heroImage: file(relativePath: { eq: "physicalTherapyTable.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1200, maxHeight: 800, quality: 90, cropFocus: CENTER) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    trainAboutImage: file(relativePath: { eq: "run_up.jpg" }) {
+    aboutImage: file(relativePath: { eq: "physicalTherapy_mission.jpg" }) {
       childImageSharp {
         fluid(
-          maxWidth: 1200
+          maxWidth: 2000
           quality: 90
           cropFocus: CENTER
           duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 70 }
@@ -503,16 +507,16 @@ export const pageQuery = graphql`
       }
     }
 
-    trainer1: file(relativePath: { eq: "dr_jeremiahW.png" }) {
+    trainer1: file(relativePath: { eq: "dr_smith.png" }) {
       ...fluidImage
     }
-    trainer2: file(relativePath: { eq: "jeff.png" }) {
+    trainer2: file(relativePath: { eq: "dr_erikB.png" }) {
       ...fluidImage
     }
-    trainer3: file(relativePath: { eq: "joeC.png" }) {
+    trainer3: file(relativePath: { eq: "dr_jeremiahW.png" }) {
       ...fluidImage
     }
-    trainer4: file(relativePath: { eq: "Josh.png" }) {
+    trainer4: file(relativePath: { eq: "johnH.png" }) {
       ...fluidImage
     }
     trainer5: file(relativePath: { eq: "luke_schneider.png" }) {
