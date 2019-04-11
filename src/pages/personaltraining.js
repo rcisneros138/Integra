@@ -148,12 +148,12 @@ const Team = styled.div`
     grid-template-rows: repeat(8, 1fr);
     .imagewrap {
       grid-area: 1/6/4/8;
-      padding-top: 6.5em;
+      padding-top: 5em;
     }
 
     .cardbio {
       h2 {
-        margin-top: ${props => (props.isMobile ? '4em' : '4.5em')};
+        margin-top: 4em;
         grid-column: 3/11;
         font-family: Roboto;
         font-style: normal;
@@ -166,19 +166,20 @@ const Team = styled.div`
         }
       }
       p {
-        grid-column: 3/11;
+        grid-column: 4/10;
         font-family: Roboto;
         line-height: 1.5em;
         text-align: justify;
         color: #8b8888;
         font-weight: 100;
         margin-top: 0;
+        font-size:0.75em;
         /* height: ${props => !props.isMobile && '1em'}; */
       }
       .quote {
         font-style: italic;
-        font-size: 1.25vw;
-        grid-column: 3/11;
+        font-size: 1vw;
+        grid-column: 4/10;
         font-family: Roboto;
         line-height: 1.5em;
         text-align: justify;

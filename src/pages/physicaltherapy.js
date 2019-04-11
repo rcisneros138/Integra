@@ -12,6 +12,7 @@ import Portrait from '../components/memberPortrait'
 
 import Ribbon from '../components/svg/ribbon'
 import { useMobile } from '../helpers'
+import { bold } from 'ansi-colors'
 
 const Hero = styled.div`
   height: 70vh;
@@ -87,6 +88,17 @@ const Info = styled.div`
     display: inline-block;
     width: 70vw;
   }
+  .list {
+    li {
+      .listTitle {
+        font-weight: bold;
+      }
+      .listBody {
+        font-size: 1.5em;
+        margin-left: 0.5em;
+      }
+    }
+  }
   p {
     font-family: Roboto;
     font-size: ${props => (props.isMobile ? '1em' : '1.5em')};
@@ -156,7 +168,7 @@ const Team = styled.div`
     grid-template-rows: repeat(8, 1fr);
     .imagewrap {
       grid-area: 1/6/4/8;
-      padding-top: 6.5em;
+      padding-top: 5em;
     }
 
     .cardbio {
@@ -260,66 +272,117 @@ const PhysicalTherapy = ({ data, location }) => {
         </p>
       </Mission>
       <Info name="about" isMobile={isMobile}>
-        <Panel name="We Prepare Your Body For Movement">
+        <Panel name="Evidence-based care is the core of our conditioning philosophy.">
+          <div className="collapseText">
+            <ul className="list">
+              <li>
+                <p className="listTitle">Using clinical research</p>
+                <p className="listBody">
+                  Science is constantly evolving when it comes to physical
+                  therapy, conditioning, and training. Our professionals pair
+                  traditional exercise methods with new discoveries as we stay
+                  adaptable to the ever-changing nature of recovery.
+                </p>
+              </li>
+              <li>
+                <p className="listTitle">
+                  Pairing you with experienced health practitioners
+                </p>
+                <p className="listBody">
+                  With Integra, physical therapy is a personalized relationship
+                  between you and our staff doctors. You won’t be working with
+                  rehab aids, or intro-level therapy technicians. We live and
+                  breathe our work, and are constantly finding new ways to bring
+                  you more.
+                </p>
+              </li>
+              <li>
+                <p className="listTitle">
+                  Staying true to your personal values and goals
+                </p>
+                <p className="listBody">
+                  When you’re in pain, or recovering from an injury, you don’t
+                  want any hassles or confusion. We listen to your words, and to
+                  your body. Working together, we strive for excellence in the
+                  treatment room, and with at-home exercises we prescribe.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </Panel>
+        <Panel name="We’re strictly dedicated to you and your rehabilitation">
           <div className="collapseText">
             <p>
-              We use a unique evaluation approach to begin you training
-              experience. Here’s how the steps break down: Our doctors of
-              physical therapy (DPTs) are specialists in orthopedics, and
-              conduct your initial training evaluation. This helps us ensure
-              that your exercise experience is safe and specifically tailored to
-              help address what your body needs. Whether you’re an elite
-              athlete, or someone brand new to exercise, expect our DPTs to take
-              you through a joint and strength assessment from head to toe, and
-              point out any issues along the way.  Following your evaluation,
-              our DPTs communicate the information they gather back to your
-              trainer. This core group of professionals will continue to support
-              you while you work with Integra. If there’s an exercise that might
-              help with anything we find during your evaluation, your evaluating
-              therapist will offer home exercises to help kick start your
-              training experience.  
+              There’s no such thing as having “the same injury” as someone else.
+              Every injury, like every situation, is unique. We tune in to your
+              physical needs A number of focus areas inform and guide our
+              approach:
+            </p>
+            <ul className="list">
+              <li>
+                <p className="listTitle">
+                  The circumstances that surround your injury
+                </p>
+              </li>
+              <li>
+                <p className="listTitle">Your medical and physical history </p>
+              </li>
+              <li>
+                <p className="listTitle">Your current physical situation</p>
+              </li>
+              <li>
+                <p className="listTitle">Your recovery timeline and goals </p>
+              </li>
+            </ul>
+            <p>
+              In the end, your body has the loudest say when it comes to the
+              methods of care we follow.
             </p>
           </div>
         </Panel>
-        <Panel name="We Prepare Your Body For Movement">
+        <Panel name="Dry needling: one of many effective approaches we use">
           <div className="collapseText">
             <p>
-              We use a unique evaluation approach to begin you training
-              experience. Here’s how the steps break down: Our doctors of
-              physical therapy (DPTs) are specialists in orthopedics, and
-              conduct your initial training evaluation. This helps us ensure
-              that your exercise experience is safe and specifically tailored to
-              help address what your body needs. Whether you’re an elite
-              athlete, or someone brand new to exercise, expect our DPTs to take
-              you through a joint and strength assessment from head to toe, and
-              point out any issues along the way.  Following your evaluation,
-              our DPTs communicate the information they gather back to your
-              trainer. This core group of professionals will continue to support
-              you while you work with Integra. If there’s an exercise that might
-              help with anything we find during your evaluation, your evaluating
-              therapist will offer home exercises to help kick start your
-              training experience.  
+              Used to treat trigger points, or “muscle knots” within the muscle
+              tissue, dry needling can reduce neuromuscular tone, soften muscle
+              tension, and help facilitate recovery.
+            </p>
+            <p>With your consent, we use dry needling to:  </p>
+            <ul className="list">
+              <li>
+                <p className="listTitle">
+                  Improve the overall movement and function of an affected area{' '}
+                </p>
+              </li>
+              <li>
+                <p className="listTitle">
+                  Allow for more efficient muscle response
+                </p>
+              </li>
+              <li>
+                <p className="listTitle">
+                  Lead to an improved response to therapy and exercise
+                </p>
+              </li>
+            </ul>
+            <p>
+              Dry needling is fast-acting, but it’s not a quick fix Using dry
+              needling as a stand-alone remedy is short-sighted. At Integra, we
+              use dry needling to facilitate movement, and always pair it with
+              another form of manual therapy, exercise prescription, or
+              one-on-one attention
             </p>
           </div>
         </Panel>
-        <Panel name="We Prepare Your Body For Movement">
+        <Panel name="You hold the key">
           <div className="collapseText">
             <p>
-              We use a unique evaluation approach to begin you training
-              experience. Here’s how the steps break down: Our doctors of
-              physical therapy (DPTs) are specialists in orthopedics, and
-              conduct your initial training evaluation. This helps us ensure
-              that your exercise experience is safe and specifically tailored to
-              help address what your body needs. Whether you’re an elite
-              athlete, or someone brand new to exercise, expect our DPTs to take
-              you through a joint and strength assessment from head to toe, and
-              point out any issues along the way.  Following your evaluation,
-              our DPTs communicate the information they gather back to your
-              trainer. This core group of professionals will continue to support
-              you while you work with Integra. If there’s an exercise that might
-              help with anything we find during your evaluation, your evaluating
-              therapist will offer home exercises to help kick start your
-              training experience.  
+              Physical therapy is a team effort—and you’re the most important
+              member of the squad. Think of us as your high-level movement
+              specialists and coaches. But the desire must come from you. Find
+              the tools, cues, and techniques to empower your recovery. Contact
+              Integra to schedule a consultation and physical assessment. We’ll
+              take the next step in your physical therapy with you.
             </p>
           </div>
         </Panel>
@@ -330,15 +393,14 @@ const PhysicalTherapy = ({ data, location }) => {
         <LineBreak area="4/9/8/12" />
       </Logos>
 
-      <Team name="our trainers">
+      <Team name="Our Therapists">
         <div className="teamheader">
-          <h1>Accredited, certified, and always professional</h1>
+          <h1>A We’re doctors and career health professionals</h1>
           <h2>
-            Our personal trainers are experts, and have been doing this a long
-            time. We each carry a minimum four-year degree, along with national
-            certifications. Working together, we follow through on an
-            integrated, evidenced-based personal training approach designed to
-            help you get the most out of your experience.
+            Our physical therapy team uses current scientific research, and
+            applies clinical and technical expertise, toward helping you achieve
+            your physical therapy and rehabilitation goals safely and
+            efficiently.
           </h2>
         </div>
         <div className="member">
@@ -453,16 +515,6 @@ const PhysicalTherapy = ({ data, location }) => {
 }
 
 export default PhysicalTherapy
-
-// export const fluidImage = graphql`
-//   fragment fluidImage on File {
-//     childImageSharp {
-//       fluid(maxWidth: 1200, maxHeight: 800, quality: 90, cropFocus: CENTER) {
-//         ...GatsbyImageSharpFluid
-//       }
-//     }
-//   }
-// `
 
 export const fluidImage = graphql`
   fragment fluidImage_pt on File {
