@@ -38,6 +38,42 @@ module.exports = {
           link: '/page-2',
         },
       ],
+      therapy: [
+        {
+          name: 'mission',
+          link: '/',
+        },
+        {
+          name: 'about',
+          link: '/page-2',
+        },
+        {
+          name: 'our therapists',
+          link: '/page-2',
+        },
+        {
+          name: 'contact',
+          link: '/page-2',
+        },
+      ],
+      massage: [
+        {
+          name: 'mission',
+          link: '/',
+        },
+        {
+          name: 'about',
+          link: '/page-2',
+        },
+        {
+          name: 'our therapists',
+          link: '/page-2',
+        },
+        {
+          name: 'contact',
+          link: '/page-2',
+        },
+      ],
     },
   },
 

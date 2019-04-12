@@ -1,9 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { Link, graphql } from 'gatsby'
-import styled from 'styled-components'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
-import { Element } from 'react-scroll'
+
+import {
+  Hero,
+  Mission,
+  Info,
+  Logos,
+  LineBreak,
+  Team,
+} from '../components/styles/programStyles'
 
 import Layout from '../components/layout'
 import Panel from '../components/panel'
@@ -14,218 +21,16 @@ import Ribbon from '../components/svg/ribbon'
 import { useMobile } from '../helpers'
 import { bold } from 'ansi-colors'
 
-const Hero = styled.div`
-  height: 70vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  h1 {
-    font-weight: 100;
-
-    font-size: 9vmin;
-    color: #f9f9f9;
-    margin: 0;
-    letter-spacing: 0.02em;
-    line-height: 1.5em;
-    font-weight: 300;
-  }
-  .heroText {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: absolute;
-    height: 100vmin;
-  }
-`
-const Mission = styled.div`
-  height: auto;
-  display: grid;
-  grid-gap: 0 2.25em;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-  .backgroundTrain {
-    grid-area: 1/1/9/13;
-  }
-  h1 {
-    grid-area: 2/3/3/11;
-    text-align: center;
-    font-weight: 300;
-    letter-spacing: 0.05em;
-    font-size: ${props => (props.isMobile ? '1em' : '5em')};
-    color: #f9f9f9;
-  }
-  h2 {
-    grid-area: 3/3/4/11;
-    text-align: center;
-    font-weight: 100;
-    letter-spacing: 0.05em;
-    font-size: ${props => (props.isMobile ? '1em' : '2em')};
-    color: #f9f9f9;
-  }
-  p {
-    grid-area: 4/2/8/12;
-    font-weight: 100;
-    font-family: roboto;
-    color: #f9f9f9;
-    /* text-align: center; */
-    line-height: 2em;
-    margin: 2vw;
-    font-size: ${props => (props.isMobile ? '1em' : '2em')};
-    @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
-      font-size: 1vw !important;
-    }
-  }
-`
-const Info = styled.div`
-  margin: ${props => (props.isMobile ? '0' : '5em')};
-  .collapseText {
-    margin: 5em;
-    display: inline-block;
-    width: 70vw;
-  }
-  .list {
-    li {
-      .listTitle {
-        font-weight: bold;
-      }
-      .listBody {
-        font-size: 1.5em;
-        margin-left: 0.5em;
-      }
-    }
-  }
-  p {
-    font-family: Roboto;
-    font-size: ${props => (props.isMobile ? '1em' : '1.5em')};
-    font-weight: 400;
-    color: #6a757c;
-    margin: auto;
-    line-height: 1.5em;
-    text-align: left;
-    font-weight: 100;
-  }
-`
-const Logos = styled.div`
-  display: grid;
-  grid-gap: 0 2.25em;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-  height: 70vh;
-
-  .rib {
-    grid-area: 2/5/8/9;
-  }
-`
-
-const LineBreak = styled.hr`
-  grid-area: ${props => props.area};
-  display: block;
-  height: 0.1em;
-  border: 0;
-  margin: 1em 0;
-  padding: 0;
-  color: #0071fe;
-  background-color: #0071fe;
-`
-
-const Team = styled.div`
-  height: auto;
-  .teamheader {
-    h1 {
-      text-align: center;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: 500;
-      font-size: ${props => (props.isMobile ? '1em' : '2.25')};
-      margin: 5em;
-      color: #8b8888;
-
-      @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
-        font-size: 1vw;
-      }
-    }
-    h2 {
-      font-family: Roboto;
-      line-height: 1.5em;
-      text-align: center;
-      color: #8b8888;
-      font-weight: 100;
-      margin-top: 0;
-      margin: 6em;
-      font-size: ${props => (props.isMobile ? '1em' : '2.25')};
-    }
-  }
-
-  .member {
-    display: grid;
-    height: 90vh;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-    .imagewrap {
-      grid-area: 1/6/4/8;
-      padding-top: 5em;
-    }
-
-    .cardbio {
-      h2 {
-        margin-top: ${props => (props.isMobile ? '4em' : '4.5em')};
-        grid-column: 3/11;
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 2.25em;
-        line-height: 0.07em;
-        color: #8b8888;
-        @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
-          font-size: 1vw;
-        }
-      }
-      p {
-        grid-column: 3/11;
-        font-family: Roboto;
-        line-height: 1.5em;
-        text-align: justify;
-        color: #8b8888;
-        font-weight: 100;
-        margin-top: 0;
-        /* height: ${props => !props.isMobile && '1em'}; */
-      }
-      .quote {
-        font-style: italic;
-        font-size: 1.25vw;
-        grid-column: 3/11;
-        font-family: Roboto;
-        line-height: 1.5em;
-        text-align: justify;
-        color: #8b8888;
-        font-weight: 100;
-        margin-top: 0;
-      }
-      @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
-        font-size: 1vw !important;
-      }
-      @media only screen {
-        font-size: ${props => (props.isMobile ? '3vw' : '1.5em')};
-      }
-    }
-  }
-`
-
 const PhysicalTherapy = ({ data, location }) => {
   const isMobile = useMobile(false)
 
   return (
     <Layout
       location={location}
-      links={data.site.siteMetadata.menuLinks.training}
+      links={data.site.siteMetadata.menuLinks.therapy}
     >
       <Hero>
-        {/* <Img
+        <Img
           fluid={data.heroImage.childImageSharp.fluid}
           style={{
             position: 'absolute',
@@ -235,7 +40,7 @@ const PhysicalTherapy = ({ data, location }) => {
             height: '70vh',
             zIndex: -1,
           }}
-        /> */}
+        />
         <div className="heroText">
           <Fade bottom>
             <h1>Physical</h1>
@@ -244,7 +49,7 @@ const PhysicalTherapy = ({ data, location }) => {
         </div>
       </Hero>
       <Mission name="mission" {...isMobile}>
-        {/* <Img
+        <Img
           className="backgroundTrain"
           fluid={data.aboutImage.childImageSharp.fluid}
           style={{
@@ -252,7 +57,7 @@ const PhysicalTherapy = ({ data, location }) => {
             height: 'auto',
             zIndex: -1,
           }}
-        /> */}
+        />
         <h1>Personalized Care and Physical Therapy</h1>
         <h2> Right Here in Fox Point</h2>
         <p>
@@ -393,7 +198,7 @@ const PhysicalTherapy = ({ data, location }) => {
         <LineBreak area="4/9/8/12" />
       </Logos>
 
-      <Team name="Our Therapists">
+      <Team name="our therapists">
         <div className="teamheader">
           <h1>A We’re doctors and career health professionals</h1>
           <h2>
@@ -404,32 +209,49 @@ const PhysicalTherapy = ({ data, location }) => {
           </h2>
         </div>
         <div className="member">
-          {/* <Portrait image={data.trainer2.childImageSharp.fluid} /> */}
+          <Portrait image={data.trainer2.childImageSharp.fluid} />
           <Card className="cardbio" area="3/1/9/13">
-            <h2>Jeff Konczal</h2>
+            <h2>Dr. Erik Bork</h2>
             <LineBreak area="2/5/auto/9" />
             <p>
-              Jeff’s professional fitness career started in 1994. His philosophy
-              centers on applying a science-based understanding of current
-              training methods in order to facilitate greater health and
-              recovery. Working with Jeff involves focusing on injury
-              prevention, and progressing toward movement patterns.{' '}
+              Erik is like a mechanist in his therapeutic technique, focusing on
+              joint mobility and proper physical mechanics. His treatments
+              combine strong manual therapy, exercise prescription, and a
+              neuromuscular approach in order to restore normal movement. He is
+              especially keen in evaluating and treating shoulder problems.
             </p>
             <section className="quote">
-              “I see myself as an educator and a motivator. We all need to
-              understand that there is a process to follow in order to reach any
-              goal. I seek to educate my clients about where their bodies are in
-              the moment, and what it will take to reach their desired outcomes.
-              In the end, I want them to understand what we’re doing, why we’re
-              doing it, and where our efforts are taking us.”
+              “I emphasize strength and balance, especially when working with
+              older adults. When we can enhance strength and balance, we
+              decrease load and force on joints, ligaments, and afflicted
+              tendons.”
             </section>
           </Card>
         </div>
         <div className="member">
-          {/* <Portrait image={data.trainer1.childImageSharp.fluid} /> */}
+          <Portrait image={data.trainer1.childImageSharp.fluid} />
           <Card className="cardbio" area="3/1/9/13">
-            <h2>Dr. Jeremiah Weber</h2>
+            <h2>Dr. Stephanie Smith</h2>
             <LineBreak area="2/5/auto/9" />
+            <p>
+              Stephanie grew up locally in Germantown, and returned to the
+              Milwaukee-area in 2014. She’s been a member of Integra’s team ever
+              since. In that time, she’s continued to expand her knowledge and
+              skills around treating jaw pain and headaches.
+            </p>
+            <section className="quote">
+              “I enjoy treating people across a variety of ages with
+              non-surgical and post-surgical rehabilitation. I help people
+              attain their personal goals, so they can get back to an activity
+              level they want. “
+            </section>
+          </Card>
+        </div>
+        <div className="member">
+          <Portrait image={data.trainer3.childImageSharp.fluid} />
+          <Card className="cardbio" area="3/1/9/13">
+            <LineBreak area="2/5/auto/9" />
+            <h2>Dr. Jeremiah Weber</h2>
             <p>
               Jeremiah has been an essential part of our physical therapy,
               personal training, and athletic development teams since 2011.
@@ -447,68 +269,22 @@ const PhysicalTherapy = ({ data, location }) => {
           </Card>
         </div>
         <div className="member">
-          {/* <Portrait image={data.trainer3.childImageSharp.fluid} /> */}
-          <Card className="cardbio" area="3/1/9/13">
-            <LineBreak area="2/5/auto/9" />
-            <h2>Joe Cripe</h2>
-            <p>
-              Joe heads up our athletic development program, and works with
-              athletes of all ages and ranges to help them improve sport
-              performance. As our in-house golf fitness specialist, Joe also
-              provides golf-specific assessments, and strength programming that
-              helps improve golf performance.
-            </p>
-            <section className="quote">
-              “My training philosophy focuses on functional, multi-joint
-              movements. I emphasize corrective exercise techniques that help
-              promote injury prevention. This is important for competitive and
-              weekend athletes."
-            </section>
-          </Card>
-        </div>
-        <div className="member">
-          {/* <Portrait image={data.trainer4.childImageSharp.fluid} /> */}
+          <Portrait image={data.trainer4.childImageSharp.fluid} />
           <Card className="cardbio" area="3/1/9/13">
             <LineBreak area="2/5/auto/9" />
             <h2>Josh Conlon</h2>
             <p>
-              Josh has been with Integra since 2013, and has been a professional
-              personal trainer since 2011. Throughout his career, he has sought
-              credentialing and learning opportunities that inform his
-              philosophy around working from a solid base to build a strong
-              body. Beyond personal training, clients also seek him out for
-              support with nutrition, food, and meal creation.
+              When not training, John enjoys riding his bike and spending time
+              with his wife and 3 daughters.
             </p>
-            <section className="quote">
+            {/* <section className="quote">
               “I believe it’s essential to build the fundamentals of form and
               function, and to teach healthy living. With clients, I emphasize a
               progressive approach to developing strength and balance, with
               special attention to posture and technique.”
-            </section>
+            </section> */}
           </Card>
         </div>
-        {/* <div className="member">
-          <Portrait image={data.trainer5.childImageSharp.fluid} />
-          <Card className="cardbio" area="3/1/9/13">
-            <h2>Luke Schneider</h2>
-            <LineBreak area="2/5/auto/9" />
-            <p>
-              Luke has been studying and practicing kinesiology since 2010. He
-              applies and evidence-based progression to strength training and
-              muscle growth, with a focus on movement patterns, mobility
-              restoration, corrective exercise, and senior fitness.{' '}
-            </p>
-            <section className="quote">
-              “I believe health and fitness should be taught as a lifestyle, and
-              should be something that people implement for the rest of our
-              lives. When working with my clients, I like to mix things up
-              during workouts. This includes a synergy of strength,
-              cardiovascular, balance, and flexibility training. Together, I see
-              these as the essential elements for preventing musculoskeletal
-              injury, and maintaining a healthy heart and metabolism.”
-            </section>
-          </Card>
-        </div> */}
       </Team>
     </Layout>
   )
@@ -531,7 +307,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         menuLinks {
-          training {
+          therapy {
             name
             link
           }
@@ -539,40 +315,37 @@ export const pageQuery = graphql`
       }
     }
 
-    # heroImage: file(relativePath: { eq: "physicalTherapyTable.jpg" }) {
-    #   childImageSharp {
-    #     fluid(maxWidth: 1200, maxHeight: 800, quality: 90, cropFocus: CENTER) {
-    #       ...GatsbyImageSharpFluid
-    #     }
-    #   }
-    # }
-    # aboutImage: file(relativePath: { eq: "physicalTherapy_mission.jpg" }) {
-    #   childImageSharp {
-    #     fluid(
-    #       maxWidth: 2000
-    #       quality: 90
-    #       cropFocus: CENTER
-    #       duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 70 }
-    #     ) {
-    #       ...GatsbyImageSharpFluid
-    #     }
-    #   }
-    # }
+    heroImage: file(relativePath: { eq: "physicalTherapyTable.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1200, maxHeight: 800, quality: 90, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    aboutImage: file(relativePath: { eq: "physicalTherapy_mission.jpg" }) {
+      childImageSharp {
+        fluid(
+          maxWidth: 2000
+          quality: 90
+          cropFocus: CENTER
+          duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 70 }
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
 
-    # trainer1: file(relativePath: { eq: "dr_smith.png" }) {
-    #   ...fluidImage
-    # }
-    # trainer2: file(relativePath: { eq: "dr_erikB.png" }) {
-    #   ...fluidImage
-    # }
-    # trainer3: file(relativePath: { eq: "dr_jeremiahW.png" }) {
-    #   ...fluidImage
-    # }
-    # trainer4: file(relativePath: { eq: "johnH.png" }) {
-    #   ...fluidImage
-    # }
-    # trainer5: file(relativePath: { eq: "luke_schneider.png" }) {
-    #   ...fluidImage
-    # }
+    trainer1: file(relativePath: { eq: "dr_smith.png" }) {
+      ...fluidImage
+    }
+    trainer2: file(relativePath: { eq: "dr_erikB.png" }) {
+      ...fluidImage
+    }
+    trainer3: file(relativePath: { eq: "dr_jeremiahW.png" }) {
+      ...fluidImage
+    }
+    trainer4: file(relativePath: { eq: "johnH.png" }) {
+      ...fluidImage
+    }
   }
 `

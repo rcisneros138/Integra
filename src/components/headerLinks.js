@@ -13,16 +13,6 @@ const HeaderLinks = ({ menuLinks }) => {
     menuLinks !== 'undefined' && setLinks(menuLinks)
   })
 
-  // function headerLinks(location) {
-  //   switch (location.pathname) {
-  //     case '/':
-  //       return menuLinks.index
-  //     case '/personaltraining/':
-  //       return menuLinks.training
-  //     //   case 'physicaltherapy':
-  //     //     return
-  //   }
-  // }
   return (
     <>
       {navLinks.map(link => (

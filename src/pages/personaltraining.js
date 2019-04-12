@@ -3,7 +3,15 @@ import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
-import { Element } from 'react-scroll'
+
+import {
+  Hero,
+  Mission,
+  Info,
+  Logos,
+  LineBreak,
+  Team,
+} from '../components/styles/programStyles'
 
 import Layout from '../components/layout'
 import Panel from '../components/panel'
@@ -12,190 +20,6 @@ import Portrait from '../components/memberPortrait'
 
 import Ribbon from '../components/svg/ribbon'
 import { useMobile } from '../helpers'
-
-const Hero = styled.div`
-  height: 70vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  h1 {
-    font-weight: 100;
-
-    font-size: 9vmin;
-    color: #f9f9f9;
-    margin: 0;
-    letter-spacing: 0.02em;
-    line-height: 1.5em;
-    font-weight: 300;
-  }
-  .heroText {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: absolute;
-    height: 100vmin;
-  }
-`
-const Mission = styled.div`
-  height: auto;
-  display: grid;
-  grid-gap: 0 2.25em;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-  .backgroundTrain {
-    grid-area: 1/1/9/13;
-  }
-  h1 {
-    grid-area: 2/3/4/11;
-    text-align: center;
-    font-weight: 300;
-    letter-spacing: 0.05em;
-    font-size: ${props => (props.isMobile ? '1em' : '5em')};
-    color: #f9f9f9;
-  }
-  p {
-    grid-area: 4/2/8/12;
-    font-weight: 100;
-    font-family: roboto;
-    color: #f9f9f9;
-    /* text-align: center; */
-    line-height: 2em;
-    margin: 2vw;
-    font-size: ${props => (props.isMobile ? '1em' : '1.5em')};
-    @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
-      font-size: 1vw !important;
-    }
-  }
-`
-const Info = styled.div`
-  margin: ${props => (props.isMobile ? '0' : '5em')};
-  .collapseText {
-    margin: 5em;
-    display: inline-block;
-    width: 70vw;
-  }
-  p {
-    font-family: Roboto;
-    font-size: ${props => (props.isMobile ? '1em' : '1.5em')};
-    font-weight: 400;
-    color: #6a757c;
-    margin: auto;
-    line-height: 1.5em;
-    text-align: left;
-    font-weight: 100;
-  }
-`
-const Logos = styled.div`
-  display: grid;
-  grid-gap: 0 2.25em;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-  height: 70vh;
-
-  .rib {
-    grid-area: 2/5/8/9;
-  }
-`
-
-const LineBreak = styled.hr`
-  grid-area: ${props => props.area};
-  display: block;
-  height: 0.1em;
-  border: 0;
-  margin: 1em 0;
-  padding: 0;
-  color: #0071fe;
-  background-color: #0071fe;
-`
-
-const Team = styled.div`
-  height: auto;
-  .teamheader {
-    h1 {
-      text-align: center;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: 500;
-      font-size: ${props => (props.isMobile ? '1em' : '2.25')};
-      margin: 5em;
-      color: #8b8888;
-
-      @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
-        font-size: 1vw;
-      }
-    }
-    h2 {
-      font-family: Roboto;
-      line-height: 1.5em;
-      text-align: center;
-      color: #8b8888;
-      font-weight: 100;
-      margin-top: 0;
-      margin: 6em;
-      font-size: ${props => (props.isMobile ? '1em' : '2.25')};
-    }
-  }
-
-  .member {
-    display: grid;
-    height: 90vh;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-    .imagewrap {
-      grid-area: 1/6/4/8;
-      padding-top: 5em;
-    }
-
-    .cardbio {
-      h2 {
-        margin-top: 4em;
-        grid-column: 3/11;
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 2.25em;
-        line-height: 0.07em;
-        color: #8b8888;
-        @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
-          font-size: 1vw;
-        }
-      }
-      p {
-        grid-column: 4/10;
-        font-family: Roboto;
-        line-height: 1.5em;
-        text-align: justify;
-        color: #8b8888;
-        font-weight: 100;
-        margin-top: 0;
-        font-size:0.75em;
-        /* height: ${props => !props.isMobile && '1em'}; */
-      }
-      .quote {
-        font-style: italic;
-        font-size: 1vw;
-        grid-column: 4/10;
-        font-family: Roboto;
-        line-height: 1.5em;
-        text-align: justify;
-        color: #8b8888;
-        font-weight: 100;
-        margin-top: 0;
-      }
-      @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
-        font-size: 1vw !important;
-      }
-      @media only screen {
-        font-size: ${props => (props.isMobile ? '3vw' : '1.5em')};
-      }
-    }
-  }
-`
 
 const PersonalTraining = ({ data, location }) => {
   const isMobile = useMobile(false)
@@ -257,66 +81,205 @@ const PersonalTraining = ({ data, location }) => {
         </p>
       </Mission>
       <Info name="about" isMobile={isMobile}>
-        <Panel name="We Prepare Your Body For Movement">
+        <Panel name="Demystify aches, pains, and points of concern">
           <div className="collapseText">
             <p>
-              We use a unique evaluation approach to begin you training
-              experience. Here’s how the steps break down: Our doctors of
-              physical therapy (DPTs) are specialists in orthopedics, and
-              conduct your initial training evaluation. This helps us ensure
-              that your exercise experience is safe and specifically tailored to
-              help address what your body needs. Whether you’re an elite
-              athlete, or someone brand new to exercise, expect our DPTs to take
-              you through a joint and strength assessment from head to toe, and
-              point out any issues along the way.  Following your evaluation,
-              our DPTs communicate the information they gather back to your
-              trainer. This core group of professionals will continue to support
-              you while you work with Integra. If there’s an exercise that might
-              help with anything we find during your evaluation, your evaluating
-              therapist will offer home exercises to help kick start your
-              training experience.  
+              Nothing in life happens “just because.” Our integrated approach
+              helps us take the guesswork out of your physical health, and
+              what’s going on with your body.  
+            </p>
+            <br />
+            <p>
+              As a personal training client, you receive a complimentary
+              orthopedic assessment from one of our staff doctors of physical
+              therapy (DPT). This assessment helps you see the links between old
+              injuries, imprecise movements, lack of physical activity, muscle
+              atrophy, physical limitations, and pain.
+            </p>
+            <br />
+            <p>
+              From there, we identify areas of strength and weakness, ways that
+              your body is compensating, and any asymmetry that’s holding you
+              back. We use this base of knowledge to inform an exercise program
+              that flows safely around you and your goals.
+            </p>
+            <br />
+          </div>
+        </Panel>
+        <Panel name="Don’t just “live with it” ">
+          <div className="collapseText">
+            <p>
+              If there’s a change you want to make, personal training with
+              Integra can help you accomplish it. Together, we help you build a
+              blueprint that leads to the results you want, including things
+              like:
+            </p>
+            <ul className="list">
+              <li>
+                <p className="listTitle">
+                  Greater flexibility and range of motion
+                </p>
+              </li>
+              <li>
+                <p className="listTitle">Fewer aches and pains </p>
+              </li>
+              <li>
+                <p className="listTitle">Increased energy and endurance</p>
+              </li>
+              <li>
+                <p className="listTitle">Core strength </p>
+              </li>
+              <li>
+                <p className="listTitle">
+                  Better performance in specific sports or activities
+                </p>
+              </li>
+              <li>
+                <p className="listTitle">Weight loss</p>
+              </li>
+              <li>
+                <p className="listTitle">Improved shape and tone</p>
+              </li>
+            </ul>
+          </div>
+        </Panel>
+        <Panel name="Training evaluation ">
+          <div className="collapseText">
+            <p>
+              We use a unique evaluation approach to begin you training
+              experience. Here’s how the steps break down:
+            </p>
+            <ul className="list">
+              <li>
+                <p className="listTitle">
+                  Our doctors of physical therapy (DPTs) are specialists in
+                  orthopedics, and conduct your initial training evaluation.
+                  This helps us ensure that your exercise experience is safe and
+                  specifically tailored to help address what your body needs.
+                </p>
+              </li>
+              <li>
+                <p className="listTitle">
+                  Whether you’re an elite athlete, or someone brand new to
+                  exercise, expect our DPTs to take you through a joint and
+                  strength assessment from head to toe, and point out any issues
+                  along the way.
+                </p>
+              </li>
+              <li>
+                <p className="listTitle">
+                  Following your evaluation, our DPTs communicate the
+                  information they gather back to your trainer. This core group
+                  of professionals will continue to support you while you work
+                  with Integra.
+                </p>
+              </li>
+              <li>
+                <p className="listTitle">
+                  If there’s an exercise that might help with anything we find
+                  during your evaluation, your evaluating therapist will offer
+                  home exercises to help kick start your training experience.{' '}
+                </p>
+              </li>
+            </ul>
+          </div>
+        </Panel>
+        <Panel name="We prepare your body for movement">
+          <div className="collapseText">
+            <p>
+              Regardless of your experience level, no one should just “jump in”
+              to exercising cold. Every session in our Fox Point gym involves
+              preparing your body the right way:
+            </p>
+            <ul className="list">
+              <li>
+                <p className="listTitle">
+                  We plan movement prep around your main exercise focus, along
+                  with what your body tells us on a given day.
+                </p>
+              </li>
+              <li>
+                <p className="listTitle">
+                  We warm up your muscles systematically before any exercises.
+                  This is a fundamental part of maximizing your performance and
+                  experience.
+                </p>
+              </li>
+              <li>
+                <p className="listTitle">
+                  We make sure your blood flow increases, and that your internal
+                  body temperature rises. Then we facilitate movement patterns
+                  that reflect your workout.
+                </p>
+              </li>
+            </ul>
+            <p>
+              Establishing these warmup habits early can help make training more
+              efficient and effective, and drastically reduce the chance of
+              injury.
             </p>
           </div>
         </Panel>
-        <Panel name="We Prepare Your Body For Movement">
+        <Panel name="We educate as much as we train">
           <div className="collapseText">
             <p>
-              We use a unique evaluation approach to begin you training
-              experience. Here’s how the steps break down: Our doctors of
-              physical therapy (DPTs) are specialists in orthopedics, and
-              conduct your initial training evaluation. This helps us ensure
-              that your exercise experience is safe and specifically tailored to
-              help address what your body needs. Whether you’re an elite
-              athlete, or someone brand new to exercise, expect our DPTs to take
-              you through a joint and strength assessment from head to toe, and
-              point out any issues along the way.  Following your evaluation,
-              our DPTs communicate the information they gather back to your
-              trainer. This core group of professionals will continue to support
-              you while you work with Integra. If there’s an exercise that might
-              help with anything we find during your evaluation, your evaluating
-              therapist will offer home exercises to help kick start your
-              training experience.  
+              Our personal trainers bring a strong educational component to
+              every workout. We don’t think of trainings as one-offs. Every
+              session is part of an informed physical practice. This includes
+              what we work on with you in our Fox Point gym, as well as any
+              exercises you do on your own time.
             </p>
           </div>
         </Panel>
-        <Panel name="We Prepare Your Body For Movement">
+        <Panel name="Proper form starts with knowing the jobs of different muscle groups">
           <div className="collapseText">
             <p>
-              We use a unique evaluation approach to begin you training
-              experience. Here’s how the steps break down: Our doctors of
-              physical therapy (DPTs) are specialists in orthopedics, and
-              conduct your initial training evaluation. This helps us ensure
-              that your exercise experience is safe and specifically tailored to
-              help address what your body needs. Whether you’re an elite
-              athlete, or someone brand new to exercise, expect our DPTs to take
-              you through a joint and strength assessment from head to toe, and
-              point out any issues along the way.  Following your evaluation,
-              our DPTs communicate the information they gather back to your
-              trainer. This core group of professionals will continue to support
-              you while you work with Integra. If there’s an exercise that might
-              help with anything we find during your evaluation, your evaluating
-              therapist will offer home exercises to help kick start your
-              training experience.  
+              From muscle stabilization, to coordination, to effective
+              movements, we bring you tools, techniques, and practices that help
+              you build a structure for strength, flexibility, and peak
+              performance.
+            </p>
+            <p>Our focus as personal trainers includes the following:</p>
+            <ul className="list">
+              <li>
+                <p className="listTitle">
+                  Placing a high priority on strength without sacrificing
+                  mobility, stability, or injury prevention
+                </p>
+              </li>
+              <li>
+                <p className="listTitle">
+                  Adapting to your body’s needs on any given day
+                </p>
+              </li>
+              <li>
+                <p className="listTitle">
+                  Tapping into the diverse strengths, skills, and backgrounds of
+                  our entire training staff
+                </p>
+              </li>
+              <li>
+                <p className="listTitle">
+                  Helping you go beyond your scheduled exercise plan
+                </p>
+              </li>
+            </ul>
+          </div>
+        </Panel>
+        <Panel name="Claim your place">
+          <div className="collapseText">
+            <p>
+              Claim your place on the continuum of athletic performance and
+              corrective exercise
+            </p>
+            <br />
+            <p>
+              When you train at Integra in Fox Point, you’ll discover that time
+              slows down around your health. With 7,000 square-feet of space,
+              tall windows, and high ceilings, we’re equipped to support
+              one-on-one strength and conditioning, cardio, physical therapy,
+              massage and more. Get started with personal training that fits
+              your schedule, style, and personal budget
             </p>
           </div>
         </Panel>
