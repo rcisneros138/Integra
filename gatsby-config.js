@@ -59,6 +59,12 @@ module.exports = {
         displayName: 'true',
       },
     },
+    {
+      resolve: 'gatsby-plugin-netlify-cache',
+      options: {
+        extraDirsToCache: ['images'],
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-offline',
