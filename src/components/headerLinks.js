@@ -15,11 +15,12 @@ const HeaderLinks = ({ menuLinks }) => {
 
   return (
     <>
-      {navLinks.map(link => (
-        <StyledLink key={link.name} offset={-50} to={link.name} smooth={true}>
-          {link.name}
-        </StyledLink>
-      ))}
+      {navLinks &&
+        navLinks.map(link => (
+          <StyledLink key={link.name} offset={-50} to={link.name} smooth={true}>
+            {link.name}
+          </StyledLink>
+        ))}
     </>
   )
 }
