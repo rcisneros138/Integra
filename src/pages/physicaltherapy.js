@@ -225,7 +225,7 @@ const PhysicalTherapy = ({ data, location }) => {
       links={data.site.siteMetadata.menuLinks.training}
     >
       <Hero>
-        <Img
+        {/* <Img
           fluid={data.heroImage.childImageSharp.fluid}
           style={{
             position: 'absolute',
@@ -235,7 +235,7 @@ const PhysicalTherapy = ({ data, location }) => {
             height: '70vh',
             zIndex: -1,
           }}
-        />
+        /> */}
         <div className="heroText">
           <Fade bottom>
             <h1>Physical</h1>
@@ -244,7 +244,7 @@ const PhysicalTherapy = ({ data, location }) => {
         </div>
       </Hero>
       <Mission name="mission" {...isMobile}>
-        <Img
+        {/* <Img
           className="backgroundTrain"
           fluid={data.aboutImage.childImageSharp.fluid}
           style={{
@@ -252,7 +252,7 @@ const PhysicalTherapy = ({ data, location }) => {
             height: 'auto',
             zIndex: -1,
           }}
-        />
+        /> */}
         <h1>Personalized Care and Physical Therapy</h1>
         <h2> Right Here in Fox Point</h2>
         <p>
@@ -404,7 +404,7 @@ const PhysicalTherapy = ({ data, location }) => {
           </h2>
         </div>
         <div className="member">
-          <Portrait image={data.trainer2.childImageSharp.fluid} />
+          {/* <Portrait image={data.trainer2.childImageSharp.fluid} /> */}
           <Card className="cardbio" area="3/1/9/13">
             <h2>Jeff Konczal</h2>
             <LineBreak area="2/5/auto/9" />
@@ -426,7 +426,7 @@ const PhysicalTherapy = ({ data, location }) => {
           </Card>
         </div>
         <div className="member">
-          <Portrait image={data.trainer1.childImageSharp.fluid} />
+          {/* <Portrait image={data.trainer1.childImageSharp.fluid} /> */}
           <Card className="cardbio" area="3/1/9/13">
             <h2>Dr. Jeremiah Weber</h2>
             <LineBreak area="2/5/auto/9" />
@@ -447,7 +447,7 @@ const PhysicalTherapy = ({ data, location }) => {
           </Card>
         </div>
         <div className="member">
-          <Portrait image={data.trainer3.childImageSharp.fluid} />
+          {/* <Portrait image={data.trainer3.childImageSharp.fluid} /> */}
           <Card className="cardbio" area="3/1/9/13">
             <LineBreak area="2/5/auto/9" />
             <h2>Joe Cripe</h2>
@@ -467,7 +467,7 @@ const PhysicalTherapy = ({ data, location }) => {
           </Card>
         </div>
         <div className="member">
-          <Portrait image={data.trainer4.childImageSharp.fluid} />
+          {/* <Portrait image={data.trainer4.childImageSharp.fluid} /> */}
           <Card className="cardbio" area="3/1/9/13">
             <LineBreak area="2/5/auto/9" />
             <h2>Josh Conlon</h2>
@@ -539,40 +539,40 @@ export const pageQuery = graphql`
       }
     }
 
-    heroImage: file(relativePath: { eq: "physicalTherapyTable.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1200, maxHeight: 800, quality: 90, cropFocus: CENTER) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    aboutImage: file(relativePath: { eq: "physicalTherapy_mission.jpg" }) {
-      childImageSharp {
-        fluid(
-          maxWidth: 2000
-          quality: 90
-          cropFocus: CENTER
-          duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 70 }
-        ) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
+    # heroImage: file(relativePath: { eq: "physicalTherapyTable.jpg" }) {
+    #   childImageSharp {
+    #     fluid(maxWidth: 1200, maxHeight: 800, quality: 90, cropFocus: CENTER) {
+    #       ...GatsbyImageSharpFluid
+    #     }
+    #   }
+    # }
+    # aboutImage: file(relativePath: { eq: "physicalTherapy_mission.jpg" }) {
+    #   childImageSharp {
+    #     fluid(
+    #       maxWidth: 2000
+    #       quality: 90
+    #       cropFocus: CENTER
+    #       duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 70 }
+    #     ) {
+    #       ...GatsbyImageSharpFluid
+    #     }
+    #   }
+    # }
 
-    trainer1: file(relativePath: { eq: "dr_smith.png" }) {
-      ...fluidImage
-    }
-    trainer2: file(relativePath: { eq: "dr_erikB.png" }) {
-      ...fluidImage
-    }
-    trainer3: file(relativePath: { eq: "dr_jeremiahW.png" }) {
-      ...fluidImage
-    }
-    trainer4: file(relativePath: { eq: "johnH.png" }) {
-      ...fluidImage
-    }
-    trainer5: file(relativePath: { eq: "luke_schneider.png" }) {
-      ...fluidImage
-    }
+    # trainer1: file(relativePath: { eq: "dr_smith.png" }) {
+    #   ...fluidImage
+    # }
+    # trainer2: file(relativePath: { eq: "dr_erikB.png" }) {
+    #   ...fluidImage
+    # }
+    # trainer3: file(relativePath: { eq: "dr_jeremiahW.png" }) {
+    #   ...fluidImage
+    # }
+    # trainer4: file(relativePath: { eq: "johnH.png" }) {
+    #   ...fluidImage
+    # }
+    # trainer5: file(relativePath: { eq: "luke_schneider.png" }) {
+    #   ...fluidImage
+    # }
   }
 `
