@@ -62,7 +62,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-netlify-cache',
       options: {
-        extraDirsToCache: ['images'],
+        extraDirsToCache: ['public/static'],
       },
     },
     'gatsby-transformer-sharp',
