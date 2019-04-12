@@ -206,7 +206,7 @@ const PersonalTraining = ({ data, location }) => {
       links={data.site.siteMetadata.menuLinks.training}
     >
       <Hero>
-        {/* <Img
+        <Img
           fluid={data.heroImage.childImageSharp.fluid}
           style={{
             position: 'absolute',
@@ -216,7 +216,7 @@ const PersonalTraining = ({ data, location }) => {
             height: '70vh',
             zIndex: -1,
           }}
-        /> */}
+        />
         <div className="heroText">
           <Fade bottom>
             <h1>Personal</h1>
@@ -225,7 +225,7 @@ const PersonalTraining = ({ data, location }) => {
         </div>
       </Hero>
       <Mission name="mission" {...isMobile}>
-        {/* <Img
+        <Img
           className="backgroundTrain"
           fluid={data.trainAboutImage.childImageSharp.fluid}
           style={{
@@ -233,7 +233,7 @@ const PersonalTraining = ({ data, location }) => {
             height: 'auto',
             zIndex: -1,
           }}
-        /> */}
+        />
         <h1>Dont Just "Live With It"</h1>
         <p>
           Maybe you’ve been working out for a while, and want to reach the next
@@ -339,7 +339,7 @@ const PersonalTraining = ({ data, location }) => {
           </h2>
         </div>
         <div className="member">
-          {/* <Portrait image={data.trainer2.childImageSharp.fluid} /> */}
+          <Portrait image={data.trainer2.childImageSharp.fluid} />
           <Card className="cardbio" area="3/1/9/13">
             <h2>Jeff Konczal</h2>
             <LineBreak area="2/5/auto/9" />
@@ -361,7 +361,7 @@ const PersonalTraining = ({ data, location }) => {
           </Card>
         </div>
         <div className="member">
-          {/* <Portrait image={data.trainer1.childImageSharp.fluid} /> */}
+          <Portrait image={data.trainer1.childImageSharp.fluid} />
           <Card className="cardbio" area="3/1/9/13">
             <h2>Dr. Jeremiah Weber</h2>
             <LineBreak area="2/5/auto/9" />
@@ -382,7 +382,7 @@ const PersonalTraining = ({ data, location }) => {
           </Card>
         </div>
         <div className="member">
-          {/* <Portrait image={data.trainer3.childImageSharp.fluid} /> */}
+          <Portrait image={data.trainer3.childImageSharp.fluid} />
           <Card className="cardbio" area="3/1/9/13">
             <LineBreak area="2/5/auto/9" />
             <h2>Joe Cripe</h2>
@@ -402,7 +402,7 @@ const PersonalTraining = ({ data, location }) => {
           </Card>
         </div>
         <div className="member">
-          {/* <Portrait image={data.trainer4.childImageSharp.fluid} /> */}
+          <Portrait image={data.trainer4.childImageSharp.fluid} />
           <Card className="cardbio" area="3/1/9/13">
             <LineBreak area="2/5/auto/9" />
             <h2>Josh Conlon</h2>
@@ -423,7 +423,7 @@ const PersonalTraining = ({ data, location }) => {
           </Card>
         </div>
         <div className="member">
-          {/* <Portrait image={data.trainer5.childImageSharp.fluid} /> */}
+          <Portrait image={data.trainer5.childImageSharp.fluid} />
           <Card className="cardbio" area="3/1/9/13">
             <h2>Luke Schneider</h2>
             <LineBreak area="2/5/auto/9" />
@@ -484,40 +484,40 @@ export const pageQuery = graphql`
       }
     }
 
-    # heroImage: file(relativePath: { eq: "personaltraining.jpg" }) {
-    #   childImageSharp {
-    #     fluid(maxWidth: 1200, maxHeight: 800, quality: 90, cropFocus: CENTER) {
-    #       ...GatsbyImageSharpFluid
-    #     }
-    #   }
-    # }
-    # trainAboutImage: file(relativePath: { eq: "run_up.jpg" }) {
-    #   childImageSharp {
-    #     fluid(
-    #       maxWidth: 1200
-    #       quality: 90
-    #       cropFocus: CENTER
-    #       duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 70 }
-    #     ) {
-    #       ...GatsbyImageSharpFluid
-    #     }
-    #   }
-    # }
+    heroImage: file(relativePath: { eq: "personaltraining.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1200, maxHeight: 800, quality: 90, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    trainAboutImage: file(relativePath: { eq: "run_up.jpg" }) {
+      childImageSharp {
+        fluid(
+          maxWidth: 1200
+          quality: 90
+          cropFocus: CENTER
+          duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 70 }
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
 
-    # trainer1: file(relativePath: { eq: "dr_jeremiahW.png" }) {
-    #   ...fluidImage
-    # }
-    # trainer2: file(relativePath: { eq: "jeff.png" }) {
-    #   ...fluidImage
-    # }
-    # trainer3: file(relativePath: { eq: "joeC.png" }) {
-    #   ...fluidImage
-    # }
-    # trainer4: file(relativePath: { eq: "Josh.png" }) {
-    #   ...fluidImage
-    # }
-    # trainer5: file(relativePath: { eq: "luke_schneider.png" }) {
-    #   ...fluidImage
-    # }
+    trainer1: file(relativePath: { eq: "dr_jeremiahW.png" }) {
+      ...fluidImage
+    }
+    trainer2: file(relativePath: { eq: "jeff.png" }) {
+      ...fluidImage
+    }
+    trainer3: file(relativePath: { eq: "joeC.png" }) {
+      ...fluidImage
+    }
+    trainer4: file(relativePath: { eq: "Josh.png" }) {
+      ...fluidImage
+    }
+    trainer5: file(relativePath: { eq: "luke_schneider.png" }) {
+      ...fluidImage
+    }
   }
 `
