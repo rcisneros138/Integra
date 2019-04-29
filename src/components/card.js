@@ -11,6 +11,7 @@ const StyledCard = styled(animated.div)`
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  /* grid-template-rows: repeat(6, 1fr); */
   height: ${props => !props.area && '40vh'};
   width: ${props => (props.area ? '100%' : '90vw')};
   margin: auto;
@@ -20,7 +21,7 @@ const StyledCard = styled(animated.div)`
 `
 
 const Card = props => {
-  const [ref, inView] = useInView({ offset: 5, triggerOnce: true })
+  const [ref, inView] = useInView({ offset: 1, triggerOnce: true })
   useEffect(() => {
     if (typeof window !== 'undefined') {
       require('intersection-observer')

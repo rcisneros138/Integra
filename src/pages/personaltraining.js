@@ -284,13 +284,13 @@ const PersonalTraining = ({ data, location }) => {
           </div>
         </Panel>
       </Info>
-      <Logos name="our team">
+      <Logos name="our team" isMobile={isMobile}>
         <LineBreak area="4/2/5/5" />
         <Ribbon className="rib" width="100%" height="100%" />
         <LineBreak area="4/9/8/12" />
       </Logos>
 
-      <Team name="our trainers">
+      <Team name="our trainers" isMobile={isMobile}>
         <div className="teamheader">
           <h1>Accredited, certified, and always professional</h1>
           <h2>
@@ -303,108 +303,120 @@ const PersonalTraining = ({ data, location }) => {
         </div>
         <div className="member">
           <Portrait image={data.trainer2.childImageSharp.fluid} />
-          <Card className="cardbio" area="3/1/9/13">
+          <Card className="cardbio" area="5/1/14/13">
             <h2>Jeff Konczal</h2>
-            <LineBreak area="2/5/auto/9" />
-            <p>
-              Jeff’s professional fitness career started in 1994. His philosophy
-              centers on applying a science-based understanding of current
-              training methods in order to facilitate greater health and
-              recovery. Working with Jeff involves focusing on injury
-              prevention, and progressing toward movement patterns.{' '}
-            </p>
-            <section className="quote">
-              “I see myself as an educator and a motivator. We all need to
-              understand that there is a process to follow in order to reach any
-              goal. I seek to educate my clients about where their bodies are in
-              the moment, and what it will take to reach their desired outcomes.
-              In the end, I want them to understand what we’re doing, why we’re
-              doing it, and where our efforts are taking us.”
-            </section>
+            <div className="text-content">
+              <LineBreak />
+
+              <p>
+                Jeff’s professional fitness career started in 1994. His
+                philosophy centers on applying a science-based understanding of
+                current training methods in order to facilitate greater health
+                and recovery. Working with Jeff involves focusing on injury
+                prevention, and progressing toward movement patterns.{' '}
+              </p>
+              <section className="quote">
+                “I see myself as an educator and a motivator. We all need to
+                understand that there is a process to follow in order to reach
+                any goal. I seek to educate my clients about where their bodies
+                are in the moment, and what it will take to reach their desired
+                outcomes. In the end, I want them to understand what we’re
+                doing, why we’re doing it, and where our efforts are taking us.”
+              </section>
+            </div>
           </Card>
         </div>
         <div className="member">
           <Portrait image={data.trainer1.childImageSharp.fluid} />
-          <Card className="cardbio" area="3/1/9/13">
+          <Card className="cardbio" area="5/1/14/13">
             <h2>Dr. Jeremiah Weber</h2>
-            <LineBreak area="2/5/auto/9" />
-            <p>
-              Jeremiah has been an essential part of our physical therapy,
-              personal training, and athletic development teams since 2011.
-              Since his undergraduate days, he has pursued specialized
-              coursework and training that emphasize evidence-based spinal care
-              and support.
-              <br />
-              <br />
-              As an undergrad, Jeremiah was a member of the men’s varsity hockey
-              team and won a number of honors. He was a four-year member of the
-              NCHA all-academic team, was nominated for NCHA scholar athlete of
-              the year, and was a two-time recipient of the Richard G O’Brien
-              award for outstanding work ethic.
-            </p>
+            <div className="text-content">
+              <LineBreak />
+              <p>
+                Jeremiah has been an essential part of our physical therapy,
+                personal training, and athletic development teams since 2011.
+                Since his undergraduate days, he has pursued specialized
+                coursework and training that emphasize evidence-based spinal
+                care and support.
+                <br />
+                <br />
+                As an undergrad, Jeremiah was a member of the men’s varsity
+                hockey team and won a number of honors. He was a four-year
+                member of the NCHA all-academic team, was nominated for NCHA
+                scholar athlete of the year, and was a two-time recipient of the
+                Richard G O’Brien award for outstanding work ethic.
+              </p>
+            </div>
           </Card>
         </div>
         <div className="member">
           <Portrait image={data.trainer3.childImageSharp.fluid} />
-          <Card className="cardbio" area="3/1/9/13">
-            <LineBreak area="2/5/auto/9" />
+          <Card className="cardbio" area="5/1/14/13">
             <h2>Joe Cripe</h2>
-            <p>
-              Joe heads up our athletic development program, and works with
-              athletes of all ages and ranges to help them improve sport
-              performance. As our in-house golf fitness specialist, Joe also
-              provides golf-specific assessments, and strength programming that
-              helps improve golf performance.
-            </p>
-            <section className="quote">
-              “My training philosophy focuses on functional, multi-joint
-              movements. I emphasize corrective exercise techniques that help
-              promote injury prevention. This is important for competitive and
-              weekend athletes."
-            </section>
+            <div className="text-content">
+              <LineBreak />
+              <p>
+                Joe heads up our athletic development program, and works with
+                athletes of all ages and ranges to help them improve sport
+                performance. As our in-house golf fitness specialist, Joe also
+                provides golf-specific assessments, and strength programming
+                that helps improve golf performance.
+              </p>
+              <section className="quote">
+                “My training philosophy focuses on functional, multi-joint
+                movements. I emphasize corrective exercise techniques that help
+                promote injury prevention. This is important for competitive and
+                weekend athletes."
+              </section>
+            </div>
           </Card>
         </div>
         <div className="member">
           <Portrait image={data.trainer4.childImageSharp.fluid} />
-          <Card className="cardbio" area="3/1/9/13">
-            <LineBreak area="2/5/auto/9" />
+          <Card className="cardbio" area="5/1/14/13">
             <h2>Josh Conlon</h2>
-            <p>
-              Josh has been with Integra since 2013, and has been a professional
-              personal trainer since 2011. Throughout his career, he has sought
-              credentialing and learning opportunities that inform his
-              philosophy around working from a solid base to build a strong
-              body. Beyond personal training, clients also seek him out for
-              support with nutrition, food, and meal creation.
-            </p>
-            <section className="quote">
-              “I believe it’s essential to build the fundamentals of form and
-              function, and to teach healthy living. With clients, I emphasize a
-              progressive approach to developing strength and balance, with
-              special attention to posture and technique.”
-            </section>
+            <div className="text-content">
+              <LineBreak />
+              <p>
+                Josh has been with Integra since 2013, and has been a
+                professional personal trainer since 2011. Throughout his career,
+                he has sought credentialing and learning opportunities that
+                inform his philosophy around working from a solid base to build
+                a strong body. Beyond personal training, clients also seek him
+                out for support with nutrition, food, and meal creation.
+              </p>
+              <section className="quote">
+                “I believe it’s essential to build the fundamentals of form and
+                function, and to teach healthy living. With clients, I emphasize
+                a progressive approach to developing strength and balance, with
+                special attention to posture and technique.”
+              </section>
+            </div>
           </Card>
         </div>
         <div className="member">
           <Portrait image={data.trainer5.childImageSharp.fluid} />
-          <Card className="cardbio" area="3/1/9/13">
+          <Card className="cardbio" area="5/1/14/13">
             <h2>Luke Schneider</h2>
-            <LineBreak area="2/5/auto/9" />
-            <p>
-              Luke has been studying and practicing kinesiology since 2010. He
-              applies and evidence-based progression to strength training and
-              muscle growth, with a focus on movement patterns, mobility
-              restoration, corrective exercise, and senior fitness.{' '}
-            </p>
-            <section className="quote">
-              “I believe health and fitness should be taught as a lifestyle, and
-              should be something that people implement for the rest of our
-              lives. When working with my clients, I like to mix things up
-              during workouts. This includes a synergy of strength,
-              cardiovascular, balance, and flexibility training. Together, I see
-              these as the essential elements for preventing musculoskeletal
-              injury, and maintaining a healthy heart and metabolism.”
-            </section>
+            <div className="text-content">
+              <LineBreak />
+              <p>
+                Luke has been studying and practicing kinesiology since 2010. He
+                applies and evidence-based progression to strength training and
+                muscle growth, with a focus on movement patterns, mobility
+                restoration, corrective exercise, and senior fitness.{' '}
+              </p>
+              <section className="quote">
+                “I believe health and fitness should be taught as a lifestyle,
+                and should be something that people implement for the rest of
+                our lives. When working with my clients, I like to mix things up
+                during workouts. This includes a synergy of strength,
+                cardiovascular, balance, and flexibility training. Together, I
+                see these as the essential elements for preventing
+                musculoskeletal injury, and maintaining a healthy heart and
+                metabolism.”
+              </section>
+            </div>
           </Card>
         </div>
       </Team>

@@ -4,12 +4,15 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import { useInView } from 'react-intersection-observer'
+import { useMobile } from '../helpers'
 
 const Portrait = ({ image }) => {
   const [ref, inView] = useInView({
     threshhold: 25,
     triggerOnce: true,
   })
+  const isMobile = useMobile(false)
+  const imgHeight = isMobile ? '59.8vw' : '39.5vw'
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -29,8 +32,8 @@ const Portrait = ({ image }) => {
       <Img
         fluid={image}
         style={{
-          height: '19.9vw',
-          width: 'auto',
+          height: imgHeight,
+          width: '100%',
           zIndex: '2',
         }}
       />

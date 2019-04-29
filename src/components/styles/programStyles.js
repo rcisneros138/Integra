@@ -94,7 +94,7 @@ const Logos = styled.div`
   height: 70vh;
 
   .rib {
-    grid-area: 2/5/8/9;
+    grid-area: ${props => (props.isMobile ? '1/4/8/10' : '2/5/8/9')};
   }
 `
 
@@ -103,22 +103,25 @@ const LineBreak = styled.hr`
   display: block;
   height: 0.1em;
   border: 0;
-  margin: 1em 0;
+  margin: ${props => (props.area ? '1em' : '0 8em 3em 8em')};
   padding: 0;
   color: #0071fe;
   background-color: #0071fe;
+  text-align: center;
 `
 
 const Team = styled.div`
   height: auto;
+  font-size: 24px;
+  margin: 0;
   .teamheader {
     h1 {
       text-align: center;
       font-family: Roboto;
       font-style: normal;
       font-weight: 500;
-      font-size: ${props => (props.isMobile ? '1em' : '2.25')};
-      margin: 5em;
+      font-size: 1em;
+      margin:  ${props => (props.isMobile ? '2em' : '5em')};
       color: #8b8888;
 
       @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
@@ -132,8 +135,8 @@ const Team = styled.div`
       color: #8b8888;
       font-weight: 100;
       margin-top: 0;
-      margin: 6em;
-      font-size: ${props => (props.isMobile ? '1em' : '2.25')};
+      margin: ${props => (props.isMobile ? '2em' : '6em')};
+      font-size: ${props => (props.isMobile ? '0.75em' : '1em')};
     }
   }
 
@@ -141,27 +144,31 @@ const Team = styled.div`
     display: grid;
     height: 90vh;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: repeat(13, 5em);
+    margin: 5em 0 18em 0;
     .imagewrap {
-      grid-area: 1/6/4/8;
+      grid-area: ${props => (props.isMobile ? '3/4/7/10;' : '1/5/6/9')};
+      height: 100vw;
       padding-top: 1em;
     }
 
     .cardbio {
+      margin: 0;
       h2 {
-        margin-top: 4em;
+        margin: 8em 0 0 0;
         grid-column: 3/11;
         font-family: Roboto;
         font-style: normal;
         font-weight: 500;
-        font-size: 2.25em;
-        line-height: 0.07em;
+        font-size: 2em;
         color: #8b8888;
         @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
           font-size: 1vw;
         }
       }
-      p {
+      .text-content{
+        grid-column: ${props => (props.isMobile ? '2/12' : '3/11')};
+        p {
         grid-column: 4/10;
         font-family: Roboto;
         line-height: 1.25em;
@@ -169,12 +176,12 @@ const Team = styled.div`
         color: #8b8888;
         font-weight: 100;
         margin-top: 0;
-        font-size:0.75em;   
+        font-size:1em;   
         /* height: ${props => !props.isMobile && '1em'}; */
       }
       .quote {
         font-style: italic;
-        font-size: 1vw;
+        font-size: 1em;
         grid-column: 4/10;
         font-family: Roboto;
         line-height: 1.5em;
@@ -183,11 +190,12 @@ const Team = styled.div`
         font-weight: 100;
         margin-top: 0;
       }
+      }
       @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
         font-size: 1vw !important;
       }
       @media only screen {
-        font-size: ${props => (props.isMobile ? '3vw' : '1.5em')};
+        font-size: ${props => (props.isMobile ? '10px' : '24px')};
       }
     }
   }

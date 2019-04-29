@@ -15,7 +15,7 @@ const HeaderLinks = ({ menuLinks }) => {
 
   return (
     <>
-      {navLinks &&
+      {navLinks !== 'undefined' &&
         navLinks.map(link => (
           <StyledLink key={link.name} offset={-50} to={link.name} smooth={true}>
             {link.name}

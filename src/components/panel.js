@@ -19,20 +19,22 @@ const Frame = styled.div`
     font-family: Roboto;
     font-weight: 300;
     color: #6a757c;
-    margin-left: 20%;
+    /* margin-left: 20%;
     margin-right: auto;
-    margin-top: 5%;
+    margin-top: 5%; */
     float: left;
 
     h2 {
       position: relative;
       font-size: ${props => (props.isMobile ? '1em' : '2em')};
+      margin: 2em 10em 0 2em;
     }
   }
   .icon {
-    /* grid-area: 1/8/2/9; */
-    float: right;
-    margin-top: 7% !important;
+    right: 2em;
+    position: absolute;
+    height: 3em;
+    top: 20%;
   }
 `
 const Content = styled(animated.div)`
@@ -61,7 +63,7 @@ const Panel = memo(({ children, name, style, open = false }) => {
   const { height, opacity, transform } = useSpring({
     from: { height: 0, opacity: 0, transform: 'translate3d(20px,0,0)' },
     to: {
-      height: isOpen ? viewHeight + 200 : 0,
+      height: isOpen ? viewHeight : 0,
       opacity: isOpen ? 1 : 0,
       transform: `translate3d(${isOpen ? 0 : 20}px,0,0)`,
       delay: 100,
@@ -82,15 +84,15 @@ const Panel = memo(({ children, name, style, open = false }) => {
         }}
       >
         <h2>{name}</h2>
-      </span>
-      <Icon
-        className="icon"
-        style={{
-          ...toggle,
+        <Icon
+          className="icon"
+          style={{
+            ...toggle,
 
-          transform,
-        }}
-      />
+            transform,
+          }}
+        />
+      </span>
       <Content
         style={{
           opacity,

@@ -4,73 +4,73 @@ module.exports = {
     menuLinks: {
       index: [
         {
-          name: 'programs',
+          name: 'Programs',
           link: '/',
         },
         {
-          name: 'about',
+          name: 'About',
           link: '/page-2',
         },
         {
-          name: 'testimonials',
+          name: 'Testimonials',
           link: '/page-2',
         },
         {
-          name: 'contact',
+          name: 'Contact',
           link: '/page-2',
         },
       ],
       training: [
         {
-          name: 'mission',
+          name: 'Mission',
           link: '/',
         },
         {
-          name: 'about',
+          name: 'About',
           link: '/page-2',
         },
         {
-          name: 'our trainers',
+          name: 'Our Trainers',
           link: '/page-2',
         },
         {
-          name: 'contact',
+          name: 'Contact',
           link: '/page-2',
         },
       ],
       therapy: [
         {
-          name: 'mission',
+          name: 'Mission',
           link: '/',
         },
         {
-          name: 'about',
+          name: 'About',
           link: '/page-2',
         },
         {
-          name: 'our therapists',
+          name: 'Our Therapists',
           link: '/page-2',
         },
         {
-          name: 'contact',
+          name: 'Contact',
           link: '/page-2',
         },
       ],
       massage: [
         {
-          name: 'mission',
+          name: 'Mission',
           link: '/',
         },
         {
-          name: 'about',
+          name: 'About',
           link: '/page-2',
         },
         {
-          name: 'our therapists',
+          name: 'Our Therapists',
           link: '/page-2',
         },
         {
-          name: 'contact',
+          name: 'Contact',
           link: '/page-2',
         },
       ],
