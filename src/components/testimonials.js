@@ -15,7 +15,7 @@ const TestimonialSection = styled(Element)`
   margin: 0 auto;
   width: 100%;
   max-width: 100%;
-  height: auto;
+  height: ${props => (props.isMobile ? '100vh' : 'auto')};
   background-color: #f9f9f9;
   overflow: hidden;
 `
@@ -64,7 +64,7 @@ const CardParagraph = styled.p`
 `
 
 const Testimonials = props => (
-  <TestimonialSection name="testimonials">
+  <TestimonialSection name="testimonials" isMobile={props.isMobile}>
     <Title isMobile={props.isMobile}>
       <h1>What People Are Saying</h1>
     </Title>

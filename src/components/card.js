@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { config, animated, useSpring } from 'react-spring'
 
 import { useInView } from 'react-intersection-observer'
+import { useMobile } from '../helpers'
 
 const StyledCard = styled(animated.div)`
   grid-area: ${props => props.area};
@@ -21,18 +22,25 @@ const StyledCard = styled(animated.div)`
 `
 
 const Card = props => {
-  const [ref, inView] = useInView({ offset: 1, triggerOnce: true })
+  const [ref, inView] = useInView({ offset: 0, triggerOnce: true })
+  const isMobile = useMobile(false)
   useEffect(() => {
     if (typeof window !== 'undefined') {
       require('intersection-observer')
     }
   })
 
+  const marginThreshold = isMobile ? 200 : 500
+
   const FadeUp = {
     opacity: inView ? 1 : 0,
-    marginTop: inView ? 0 : 500,
-    marginBottom: inView ? 0 : -500,
-    from: { opacity: 0, marginTop: 500, marginBottom: -500 },
+    marginTop: inView ? 0 : marginThreshold,
+    marginBottom: inView ? 0 : -Math.abs(marginThreshold),
+    from: {
+      opacity: 0,
+      marginTop: marginThreshold,
+      marginBottom: -Math.abs(marginThreshold),
+    },
     delay: 1,
     config: config.molasses,
   }

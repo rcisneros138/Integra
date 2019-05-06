@@ -215,7 +215,7 @@ export default Massage
 export const fluidImage = graphql`
   fragment fluidImage_mas on File {
     childImageSharp {
-      fluid(maxWidth: 800, quality: 40, cropFocus: CENTER) {
+      fluid(maxWidth: 800, quality: 70, cropFocus: CENTER) {
         ...GatsbyImageSharpFluid
       }
     }
@@ -246,7 +246,7 @@ export const pageQuery = graphql`
       childImageSharp {
         fluid(
           maxWidth: 2000
-          quality: 90
+          quality: 70
           cropFocus: CENTER
           duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 70 }
         ) {

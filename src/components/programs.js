@@ -198,7 +198,7 @@ const Programs = props => (
     `}
     render={data => (
       <>
-        <ProgramSection name="programs">
+        <ProgramSection isMobile={props.isMobile} name="programs">
           <TopBackgroundImage
             isMobile={props.isMobile}
             fluid={data.background.childImageSharp.fluid}

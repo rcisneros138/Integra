@@ -317,7 +317,7 @@ export const pageQuery = graphql`
 
     heroImage: file(relativePath: { eq: "physicalTherapyTable.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1200, maxHeight: 800, quality: 90, cropFocus: CENTER) {
+        fluid(maxWidth: 1200, maxHeight: 800, quality: 70, cropFocus: CENTER) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -326,7 +326,7 @@ export const pageQuery = graphql`
       childImageSharp {
         fluid(
           maxWidth: 2000
-          quality: 90
+          quality: 70
           cropFocus: CENTER
           duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 70 }
         ) {
