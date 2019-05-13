@@ -64,7 +64,7 @@ const CardParagraph = styled.p`
 `
 
 const Testimonials = props => (
-  <TestimonialSection name="testimonials" isMobile={props.isMobile}>
+  <TestimonialSection name="Testimonials" isMobile={props.isMobile}>
     <Title isMobile={props.isMobile}>
       <h1>What People Are Saying</h1>
     </Title>

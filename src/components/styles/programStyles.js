@@ -43,7 +43,7 @@ const Mission = styled.div`
     text-align: center;
     font-weight: 300;
     letter-spacing: 0.05em;
-    font-size: ${props => (props.isMobile ? '1em' : '5em')};
+    font-size: ${props => (props.isMobile ? '1.5em' : '5em')};
     color: #f9f9f9;
   }
   h2 {
@@ -103,7 +103,7 @@ const LineBreak = styled.hr`
   display: block;
   height: 0.1em;
   border: 0;
-  margin: ${props => (props.area ? '1em' : '0 8em 3em 8em')};
+  margin: ${props => (props.area ? '1em' : '2em 8em 3em 8em')};
   padding: 0;
   color: #0071fe;
   background-color: #0071fe;
@@ -111,8 +111,6 @@ const LineBreak = styled.hr`
 `
 
 const Team = styled.div`
-  height: auto;
-  font-size: 24px;
   margin: 0;
   .teamheader {
     h1 {
@@ -120,8 +118,8 @@ const Team = styled.div`
       font-family: Roboto;
       font-style: normal;
       font-weight: 500;
-      font-size: 1em;
-      margin:  ${props => (props.isMobile ? '2em' : '5em')};
+      font-size: ${props => (props.isMobile ? '2em' : '3em')};
+      margin:  ${props => (props.isMobile ? '2em' : '0')};
       color: #8b8888;
 
       @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
@@ -135,19 +133,18 @@ const Team = styled.div`
       color: #8b8888;
       font-weight: 100;
       margin-top: 0;
-      margin: ${props => (props.isMobile ? '2em' : '6em')};
+      margin: ${props => (props.isMobile ? '2em' : '6em 12em 6em 12em')};
       font-size: ${props => (props.isMobile ? '0.75em' : '1em')};
     }
   }
-
   .member {
+    height:auto;
     display: grid;
-    height: 90vh;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(13, 5em);
     margin: 5em 0 18em 0;
     .imagewrap {
-      grid-area: ${props => (props.isMobile ? '3/4/7/10;' : '1/5/6/9')};
+      grid-area: ${props => (props.isMobile ? '1/4/7/10' : '1/5/6/9')};
       height: 100vw;
       padding-top: 1em;
     }
@@ -155,16 +152,20 @@ const Team = styled.div`
     .cardbio {
       margin: 0;
       h2 {
-        margin: 8em 0 0 0;
+       
+        margin: 30% 0 0 0;
         grid-column: 3/11;
         font-family: Roboto;
         font-style: normal;
         font-weight: 500;
         font-size: 2em;
-        color: #8b8888;
+        color: #328cfd;
         @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
           font-size: 1vw;
         }
+        @media only screen and (min-width: 768px) {
+          margin: 25% 0 0 0 !important;
+      }
       }
       .text-content{
         grid-column: ${props => (props.isMobile ? '2/12' : '3/11')};
@@ -176,7 +177,7 @@ const Team = styled.div`
         color: #8b8888;
         font-weight: 100;
         margin-top: 0;
-        font-size:1em;   
+        font-size:1.5em;   
         /* height: ${props => !props.isMobile && '1em'}; */
       }
       .quote {
@@ -191,14 +192,26 @@ const Team = styled.div`
         margin-top: 0;
       }
       }
+     
+      
+
       @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
         font-size: 1vw !important;
       }
-      @media only screen {
+      /* @media only screen and (min-width: px){
         font-size: ${props => (props.isMobile ? '10px' : '24px')};
-      }
+      } */
     }
   }
+  @media only screen and (min-width: 100px) {
+        font-size: 10px;
+      }
+      @media only screen and (min-width: 768px) {
+        font-size: 20px;
+      }
+      @media only screen and (min-width: 1250px) {
+        font-size: 26px;
+      }
 `
 
 export { Hero, Mission, Info, Logos, LineBreak, Team }

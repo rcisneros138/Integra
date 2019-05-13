@@ -48,7 +48,7 @@ const PhysicalTherapy = ({ data, location }) => {
           </Fade>
         </div>
       </Hero>
-      <Mission name="mission" {...isMobile}>
+      <Mission name="Mission" {...isMobile}>
         <Img
           className="backgroundTrain"
           fluid={data.aboutImage.childImageSharp.fluid}
@@ -76,7 +76,7 @@ const PhysicalTherapy = ({ data, location }) => {
           techniques
         </p>
       </Mission>
-      <Info name="about" isMobile={isMobile}>
+      <Info name="About" isMobile={isMobile}>
         <Panel name="Evidence-based care is the core of our conditioning philosophy.">
           <div className="collapseText">
             <ul className="list">
@@ -192,13 +192,12 @@ const PhysicalTherapy = ({ data, location }) => {
           </div>
         </Panel>
       </Info>
-      <Logos name="our team">
+      <Logos name="Our Team">
         <LineBreak area="4/2/5/5" />
         <Ribbon className="rib" width="100%" height="100%" />
         <LineBreak area="4/9/8/12" />
       </Logos>
-
-      <Team name="our therapists">
+      <Team name="Our Therapists">
         <div className="teamheader">
           <h1>A We’re doctors and career health professionals</h1>
           <h2>
@@ -209,80 +208,69 @@ const PhysicalTherapy = ({ data, location }) => {
           </h2>
         </div>
         <div className="member">
-          <Portrait image={data.trainer2.childImageSharp.fluid} />
-          <Card className="cardbio" area="3/1/9/13">
+          <Portrait image={data.trainer3.childImageSharp.fluid} />
+          <Card className="cardbio" area="5/1/14/13">
             <h2>Dr. Erik Bork</h2>
-            <LineBreak area="2/5/auto/9" />
-            <p>
-              Erik is like a mechanist in his therapeutic technique, focusing on
-              joint mobility and proper physical mechanics. His treatments
-              combine strong manual therapy, exercise prescription, and a
-              neuromuscular approach in order to restore normal movement. He is
-              especially keen in evaluating and treating shoulder problems.
-            </p>
-            <section className="quote">
-              “I emphasize strength and balance, especially when working with
-              older adults. When we can enhance strength and balance, we
-              decrease load and force on joints, ligaments, and afflicted
-              tendons.”
-            </section>
+            <div className="text-content">
+              <LineBreak />
+              <p>
+                Erik is like a mechanist in his therapeutic technique, focusing
+                on joint mobility and proper physical mechanics. His treatments
+                combine strong manual therapy, exercise prescription, and a
+                neuromuscular approach in order to restore normal movement. He
+                is especially keen in evaluating and treating shoulder problems.
+              </p>
+              <section className="quote">
+                “I emphasize strength and balance, especially when working with
+                older adults. When we can enhance strength and balance, we
+                decrease load and force on joints, ligaments, and afflicted
+                tendons.”
+              </section>
+            </div>
           </Card>
         </div>
         <div className="member">
           <Portrait image={data.trainer1.childImageSharp.fluid} />
-          <Card className="cardbio" area="3/1/9/13">
-            <h2>Dr. Stephanie Smith</h2>
-            <LineBreak area="2/5/auto/9" />
-            <p>
-              Stephanie grew up locally in Germantown, and returned to the
-              Milwaukee-area in 2014. She’s been a member of Integra’s team ever
-              since. In that time, she’s continued to expand her knowledge and
-              skills around treating jaw pain and headaches.
-            </p>
-            <section className="quote">
-              “I enjoy treating people across a variety of ages with
-              non-surgical and post-surgical rehabilitation. I help people
-              attain their personal goals, so they can get back to an activity
-              level they want. “
-            </section>
-          </Card>
-        </div>
-        <div className="member">
-          <Portrait image={data.trainer3.childImageSharp.fluid} />
-          <Card className="cardbio" area="3/1/9/13">
-            <LineBreak area="2/5/auto/9" />
+          <Card className="cardbio" area="5/1/14/13">
             <h2>Dr. Jeremiah Weber</h2>
-            <p>
-              Jeremiah has been an essential part of our physical therapy,
-              personal training, and athletic development teams since 2011.
-              Since his undergraduate days, he has pursued specialized
-              coursework and training that emphasize evidence-based spinal care
-              and support.
-              <br />
-              <br />
-              As an undergrad, Jeremiah was a member of the men’s varsity hockey
-              team and won a number of honors. He was a four-year member of the
-              NCHA all-academic team, was nominated for NCHA scholar athlete of
-              the year, and was a two-time recipient of the Richard G O’Brien
-              award for outstanding work ethic.
-            </p>
+            <div className="text-content">
+              <LineBreak />
+              <p>
+                Jeremiah has been an essential part of our physical therapy,
+                personal training, and athletic development teams since 2011.
+                Since his undergraduate days, he has pursued specialized
+                coursework and training that emphasize evidence-based spinal
+                care and support.
+                <br />
+                <br />
+                As an undergrad, Jeremiah was a member of the men’s varsity
+                hockey team and won a number of honors. He was a four-year
+                member of the NCHA all-academic team, was nominated for NCHA
+                scholar athlete of the year, and was a two-time recipient of the
+                Richard G O’Brien award for outstanding work ethic.
+              </p>
+            </div>
           </Card>
         </div>
         <div className="member">
-          <Portrait image={data.trainer4.childImageSharp.fluid} />
-          <Card className="cardbio" area="3/1/9/13">
-            <LineBreak area="2/5/auto/9" />
-            <h2>Josh Conlon</h2>
-            <p>
-              When not training, John enjoys riding his bike and spending time
-              with his wife and 3 daughters.
-            </p>
-            {/* <section className="quote">
-              “I believe it’s essential to build the fundamentals of form and
-              function, and to teach healthy living. With clients, I emphasize a
-              progressive approach to developing strength and balance, with
-              special attention to posture and technique.”
-            </section> */}
+          <Portrait image={data.trainer2.childImageSharp.fluid} />
+          <Card className="cardbio" area="5/1/14/13">
+            <h2>Dr. Stephanie Smith</h2>
+            <div className="text-content">
+              <LineBreak />
+              <p>
+                Stephanie grew up locally in Germantown, and returned to the
+                Milwaukee-area in 2014. She’s been a member of Integra’s team
+                ever since. In that time, she’s continued to expand her
+                knowledge and skills around treating jaw pain and headaches.
+              </p>
+              <section className="quote">
+                “I enjoy treating people across a variety of ages with
+                non-surgical and post-surgical rehabilitation. I help people
+                attain their personal goals, so they can get back to an activity
+                level they want. “
+              </section>
+            </div>
           </Card>
         </div>
       </Team>
@@ -325,7 +313,7 @@ export const pageQuery = graphql`
     aboutImage: file(relativePath: { eq: "physicalTherapy_mission.jpg" }) {
       childImageSharp {
         fluid(
-          maxWidth: 2000
+          maxWidth: 5000
           quality: 70
           cropFocus: CENTER
           duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 70 }
@@ -334,17 +322,13 @@ export const pageQuery = graphql`
         }
       }
     }
-
-    trainer1: file(relativePath: { eq: "dr_smith.png" }) {
+    trainer1: file(relativePath: { eq: "dr_jeremiahW.png" }) {
       ...fluidImage
     }
-    trainer2: file(relativePath: { eq: "dr_erikB.png" }) {
+    trainer2: file(relativePath: { eq: "dr_smith.png" }) {
       ...fluidImage
     }
-    trainer3: file(relativePath: { eq: "dr_jeremiahW.png" }) {
-      ...fluidImage
-    }
-    trainer4: file(relativePath: { eq: "johnH.png" }) {
+    trainer3: file(relativePath: { eq: "dr_erikB.png" }) {
       ...fluidImage
     }
   }

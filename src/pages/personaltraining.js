@@ -19,10 +19,24 @@ import Card from '../components/card'
 import Portrait from '../components/memberPortrait'
 
 import Ribbon from '../components/svg/ribbon'
-import { useMobile } from '../helpers'
+import { useMobile, useDetermineLayout } from '../helpers'
 
 const PersonalTraining = ({ data, location }) => {
   const isMobile = useMobile(false)
+  const screenType = useDetermineLayout()
+
+  const gridLayout = () => {
+    switch (screenType) {
+      case 'Mobile':
+        return '5/1/14/13'
+      case 'Tablet':
+        return '6/1/14/13'
+      case 'Desktop':
+        return '5/1/14/13'
+      default:
+        return '5/1/14/13'
+    }
+  }
 
   return (
     <Layout
@@ -48,7 +62,7 @@ const PersonalTraining = ({ data, location }) => {
           </Fade>
         </div>
       </Hero>
-      <Mission name="mission" {...isMobile}>
+      <Mission name="Mission" {...isMobile}>
         <Img
           className="backgroundTrain"
           fluid={data.trainAboutImage.childImageSharp.fluid}
@@ -80,7 +94,7 @@ const PersonalTraining = ({ data, location }) => {
           flows safely around you and your goals.
         </p>
       </Mission>
-      <Info name="about" isMobile={isMobile}>
+      <Info name="About" isMobile={isMobile}>
         <Panel name="Demystify aches, pains, and points of concern">
           <div className="collapseText">
             <p>
@@ -284,13 +298,13 @@ const PersonalTraining = ({ data, location }) => {
           </div>
         </Panel>
       </Info>
-      <Logos name="our team" isMobile={isMobile}>
+      <Logos name="Our Team" isMobile={isMobile}>
         <LineBreak area="4/2/5/5" />
         <Ribbon className="rib" width="100%" height="100%" />
         <LineBreak area="4/9/8/12" />
       </Logos>
-
-      <Team name="our trainers" isMobile={isMobile}>
+      {/* <div>{screenType}</div> */}
+      <Team name="Our Trainers" isMobile={isMobile}>
         <div className="teamheader">
           <h1>Accredited, certified, and always professional</h1>
           <h2>
@@ -303,9 +317,9 @@ const PersonalTraining = ({ data, location }) => {
         </div>
         <div className="member">
           <Portrait image={data.trainer2.childImageSharp.fluid} />
-          <Card className="cardbio" area="5/1/14/13">
-            <h2>Jeff Konczal</h2>
+          <Card className="cardbio" area={gridLayout}>
             <div className="text-content">
+              <h2>Jeff Konczal</h2>
               <LineBreak />
 
               <p>
@@ -326,34 +340,12 @@ const PersonalTraining = ({ data, location }) => {
             </div>
           </Card>
         </div>
-        <div className="member">
-          <Portrait image={data.trainer1.childImageSharp.fluid} />
-          <Card className="cardbio" area="5/1/14/13">
-            <h2>Dr. Jeremiah Weber</h2>
-            <div className="text-content">
-              <LineBreak />
-              <p>
-                Jeremiah has been an essential part of our physical therapy,
-                personal training, and athletic development teams since 2011.
-                Since his undergraduate days, he has pursued specialized
-                coursework and training that emphasize evidence-based spinal
-                care and support.
-                <br />
-                <br />
-                As an undergrad, Jeremiah was a member of the men’s varsity
-                hockey team and won a number of honors. He was a four-year
-                member of the NCHA all-academic team, was nominated for NCHA
-                scholar athlete of the year, and was a two-time recipient of the
-                Richard G O’Brien award for outstanding work ethic.
-              </p>
-            </div>
-          </Card>
-        </div>
+
         <div className="member">
           <Portrait image={data.trainer3.childImageSharp.fluid} />
-          <Card className="cardbio" area="5/1/14/13">
-            <h2>Joe Cripe</h2>
+          <Card className="cardbio" area={gridLayout}>
             <div className="text-content">
+              <h2>Joe Cripe</h2>
               <LineBreak />
               <p>
                 Joe heads up our athletic development program, and works with
@@ -373,9 +365,9 @@ const PersonalTraining = ({ data, location }) => {
         </div>
         <div className="member">
           <Portrait image={data.trainer4.childImageSharp.fluid} />
-          <Card className="cardbio" area="5/1/14/13">
-            <h2>Josh Conlon</h2>
+          <Card className="cardbio" area={gridLayout}>
             <div className="text-content">
+              <h2>Josh Conlon</h2>
               <LineBreak />
               <p>
                 Josh has been with Integra since 2013, and has been a
@@ -396,9 +388,9 @@ const PersonalTraining = ({ data, location }) => {
         </div>
         <div className="member">
           <Portrait image={data.trainer5.childImageSharp.fluid} />
-          <Card className="cardbio" area="5/1/14/13">
-            <h2>Luke Schneider</h2>
+          <Card className="cardbio" area={gridLayout}>
             <div className="text-content">
+              <h2>Luke Schneider</h2>
               <LineBreak />
               <p>
                 Luke has been studying and practicing kinesiology since 2010. He
@@ -416,6 +408,25 @@ const PersonalTraining = ({ data, location }) => {
                 musculoskeletal injury, and maintaining a healthy heart and
                 metabolism.”
               </section>
+            </div>
+          </Card>
+        </div>
+        <div className="member">
+          <Portrait image={data.trainer1.childImageSharp.fluid} />
+          <Card className="cardbio" area={gridLayout}>
+            <h2>John Herda</h2>
+            <div className="text-content">
+              <LineBreak />
+              <p>
+                When not training, John enjoys riding his bike and spending time
+                with his wife and 3 daughters.
+              </p>
+              {/* <section className="quote">
+              “I believe it’s essential to build the fundamentals of form and
+              function, and to teach healthy living. With clients, I emphasize a
+              progressive approach to developing strength and balance, with
+              special attention to posture and technique.”
+            </section> */}
             </div>
           </Card>
         </div>
@@ -478,8 +489,7 @@ export const pageQuery = graphql`
         }
       }
     }
-
-    trainer1: file(relativePath: { eq: "dr_jeremiahW.png" }) {
+    trainer1: file(relativePath: { eq: "johnH.png" }) {
       ...fluidImage
     }
     trainer2: file(relativePath: { eq: "jeff.png" }) {

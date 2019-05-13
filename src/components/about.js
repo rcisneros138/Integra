@@ -57,7 +57,7 @@ const About = props => (
       }
     `}
     render={data => (
-      <AboutWrapper name="about">
+      <AboutWrapper name="About">
         <AboutBackground
           fluid={data.mission.childImageSharp.fluid}
           style={{ position: 'absolute' }}

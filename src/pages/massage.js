@@ -46,7 +46,7 @@ const Massage = ({ data, location }) => {
           </Fade>
         </div>
       </Hero>
-      <Mission name="mission" {...isMobile}>
+      <Mission name="Mission" {...isMobile}>
         <Img
           className="backgroundTrain"
           fluid={data.aboutImage.childImageSharp.fluid}
@@ -71,7 +71,7 @@ const Massage = ({ data, location }) => {
           in the moment
         </p>
       </Mission>
-      <Info name="about" isMobile={isMobile}>
+      <Info name="About" isMobile={isMobile}>
         <Panel name="Myofascial massage">
           <div className="collapseText">
             <p>
@@ -148,13 +148,12 @@ const Massage = ({ data, location }) => {
           </div>
         </Panel>
       </Info>
-      <Logos name="our team">
+      <Logos name="Our Team">
         <LineBreak area="4/2/5/5" />
         <Ribbon className="rib" width="100%" height="100%" />
         <LineBreak area="4/9/8/12" />
       </Logos>
-
-      <Team name="our therapists">
+      <Team name="Our Therapists">
         <div className="teamheader">
           <h1>The massage table is waiting for you</h1>
           <h2>
@@ -166,43 +165,47 @@ const Massage = ({ data, location }) => {
         </div>
         <div className="member">
           <Portrait image={data.trainer1.childImageSharp.fluid} />
-          <Card className="cardbio" area="3/1/9/13">
+          <Card className="cardbio" area="5/1/14/13">
             <h2>Sara Smiley-Robbins</h2>
-            <LineBreak area="2/5/auto/9" />
-            <p>
-              is extremely thorough when it comes to relieving pain. In support
-              of her massage clients, she determines the source of pain through
-              physical assessment, health history, and their lifestyles. Her
-              approach and tenacity make her an ideal massage therapist for
-              people dealing with migraines, frozen shoulder, carpal tunnel, and
-              sciatica.
-            </p>
-            <section className="quote">
-              “When you identify the underlying cause, you can treat a person
-              way beyond just superficial aches and pains. Being able to do so
-              is a great satisfaction for me, and a huge help for the people I
-              treat.”
-            </section>
+            <div className="text-content">
+              <LineBreak />
+              <p>
+                is extremely thorough when it comes to relieving pain. In
+                support of her massage clients, she determines the source of
+                pain through physical assessment, health history, and their
+                lifestyles. Her approach and tenacity make her an ideal massage
+                therapist for people dealing with migraines, frozen shoulder,
+                carpal tunnel, and sciatica.
+              </p>
+              <section className="quote">
+                “When you identify the underlying cause, you can treat a person
+                way beyond just superficial aches and pains. Being able to do so
+                is a great satisfaction for me, and a huge help for the people I
+                treat.”
+              </section>
+            </div>
           </Card>
         </div>
         <div className="member">
           <Portrait image={data.trainer2.childImageSharp.fluid} />
-          <Card className="cardbio" area="3/1/9/13">
+          <Card className="cardbio" area="5/1/14/13">
             <h2>Michelle Evers</h2>
-            <LineBreak area="2/5/auto/9" />
-            <p>
-              Michelle started her massage career in Green Bay, and has been
-              practicing in the Milwaukee area since 2015. While her specialty
-              is sports massage, she’s skilled in a number of massage
-              modalities, including deep tissue, myofascial release, and
-              neuromuscular therapy.
-            </p>
-            <section className="quote">
-              “I believe sports massage can help anyone who’s dealing with pain
-              or an injury related to repetitive motion. No matter why a client
-              comes to the table, they’re my number one priority while we’re
-              working together.”
-            </section>
+            <div className="text-content">
+              <LineBreak />
+              <p>
+                Michelle started her massage career in Green Bay, and has been
+                practicing in the Milwaukee area since 2015. While her specialty
+                is sports massage, she’s skilled in a number of massage
+                modalities, including deep tissue, myofascial release, and
+                neuromuscular therapy.
+              </p>
+              <section className="quote">
+                “I believe sports massage can help anyone who’s dealing with
+                pain or an injury related to repetitive motion. No matter why a
+                client comes to the table, they’re my number one priority while
+                we’re working together.”
+              </section>
+            </div>
           </Card>
         </div>
       </Team>
@@ -215,7 +218,7 @@ export default Massage
 export const fluidImage = graphql`
   fragment fluidImage_mas on File {
     childImageSharp {
-      fluid(maxWidth: 800, quality: 70, cropFocus: CENTER) {
+      fluid(maxWidth: 800, quality: 60, cropFocus: CENTER) {
         ...GatsbyImageSharpFluid
       }
     }
@@ -235,14 +238,14 @@ export const pageQuery = graphql`
       }
     }
 
-    heroImage: file(relativePath: { eq: "lotus.jpg" }) {
+    heroImage: file(relativePath: { eq: "MassageCoverPic.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 800, quality: 90) {
+        fluid(maxWidth: 2000, quality: 60, cropFocus: CENTER) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    aboutImage: file(relativePath: { eq: "massage_header.jpg" }) {
+    aboutImage: file(relativePath: { eq: "SportsMassage.jpg" }) {
       childImageSharp {
         fluid(
           maxWidth: 2000

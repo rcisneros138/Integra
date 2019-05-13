@@ -85,6 +85,35 @@ export function useVisibility(
       window.removeEventListener('resize', handleScrollOrResize)
     }
   }, [el, usePartial, scrollableEl])
-  console.log(isVisible)
+  // console.log(isVisible)
   return isVisible
+}
+
+export function useDetermineLayout() {
+  const [screenType, setScreenType] = useState()
+
+  useEffect(() => {
+    determineScreenType()
+    window.addEventListener('resize', determineScreenType)
+    return () => {
+      window.removeEventListener('resize', determineScreenType)
+    }
+  }, [])
+  const determineScreenType = () => {
+    const deviceType = getDeviceType()
+    setScreenType(deviceType)
+  }
+  const getDeviceType = () => {
+    var screen = window.innerWidth
+    switch (true) {
+      case screen < 767:
+        return 'Mobile'
+      case screen < 1249:
+        return 'Tablet'
+      default:
+        return 'Desktop'
+    }
+  }
+
+  return screenType
 }

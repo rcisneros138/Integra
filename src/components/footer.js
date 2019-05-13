@@ -107,7 +107,7 @@ const Footer = props => (
     `}
     render={data => (
       <>
-        <FooterWrapper name="contact">
+        <FooterWrapper name="Contact">
           <FooterBackground
             isMobile={props.isMobile}
             fluid={data.background.childImageSharp.fluid}
