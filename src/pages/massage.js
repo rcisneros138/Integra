@@ -18,11 +18,24 @@ import Card from '../components/card'
 import Portrait from '../components/memberPortrait'
 
 import Ribbon from '../components/svg/ribbon'
-import { useMobile } from '../helpers'
+import { useMobile, useDetermineLayout } from '../helpers'
 
 const Massage = ({ data, location }) => {
   const isMobile = useMobile(false)
+  const screenType = useDetermineLayout()
 
+  const gridLayout = () => {
+    switch (screenType) {
+      case 'Mobile':
+        return '5/1/14/13'
+      case 'Tablet':
+        return '6/1/14/13'
+      case 'Desktop':
+        return '5/1/14/13'
+      default:
+        return '5/1/14/13'
+    }
+  }
   return (
     <Layout
       location={location}
@@ -165,9 +178,9 @@ const Massage = ({ data, location }) => {
         </div>
         <div className="member">
           <Portrait image={data.trainer1.childImageSharp.fluid} />
-          <Card className="cardbio" area="5/1/14/13">
-            <h2>Sara Smiley-Robbins</h2>
+          <Card className="cardbio" area={gridLayout}>
             <div className="text-content">
+              <h2>Sara Smiley-Robbins</h2>
               <LineBreak />
               <p>
                 is extremely thorough when it comes to relieving pain. In
@@ -188,9 +201,9 @@ const Massage = ({ data, location }) => {
         </div>
         <div className="member">
           <Portrait image={data.trainer2.childImageSharp.fluid} />
-          <Card className="cardbio" area="5/1/14/13">
-            <h2>Michelle Evers</h2>
+          <Card className="cardbio" area={gridLayout}>
             <div className="text-content">
+              <h2>Michelle Evers</h2>
               <LineBreak />
               <p>
                 Michelle started her massage career in Green Bay, and has been
@@ -240,7 +253,7 @@ export const pageQuery = graphql`
 
     heroImage: file(relativePath: { eq: "MassageCoverPic.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 2000, quality: 60, cropFocus: CENTER) {
+        fluid(maxWidth: 2000, quality: 65, cropFocus: CENTER) {
           ...GatsbyImageSharpFluid
         }
       }

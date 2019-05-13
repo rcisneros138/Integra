@@ -480,8 +480,8 @@ export const pageQuery = graphql`
     trainAboutImage: file(relativePath: { eq: "run_up.jpg" }) {
       childImageSharp {
         fluid(
-          maxWidth: 1200
-          quality: 70
+          maxWidth: 2000
+          quality: 80
           cropFocus: CENTER
           duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 70 }
         ) {

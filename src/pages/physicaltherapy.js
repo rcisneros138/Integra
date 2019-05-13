@@ -18,12 +18,25 @@ import Card from '../components/card'
 import Portrait from '../components/memberPortrait'
 
 import Ribbon from '../components/svg/ribbon'
-import { useMobile } from '../helpers'
+import { useMobile, useDetermineLayout } from '../helpers'
 import { bold } from 'ansi-colors'
 
 const PhysicalTherapy = ({ data, location }) => {
   const isMobile = useMobile(false)
+  const screenType = useDetermineLayout()
 
+  const gridLayout = () => {
+    switch (screenType) {
+      case 'Mobile':
+        return '5/1/14/13'
+      case 'Tablet':
+        return '6/1/14/13'
+      case 'Desktop':
+        return '5/1/14/13'
+      default:
+        return '5/1/14/13'
+    }
+  }
   return (
     <Layout
       location={location}
@@ -54,7 +67,7 @@ const PhysicalTherapy = ({ data, location }) => {
           fluid={data.aboutImage.childImageSharp.fluid}
           style={{
             width: '100%',
-            height: 'auto',
+            height: '100%',
             zIndex: -1,
           }}
         />
@@ -199,7 +212,7 @@ const PhysicalTherapy = ({ data, location }) => {
       </Logos>
       <Team name="Our Therapists">
         <div className="teamheader">
-          <h1>A We’re doctors and career health professionals</h1>
+          <h1>We’re doctors and career health professionals</h1>
           <h2>
             Our physical therapy team uses current scientific research, and
             applies clinical and technical expertise, toward helping you achieve
@@ -209,9 +222,9 @@ const PhysicalTherapy = ({ data, location }) => {
         </div>
         <div className="member">
           <Portrait image={data.trainer3.childImageSharp.fluid} />
-          <Card className="cardbio" area="5/1/14/13">
-            <h2>Dr. Erik Bork</h2>
+          <Card className="cardbio" area={gridLayout}>
             <div className="text-content">
+              <h2>Dr. Erik Bork</h2>
               <LineBreak />
               <p>
                 Erik is like a mechanist in his therapeutic technique, focusing
@@ -231,9 +244,9 @@ const PhysicalTherapy = ({ data, location }) => {
         </div>
         <div className="member">
           <Portrait image={data.trainer1.childImageSharp.fluid} />
-          <Card className="cardbio" area="5/1/14/13">
-            <h2>Dr. Jeremiah Weber</h2>
+          <Card className="cardbio" area={gridLayout}>
             <div className="text-content">
+              <h2>Dr. Jeremiah Weber</h2>
               <LineBreak />
               <p>
                 Jeremiah has been an essential part of our physical therapy,
@@ -254,9 +267,9 @@ const PhysicalTherapy = ({ data, location }) => {
         </div>
         <div className="member">
           <Portrait image={data.trainer2.childImageSharp.fluid} />
-          <Card className="cardbio" area="5/1/14/13">
-            <h2>Dr. Stephanie Smith</h2>
+          <Card className="cardbio" area={gridLayout}>
             <div className="text-content">
+              <h2>Dr. Stephanie Smith</h2>
               <LineBreak />
               <p>
                 Stephanie grew up locally in Germantown, and returned to the
@@ -283,7 +296,7 @@ export default PhysicalTherapy
 export const fluidImage = graphql`
   fragment fluidImage_pt on File {
     childImageSharp {
-      fluid(maxWidth: 800, quality: 40, cropFocus: CENTER) {
+      fluid(maxWidth: 1200, quality: 70, cropFocus: CENTER) {
         ...GatsbyImageSharpFluid
       }
     }
@@ -305,7 +318,13 @@ export const pageQuery = graphql`
 
     heroImage: file(relativePath: { eq: "physicalTherapyTable.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1200, maxHeight: 800, quality: 70, cropFocus: CENTER) {
+        fluid(
+          maxWidth: 1200
+          maxHeight: 800
+          quality: 70
+          cropFocus: CENTER
+          duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 20 }
+        ) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -313,9 +332,8 @@ export const pageQuery = graphql`
     aboutImage: file(relativePath: { eq: "physicalTherapy_mission.jpg" }) {
       childImageSharp {
         fluid(
-          maxWidth: 5000
+          maxWidth: 2000
           quality: 70
-          cropFocus: CENTER
           duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 70 }
         ) {
           ...GatsbyImageSharpFluid

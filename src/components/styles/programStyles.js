@@ -34,7 +34,7 @@ const Mission = styled.div`
   display: grid;
   grid-gap: 0 2.25em;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 0.5fr);
   .backgroundTrain {
     grid-area: 1/1/9/13;
   }
@@ -118,7 +118,7 @@ const Team = styled.div`
       font-family: Roboto;
       font-style: normal;
       font-weight: 500;
-      font-size: ${props => (props.isMobile ? '2em' : '3em')};
+      font-size: ${props => (props.isMobile ? '2em' : '3em 6em 3em 6em')};
       margin:  ${props => (props.isMobile ? '2em' : '0')};
       color: #8b8888;
 
