@@ -77,9 +77,9 @@ const Info = styled.div`
   }
   p {
     font-family: Roboto;
-    font-size: ${props => (props.isMobile ? '0.5em' : '1.5em')};
+    font-size: ${props => (props.isMobile ? '1em' : '1.5em')};
     font-weight: 400;
-    color: #6a757c;
+    color: #555353;
     margin: auto;
     line-height: 1.5em;
     text-align: left;
@@ -174,7 +174,7 @@ const Team = styled.div`
         font-family: Roboto;
         line-height: 1.25em;
         text-align: justify;
-        color: #8b8888;
+        color: #555353;
         font-weight: 100;
         margin-top: 0;
         font-size:1.5em;   

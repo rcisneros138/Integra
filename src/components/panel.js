@@ -34,7 +34,7 @@ const Frame = styled.div`
     right: 2em;
     position: absolute;
     height: 3em;
-    top: 20%;
+    top: ${props => (props.isOpen ? '5%' : '20%')};
   }
 `
 const Content = styled(animated.div)`
@@ -76,6 +76,7 @@ const Panel = memo(({ children, name, style, open = false }) => {
       style={{ ...toggle }}
       isMobile={isMobile}
       onClick={() => setOpen(!isOpen)}
+      isOpen={isOpen}
     >
       <span
         style={{
@@ -88,8 +89,6 @@ const Panel = memo(({ children, name, style, open = false }) => {
           className="icon"
           style={{
             ...toggle,
-
-            transform,
           }}
         />
       </span>
