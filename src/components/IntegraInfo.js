@@ -13,6 +13,7 @@ import Medicare from './svg/medicare'
 
 const LineBreak = styled.hr`
   grid-column: 2/11;
+  grid-row: 1/2;
   display: block;
   height: 2px;
   border: 0;
@@ -23,20 +24,20 @@ const LineBreak = styled.hr`
 `
 const APTALogoWrapper = styled.div`
   grid-column: ${props => (props.isMobile ? '2/11' : '2/6')};
-  grid-row: ${props => (props.isMobile ? '3/4' : '4/6')};
-  padding-top: ${props => !props.isMobile && '5em'};
+  grid-row: ${props => (props.isMobile ? '2/3' : '4/6')};
+  padding-top: ${props => !props.isMobile && '10em'};
   @media screen and (orientation: landscape) {
     grid-column: 2/6;
-    grid-row: 4/6;
+    grid-row: 2/3;
   }
 `
 const AwardSealWrapper = styled.div`
   grid-column: ${props => (props.isMobile ? '3/10' : '7/11')};
-  grid-row: ${props => (props.isMobile ? '5/7' : '4/6')};
+  grid-row: ${props => (props.isMobile ? '3/5' : '4/6')};
 
   @media screen and (orientation: landscape) {
     grid-column: 7/11;
-    grid-row: 3/6;
+    grid-row: 2/5;
   }
 `
 
@@ -60,7 +61,7 @@ const InfoWrapper = styled.div`
   background-color: #f9f9f9;
   display: grid;
   grid-gap: 0 2.25em;
-  grid-template-rows: repeat(8, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(11, 1fr);
   margin: 0 auto;
   height: auto;

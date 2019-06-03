@@ -27,11 +27,12 @@ const SummaryWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   position: absolute;
-  justify-content: ${props => (props.isMobile ? 'center' : 'space-evenly')};
+  justify-content: space-evenly;
   height: 100%;
   width: 100%;
+  font-size: 24px;
   p {
-    font-size: ${props => (props.isMobile ? '2vw' : '1vw')};
+    font-size: ${props => (props.isMobile ? '1em' : '1vw')};
     z-index: 2;
     font-weight: 100;
     font-family: roboto;
@@ -47,7 +48,7 @@ const SummaryWrapper = styled.div`
     text-decoration: underline;
   }
   h2 {
-    font-size: ${props => (props.isMobile ? '5vmin' : '3vmin')};
+    font-size: ${props => (props.isMobile ? '2em' : '3vmin')};
     z-index: 99;
     font-weight: bold;
     color: #f9f9f9;
@@ -86,12 +87,12 @@ const programStyle = {
   textAlign: 'center',
   fontWeight: '900',
   color: '#F9F9F9',
-  fontSize: '3vmin',
+  fontSize: '24px',
   padding: '5vmin',
   height: '50vh',
 }
 const pStyle = {
-  fontSize: '1vw',
+  fontSize: '1em',
   fontWeight: '100',
   lineHeight: '2em',
   color: '#F9F9F9',

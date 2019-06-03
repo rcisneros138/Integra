@@ -20,6 +20,7 @@ const FooterWrapper = styled(Element)`
   grid-template-rows: repeat(6, 1fr);
   height: 80vmin;
   overflow: hidden;
+  font-size: 24px;
 `
 
 const FooterBackground = styled(Img)`
@@ -31,11 +32,11 @@ const FooterBackground = styled(Img)`
   overflow: hidden;
 `
 const ContactInfo = styled.div`
-  grid-column: ${props => (props.isMobile ? '3/12' : '2/5')};
+  grid-column: ${props => (props.isMobile ? '3/12' : '2/6')};
   grid-row: ${props => (props.isMobile ? '2/5' : '2/6')};
   display: flex;
   flex-direction: column;
-  font-size: ${props => (props.isMobile ? '2vw' : '1vw')};
+  font-size: ${props => (props.isMobile ? '3vw' : '2vw')};
   @media screen and (position: landscape) {
     font-size: 1vw;
   }
@@ -59,6 +60,7 @@ const ContactInfo = styled.div`
       svg {
         float: left;
         margin-right: 1em;
+        margin-top: 1em;
       }
       p {
         font-weight: 100;
@@ -89,16 +91,21 @@ const ContactInfo = styled.div`
 const MapWrapper = styled.div`
   height: 100%;
   width: 100%;
-  grid-area: 2/6/6/12;
+  grid-area: 2/7/6/12;
 `
 
 const Footer = props => (
   <StaticQuery
     query={graphql`
       query footerImages {
-        background: file(relativePath: { eq: "footerBackground.png" }) {
+        background: file(relativePath: { eq: "team.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1500, maxHeight: 1000, quality: 100) {
+            fluid(
+              maxWidth: 1500
+              maxHeight: 1000
+              quality: 100
+              duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 70 }
+            ) {
               ...GatsbyImageSharpFluid
             }
           }

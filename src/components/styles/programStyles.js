@@ -51,7 +51,7 @@ const Mission = styled.div`
     grid-area: 1/1/9/13;
   }
   h1 {
-    grid-area: 2/3/3/11;
+    grid-area: 1/3/3/11;
     text-align: center;
     font-weight: 300;
     letter-spacing: 0.05em;
@@ -59,15 +59,15 @@ const Mission = styled.div`
     color: #f9f9f9;
   }
   h2 {
-    grid-area: 3/3/4/11;
+    grid-area: 2/2/4/11;
     text-align: center;
     font-weight: 100;
     letter-spacing: 0.05em;
     font-size: ${props => (props.isMobile ? '1em' : '2em')};
     color: #f9f9f9;
   }
-  p {
-    grid-area: 4/2/8/12;
+  .missionBody {
+    grid-area: ${props => (props.isMobile ? ' 2/2/8/12' : '3/2/8/12')};
     font-weight: 100;
     font-family: roboto;
     color: #f9f9f9;
