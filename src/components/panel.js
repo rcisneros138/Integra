@@ -34,7 +34,7 @@ const Frame = styled.div`
     right: 2em;
     position: absolute;
     height: 3em;
-    top: ${props => (props.isOpen ? '5%' : '20%')};
+    /* top: ${props => (props.isOpen ? '5%' : '20%')}; */
   }
 `
 const Content = styled(animated.div)`
@@ -69,6 +69,9 @@ const Panel = memo(({ children, name, style, open = false }) => {
       delay: 100,
     },
   })
+  const iconTop = useSpring({
+    top: isOpen ? '5%' : '20%',
+  })
 
   const Icon = Icons[`${isOpen ? 'Minus' : 'Plus'}`]
   return (
@@ -76,7 +79,6 @@ const Panel = memo(({ children, name, style, open = false }) => {
       style={{ ...toggle }}
       isMobile={isMobile}
       onClick={() => setOpen(!isOpen)}
-      isOpen={isOpen}
     >
       <span
         style={{
@@ -88,7 +90,7 @@ const Panel = memo(({ children, name, style, open = false }) => {
         <Icon
           className="icon"
           style={{
-            ...toggle,
+            ...iconTop,
           }}
         />
       </span>

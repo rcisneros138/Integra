@@ -2,16 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Hero = styled.div`
-  height: 70vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 5vh;
 
   h1 {
     font-weight: 100;
-
-    font-size: 9vmin;
     color: #f9f9f9;
     margin: 0;
     letter-spacing: 0.02em;
@@ -29,6 +28,19 @@ const Hero = styled.div`
     height: 100vmin;
   }
 `
+
+const heroImageOrtientation = isMobile => {
+  const height = isMobile ? '80vh' : 'auto'
+
+  return {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    width: '100%',
+    height: height,
+    zIndex: -1,
+  }
+}
 const Mission = styled.div`
   height: auto;
   display: grid;
@@ -214,4 +226,4 @@ const Team = styled.div`
       }
 `
 
-export { Hero, Mission, Info, Logos, LineBreak, Team }
+export { Hero, Mission, Info, Logos, LineBreak, Team, heroImageOrtientation }

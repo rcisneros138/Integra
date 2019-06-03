@@ -10,6 +10,7 @@ import {
   Logos,
   LineBreak,
   Team,
+  heroImageOrtientation,
 } from '../components/styles/programStyles'
 
 import Layout from '../components/layout'
@@ -45,14 +46,7 @@ const PhysicalTherapy = ({ data, location }) => {
       <Hero>
         <Img
           fluid={data.heroImage.childImageSharp.fluid}
-          style={{
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            width: '100%',
-            height: '70vh',
-            zIndex: -1,
-          }}
+          style={heroImageOrtientation(isMobile)}
         />
         <div className="heroText">
           <Fade bottom>

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const LearnButton = styled.button`
   background-color: transparent;
-  border: 10px solid #19b5fe;
+  border: 6px solid #4c9bfe;
   border-radius: 1px;
   padding: 1em 4em;
   opacity: 0.7;
@@ -20,8 +20,7 @@ const LearnButton = styled.button`
 
 const LearnMore = props => (
   <LearnButton>
-    {' '}
-    <a>Learn More</a>{' '}
+    <a>Learn More</a>
   </LearnButton>
 )
 

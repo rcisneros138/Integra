@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Element } from 'react-scroll'
 
 import Concat from './concat'
 import TextComponent from './textComponent/textComponent'
 import AnimatedComponent from './textComponent/animate'
-import { concat } from 'rxjs'
+
+import LearnMore from './buttons/learnButton'
 
 const ProgramSection = styled(Element)`
   width: 100vw;
@@ -31,13 +32,19 @@ const SummaryWrapper = styled.div`
   width: 100%;
   p {
     font-size: ${props => (props.isMobile ? '2vw' : '1vw')};
-    z-index: 99;
+    z-index: 2;
     font-weight: 100;
     font-family: roboto;
     color: #f9f9f9;
     text-align: center;
     line-height: 2em;
     margin: 2vw;
+  }
+  .learn {
+    z-index: 2;
+  }
+  .pageLink {
+    text-decoration: underline;
   }
   h2 {
     font-size: ${props => (props.isMobile ? '5vmin' : '3vmin')};
@@ -231,6 +238,9 @@ const Programs = props => (
                     certifications.
                   </Concat>
                 </p>
+                <Link class="learn" to="/personaltraining">
+                  <LearnMore />
+                </Link>
               </SummaryWrapper>
               <Img
                 fluid={
@@ -256,6 +266,9 @@ const Programs = props => (
                     safely and efficiently.
                   </Concat>
                 </p>
+                <Link class="learn" to="/physicaltherapy">
+                  <LearnMore />
+                </Link>
               </SummaryWrapper>
               <Img
                 fluid={
@@ -279,6 +292,9 @@ const Programs = props => (
                   you achieve your physical therapy and rehabilitation goals
                   safely and efficiently.{' '}
                 </p>
+                <Link class="learn" to="/massage">
+                  <LearnMore />
+                </Link>
               </SummaryWrapper>
               <Img
                 fluid={

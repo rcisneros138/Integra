@@ -11,6 +11,7 @@ import {
   Logos,
   LineBreak,
   Team,
+  heroImageOrtientation,
 } from '../components/styles/programStyles'
 
 import Layout from '../components/layout'
@@ -38,23 +39,17 @@ const PersonalTraining = ({ data, location }) => {
     }
   }
 
+  const HeaderImageFluid = isMobile
+    ? data.heroImageMobile.childImageSharp.fluid
+    : data.heroImage.childImageSharp.fluid
+
   return (
     <Layout
       location={location}
       links={data.site.siteMetadata.menuLinks.training}
     >
       <Hero>
-        <Img
-          fluid={data.heroImage.childImageSharp.fluid}
-          style={{
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            width: '100%',
-            height: '70vh',
-            zIndex: -1,
-          }}
-        />
+        <Img fluid={HeaderImageFluid} style={heroImageOrtientation(isMobile)} />
         <div className="heroText">
           <Fade bottom>
             <h1>Personal</h1>
@@ -470,9 +465,28 @@ export const pageQuery = graphql`
       }
     }
 
-    heroImage: file(relativePath: { eq: "personaltraining.jpg" }) {
+    heroImage: file(relativePath: { eq: "trainingHeader2.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1200, maxHeight: 800, quality: 70, cropFocus: CENTER) {
+        fluid(
+          maxWidth: 1200
+          maxHeight: 800
+          quality: 80
+          cropFocus: NORTHWEST
+          duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 20 }
+        ) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    heroImageMobile: file(relativePath: { eq: "trainingHeader2m.jpg" }) {
+      childImageSharp {
+        fluid(
+          maxWidth: 1200
+          maxHeight: 800
+          quality: 80
+          cropFocus: NORTHWEST
+          duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 20 }
+        ) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -482,7 +496,7 @@ export const pageQuery = graphql`
         fluid(
           maxWidth: 2000
           quality: 80
-          cropFocus: CENTER
+          cropFocus: NORTH
           duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 70 }
         ) {
           ...GatsbyImageSharpFluid
