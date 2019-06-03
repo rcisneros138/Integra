@@ -67,21 +67,23 @@ const PhysicalTherapy = ({ data, location }) => {
         />
         <h1>Personalized Care and Physical Therapy</h1>
         <h2> Right Here in Fox Point</h2>
-        <p>
-          Battling back from an injury, and avoiding new injuries, can be
-          difficult and confusing. For plenty of people, physical therapy feels
-          like you’re taking two steps back, rather than moving forward. Since
-          2004, Integra has taken the right steps with clients of all ages and
-          abilities Every day, we work with a wide range of people, from those
-          taking their first steps toward physical recovery, to others who are
-          ready to return to the game. It’s our pleasure to help you get back on
-          track—no matter what track you’re on. We’re doctors and career health
-          professionals Our physical therapy team uses current scientific
-          research, and applies clinical and technical expertise, toward helping
-          you achieve your physical therapy and rehabilitation goals safely and
-          efficiently. Get more out of physical therapy with evidence-based
-          techniques
-        </p>
+        <div className="missionBody">
+          <p>
+            Battling back from an injury, and avoiding new injuries, can be
+            difficult and confusing. For plenty of people, physical therapy
+            feels like you’re taking two steps back, rather than moving forward.
+            Since 2004, Integra has taken the right steps with clients of all
+            ages and abilities Every day, we work with a wide range of people,
+            from those taking their first steps toward physical recovery, to
+            others who are ready to return to the game. It’s our pleasure to
+            help you get back on track—no matter what track you’re on. We’re
+            doctors and career health professionals Our physical therapy team
+            uses current scientific research, and applies clinical and technical
+            expertise, toward helping you achieve your physical therapy and
+            rehabilitation goals safely and efficiently. Get more out of
+            physical therapy with evidence-based techniques
+          </p>
+        </div>
       </Mission>
       <Info name="About" isMobile={isMobile}>
         <Panel name="Evidence-based care is the core of our conditioning philosophy.">

@@ -64,19 +64,21 @@ const Massage = ({ data, location }) => {
           }}
         />
         <h1>Not all massages are created equally</h1>
-        <p>
-          Massage therapy is one of the fundamental pillars at Integra. As a
-          massage client, you bring a unique set of needs to the table. Whether
-          you’re dealing with an injury, want to combat chronic pain, or need to
-          de-stress, we adapt to what your body tells us. Relieve pain and
-          dysfunction, and recover from injuries faster with massage Each style
-          of massage requires education, technical training and experience. Our
-          coordinated, tailored massage treatments help reduce your pain,
-          improve flexibility, relieve stress and much more. Our massage
-          therapists use an orthopedic massage approach that integrates a number
-          of effective massage techniques, depending on what your body presents
-          in the moment
-        </p>
+        <div className="missionBody">
+          <p>
+            Massage therapy is one of the fundamental pillars at Integra. As a
+            massage client, you bring a unique set of needs to the table.
+            Whether you’re dealing with an injury, want to combat chronic pain,
+            or need to de-stress, we adapt to what your body tells us. Relieve
+            pain and dysfunction, and recover from injuries faster with massage
+            Each style of massage requires education, technical training and
+            experience. Our coordinated, tailored massage treatments help reduce
+            your pain, improve flexibility, relieve stress and much more. Our
+            massage therapists use an orthopedic massage approach that
+            integrates a number of effective massage techniques, depending on
+            what your body presents in the moment
+          </p>
+        </div>
       </Mission>
       <Info name="About" isMobile={isMobile}>
         <Panel name="Myofascial massage">
