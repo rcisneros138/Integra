@@ -66,8 +66,8 @@ const PhysicalTherapy = ({ data, location }) => {
           }}
         />
         <h1>Personalized Care and Physical Therapy</h1>
-        <h2> Right Here in Fox Point</h2>
-        <div className="missionBody">
+        {/* <h2> Right Here in Fox Point</h2> */}
+        <div className="missionBodyShifted">
           <p>
             Battling back from an injury, and avoiding new injuries, can be
             difficult and confusing. For plenty of people, physical therapy

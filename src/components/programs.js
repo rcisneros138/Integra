@@ -226,6 +226,7 @@ const Programs = props => (
             <AnimatedComponent
               isMobile={props.isMobile}
               animationType="fade-up"
+              style={{ height: '100%' }}
             >
               <SummaryWrapper isMobile={props.isMobile}>
                 <h2>Personal Training</h2>
@@ -249,6 +250,7 @@ const Programs = props => (
                     ? data.personalTrainingMobile.childImageSharp.fluid
                     : data.personalTraining.childImageSharp.fluid
                 }
+                style={{ height: '100%' }}
               />
             </AnimatedComponent>
           </FirstImgWrapper>
@@ -256,6 +258,7 @@ const Programs = props => (
             <AnimatedComponent
               isMobile={props.isMobile}
               animationType="fade-up"
+              style={{ height: '100%' }}
             >
               <SummaryWrapper isMobile={props.isMobile}>
                 <h2>Physical Therapy</h2>
@@ -277,6 +280,7 @@ const Programs = props => (
                     ? data.physicalTherapyMobile.childImageSharp.fluid
                     : data.physicalTherapy.childImageSharp.fluid
                 }
+                style={{ height: '100%' }}
               />
             </AnimatedComponent>
           </SecondImgWrapper>
@@ -284,6 +288,7 @@ const Programs = props => (
             <AnimatedComponent
               isMobile={props.isMobile}
               animationType="fade-up"
+              style={{ height: '100%' }}
             >
               <SummaryWrapper isMobile={props.isMobile}>
                 <h2>Massage</h2>
@@ -303,6 +308,7 @@ const Programs = props => (
                     ? data.massageMobile.childImageSharp.fluid
                     : data.massage.childImageSharp.fluid
                 }
+                style={{ height: '100%' }}
               />
             </AnimatedComponent>
           </ThirdImgWrapper>

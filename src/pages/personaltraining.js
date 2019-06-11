@@ -67,7 +67,7 @@ const PersonalTraining = ({ data, location }) => {
             zIndex: -1,
           }}
         />
-        <h1>Dont Just "Live With It"</h1>
+        <h1>Don't Just "Live With It"</h1>
         <div className="missionBody">
           <p>
             Maybe you’ve been working out for a while, and want to reach the

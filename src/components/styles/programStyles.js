@@ -57,9 +57,10 @@ const Mission = styled.div`
     letter-spacing: 0.05em;
     font-size: ${props => (props.isMobile ? '1.5em' : '5em')};
     color: #f9f9f9;
+    margin-top: ${props => !props.isMobile && '15rem'};
   }
   h2 {
-    grid-area: 2/2/4/11;
+    grid-area: 3/2/4/11;
     text-align: center;
     font-weight: 100;
     letter-spacing: 0.05em;
@@ -68,6 +69,19 @@ const Mission = styled.div`
   }
   .missionBody {
     grid-area: ${props => (props.isMobile ? ' 2/2/8/12' : '3/2/8/12')};
+    font-weight: 100;
+    font-family: roboto;
+    color: #f9f9f9;
+    /* text-align: center; */
+    line-height: 2em;
+    margin: 2vw;
+    font-size: ${props => (props.isMobile ? '1em' : '2em')};
+    @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
+      font-size: 1vw !important;
+    }
+  }
+  .missionBodyShifted {
+    grid-area: ${props => (props.isMobile ? ' 2/2/8/12' : '4/2/8/12')};
     font-weight: 100;
     font-family: roboto;
     color: #f9f9f9;
