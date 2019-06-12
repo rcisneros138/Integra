@@ -63,14 +63,14 @@ const Massage = ({ data, location }) => {
             zIndex: -1,
           }}
         />
-        <h1>Not all massages are created equally</h1>
+        <h1>Not all massages are not created equally</h1>
         <div className="missionBody">
           <p>
             Massage therapy is one of the fundamental pillars at Integra. As a
             massage client, you bring a unique set of needs to the table.
             Whether you’re dealing with an injury, want to combat chronic pain,
             or need to de-stress, we adapt to what your body tells us. Relieve
-            pain and dysfunction, and recover from injuries faster with massage
+            pain and dysfunction, and recover from injuries faster with massage.
             Each style of massage requires education, technical training and
             experience. Our coordinated, tailored massage treatments help reduce
             your pain, improve flexibility, relieve stress and much more. Our
@@ -84,7 +84,7 @@ const Massage = ({ data, location }) => {
         <Panel name="Myofascial massage">
           <div className="collapseText">
             <p>
-              treats the body’s connective tissue, and frees areas of tissue
+              Treats the body’s connective tissue, and frees areas of tissue
               that become stuck together. After a myofascial massage treatment,
               your muscles can once again glide over one another. This release
               can dramatically reduce tension, stiffness, and achiness.
@@ -94,7 +94,7 @@ const Massage = ({ data, location }) => {
         <Panel name="Neuromuscular Therapy (NMT)">
           <div className="collapseText">
             <p>
-              a precise, thorough assessment and treatment of the body’s soft
+              A precise, thorough assessment and treatment of the body’s soft
               tissues. NMT focuses on relieving the pain of trigger points. It’s
               often integrated into other massage techniques (instead of being a
               primary form of therapy). Using NMT, our massage team gathers
@@ -106,7 +106,7 @@ const Massage = ({ data, location }) => {
         <Panel name="Deep tissue massage">
           <div className="collapseText">
             <p>
-              addresses problem areas in a specific muscle or muscle group. Deep
+              Addresses problem areas in a specific muscle or muscle group. Deep
               tissue massage can be intense for some clients. Our massage
               therapists reduce the intensity by shortening the muscle, and
               changing the position of your body when necessary.
@@ -116,7 +116,7 @@ const Massage = ({ data, location }) => {
         <Panel name="Orthopedic Massage Therapy">
           <div className="collapseText">
             <p>
-              this multidisciplinary approach relieves muscular and soft tissue
+              This multidisciplinary approach relieves muscular and soft tissue
               pain, dysfunction, and injuries. Orthopedic massage helps
               normalize the body’s soft tissues, and can be far more powerful
               than using just one technique. We apply orthopedic massage to help
@@ -127,7 +127,7 @@ const Massage = ({ data, location }) => {
         <Panel name="Spontaneous Muscle Release Technique (SMRT)">
           <div className="collapseText">
             <p>
-              a painless method of releasing tight muscles. Some massage clients
+              A painless method of releasing tight muscles. Some massage clients
               experience tightness in specific areas, or trigger points, because
               their nervous system is overstimulated. Using the SMRT technique,
               our massage therapists can disrupt overstimulation, and quickly
@@ -139,7 +139,7 @@ const Massage = ({ data, location }) => {
         <Panel name="Sports Massage">
           <div className="collapseText">
             <p>
-              best described as repetitive motion massage, sports massage can
+              Best described as repetitive motion massage, sports massage can
               support anyone, not just athletes. During a sports massage, we use
               a combination of massage techniques and stretches to help improve
               range of motion, and lessen pain in targeted areas.
@@ -149,7 +149,7 @@ const Massage = ({ data, location }) => {
         <Panel name="Stretching Sessions">
           <div className="collapseText">
             <p>
-              targets your tight or sore areas. Stretching sessions typically
+              Targets your tight or sore areas. Stretching sessions typically
               range from 15 – 30 minutes on the massage table, during which you
               are fully clothed. A stretching session right after a workout can
               help speed up recovery time.
@@ -179,7 +179,7 @@ const Massage = ({ data, location }) => {
               <h2>Sara Smiley-Robbins</h2>
               <LineBreak />
               <p>
-                is extremely thorough when it comes to relieving pain. In
+                Sara is extremely thorough when it comes to relieving pain. In
                 support of her massage clients, she determines the source of
                 pain through physical assessment, health history, and their
                 lifestyles. Her approach and tenacity make her an ideal massage

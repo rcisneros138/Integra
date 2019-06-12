@@ -115,7 +115,7 @@ const PersonalTraining = ({ data, location }) => {
             <p>
               From there, we identify areas of strength and weakness, ways that
               your body is compensating, and any asymmetry that’s holding you
-              back. We use this base of knowledge to inform an exercise program
+              back. We use this base of knowledge to develop an exercise program
               that flows safely around you and your goals.
             </p>
             <br />
@@ -129,40 +129,13 @@ const PersonalTraining = ({ data, location }) => {
               blueprint that leads to the results you want, including things
               like:
             </p>
-            <ul className="list">
-              <li>
-                <p className="listTitle">
-                  Greater flexibility and range of motion
-                </p>
-              </li>
-              <li>
-                <p className="listTitle">Fewer aches and pains </p>
-              </li>
-              <li>
-                <p className="listTitle">Increased energy and endurance</p>
-              </li>
-              <li>
-                <p className="listTitle">Core strength </p>
-              </li>
-              <li>
-                <p className="listTitle">
-                  Better performance in specific sports or activities
-                </p>
-              </li>
-              <li>
-                <p className="listTitle">Weight loss</p>
-              </li>
-              <li>
-                <p className="listTitle">Improved shape and tone</p>
-              </li>
-            </ul>
           </div>
         </Panel>
         <Panel name="Training evaluation ">
           <div className="collapseText">
             <p>
-              We use a unique evaluation approach to begin you training
-              experience. Here’s how the steps break down:
+              We use a unique evaluation approach to begin your training
+              experience. Here’s how the steps are broken down:
             </p>
             <ul className="list">
               <li>
@@ -252,9 +225,10 @@ const PersonalTraining = ({ data, location }) => {
               From muscle stabilization, to coordination, to effective
               movements, we bring you tools, techniques, and practices that help
               you build a structure for strength, flexibility, and peak
-              performance.
+              performance. Our focus as personal trainers includes the
+              following:
             </p>
-            <p>Our focus as personal trainers includes the following:</p>
+
             <ul className="list">
               <li>
                 <p className="listTitle">
@@ -285,7 +259,7 @@ const PersonalTraining = ({ data, location }) => {
           <div className="collapseText">
             <p>
               Claim your place on the continuum of athletic performance and
-              corrective exercise
+              corrective exercise.
             </p>
             <br />
             <p>
@@ -294,7 +268,7 @@ const PersonalTraining = ({ data, location }) => {
               tall windows, and high ceilings, we’re equipped to support
               one-on-one strength and conditioning, cardio, physical therapy,
               massage and more. Get started with personal training that fits
-              your schedule, style, and personal budget
+              your schedule, style, and personal budget/
             </p>
           </div>
         </Panel>

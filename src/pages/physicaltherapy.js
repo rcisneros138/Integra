@@ -129,7 +129,7 @@ const PhysicalTherapy = ({ data, location }) => {
             <p>
               There’s no such thing as having “the same injury” as someone else.
               Every injury, like every situation, is unique. We tune in to your
-              physical needs A number of focus areas inform and guide our
+              physical needs. A number of focus areas inform and guide our
               approach:
             </p>
             <ul className="list">
@@ -180,7 +180,7 @@ const PhysicalTherapy = ({ data, location }) => {
               </li>
             </ul>
             <p>
-              Dry needling is fast-acting, but it’s not a quick fix Using dry
+              Dry needling is fast-acting, but it’s not a quick fix. Using dry
               needling as a stand-alone remedy is short-sighted. At Integra, we
               use dry needling to facilitate movement, and always pair it with
               another form of manual therapy, exercise prescription, or
