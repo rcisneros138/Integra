@@ -1798,13 +1798,6 @@ binary-extensions@^1.0.0:
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-1.13.1.tgz#598afe54755b2868a5330d2aff9d4ebb53209b65"
   integrity sha512-Un7MIEDdUC5gNpcGDV97op1Ywk748MpHcFTHoYs6qnj1Z3j7I53VG3nwZhKzoBZmbdRNnb6WRdFlwl7tSDuZGw==
 
-bindings@^1.3.1:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/bindings/-/bindings-1.4.0.tgz#909efa49f2ebe07ecd3cb136778f665052040127"
-  integrity sha512-7znEVX22Djn+nYjxCWKDne0RRloa9XfYa84yk3s+HkE3LpDYZmhArYr9O9huBoHY3/oXispx5LorIX7Sl2CgSQ==
-  dependencies:
-    file-uri-to-path "1.0.0"
-
 bindings@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/bindings/-/bindings-1.5.0.tgz#10353c9e945334bc0511a6d90b38fbc7c9c504df"
@@ -2379,13 +2372,6 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-clap@^1.0.9:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/clap/-/clap-1.2.3.tgz#4f36745b32008492557f46412d66d50cb99bce51"
-  integrity sha512-4CoL/A3hf90V3VIEjeuhSvlGFEHKzOz+Wfc2IVZc+FaUgU0ZQafJTP49fvnULipOPcAfqhyI2duwQyns6xqjYA==
-  dependencies:
-    chalk "^1.1.3"
-
 class-utils@^0.3.5:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/class-utils/-/class-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"
@@ -2467,13 +2453,6 @@ coa@^2.0.2:
     chalk "^2.4.1"
     q "^1.1.2"
 
-coa@~1.0.1:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/coa/-/coa-1.0.4.tgz#a9ef153660d6a86a8bdec0289a5c684d217432fd"
-  integrity sha1-qe8VNmDWqGqL3sAomlxoTSF0Mv0=
-  dependencies:
-    q "^1.1.2"
-
 code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
@@ -2525,15 +2504,18 @@ color@^3.0.0, color@^3.1.0:
     color-convert "^1.9.1"
     color-string "^1.5.2"
 
+color@^3.1.1:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/color/-/color-3.1.2.tgz#68148e7f85d41ad7649c5fa8c8106f098d229e10"
+  integrity sha512-vXTJhHebByxZn3lDvDJYw4lR5+uB3vuoHsuYA5AKuxRVn5wzzIfQKGLBmgdVRHKTJYeK5rvJcHnrd0Li49CFpg==
+  dependencies:
+    color-convert "^1.9.1"
+    color-string "^1.5.2"
+
 colors@^1.1.2:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.3.3.tgz#39e005d546afe01e01f9c4ca8fa50f686a01205d"
   integrity sha512-mmGt/1pZqYRjMxB1axhTo16/snVZ5krrKkcmMeVKxzECMMXoCgnvTPp10QgHfcbQZw8Dq2jMNG6je4JlWU0gWg==
-
-colors@~1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/colors/-/colors-1.1.2.tgz#168a4701756b6a7f51a12ce0c97bfa28c084ed63"
-  integrity sha1-FopHAXVran9RoSzgyXv6KMCE7WM=
 
 combined-stream@^1.0.6, combined-stream@~1.0.6:
   version "1.0.7"
@@ -3123,14 +3105,6 @@ csso@^3.5.1:
   integrity sha512-vrqULLffYU1Q2tLdJvaCYbONStnfkfimRxXNaGjxMldI0C7JPBC4rB1RyjhfdZ4m1frm8pM9uRPKH3d2knZ8gg==
   dependencies:
     css-tree "1.0.0-alpha.29"
-
-csso@~2.3.1:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/csso/-/csso-2.3.2.tgz#ddd52c587033f49e94b71fc55569f252e8ff5f85"
-  integrity sha1-3dUsWHAz9J6Utx/FVWnyUuj/X4U=
-  dependencies:
-    clap "^1.0.9"
-    source-map "^0.5.3"
 
 csstype@^2.2.0:
   version "2.6.3"
@@ -3988,11 +3962,6 @@ espree@^5.0.1:
     acorn-jsx "^5.0.0"
     eslint-visitor-keys "^1.0.0"
 
-esprima@^2.6.0:
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/esprima/-/esprima-2.7.3.tgz#96e3b70d5779f6ad49cd032673d1c312767ba581"
-  integrity sha1-luO3DVd59q1JzQMmc9HDEnZ7pYE=
-
 esprima@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/esprima/-/esprima-4.0.1.tgz#13b04cdb3e6c5d19df91ab6987a8695619b0aa71"
@@ -4825,15 +4794,14 @@ gatsby-plugin-react-helmet@^3.0.0-rc.1:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-sharp@^2.0.0-rc.0:
-  version "2.0.20"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.0.20.tgz#6c08558cdd7d8612a9ab9ca1abb038204499fc7f"
-  integrity sha512-wc1SbSO8GVealC6U3e+QdKnjuFD4F0yXsJAc9rpHzkKo9v2MVQoOEjE5ejdxbSOoosUOqqP1xuZGeYUlzjqoxg==
+gatsby-plugin-sharp@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.1.5.tgz#f032cd6e1a42980685cbb386a58420a168002060"
+  integrity sha512-qHW0HJ3PK/HrTxg9wEqh8oHPv4R2SThn9z2n5m7pkrHOK9ZLHTkUaXtSNqcKzTap9cd7K4sjgw3EXaM5G7Jc8A==
   dependencies:
     "@babel/runtime" "^7.0.0"
     async "^2.1.2"
     bluebird "^3.5.0"
-    fs-exists-cached "^1.0.0"
     fs-extra "^7.0.0"
     imagemin "^6.0.0"
     imagemin-mozjpeg "^8.0.0"
@@ -4844,8 +4812,9 @@ gatsby-plugin-sharp@^2.0.0-rc.0:
     potrace "^2.1.1"
     probe-image-size "^4.0.0"
     progress "^1.1.8"
-    sharp "^0.21.3"
-    svgo "^0.7.2"
+    semver "^5.6.0"
+    sharp "^0.22.1"
+    svgo "^1.2.0"
 
 gatsby-plugin-styled-components@^3.0.0-rc.5:
   version "3.0.0-rc.5"
@@ -4948,17 +4917,18 @@ gatsby-transformer-remark@^2.1.1-rc.5:
     unist-util-select "^1.5.0"
     unist-util-visit "^1.3.0"
 
-gatsby-transformer-sharp@^2.1.1-rc.3:
-  version "2.1.1-rc.3"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-sharp/-/gatsby-transformer-sharp-2.1.1-rc.3.tgz#74a0020bc52be2f872175b0dc30b2253ec15738e"
-  integrity sha512-Dyb2RgwJRo/MZNQWY83sgxVD3TGL7WhgZvxJ9X1Vk0qGqo3nOZx9PQePppK2xHrjJh/P19AeOCFOeM3owwhinA==
+gatsby-transformer-sharp@^2.1.21:
+  version "2.1.21"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-sharp/-/gatsby-transformer-sharp-2.1.21.tgz#b49bffbeba7588f419351bfea46bb522c80b6de7"
+  integrity sha512-pb/InQ6cAvAcZc/hzUuo62gtYqD764jKgkoBsx3DKBbnZN2Q4mUMBsguZbjYzmARHFv5BaZbm5hUijOdRdkhEw==
   dependencies:
     "@babel/runtime" "^7.0.0"
     bluebird "^3.5.0"
-    fs-extra "^4.0.2"
+    fs-extra "^7.0.0"
     potrace "^2.1.1"
     probe-image-size "^4.0.0"
-    sharp "^0.20.2"
+    semver "^5.6.0"
+    sharp "^0.22.1"
 
 gatsby@^2.3.14:
   version "2.3.14"
@@ -6648,7 +6618,7 @@ js-tokens@^3.0.2:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
   integrity sha1-mGbfOVECEw449/mWvOtlRDIJwls=
 
-js-yaml@^3.10.0, js-yaml@^3.13.0, js-yaml@^3.5.2, js-yaml@^3.9.0:
+js-yaml@^3.10.0, js-yaml@^3.13.0, js-yaml@^3.13.1, js-yaml@^3.5.2, js-yaml@^3.9.0:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
@@ -6663,14 +6633,6 @@ js-yaml@^3.11.0:
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
-
-js-yaml@~3.7.0:
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.7.0.tgz#5c967ddd837a9bfdca5f2de84253abe8a1c03b80"
-  integrity sha1-XJZ93YN6m/3KXy3oQlOr6KHAO4A=
-  dependencies:
-    argparse "^1.0.7"
-    esprima "^2.6.0"
 
 jsbn@~0.1.0:
   version "0.1.1"
@@ -7598,7 +7560,7 @@ name-all-modules-plugin@^1.0.1:
   resolved "https://registry.yarnpkg.com/name-all-modules-plugin/-/name-all-modules-plugin-1.0.1.tgz#0abfb6ad835718b9fb4def0674e06657a954375c"
   integrity sha1-Cr+2rYNXGLn7Te8GdOBmV6lUN1w=
 
-nan@^2.11.0, nan@^2.12.1:
+nan@^2.11.0:
   version "2.12.1"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.12.1.tgz#7b1aa193e9aa86057e3c7bbd0ac448e770925552"
   integrity sha512-JY7V6lRkStKcKTvHO5NVSQRv+RV+FIL5pvDoLiAtSL9pKlC5x9PKQcZDsq7m4FO4d57mkhC6Z+QhAh3Jdk5JFw==
@@ -7607,6 +7569,11 @@ nan@^2.13.1:
   version "2.13.1"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.13.1.tgz#a15bee3790bde247e8f38f1d446edcdaeb05f2dd"
   integrity sha512-I6YB/YEuDeUZMmhscXKxGgZlFnhsn5y0hgOZBadkzfTRrZBtJDZeg6eQf7PYMIEclwmorTKK8GztsyOUSVBREA==
+
+nan@^2.13.2:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.0.tgz#7818f722027b2459a86f0295d434d1fc2336c52c"
+  integrity sha512-INOFj37C7k3AfaNTtX8RhsTw7qRy7eLET14cROi9+5HAVbbHuIWUHEauBv5qT4Av2tWasiTY1Jw6puUNqRJXQg==
 
 nan@^2.9.2:
   version "2.13.2"
@@ -8966,10 +8933,10 @@ prebuild-install@^4.0.0:
     tunnel-agent "^0.6.0"
     which-pm-runs "^1.0.0"
 
-prebuild-install@^5.2.2:
-  version "5.2.4"
-  resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-5.2.4.tgz#8cc41a217ef778a31d3a876fe6668d05406db750"
-  integrity sha512-CG3JnpTZXdmr92GW4zbcba4jkDha6uHraJ7hW4Fn8j0mExxwOKK20hqho8ZuBDCKYCHYIkFM1P2jhtG+KpP4fg==
+prebuild-install@^5.2.5:
+  version "5.2.5"
+  resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-5.2.5.tgz#c7485911fe98950b7f7cd15bb9daee11b875cc44"
+  integrity sha512-6uZgMVg7yDfqlP5CPurVhtq3hUKBFNufiar4J5hZrlHTo59DDBEtyxw01xCdFss9j0Zb9+qzFVf/s4niayba3w==
   dependencies:
     detect-libc "^1.0.3"
     expand-template "^2.0.3"
@@ -8988,10 +8955,10 @@ prebuild-install@^5.2.2:
     tunnel-agent "^0.6.0"
     which-pm-runs "^1.0.0"
 
-prebuild-install@^5.2.5:
-  version "5.2.5"
-  resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-5.2.5.tgz#c7485911fe98950b7f7cd15bb9daee11b875cc44"
-  integrity sha512-6uZgMVg7yDfqlP5CPurVhtq3hUKBFNufiar4J5hZrlHTo59DDBEtyxw01xCdFss9j0Zb9+qzFVf/s4niayba3w==
+prebuild-install@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-5.3.0.tgz#58b4d8344e03590990931ee088dd5401b03004c8"
+  integrity sha512-aaLVANlj4HgZweKttFNUVNRxDukytuIuxeK2boIMHjagNJCiVKWFsKF4tCE3ql3GbrD2tExPQ7/pwtEJcHNZeg==
   dependencies:
     detect-libc "^1.0.3"
     expand-template "^2.0.3"
@@ -9963,7 +9930,7 @@ sanitize-html@^1.18.2:
     srcset "^1.0.0"
     xtend "^4.0.1"
 
-sax@>=0.6.0, sax@^1.2.4, sax@~1.2.1, sax@~1.2.4:
+sax@>=0.6.0, sax@^1.2.4, sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
@@ -10197,23 +10164,6 @@ sharp@^0.20.2:
     tar "^4.4.6"
     tunnel-agent "^0.6.0"
 
-sharp@^0.21.3:
-  version "0.21.3"
-  resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.21.3.tgz#381937de66c123687f2ac7186f85921c6bb19cdd"
-  integrity sha512-5qZk8r+YgfyztLEKkNez20Wynq/Uh1oNyP5T/3gTYwt2lBYGs9iDs5m0yVsZEPm8eVBbAJhS08J1wp/g+Ai1Qw==
-  dependencies:
-    bindings "^1.3.1"
-    color "^3.1.0"
-    detect-libc "^1.0.3"
-    fs-copy-file-sync "^1.1.1"
-    nan "^2.12.1"
-    npmlog "^4.1.2"
-    prebuild-install "^5.2.2"
-    semver "^5.6.0"
-    simple-get "^3.0.3"
-    tar "^4.4.8"
-    tunnel-agent "^0.6.0"
-
 sharp@^0.22.0:
   version "0.22.0"
   resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.22.0.tgz#cf4cfcb019941fd06ac24555d9f5bc84536d29be"
@@ -10227,6 +10177,22 @@ sharp@^0.22.0:
     npmlog "^4.1.2"
     prebuild-install "^5.2.5"
     semver "^5.6.0"
+    simple-get "^3.0.3"
+    tar "^4.4.8"
+    tunnel-agent "^0.6.0"
+
+sharp@^0.22.1:
+  version "0.22.1"
+  resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.22.1.tgz#a67c0e75567f03dd5a7861b901fec04072c5b0f4"
+  integrity sha512-lXzSk/FL5b/MpWrT1pQZneKe25stVjEbl6uhhJcTULm7PhmJgKKRbTDM/vtjyUuC/RLqL2PRyC4rpKwbv3soEw==
+  dependencies:
+    color "^3.1.1"
+    detect-libc "^1.0.3"
+    fs-copy-file-sync "^1.1.1"
+    nan "^2.13.2"
+    npmlog "^4.1.2"
+    prebuild-install "^5.3.0"
+    semver "^6.0.0"
     simple-get "^3.0.3"
     tar "^4.4.8"
     tunnel-agent "^0.6.0"
@@ -10911,19 +10877,6 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
-svgo@^0.7.2:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/svgo/-/svgo-0.7.2.tgz#9f5772413952135c6fefbf40afe6a4faa88b4bb5"
-  integrity sha1-n1dyQTlSE1xv779Ar+ak+qiLS7U=
-  dependencies:
-    coa "~1.0.1"
-    colors "~1.1.2"
-    csso "~2.3.1"
-    js-yaml "~3.7.0"
-    mkdirp "~0.5.1"
-    sax "~1.2.1"
-    whet.extend "~0.9.9"
-
 svgo@^1.0.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/svgo/-/svgo-1.2.1.tgz#3fedde75a4016193e1c2608b5fdef6f3e4a9fd99"
@@ -10937,6 +10890,26 @@ svgo@^1.0.0:
     css-url-regex "^1.1.0"
     csso "^3.5.1"
     js-yaml "^3.13.0"
+    mkdirp "~0.5.1"
+    object.values "^1.1.0"
+    sax "~1.2.4"
+    stable "^0.1.8"
+    unquote "~1.1.1"
+    util.promisify "~1.0.0"
+
+svgo@^1.2.0:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/svgo/-/svgo-1.2.2.tgz#0253d34eccf2aed4ad4f283e11ee75198f9d7316"
+  integrity sha512-rAfulcwp2D9jjdGu+0CuqlrAUin6bBWrpoqXWwKDZZZJfXcUXQSxLJOFJCQCSA0x0pP2U0TxSlJu2ROq5Bq6qA==
+  dependencies:
+    chalk "^2.4.1"
+    coa "^2.0.2"
+    css-select "^2.0.0"
+    css-select-base-adapter "^0.1.1"
+    css-tree "1.0.0-alpha.28"
+    css-url-regex "^1.1.0"
+    csso "^3.5.1"
+    js-yaml "^3.13.1"
     mkdirp "~0.5.1"
     object.values "^1.1.0"
     sax "~1.2.4"
@@ -11845,11 +11818,6 @@ whatwg-fetch@>=0.10.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.0.0.tgz#fc804e458cc460009b1a2b966bc8817d2578aefb"
   integrity sha512-9GSJUgz1D4MfyKU7KRqwOjXCXTqWdFNvEr7eUBYchQiVc744mqK/MzXPNR2WsPkmkOa4ywfg8C2n8h+13Bey1Q==
-
-whet.extend@~0.9.9:
-  version "0.9.9"
-  resolved "https://registry.yarnpkg.com/whet.extend/-/whet.extend-0.9.9.tgz#f877d5bf648c97e5aa542fadc16d6a259b9c11a1"
-  integrity sha1-+HfVv2SMl+WqVC+twW1qJZucEaE=
 
 which-module@^2.0.0:
   version "2.0.0"
