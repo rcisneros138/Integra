@@ -282,6 +282,27 @@ const PhysicalTherapy = ({ data, location }) => {
             </div>
           </Card>
         </div>
+        <div className="member">
+          <Portrait image={data.trainer4.childImageSharp.fluid} />
+          <Card className="cardbio" area={gridLayout}>
+            <div className="text-content">
+              <h2>Jess Herrmann</h2>
+              <LineBreak />
+              <p>
+                Jess grew up in New Berlin and was a competitive gymnast all the
+                way through college. She graduated from UW-La Crosse and was an
+                assistant coach for the gymnastics team. Jess has a special
+                interest in working with gymnasts and individuals with jaw and
+                neck pain.
+              </p>
+              <section className="quote">
+                "I enjoy helping people to met and exceed their rehabilitative
+                goals, so that they can return to their activities of everyday
+                life."
+              </section>
+            </div>
+          </Card>
+        </div>
       </Team>
     </Layout>
   )
@@ -343,6 +364,9 @@ export const pageQuery = graphql`
       ...fluidImage
     }
     trainer3: file(relativePath: { eq: "dr_erikB.png" }) {
+      ...fluidImage
+    }
+    trainer4: file(relativePath: { eq: "Jess2.png" }) {
       ...fluidImage
     }
   }
