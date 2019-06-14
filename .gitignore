@@ -3,6 +3,7 @@
 node_modules
 yarn-error.log
 .env.development
+yarn.lock
 
 # Build directory
 /public
