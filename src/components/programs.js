@@ -240,7 +240,7 @@ const Programs = props => (
                     certifications.
                   </Concat>
                 </p>
-                <Link class="learn" to="/personaltraining">
+                <Link class="learn" to="personaltraining">
                   <LearnMore />
                 </Link>
               </SummaryWrapper>
@@ -270,7 +270,7 @@ const Programs = props => (
                     safely and efficiently.
                   </Concat>
                 </p>
-                <Link class="learn" to="/physicaltherapy">
+                <Link class="learn" to="physicaltherapy">
                   <LearnMore />
                 </Link>
               </SummaryWrapper>
@@ -298,7 +298,7 @@ const Programs = props => (
                   you achieve your physical therapy and rehabilitation goals
                   safely and efficiently.{' '}
                 </p>
-                <Link class="learn" to="/massage">
+                <Link class="learn" to="massage">
                   <LearnMore />
                 </Link>
               </SummaryWrapper>
