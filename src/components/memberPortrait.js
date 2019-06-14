@@ -1,8 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { config, animated, useSpring } from 'react-spring'
 import Img from 'gatsby-image'
-import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
+
 import { useInView } from 'react-intersection-observer'
 import { useMobile } from '../helpers'
 

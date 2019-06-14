@@ -1,6 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { Link, graphql } from 'gatsby'
-import styled from 'styled-components'
+import React from 'react'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
 

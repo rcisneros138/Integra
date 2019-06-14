@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import TextComponent from './textComponent/textComponent'
-import { hidden } from 'ansi-colors'
 
 const DareSection = styled.div`
   grid-area: dare;
@@ -38,9 +37,6 @@ const DareTitle = styled.div`
   text-align: center;
   height: 50vmin;
 `
-const spanStyle = {
-  lineHeight: '1em;',
-}
 
 const Dare = props => (
   <StaticQuery

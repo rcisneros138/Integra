@@ -12,15 +12,15 @@ import Facebook from './svg/facebook'
 import Instagram from './svg/insta'
 import Twitter from './svg/twitter'
 
-const PhoneSection = styled.div`
-  h1 {
-    font-size: 6vmin;
-    color: ${props => props.theme.fontColor};
-    padding: 8px;
-    float: right;
-    margin-top: ${props => !props.isMobile && `1em`};
-  }
-`
+// const PhoneSection = styled.div`
+//   h1 {
+//     font-size: 6vmin;
+//     color: ${props => props.theme.fontColor};
+//     padding: 8px;
+//     float: right;
+//     margin-top: ${props => !props.isMobile && `1em`};
+//   }
+// `
 
 const HeadWrap = styled.div`
   position: fixed;
@@ -90,9 +90,9 @@ const Header = ({ isMobile, location, links }) => {
     isTopOfPage !== topOfPage && toggleIsTop(isTopOfPage)
   }
 
-  const menuToggle = () => {
-    toggleNavOpen(prevState => !prevState)
-  }
+  // const menuToggle = () => {
+  //   toggleNavOpen(prevState => !prevState)
+  // }
 
   return (
     <StaticQuery

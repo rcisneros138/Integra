@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
@@ -8,9 +8,6 @@ import Dare from '../components/dare'
 import About from '../components/about'
 import Testimonials from '../components/testimonials'
 import IntegraInfo from '../components/IntegraInfo'
-import GridLayout from '../components/siteWrapper'
-
-import { GroupedObservable } from 'rxjs'
 
 const IndexPage = ({ location, data }) => {
   return (

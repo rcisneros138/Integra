@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState, useRef } from 'react'
+import React, { memo, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { config, animated, useSpring } from 'react-spring'

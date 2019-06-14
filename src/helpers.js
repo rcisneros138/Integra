@@ -1,6 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
-import { func } from 'prop-types'
 
 export function usePrevious(value) {
   const ref = useRef()

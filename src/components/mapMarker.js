@@ -1,18 +1,12 @@
-import React, { Component } from 'react'
 import icon from '../images/mapIcon.png'
+import React from 'react'
 
-class MapMarker extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    return (
-      <div>
-        <img src={icon} height="40rem" width="30rem" alt="map marker" />
-      </div>
-    )
-  }
+const MapMarker = props => {
+  return (
+    <div>
+      <img src={icon} height="40rem" width="30rem" alt="map marker" />
+    </div>
+  )
 }
 
 export default MapMarker

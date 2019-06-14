@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
@@ -20,7 +20,6 @@ import Portrait from '../components/memberPortrait'
 
 import Ribbon from '../components/svg/ribbon'
 import { useMobile, useDetermineLayout } from '../helpers'
-import { bold } from 'ansi-colors'
 
 const PhysicalTherapy = ({ data, location }) => {
   const isMobile = useMobile(false)

@@ -1,15 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import Bounce from 'react-reveal/Bounce'
 
 import APTA from './svg/APTA'
 import Award from './svg/award'
-import United from './svg/united'
-import Humana from './svg/humana'
-import Molina from './svg/molina'
-import Medicare from './svg/medicare'
 
 const LineBreak = styled.hr`
   grid-column: 2/11;
@@ -41,20 +36,20 @@ const AwardSealWrapper = styled.div`
   }
 `
 
-const AcceptTitle = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  grid-column: 3/10;
-  grid-row: ${props => (props.isMobile ? '5/6' : '5/7')};
-  font-size: 5vmin;
-  line-height: 0;
-  text-align: center;
-  color: #f9f9f9;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-`
+// const AcceptTitle = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   z-index: 2;
+//   grid-column: 3/10;
+//   grid-row: ${props => (props.isMobile ? '5/6' : '5/7')};
+//   font-size: 5vmin;
+//   line-height: 0;
+//   text-align: center;
+//   color: #f9f9f9;
+//   font-weight: 400;
+//   letter-spacing: 0.05em;
+// `
 
 const InfoWrapper = styled.div`
   width: 100vw;

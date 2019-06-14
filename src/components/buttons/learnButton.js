@@ -7,7 +7,7 @@ const LearnButton = styled.button`
   border-radius: 1px;
   padding: 1em 4em;
   opacity: 0.7;
-  a {
+  p {
     color: #f9f9f9;
     text-align: center;
     text-decoration: none;
@@ -20,7 +20,7 @@ const LearnButton = styled.button`
 
 const LearnMore = props => (
   <LearnButton>
-    <a>Learn More</a>
+    <p>Learn More</p>
   </LearnButton>
 )
 

@@ -6,8 +6,6 @@ import Card from './card'
 import TopQuotation from './svg/topQuotation'
 import BottomQuotation from './svg/bottomQuotation'
 
-import { useDetermineLayout } from '../helpers'
-
 const TestimonialSection = styled(Element)`
   display: grid;
   grid-gap: 0 2em;
@@ -77,22 +75,6 @@ const CardParagraph = styled.p`
 `
 
 const Testimonials = props => {
-  const screenType = useDetermineLayout()
-  // const gridLayout = (offsetDirection) => {
-  //   switch (screenType) {
-  //     case 'Mobile':
-  //       return '4/2/7/14'
-  //     case 'Tablet':
-  //       return '6/1/14/13'
-  //     case 'Desktop':
-  //       return '5/1/14/13'
-  //     default:
-  //       return '5/1/14/13'
-  //   }
-
-  //   const offsetCard =
-  // }
-
   return (
     <TestimonialSection name="Testimonials" isMobile={props.isMobile}>
       <Title isMobile={props.isMobile}>

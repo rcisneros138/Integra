@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import AOS from 'aos'
 import classNames from 'classnames'
 import { Watch } from 'scrollmonitor-react'
@@ -30,7 +30,6 @@ export default Watch(
     }
     render() {
       const { style, children, isInViewport, animationType } = this.props
-      const defaultAnimation = 'fade-up'
       const aosClass = classNames({
         'aos-init': true,
         'aos-animate': isInViewport,

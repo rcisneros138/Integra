@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from 'react'
+import React, { memo, useState } from 'react'
 import { useSpring, animated } from 'react-spring'
 import styled from 'styled-components'
 import { usePrevious, useMeasure, useMobile } from '../helpers'
