@@ -126,6 +126,17 @@ const Hero = props => (
             }
           }
         }
+        team: file(relativePath: { eq: "team.jpg" }) {
+          childImageSharp {
+            fluid(
+              maxWidth: 2000
+              quality: 90
+              duotone: { highlight: "#0071FE", shadow: "#0071FE", opacity: 20 }
+            ) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     `}
     render={data => (
@@ -177,6 +188,26 @@ const Hero = props => (
                 <h1>Integra</h1>
               </Fade>
             </HeroTextWrapper>
+            {/* {props.isMobile ? <MobileArrow /> : <LearnMore />} */}
+          </Slide>
+          <Slide right>
+            <Img
+              fluid={data.team.childImageSharp.fluid}
+              style={{
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                width: '100vw',
+                height: '100vmin',
+                zIndex: -1,
+              }}
+            />
+            {/* <HeroTextWrapper>
+              <Fade bottom>
+                <h2>We Are</h2>
+                <h1>Integra</h1>
+              </Fade>
+            </HeroTextWrapper> */}
             {/* {props.isMobile ? <MobileArrow /> : <LearnMore />} */}
           </Slide>
           <Slide right>

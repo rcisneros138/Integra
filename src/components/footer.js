@@ -98,7 +98,7 @@ const Footer = props => (
   <StaticQuery
     query={graphql`
       query footerImages {
-        background: file(relativePath: { eq: "team.jpg" }) {
+        background: file(relativePath: { eq: "footer.jpg" }) {
           childImageSharp {
             fluid(
               maxWidth: 1500
