@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
+import SEO from '../components/Seo'
 
 import {
   Hero,
@@ -42,6 +43,7 @@ const PhysicalTherapy = ({ data, location }) => {
       location={location}
       links={data.site.siteMetadata.menuLinks.therapy}
     >
+      <SEO title={`Integra Physical Therapy`} location={location.pathname} />
       <Hero>
         <Img
           fluid={data.heroImage.childImageSharp.fluid}

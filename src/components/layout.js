@@ -1,9 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
 import { createGlobalStyle } from 'styled-components'
-
 import Header from './header'
 import Footer from './footer'
 
@@ -55,43 +52,17 @@ class Layout extends React.Component {
       })
     )
     return (
-      <StaticQuery
-        query={graphql`
-          query SiteTitleQuery {
-            site {
-              siteMetadata {
-                title
-              }
-            }
-          }
-        `}
-        render={data => (
-          <>
-            <Helmet
-              title={data.site.siteMetadata.title}
-              meta={[
-                {
-                  name: 'Integra',
-                  content: 'Pysical Therapy, Personal Training, Massage',
-                },
-                // { rel: 'icon', type: 'image/png', sizes: "16x16", href: `${favicon}` },
-              ]}
-            >
-              <html lang="en" />
-            </Helmet>
-            <GlobalStyle />
-            <Header
-              siteTitle={data.site.siteMetadata.title}
-              isMobile={this.state.isMobile}
-              location={this.props.location}
-              links={links}
-            />
+      <>
+        <GlobalStyle />
+        <Header
+          isMobile={this.state.isMobile}
+          location={this.props.location}
+          links={links}
+        />
 
-            {this.childrenWithProps}
-            <Footer isMobile={this.state.isMobile} />
-          </>
-        )}
-      />
+        {this.childrenWithProps}
+        <Footer isMobile={this.state.isMobile} />
+      </>
     )
   }
 }

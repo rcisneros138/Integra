@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
+import SEO from '../components/Seo'
 
 import {
   Hero,
@@ -47,6 +48,7 @@ const PersonalTraining = ({ data, location }) => {
       location={location}
       links={data.site.siteMetadata.menuLinks.training}
     >
+      <SEO title={`Integra Personal Training`} pathname={location.pathname} />
       <Hero>
         <Img fluid={HeaderImageFluid} style={heroImageOrtientation(isMobile)} />
         <div className="heroText">
