@@ -287,7 +287,7 @@ const PhysicalTherapy = ({ data, location }) => {
           <Portrait image={data.trainer4.childImageSharp.fluid} />
           <Card className="cardbio" area={gridLayout}>
             <div className="text-content">
-              <h2>Jess Herrmann</h2>
+              <h2>Dr. Jessica Herrmann</h2>
               <LineBreak />
               <p>
                 Jess grew up in New Berlin and was a competitive gymnast all the
