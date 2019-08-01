@@ -249,7 +249,7 @@ export const pageQuery = graphql`
       }
     }
 
-    heroImage: file(relativePath: { eq: "PTCover2.jpg" }) {
+    heroImage: file(relativePath: { eq: "Orthopedic2.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 2000, quality: 65, cropFocus: CENTER) {
           ...GatsbyImageSharpFluid

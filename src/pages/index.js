@@ -9,6 +9,7 @@ import Dare from '../components/dare'
 import About from '../components/about'
 import Testimonials from '../components/testimonials'
 import IntegraInfo from '../components/IntegraInfo'
+import Overlay from '../components/overlay'
 
 const IndexPage = ({ location, data }) => {
   return (
@@ -17,6 +18,7 @@ const IndexPage = ({ location, data }) => {
         title={`Integra Physical Therapy Massage Personal Training`}
         pathname={location.pathname}
       />
+      {/* <Overlay /> */}
       <Hero />
       <Programs />
       <Dare />

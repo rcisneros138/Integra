@@ -73,11 +73,11 @@ const PersonalTraining = ({ data, location }) => {
           <p>
             Maybe you’ve been working out for a while, and want to reach the
             next level. Or you’re wrapping up physical therapy, and want to hone
-            your technique as you get back in the game. It might be that you’ve
+            your technique as you get back in the game. It might be that you’re
             exercising for the first time in a long time, and want to make sure
             you’re doing things the right way. No matter what brings you to
-            Integra, our team of health professions is ready to help you reach
-            personal training goals.
+            Integra, our team of health professionals are ready to help you
+            reach personal training goals.
           </p>
           <p>
             Nothing in life happens “just because.” Our integrated approach

@@ -334,7 +334,7 @@ export const pageQuery = graphql`
       }
     }
 
-    heroImage: file(relativePath: { eq: "physicalTherapyTable.jpg" }) {
+    heroImage: file(relativePath: { eq: "PTCover2.jpg" }) {
       childImageSharp {
         fluid(
           maxWidth: 1200
