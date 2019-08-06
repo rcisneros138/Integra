@@ -12,13 +12,15 @@ import IntegraInfo from '../components/IntegraInfo'
 import Overlay from '../components/overlay'
 
 const IndexPage = ({ location, data }) => {
+  const { menuLinks, showEventOverlay } = data.site.siteMetadata
+  const active = showEventOverlay.showOverlay == 'true'
   return (
-    <Layout location={location} links={data.site.siteMetadata.menuLinks.index}>
+    <Layout location={location} links={menuLinks.index}>
       <SEO
         title={`Integra Physical Therapy Massage Personal Training`}
         pathname={location.pathname}
       />
-      {/* <Overlay /> */}
+      <Overlay activeOverlay={active} />
       <Hero />
       <Programs />
       <Dare />
@@ -40,6 +42,9 @@ export const pageQuery = graphql`
             name
             link
           }
+        }
+        showEventOverlay {
+          showOverlay
         }
       }
     }

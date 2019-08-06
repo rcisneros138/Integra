@@ -73,6 +73,13 @@ const scrollingNavTheme = {
   enableShadow: true,
   fontColor: `#3A3A3A`,
 }
+const CloseWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 25px;
+  font-size: 36px;
+  margin-right: 50px;
+`
 
 const Header = ({ isMobile, location, links }) => {
   const [topOfPage, toggleIsTop] = useState(true)
@@ -127,9 +134,13 @@ const Header = ({ isMobile, location, links }) => {
 
               <NavItems navOpen={navOpen} isMobile={isMobile}>
                 {isMobile && (
-                  <CloseButton
-                    menuToggle={() => toggleNavOpen(prevState => !prevState)}
-                  />
+                  <CloseWrapper>
+                    <CloseButton
+                      width={13}
+                      height={13}
+                      menuToggle={() => toggleNavOpen(prevState => !prevState)}
+                    />
+                  </CloseWrapper>
                 )}
                 <HeaderLinks menuLinks={links} location={location} />
               </NavItems>

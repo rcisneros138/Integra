@@ -5,6 +5,9 @@ module.exports = {
       'Physical therapy, massage, and personal training provide self-care techniques that fit your lifestyle, and help you define and achieve peak performance.',
     url: 'https://www.integrapt2.com',
     keyWords: ['physical therapy', 'massage', 'personal training'],
+    showEventOverlay: {
+      showOverlay: 'true',
+    },
     menuLinks: {
       index: [
         {
