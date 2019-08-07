@@ -65,7 +65,7 @@ const Massage = ({ data, location }) => {
             zIndex: -1,
           }}
         />
-        <h1>Not all massages are not created equally</h1>
+        <h1>All massages are not created equally</h1>
         <div className="missionBody">
           <p>
             Massage therapy is one of the fundamental pillars at Integra. As a

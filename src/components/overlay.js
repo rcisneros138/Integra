@@ -18,36 +18,24 @@ const TransparentOverlay = styled(animated.div)`
   overflow-x: hidden;
   transition: 0.5s;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit minmax(320px, 30%) 1fr);
+  align-items: center;
+  /* grid-template-rows: repeat(6, 1fr); */
 `
 const MainWindow = styled(animated.div)`
   height: 100%;
-  grid-area: 2/4/6/10;
-
-  @media only screen and (max-width: 768px) {
-    grid-area: 2/2/4/12;
+  /* grid-column: 1/5; */
+  margin: 20%;
+  padding-top: 10%;
+  .buttonWrap {
+    margin: 1em 0 1em 0;
   }
-  @media only screen and (min-width: 1800px) {
-    grid-area: 1/5/5/9;
-  }
-
-  /* @media only screen and (orientation: landscape) {
-    grid-area: 1/5/4/9;
-  } */
-`
-const ButtonWrapper = styled.div`
-  @media only screen and (max-width: 768px) {
-    grid-area: 5/2/7/12;
-  }
-
-  @media only screen and (min-width: 600px) {
-    grid-area: 6/2/7/12;
-  }
-  @media only screen and (min-width: 768px) {
-    grid-area: 6/4/7/10;
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    margin: 50% 0 0 0;
   }
 `
+
 const useOverlayImage = () => {
   const { promo } = useStaticQuery(graphql`
     query {
@@ -83,9 +71,6 @@ const Overlay = ({ activeOverlay }) => {
     <>
       {overlayActive && (
         <TransparentOverlay style={{ width: w.interpolate(wi => `${wi}`) }}>
-          <ButtonWrapper>
-            <Continue buttonText="Continue To Integra" toggle={toggleActive} />
-          </ButtonWrapper>
           <MainWindow
             style={{
               transform: up.interpolate(x => `translate3d(0,${x}%,0)`),
@@ -97,6 +82,12 @@ const Overlay = ({ activeOverlay }) => {
             >
               <Img fluid={promoImage}></Img>
             </a>
+            <div className="buttonWrap">
+              <Continue
+                buttonText="Continue To Integra"
+                toggle={toggleActive}
+              />
+            </div>
           </MainWindow>
         </TransparentOverlay>
       )}
