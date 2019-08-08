@@ -11,6 +11,7 @@ import HeaderLinks from '../components/headerLinks'
 import Facebook from './svg/facebook'
 import Instagram from './svg/insta'
 import Twitter from './svg/twitter'
+import Phone from './svg/phone'
 
 // const PhoneSection = styled.div`
 //   h1 {
@@ -48,6 +49,11 @@ const SocialMedia = styled.div`
   padding: ${props => !props.isMobile && '1em'};
   svg {
     padding: 0.5em;
+  }
+  .phoneNumber {
+    float: right;
+    margin-top: 0.75em;
+    color: ${props => props.theme.fontColor};
   }
 `
 
@@ -169,6 +175,19 @@ const Header = ({ isMobile, location, links }) => {
                     color={topOfPage ? '#F9F9F9' : '#4c9bfe'}
                   />
                 </a>
+                <a href="tel: +1-414-351-8482">
+                  <Phone
+                    width="2em"
+                    height="2em"
+                    viewBox={isMobile ? '0 0 80 80' : '-5 0 60 55'}
+                    color={topOfPage ? '#F9F9F9' : '#4c9bfe'}
+                  />
+                </a>
+                {!isMobile && (
+                  <div className="phoneNumber">
+                    <a>+1 (414) 351 8482</a>
+                  </div>
+                )}
               </SocialMedia>
               {isMobile && (
                 <Burger

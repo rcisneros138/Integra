@@ -37,7 +37,7 @@ module.exports = {
           link: '/page-2',
         },
         {
-          name: 'Our Trainers',
+          name: 'Trainers',
           link: '/page-2',
         },
         {
@@ -55,7 +55,7 @@ module.exports = {
           link: '/page-2',
         },
         {
-          name: 'Our Therapists',
+          name: 'Doctors',
           link: '/page-2',
         },
         {
@@ -73,7 +73,7 @@ module.exports = {
           link: '/page-2',
         },
         {
-          name: 'Our Therapists',
+          name: 'Therapists',
           link: '/page-2',
         },
         {
