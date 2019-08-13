@@ -6,7 +6,7 @@ module.exports = {
     url: 'https://www.integrapt2.com',
     keyWords: ['physical therapy', 'massage', 'personal training'],
     showEventOverlay: {
-      showOverlay: 'true',
+      showOverlay: 'false',
     },
     menuLinks: {
       index: [
