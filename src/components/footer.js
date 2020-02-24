@@ -136,13 +136,13 @@ const Footer = props => (
                 </a>
               </li>
               <li>
-                <a href="mailto:nfo@integra.com">
+                <a href="mailto:info@integrapt2.com">
                   <Evenelope
                     width={props.isMobile ? '20' : '40'}
                     height={props.isMobile ? '30' : '52'}
                     viewBox="0 0 50 42"
                   />
-                  <p>info@integra.com</p>
+                  <p>info@integrapt2.com</p>
                 </a>
               </li>
               <li>
