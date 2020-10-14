@@ -293,10 +293,9 @@ const Programs = props => (
               <SummaryWrapper isMobile={props.isMobile}>
                 <h2>Massage</h2>
                 <p>
-                  Our physical therapy team uses current scientific research,
-                  and applies clinical and technical expertise, toward helping
-                  you achieve your physical therapy and rehabilitation goals
-                  safely and efficiently.{' '}
+                  Our massage therapists use an orthopedic massage approach that
+                  integrates a number of effective massage techniques, depending
+                  on what your body presents in the moment.{' '}
                 </p>
                 <Link class="learn" to="massage">
                   <LearnMore />
