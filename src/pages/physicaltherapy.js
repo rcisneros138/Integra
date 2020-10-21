@@ -287,7 +287,7 @@ const PhysicalTherapy = ({ data, location }) => {
                 fall-risk.
               </p>
               <section className="quote">
-                "I enjoy helping people to met and exceed their rehabilitative goals, so that they can return to their
+                "I enjoy helping people to meet and exceed their rehabilitative goals, so that they can return to their
                 activities of everyday life."
               </section>
             </div>
