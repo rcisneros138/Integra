@@ -202,7 +202,7 @@ const Team = styled.div`
         color: #555353;
         font-weight: 100;
         margin-top: 0;
-        font-size:1.5em;   
+        font-size:1.4em;   
         /* height: ${props => !props.isMobile && '1em'}; */
       }
       .quote {
