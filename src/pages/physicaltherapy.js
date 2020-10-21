@@ -224,17 +224,14 @@ const PhysicalTherapy = ({ data, location }) => {
               <h2>Dr. Erik Bork</h2>
               <LineBreak />
               <p>
-                Erik is like a mechanist in his therapeutic technique, focusing
-                on joint mobility and proper physical mechanics. His treatments
-                combine strong manual therapy, exercise prescription, and a
-                neuromuscular approach in order to restore normal movement. He
-                is especially keen in evaluating and treating shoulder problems.
+                Erik is highly technical in his therapeutic approach, focusing on joint mobility and proper physical
+                mechanics. His treatments combine strong manual therapy, exercise prescription, and a neuromuscular
+                treatment in order to restore normal movement. He is especially keen in evaluating and treating shoulder
+                problems.
               </p>
               <section className="quote">
-                “I emphasize strength and balance, especially when working with
-                older adults. When we can enhance strength and balance, we
-                decrease load and force on joints, ligaments, and afflicted
-                tendons.”
+                "I emphasize strength and balance, especially when working with older adults. When we can enhance
+                strength and balance, we decrease load and force on joints, ligaments, and afflicted tendons."
               </section>
             </div>
           </Card>
@@ -246,18 +243,14 @@ const PhysicalTherapy = ({ data, location }) => {
               <h2>Dr. Jeremiah Weber</h2>
               <LineBreak />
               <p>
-                Jeremiah has been an essential part of our physical therapy,
-                personal training, and athletic development teams since 2011.
-                Since his undergraduate days, he has pursued specialized
-                coursework and training that emphasize evidence-based spinal
-                care and support.
-                <br />
-                <br />
-                As an undergrad, Jeremiah was a member of the men’s varsity
-                hockey team and won a number of honors. He was a four-year
-                member of the NCHA all-academic team, was nominated for NCHA
-                scholar athlete of the year, and was a two-time recipient of the
-                Richard G O’Brien award for outstanding work ethic.
+                Jeremiah has been an essential part of our physical therapy, personal training, and athletic development
+                teams since 2011. Since his undergraduate days, he has pursued specialized coursework and training that
+                emphasize evidence-based spinal care and support.
+              </p>
+              <p>
+                As an undergrad, Jeremiah was a member of the men’s varsity hockey team and won a number of honors. He
+                was a four-year member of the NCHA all-academic team, was nominated for NCHA scholar athlete of the
+                year, and was a two-time recipient of the Richard G O’Brien award for outstanding work ethic.
               </p>
             </div>
           </Card>
@@ -269,17 +262,15 @@ const PhysicalTherapy = ({ data, location }) => {
               <h2>Dr. Stephanie Smith</h2>
               <LineBreak />
               <p>
-                Stephanie grew up locally in Germantown, and returned to the
-                Milwaukee-area in 2014. She’s been a member of Integra’s team
-                ever since. In that time, she’s continued to expand her
-                knowledge and skills around treating jaw pain and headaches.
+                Stephanie has been a crucial part of the Integra physical therapy team since 2014. She has earned a
+                Wisconsin Physical Therapy Association Award for her contributions to the profession in her first 3
+                years of practice and became a Board Certified Orthopaedic Specialist of physical therapy in 2016.
               </p>
-              <section className="quote">
-                “I enjoy treating people across a variety of ages with
-                non-surgical and post-surgical rehabilitation. I help people
-                attain their personal goals, so they can get back to an activity
-                level they want. “
-              </section>
+              <p>
+                Stephanie uses her manual therapy interventions, dry needling techniques and overall functional exercise
+                to help patients attain their personal goals and work towards levels even better than their previous
+                activity.
+              </p>
             </div>
           </Card>
         </div>
@@ -290,16 +281,14 @@ const PhysicalTherapy = ({ data, location }) => {
               <h2>Dr. Jessica Herrmann</h2>
               <LineBreak />
               <p>
-                Jess grew up in New Berlin and was a competitive gymnast all the
-                way through college. She graduated from UW-La Crosse and was an
-                assistant coach for the gymnastics team. Jess has a special
-                interest in working with gymnasts and individuals with jaw and
-                neck pain.
+                Jess grew up in New Berlin and was a competitive gymnast through college. She graduated from UW-La
+                Crosse and was an assistant coach for the gymnastics team. Jess has many specialties, but has a special
+                interest in working with athletes, individuals with jaw and neck pain, and those looking to reduce
+                fall-risk.
               </p>
               <section className="quote">
-                "I enjoy helping people to met and exceed their rehabilitative
-                goals, so that they can return to their activities of everyday
-                life."
+                "I enjoy helping people to met and exceed their rehabilitative goals, so that they can return to their
+                activities of everyday life."
               </section>
             </div>
           </Card>
