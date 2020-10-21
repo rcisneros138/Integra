@@ -32,14 +32,15 @@ const SummaryWrapper = styled.div`
   width: 100%;
   font-size: 24px;
   p {
-    font-size: ${props => (props.isMobile ? '1em' : '1vw')};
+    font-size: ${props => (props.isMobile ? '1em' : '1.25vw')};
     z-index: 2;
-    font-weight: 100;
+    font-weight: 300;
     font-family: roboto;
-    color: #f9f9f9;
+    color: #ffffff;
     text-align: center;
     line-height: 2em;
     margin: 2vw;
+    text-shadow: 0 0 25px black;
   }
   .learn {
     z-index: 2;
