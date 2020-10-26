@@ -232,14 +232,7 @@ const Programs = props => (
               <SummaryWrapper isMobile={props.isMobile}>
                 <h2>Personal Training</h2>
                 <p>
-                  <Concat>
-                    Our personal trainers are experts, and have been doing this
-                    a long time. We each carry a minimum four-year degree, along
-                    with national certifications. Our personal trainers are
-                    experts, and have been doing this a long time. We each carry
-                    a minimum four-year degree, along with national
-                    certifications.
-                  </Concat>
+                  Nationally-certified professionals with the experience you can trust.
                 </p>
                 <Link class="learn" to="personaltraining">
                   <LearnMore />
@@ -264,12 +257,7 @@ const Programs = props => (
               <SummaryWrapper isMobile={props.isMobile}>
                 <h2>Physical Therapy</h2>
                 <p>
-                  <Concat>
-                    Our physical therapy team uses current scientific research,
-                    and applies clinical and technical expertise, toward helping
-                    you achieve your physical therapy and rehabilitation goals
-                    safely and efficiently.
-                  </Concat>
+                  Doctors and board-certified specialists with award-winning talent.
                 </p>
                 <Link class="learn" to="physicaltherapy">
                   <LearnMore />
@@ -294,9 +282,7 @@ const Programs = props => (
               <SummaryWrapper isMobile={props.isMobile}>
                 <h2>Massage</h2>
                 <p>
-                  Our massage therapists use an orthopedic massage approach that
-                  integrates a number of effective massage techniques, depending
-                  on what your body presents in the moment.{' '}
+                  Licensed-professionals skilled in a spectrum of techniques to improve movement and reduce pain.
                 </p>
                 <Link class="learn" to="massage">
                   <LearnMore />
