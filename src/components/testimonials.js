@@ -19,7 +19,7 @@ const TestimonialSection = styled(Element)`
   background-color: #f9f9f9;
   overflow: hidden;
   @media only screen and (min-width: 100px) {
-    font-size: 10px;
+    font-size: 12px;
   }
   @media only screen and (min-width: 768px) {
     font-size: 20px;
