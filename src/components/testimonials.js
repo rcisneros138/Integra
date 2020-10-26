@@ -53,7 +53,7 @@ const BottomQuote = styled(BottomQuotation)`
 const CardTitle = styled.h2`
   text-align: center;
   font-family: Roboto;
-  font-weight: 400;
+  font-weight: 700;
   color: rgba(58, 58, 58, 0.57);
   grid-column: 5/9;
   font-size: 2em;
@@ -63,7 +63,7 @@ const CardParagraph = styled.p`
   font-family: Roboto;
   color: rgba(58, 58, 58, 0.57);
   grid-column: 2/12;
-  font-weight: 100;
+  font-weight: 400;
   line-height: ${props => (props.isMobile ? '1.5em' : '2em')};
   font-size: 1em;
   /* font-size: ${props => (props.isMobile ? '1.5vw' : '1vw')}; */

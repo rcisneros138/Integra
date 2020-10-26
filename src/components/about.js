@@ -39,7 +39,7 @@ const AboutBody = styled.div`
     text-align: left;
     color: #f9f9f9;
     margin: ${props => !props.isMobile && '3em 2vw 3em 2vw'};
-    font-weight: 100;
+    font-weight: 400;
     font-size: ${props => (props.isMobile ? '1em' : '1.5em')};
     @media only screen and (min-aspect-ratio: 13/9) and (max-width: 1250px) {
       font-size: 1vw !important;

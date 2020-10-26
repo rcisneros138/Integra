@@ -16,7 +16,7 @@ const HeroSection = styled.div`
   overflow: hidden;
   width: 100vw;
   h2 {
-    font-weight: 100;
+    font-weight: 400;
     font-size: 9vmin;
     color: #f9f9f9;
     margin: 0;

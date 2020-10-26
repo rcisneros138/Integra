@@ -63,8 +63,7 @@ const ContactInfo = styled.div`
         margin-top: 1em;
       }
       p {
-        font-weight: 100;
-        letter-spacing: 2px;
+        font-weight: 400;
         float: right;
       }
       a {

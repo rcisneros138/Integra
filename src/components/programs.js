@@ -34,7 +34,7 @@ const SummaryWrapper = styled.div`
   p {
     font-size: ${props => (props.isMobile ? '1em' : '1.25vw')};
     z-index: 2;
-    font-weight: 300;
+    font-weight: 400;
     font-family: roboto;
     color: #ffffff;
     text-align: center;
@@ -94,7 +94,7 @@ const programStyle = {
 }
 const pStyle = {
   fontSize: '1em',
-  fontWeight: '100',
+  fontWeight: '400',
   lineHeight: '2em',
   color: '#F9F9F9',
   fontFamily: 'Roboto',
@@ -102,7 +102,7 @@ const pStyle = {
 }
 const pStyleMobile = {
   fontSize: '3.5vw',
-  fontWeight: '100',
+  fontWeight: '400',
   lineHeight: '2em',
   color: '#F9F9F9',
   fontFamily: 'Roboto',
