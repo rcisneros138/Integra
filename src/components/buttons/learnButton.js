@@ -6,12 +6,12 @@ const LearnButton = styled.button`
   border: 6px solid #4c9bfe;
   border-radius: 1px;
   padding: 1em 4em;
-  opacity: 0.7;
+  opacity: 1;
   p {
     color: #f9f9f9;
     text-align: center;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 32px;
     opacity: 1;
   }
 

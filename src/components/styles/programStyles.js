@@ -9,7 +9,7 @@ const Hero = styled.div`
   font-size: 5vh;
 
   h1 {
-    font-weight: 100;
+    font-weight: 400;
     color: #f9f9f9;
     margin: 0;
     letter-spacing: 0.02em;
@@ -52,7 +52,7 @@ const Mission = styled.div`
   h1 {
     grid-area: 1/3/3/11;
     text-align: center;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.05em;
     font-size: ${props => (props.isMobile ? '1.5em' : '5em')};
     color: #f9f9f9;
@@ -61,14 +61,14 @@ const Mission = styled.div`
   h2 {
     grid-area: 3/2/4/11;
     text-align: center;
-    font-weight: 100;
+    font-weight: 400;
     letter-spacing: 0.05em;
     font-size: ${props => (props.isMobile ? '1em' : '2em')};
     color: #f9f9f9;
   }
   .missionBody {
     grid-area: ${props => (props.isMobile ? ' 2/2/8/12' : '3/2/8/12')};
-    font-weight: 100;
+    font-weight: 400;
     font-family: roboto;
     color: #f9f9f9;
     /* text-align: center; */
@@ -81,7 +81,7 @@ const Mission = styled.div`
   }
   .missionBodyShifted {
     grid-area: ${props => (props.isMobile ? ' 2/2/8/12' : '4/2/8/12')};
-    font-weight: 100;
+    font-weight: 400;
     font-family: roboto;
     color: #f9f9f9;
     /* text-align: center; */
@@ -108,7 +108,6 @@ const Info = styled.div`
     margin: auto;
     line-height: 1.5em;
     text-align: left;
-    font-weight: 100;
   }
 `
 const Logos = styled.div`
@@ -156,7 +155,7 @@ const Team = styled.div`
       line-height: 1.5em;
       text-align: center;
       color: #8b8888;
-      font-weight: 100;
+      font-weight: 400;
       margin-top: 0;
       margin: ${props => (props.isMobile ? '2em' : '6em 12em 6em 12em')};
       font-size: ${props => (props.isMobile ? '0.75em' : '1em')};
@@ -200,9 +199,9 @@ const Team = styled.div`
         line-height: 1.25em;
         text-align: justify;
         color: #555353;
-        font-weight: 100;
+        font-weight: 400;
         margin-top: 0;
-        font-size:1.5em;   
+        font-size:1.4em;   
         /* height: ${props => !props.isMobile && '1em'}; */
       }
       .quote {
@@ -213,7 +212,7 @@ const Team = styled.div`
         line-height: 1.5em;
         text-align: justify;
         color: #8b8888;
-        font-weight: 100;
+        font-weight: 400;
         margin-top: 0;
       }
       }
